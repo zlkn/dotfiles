@@ -1,0 +1,7 @@
+[core]
+  sshCommand = ssh -i ~/.ssh/github_ed25519
+[user]
+  name = zolkin.u.a
+  email = zolkin.u.a@gmail.com
+[commit]
+  gpgsign = false
