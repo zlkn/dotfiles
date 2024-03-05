@@ -1,17 +1,20 @@
 #!/bin/bash
 
-ln -s vimrc ~/.vimrc
-ln -s vim ~/.vim
+set -ex
 
-ln -s wezterm.lua ~/.wezterm.lua
-ln -s wezterm ~/.wezterm
+ln -sf $PWD/vimrc $HOME/.vimrc
+ln -sf $PWD/vim $HOME/.vim 
 
-ln -s tmux.conf ~/.tmux.conf
+ln -sf $PWD/wezterm.lua $HOME/.wezterm.lua
+ln -sf $PWD/wezterm $HOME/.wezterm
 
-mkdir 0700 -p ~/.config
-ln -s ssh/config ~/.ssh/config
+ln -sf $PWD/tmux.conf $HOME/.tmux.conf
 
-mkdir ~/Personal
-mkdir ~/Workspace
-ln -s gitconfig ~/.gitconfig
-ln -s Personal/gitconfig ~/Personal/.gitconfig
+mkdir -p $HOME/.config || true
+chmod 700 $HOME/.config
+ln -sf $PWD/ssh/config $HOME/.ssh/config
+
+mkdir -p $PWD/Personal || true
+mkdir -p $PWD/Workspace || true
+ln -sf $PWD/gitconfig $HOME/.gitconfig
+ln -sf $PWD/Personal/gitconfig $HOME/Personal/.gitconfig
