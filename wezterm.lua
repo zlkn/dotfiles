@@ -77,7 +77,6 @@ end
 
 local function in_array(value, array)
     for _, val in ipairs(array) do
-        wezterm.log_info("val: " .. val)
         if val == value then
             return true
         end
@@ -135,7 +134,6 @@ wezterm.on(
             end
         else
             exec_name = get_process_name(tab.active_pane.foreground_process_name)
-            wezterm.log_info("exec_name: " .. exec_name)
 
             if exec_name == "wezterm-gui" then
                 title_with_icon = SERVER_ICON .. " WezTerm"
