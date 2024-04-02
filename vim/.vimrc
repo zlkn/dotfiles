@@ -12,3 +12,7 @@ set nowb
 set noswapfile
 " Always show the status line
 set laststatus=2
+
+" Highlight the current line
+set cursorline
+

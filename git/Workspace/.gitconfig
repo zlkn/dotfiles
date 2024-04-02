@@ -1,0 +1,7 @@
+[core]
+  sshCommand = ssh -i ~/.ssh/id_ed25519
+[user]
+  name = Yuri Zolkin
+  email = yzolkin@scorewarrior.com
+[commit]
+  gpgsign = true
