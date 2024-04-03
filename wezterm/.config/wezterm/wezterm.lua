@@ -191,5 +191,7 @@ wezterm.on(
 config.automatically_reload_config = true
 config.window_close_confirmation = "NeverPrompt"
 
+local wayland_gnome = require 'wayland_gnome'
+wayland_gnome.apply_to_config(config)
 
 return config
