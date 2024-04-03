@@ -46,12 +46,18 @@ sudo apt-get update
 sudo apt-get install -y kubectl
 ```
 
-Install gcloud
+Install gcloud & gke-gcloud-auth-plugin
 https://cloud.google.com/sdk/docs/install#deb
+https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#apt
 
 ```shell
 sudo apt-get install apt-transport-https ca-certificates gnupg curl
+sudo apt-get update
+
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-sudo apt-get update && sudo apt-get install google-cloud-cli
+sudo apt-get install google-cloud-cli google-cloud-sdk-gke-gcloud-auth-plugin
+
+gcloud container clusters list
+gcloud container clusters get-credentials us --region=us-central1
 ```
