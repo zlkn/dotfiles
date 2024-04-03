@@ -51,7 +51,7 @@ https://cloud.google.com/sdk/docs/install#deb
 https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#apt
 
 ```shell
-sudo apt-get install apt-transport-https ca-certificates gnupg curl
+sudo apt-get install -y apt-transport-https ca-certificates gnupg curl
 sudo apt-get update
 
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
