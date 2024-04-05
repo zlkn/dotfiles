@@ -1,5 +1,3 @@
-[includeIf "gitdir:~/Workspace/"]
-  path = "~/.gitconfig-workspace"
 [includeIf "gitdir:~/Personal/"]
   path = "~/.gitconfig-personal"
 [includeIf "gitdir:~/dotfiles/"]
@@ -15,3 +13,9 @@
   mrtm = "!git push -o merge_request.create -o merge_request.target=main -o merge_request.remove_source_branch origin $(git bn)"
 [core]
   autocrlf = input
+  sshCommand = ssh -i ~/.ssh/id_ed25519
+[user]
+  name = Yuri Zolkin
+  email = yzolkin@scorewarrior.com
+[commit]
+  gpgSign = true

@@ -3,5 +3,8 @@
 [user]
   name = Yuri Zolkin
   email = yzolkin@scorewarrior.com
+  signingkey = ~/.ssh/id_ed25519
 [commit]
-  gpgsign = true
+  gpgsign = false
+[gpg]
+  format = ssh
