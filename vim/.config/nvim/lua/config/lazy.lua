@@ -10,7 +10,6 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.yaml" },
 		{ import = "lazyvim.plugins.extras.lang.python" },
 		{ import = "lazyvim.plugins.extras.ui.mini-animate" },
-		--{ import = "lazyvim.plugins.extras.conding.copilot"}
 		-- import/override with your plugins
 		{ import = "plugins" },
 	},
@@ -24,7 +23,7 @@ require("lazy").setup({
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
 	install = {
-		colorscheme = { "jb", "onenordlight" },
+		colorscheme = { "github_light", "jb", "onenordlight"  },
 	},
 	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
