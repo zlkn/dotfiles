@@ -23,7 +23,6 @@ require("lazy").setup({
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
 	install = {
-		colorscheme = { "github_light", "jb", "onenordlight"  },
 	},
 	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
