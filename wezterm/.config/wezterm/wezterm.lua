@@ -16,7 +16,7 @@ config.font = wezterm.font({
 
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.integrated_title_button_style = "Gnome"
-config.window_padding = { left = 15, right = 15, top = 25, bottom = 15 }
+config.window_padding = { left = 15, right = 15, top = 15, bottom = 5 }
 config.window_frame = {
 	inactive_titlebar_bg = "#f1f1f1",
 	active_titlebar_bg = "#f1f1f1",
