@@ -9,7 +9,7 @@ local colors = {
 	scrollbar_thumb = "#222222",
 	split = "#444444",
 
-	ansi = { "#212121", "#c30771", "#10a778", "#a89c14", "#008ec4", "#523c79", "#20a5ba", "#d9d9d9" },
+	ansi = { "#212121", "#c30771", "#10a778", "#a66f00", "#008ec4", "#523c79", "#20a5ba", "#d9d9d9" },
 	brights = { "#424242", "#fb007a", "#5fd7af", "#f3e430", "#20bbfc", "#6855de", "#4fb8cc", "#a1a1a1" },
 
 	indexed = {},
@@ -22,7 +22,7 @@ local colors = {
 	quick_select_label_bg = { Color = "peru" },
 	quick_select_label_fg = { Color = "#ffffff" },
 	quick_select_match_bg = { AnsiColor = "Navy" },
-	quick_select_match_fg = { Color = "#ffffff" },
+	quick_select_match_fg = { Color = "#424242" },
 }
 
 return colors
