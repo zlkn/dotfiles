@@ -1,5 +1,5 @@
-local my_colors = {
-	foreground = "#eeeeec",
+local colors = {
+	foreground = "#424242",
 	background = "#f1f1f1",
 	cursor_bg = "#20bbfc",
 	cursor_fg = "#424242",
@@ -9,8 +9,8 @@ local my_colors = {
 	scrollbar_thumb = "#222222",
 	split = "#444444",
 
-	ansi = { "#212121", "#c30771", "#10a778", "#a89c14", "#008ec4", "#523c79", "#20a5ba", "#ffaaaa" },
-	brights = { "#424242", "#fb007a", "#5fd7af", "#f3e430", "#20bbfc", "#6855de", "#4fb8cc", "#ffaaaa" },
+	ansi = { "#212121", "#c30771", "#10a778", "#a89c14", "#008ec4", "#523c79", "#20a5ba", "#d9d9d9" },
+	brights = { "#424242", "#fb007a", "#5fd7af", "#f3e430", "#20bbfc", "#6855de", "#4fb8cc", "#a1a1a1" },
 
 	indexed = {},
 
@@ -24,8 +24,5 @@ local my_colors = {
 	quick_select_match_bg = { AnsiColor = "Navy" },
 	quick_select_match_fg = { Color = "#ffffff" },
 }
--- wezterm.log_info(my_colors)
--- config.color_scheme = "My"
--- config.color_schemes = { ["My"] = my_colors }
 
--- config.colors = my_colors
+return colors
