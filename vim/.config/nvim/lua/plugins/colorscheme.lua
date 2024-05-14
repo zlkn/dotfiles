@@ -1,22 +1,4 @@
 return {
-  -- {
-  -- 	"nick-kadutskyi/vim-jb", -- My color theme (forked from devsjs/vim-js)
-  -- 	name = "jb",
-  -- 	-- dev = true, -- theme is in dev but falls back to my public GitHub repo
-  -- 	init = function()
-  -- 		vim.g.jb_enable_italics = 1 -- Enables intalics
-  -- 		vim.g.jb_style = "light" -- JB defualt light theme
-  -- 	end,
-  -- },
-  -- {
-  -- 	"rmehri01/onenord.nvim",
-  -- 	name = "onenord",
-  -- 	opts = {
-  -- 		disable = {
-  -- 			background = true, -- Disable setting the background color
-  -- 		},
-  -- 	},
-  -- },
   {
     "projekt0n/github-nvim-theme",
     name = "github",
@@ -26,18 +8,41 @@ return {
     config = function()
       require("github-theme").setup({
         options = {
-          theme_style = "light",
           transparent = true,
           styles = {
             comments = "italic",
             keywords = "bold",
             types = "",
+            string = "italic",
+            func = "bold",
+            const = "italic",
           },
-          darken = { -- Darken floating windows and sidebar-like windows
-            floats = true,
-            sidebars = {
-              enabled = false,
-              list = {}, -- Apply dark background to specific windows
+        },
+        specs = {
+          all = {
+            syntax = {
+              string = "#27745c",
+              -- variable = "#A66F00",
+              -- builtin0 = "#0a3069", -- Builtin variable
+              -- builtin1 = pl.syntax.keyword, -- Builtin type
+              -- builtin2 = pl.syntax.constant, -- Builtin const
+              -- comment = pl.syntax.comment, -- Comment
+              -- conditional = pl.syntax.keyword, -- Conditional and loop
+              -- const = pl.syntax.constant, -- Constants, imports and booleans
+              -- dep = pal.scale.red[8], -- Deprecated
+              -- field = pl.syntax.constant, -- Field
+              func = "#871094", -- Functions and Titles
+              -- ident = spec.fg1, -- Identifiers
+              keyword = "#0033b3", -- Keywords
+              -- number = pl.syntax.constant, -- Numbers
+              -- operator = pl.syntax.constant, -- Operators
+              -- param = "#a66f00", -- Parameters
+              -- preproc = pl.syntax.keyword, -- PreProc
+              -- regex = pl.syntax.string, -- Regex
+              -- statement = pl.syntax.keyword, -- Statements
+              -- type = pl.syntax.variable, -- Types
+              -- tag = pl.syntax.entityTag, -- Tags
+              -- variable = "#523c79", -- Variables
             },
           },
         },
