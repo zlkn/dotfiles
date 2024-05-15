@@ -12,10 +12,6 @@ return {
           styles = {
             comments = "italic",
             keywords = "bold",
-            types = "",
-            string = "italic",
-            func = "bold",
-            const = "italic",
           },
         },
         specs = {
@@ -34,7 +30,7 @@ return {
               func = "#871094", -- Functions and Titles
               -- ident = spec.fg1, -- Identifiers
               keyword = "#0033b3", -- Keywords
-              -- number = pl.syntax.constant, -- Numbers
+              number = "#a66f00", -- Numbers
               -- operator = pl.syntax.constant, -- Operators
               -- param = "#a66f00", -- Parameters
               -- preproc = pl.syntax.keyword, -- PreProc
