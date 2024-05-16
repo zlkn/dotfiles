@@ -24,15 +24,15 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.integrated_title_button_style = "Gnome"
 config.window_padding = { left = 15, right = 15, top = 15, bottom = 5 }
 config.window_frame = {
-	inactive_titlebar_bg = "#f1f1f1",
-	active_titlebar_bg = "#f1f1f1",
-	inactive_titlebar_fg = "#f1f1f1",
-	active_titlebar_fg = "#f1f1f1",
-	inactive_titlebar_border_bottom = "#f1f1f1",
-	active_titlebar_border_bottom = "#f1f1f1",
-	button_fg = "#f1f1f1",
-	button_bg = "#f1f1f1",
-	button_hover_fg = "#f1f1f1",
+	inactive_titlebar_bg = colors.background,
+	active_titlebar_bg = colors.background,
+	inactive_titlebar_fg = colors.background,
+	active_titlebar_fg = "#ff1111",
+	inactive_titlebar_border_bottom = colors.background,
+	active_titlebar_border_bottom = colors.background,
+	button_fg = colors.background,
+	button_bg = colors.background,
+	button_hover_fg = colors.background,
 
 	border_left_width = "0.2cell",
 	border_right_width = "0.2cell",
@@ -56,7 +56,7 @@ config.show_tab_index_in_tab_bar = false
 config.switch_to_last_active_tab_when_closing_tab = true
 config.show_new_tab_button_in_tab_bar = false
 config.tab_max_width = 25
-config.colors = { tab_bar = { inactive_tab_edge = "#f1f1f1" } }
+config.colors = { tab_bar = { inactive_tab_edge = colors.background } }
 -- The filled in variant of the < symbol
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
 
@@ -106,7 +106,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local TASK_PENDING_ICON = wezterm.nerdfonts.md_run
 	local SUDO_ICON = wezterm.nerdfonts.md_shield_half_full
 
-	local background = "#f1f1f1"
+	local background = colors.background
+
 	local foreground = "#808080"
 	local edge_background = background
 	local edge_foreground = background
