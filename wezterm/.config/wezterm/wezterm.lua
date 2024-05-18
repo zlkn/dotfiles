@@ -50,6 +50,9 @@ config.window_frame = {
 	}),
 }
 
+config.initial_cols = 160
+config.initial_rows = 42
+
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = true
 config.show_tab_index_in_tab_bar = false
@@ -192,5 +195,9 @@ config.window_close_confirmation = "NeverPrompt"
 
 local wayland_gnome = require("wayland_gnome")
 wayland_gnome.apply_to_config(config)
+
+config.keys = {
+	{ key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
+}
 
 return config
