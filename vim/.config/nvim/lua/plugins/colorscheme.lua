@@ -18,7 +18,7 @@ return {
           all = {
             syntax = {
               string = "#27745c",
-              -- variable = "#A66F00",
+              variable = "#1f1f1f",
               -- builtin0 = "#bf6408", -- Builtin variable
               -- builtin1 = "#bf6408", -- Builtin type
               -- builtin2 = "#ff0101", -- Builtin const
