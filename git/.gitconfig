@@ -18,4 +18,4 @@
   name = Yuri Zolkin
   email = yzolkin@scorewarrior.com
 [commit]
-  gpgSign = true
+  ; gpgSign = true

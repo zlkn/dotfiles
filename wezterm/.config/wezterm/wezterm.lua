@@ -11,13 +11,13 @@ config.color_schemes = { ["My"] = colors }
 
 config.default_cursor_style = "BlinkingBar"
 
-config.freetype_load_flags = "NO_HINTING"
+-- config.freetype_load_flags = "NO_HINTING"
 config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
 config.font_size = 11.0
 config.font = wezterm.font({
 	family = "JetBrains Mono",
-	weight = "Regular",
+	weight = "Light",
 })
 
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"

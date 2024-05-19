@@ -1,5 +1,5 @@
 local colors = {
-	foreground = "#424242",
+	foreground = "#0f0f0f",
 	background = "#f8f8f8",
 	cursor_bg = "#20bbfc",
 	cursor_fg = "#424242",
