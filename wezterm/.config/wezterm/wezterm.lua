@@ -22,7 +22,7 @@ config.font = wezterm.font({
 
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.integrated_title_button_style = "Gnome"
-config.window_padding = { left = 15, right = 15, top = 15, bottom = 5 }
+config.window_padding = { left = 15, right = 5, top = 5, bottom = 5 }
 config.window_frame = {
 	inactive_titlebar_bg = colors.background,
 	active_titlebar_bg = colors.background,
@@ -196,8 +196,11 @@ config.window_close_confirmation = "NeverPrompt"
 local wayland_gnome = require("wayland_gnome")
 wayland_gnome.apply_to_config(config)
 
+-- config.leader = { key = "ALT", timeout_milliseconds = 1000 }
 config.keys = {
-	{ key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
+	{ key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },
+	{ key = "-", mods = "ALT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "\\", mods = "ALT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 }
 
 return config
