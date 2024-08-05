@@ -15,4 +15,4 @@ set laststatus=2
 
 " Highlight the current line
 set cursorline
-
+set clipboard=unnamedplus

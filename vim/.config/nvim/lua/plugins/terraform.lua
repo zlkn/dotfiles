@@ -14,10 +14,14 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        terraformls = {},
+        terraformls = {
+          cmd = { "terraform-ls", "serve" },
+          filetypes = { "terraform", "tf" },
+          root_dir = require("lspconfig.util").root_pattern(".git", ".terraform", ".tf"),
+          },
+        },
       },
     },
-  },
   -- ensure terraform tools are installed
   {
     "williamboman/mason.nvim",
@@ -26,17 +30,17 @@ return {
       vim.list_extend(opts.ensure_installed, { "tflint" })
     end,
   },
-  {
-    "nvimtools/none-ls.nvim",
-    optional = true,
-    opts = function(_, opts)
-      local null_ls = require("null-ls")
-      opts.sources = vim.list_extend(opts.sources or {}, {
-        null_ls.builtins.formatting.terraform_fmt,
-        null_ls.builtins.diagnostics.terraform_validate,
-      })
-    end,
-  },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   optional = true,
+  --   opts = function(_, opts)
+  --     local null_ls = require("null-ls")
+  --     opts.sources = vim.list_extend(opts.sources or {}, {
+  --       null_ls.builtins.formatting.terraform_fmt,
+  --       null_ls.builtins.diagnostics.terraform_validate,
+  --     })
+  --   end,
+  -- },
   {
     "mfussenegger/nvim-lint",
     optional = true,
@@ -78,5 +82,5 @@ return {
         end,
       },
     },
-  },
+  }
 }
