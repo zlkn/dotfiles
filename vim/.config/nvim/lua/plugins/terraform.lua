@@ -46,8 +46,8 @@ return {
     optional = true,
     opts = {
       linters_by_ft = {
-        terraform = { "terraform_validate" },
-        tf = { "terraform_validate" },
+        -- terraform = { "terraform_validate" },
+        -- tf = { "terraform_validate" },
       },
     },
   },
