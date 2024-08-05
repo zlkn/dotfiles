@@ -6,11 +6,11 @@ local colors = {
 	cursor_border = "#20bbfc",
 	selection_bg = "#b6d6fd",
 	selection_fg = "#424242",
-	scrollbar_thumb = "#222222",
+	scrollbar_thumb = "#212121",
 	split = "#444444",
 
-	ansi = { "#212121", "#c30771", "#10a778", "#a66f00", "#008ec4", "#523c79", "#20a5ba", "#d9d9d9" },
-	brights = { "#424242", "#fb007a", "#5fd7af", "#f3e430", "#20bbfc", "#6855de", "#4fb8cc", "#a1a1a1" },
+	ansi = { "#424242", "#c30771", "#10a778", "#a66f00", "#008ec4", "#523c79", "#20a5ba", "#d9d9d9" },
+	brights = { "#212121", "#fb007a", "#5fd7af", "#f3e430", "#20bbfc", "#6855de", "#4fb8cc", "#a1a1a1" },
 
 	indexed = {},
 
