@@ -1,5 +1,6 @@
-Install wezterm
-https://wezfurlong.org/wezterm/install/linux.html#__tabbed_1_3
+# Install wezterm
+
+<https://wezfurlong.org/wezterm/install/linux.html#__tabbed_1_3>
 
 ```shell
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
@@ -18,7 +19,7 @@ sudo apt install goland
 ```
 
 Setup fish
-https://github.com/fish-shell/fish-shell?tab=readme-ov-file#packages-for-linux
+<https://github.com/fish-shell/fish-shell?tab=readme-ov-file#packages-for-linux>
 
 ```shell
 echo 'deb http://download.opensuse.org/repositories/shells:/fish/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/shells:fish.list
@@ -28,7 +29,7 @@ sudo apt install fish
 ```
 
 Install kubectl
-https://kubernetes.io/docs/tasks/tools/
+<https://kubernetes.io/docs/tasks/tools/>
 
 ```shell
 sudo apt-get update
@@ -47,8 +48,8 @@ sudo apt-get install -y kubectl
 ```
 
 Install gcloud & gke-gcloud-auth-plugin
-https://cloud.google.com/sdk/docs/install#deb
-https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#apt
+<https://cloud.google.com/sdk/docs/install#deb>
+<https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#apt>
 
 ```shell
 sudo apt-get install -y apt-transport-https ca-certificates gnupg curl
@@ -63,7 +64,7 @@ gcloud container clusters get-credentials us --region=us-central1
 ```
 
 Install terraform
-https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+<https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli>
 
 ```shell
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
@@ -74,7 +75,7 @@ sudo apt update && sudo apt-get install terraform
 ```
 
 Install docker
-https://docs.docker.com/engine/install/debian/
+<https://docs.docker.com/engine/install/debian/>
 
 ```shell
 sudo apt-get update
