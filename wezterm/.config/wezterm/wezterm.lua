@@ -7,11 +7,8 @@ local colors = require("colors") -- Adjust the path as needed
 config.color_scheme = "My"
 config.color_schemes = { ["My"] = colors }
 
---config.color_scheme = "PencilLight"
-
 config.default_cursor_style = "BlinkingBar"
 
--- config.freetype_load_flags = "NO_HINTING"
 config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
 config.font_size = 11.0
@@ -59,7 +56,10 @@ config.show_tab_index_in_tab_bar = false
 config.switch_to_last_active_tab_when_closing_tab = true
 config.show_new_tab_button_in_tab_bar = false
 config.tab_max_width = 25
-config.colors = { tab_bar = { inactive_tab_edge = colors.background } }
+config.colors = {
+	tab_bar = { inactive_tab_edge = colors.background },
+	split = colors.background,
+}
 -- The filled in variant of the < symbol
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
 
