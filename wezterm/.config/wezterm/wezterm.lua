@@ -196,11 +196,15 @@ config.window_close_confirmation = "NeverPrompt"
 local wayland_gnome = require("wayland_gnome")
 wayland_gnome.apply_to_config(config)
 
--- config.leader = { key = "ALT", timeout_milliseconds = 1000 }
+-- config.leader = { key = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
-	{ key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },
-	{ key = "-", mods = "ALT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "\\", mods = "ALT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "l", mods = "CTRL", action = wezterm.action.ShowLauncher },
+	{ key = "-", mods = "CTRL", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "\\", mods = "CTRL", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "h", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Left") },
+	{ key = "j", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Down") },
+	{ key = "k", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Up") },
+	{ key = "l", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Right") },
 }
 
 return config
