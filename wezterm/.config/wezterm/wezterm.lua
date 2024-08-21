@@ -108,6 +108,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local PYTHON_ICON = wezterm.nerdfonts.md_language_python
 	local TASK_PENDING_ICON = wezterm.nerdfonts.md_run
 	local SUDO_ICON = wezterm.nerdfonts.md_shield_half_full
+	local LAZYGIT_ICON = wezterm.nerdfonts.fa_github_alt
 
 	local background = colors.background
 
@@ -167,6 +168,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 			title_with_icon = TRANSFER_ICON
 		elseif in_array(exec_name, { "python", "Python", "python3" }) then
 			title_with_icon = PYTHON_ICON
+		elseif exec_name == "lazygit" then
+			title_with_icon = LAZYGIT_ICON
 		else
 			title_with_icon = TASK_PENDING_ICON
 		end
@@ -182,7 +185,9 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
+		{ Attribute = { Underline = "Single" } },
 		{ Text = title },
+		{ Attribute = { Underline = "None" } },
 
 		{ Background = { Color = edge_background } },
 		{ Foreground = { Color = edge_foreground } },
@@ -205,6 +210,15 @@ config.keys = {
 	{ key = "j", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Down") },
 	{ key = "k", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Up") },
 	{ key = "l", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Right") },
+	{
+		key = "g",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SpawnCommandInNewTab({
+			label = "LazyGit",
+			args = { "lazygit" },
+			domain = "CurrentPaneDomain",
+		}),
+	},
 }
 
 return config
