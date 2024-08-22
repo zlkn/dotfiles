@@ -102,7 +102,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local KUBECTL_ICON = wezterm.nerdfonts.md_kubernetes
 	local REMOTE_ICON = wezterm.nerdfonts.md_cloud
 	local DASHBOARD_ICON = wezterm.nerdfonts.md_gauge
-	local TEXT_EDITOR_ICON = wezterm.nerdfonts.md_pen
+	local TEXT_EDITOR_ICON = wezterm.nerdfonts.linux_neovim
 	local INSPECT_ICON = wezterm.nerdfonts.md_magnify
 	local TRANSFER_ICON = wezterm.nerdfonts.md_flash
 	local PYTHON_ICON = wezterm.nerdfonts.md_language_python
