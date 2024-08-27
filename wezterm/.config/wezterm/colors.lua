@@ -1,5 +1,5 @@
 local colors = {
-	foreground = "#424242",
+	foreground = "#212121",
 	background = "#f8f8f8",
 	cursor_bg = "#20bbfc",
 	cursor_fg = "#424242",
@@ -21,7 +21,7 @@ local colors = {
 
 	quick_select_label_bg = { Color = "peru" },
 	quick_select_label_fg = { Color = "#ffffff" },
-	quick_select_match_bg = { AnsiColor = "Navy" },
+	quick_select_match_bg = { Color = "#b6d6fd" },
 	quick_select_match_fg = { Color = "#424242" },
 }
 
