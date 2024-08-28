@@ -1,7 +1,7 @@
 return {
   {
     "projekt0n/github-nvim-theme",
-    tag = "v1.0.2",
+    -- tag = "v1.0.2",
     name = "github-nvim-theme",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
@@ -9,14 +9,27 @@ return {
     config = function()
       require("github-theme").setup({
         options = {
+              -- Compiled file's destination location
+          compile_path = '/tmp/github-theme',
+          compile_file_suffix = '_compiled', -- Compiled file suffix
           transparent = true,
           styles = {
             comments = "italic",
             keywords = "bold",
+            tyoes = "italic,bold",
           },
         },
-        specs = {
+        palettes = {
           all = {
+            bg0 = "#f8f8f8",
+            bg1 = "#f8f8f8",
+            bg2 = "#f8f8f8",
+            bg3 = "#f8f8f8",
+            bg4 = "#f8f8f8",
+          }
+        },
+        specs = {
+          github_light = {
             syntax = {
               string = "#27745c",
               variable = "#1f1f1f",
@@ -53,27 +66,9 @@ return {
     end,
   },
   {
-    "scottmckendry/cyberdream.nvim",
-    name = "cyberdream",
-    lazy = false,
-    priority = 1000,
-    --
-    config = function()
-      require("cyberdream").setup({
-        -- Enable transparent background
-        transparent = false,
-
-        -- Enable italics comments
-        italic_comments = true,
-        theme = { variant = "light" },
-      })
-    end,
-  },
-  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "github_light",
-      -- colorscheme = "cyberdream",
     },
   },
 }
