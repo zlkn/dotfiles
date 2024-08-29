@@ -13,6 +13,8 @@ set scrolloff=5
 
 " Do incremental searching.
 set incsearch
+" Highlight search results.
+set hlsearch
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
@@ -36,7 +38,6 @@ Plug 'tpope/vim-commentary'
 "map \b <Action>(ToggleLineBreakpoint)
 
 set clipboard+=unnamed
-
 
 "" ;keys
 " set <leader> to <space>
