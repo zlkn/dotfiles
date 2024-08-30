@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
+-- TODO: Update the path to the colors file
 local colors = require("colors") -- Adjust the path as needed
 
 config.color_scheme = "My"
@@ -109,7 +110,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local TASK_PENDING_ICON = wezterm.nerdfonts.md_run
 	local SUDO_ICON = wezterm.nerdfonts.md_shield_half_full
 	local LAZYGIT_ICON = wezterm.nerdfonts.fa_github_alt
-  local TERRAFORM_ICON = wezterm.nerdfonts.md_terraform
+	local TERRAFORM_ICON = wezterm.nerdfonts.md_terraform
 
 	local background = colors.background
 
@@ -171,8 +172,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 			title_with_icon = PYTHON_ICON
 		elseif exec_name == "lazygit" then
 			title_with_icon = LAZYGIT_ICON
-    elseif exec_name == "terraform" then
-      title_with_icon = TERRAFORM_ICON
+		elseif exec_name == "terraform" then
+			title_with_icon = TERRAFORM_ICON
 		else
 			title_with_icon = TASK_PENDING_ICON
 		end
