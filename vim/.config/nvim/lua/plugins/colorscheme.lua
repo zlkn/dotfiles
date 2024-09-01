@@ -16,7 +16,8 @@ return {
           styles = {
             comments = "italic",
             keywords = "bold",
-            tyoes = "italic,bold",
+            types = "italic,bold",
+            tag = "bold"
           },
         },
         palettes = {
@@ -50,8 +51,8 @@ return {
               -- preproc = pl.syntax.keyword, -- PreProc
               -- regex = pl.syntax.string, -- Regex
               -- statement = pl.syntax.keyword, -- Statements
-              -- type = pl.syntax.variable, -- Types
-              -- tag = "#ff1111", -- Tags
+              -- type = "#bf6408", -- Types
+              tag = "#523c79", -- Tags
               -- variable = "#523c79", -- Variables
             },
             diag = {
@@ -63,6 +64,10 @@ return {
           },
         },
       })
+      -- debug print for visualizing the colorscheme
+      -- local spec = require('github-theme.spec').load('github_light')
+      -- print(vim.inspect(spec.syntax))
+
     end,
   },
   {
