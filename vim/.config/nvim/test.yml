@@ -1,0 +1,8 @@
+---
+"foo": bar
+number: 14
+#language=yaml
+value: |
+  bar: baz
+  foo:
+    bar: test
