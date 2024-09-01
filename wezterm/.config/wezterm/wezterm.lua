@@ -111,6 +111,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local SUDO_ICON = wezterm.nerdfonts.md_shield_half_full
 	local LAZYGIT_ICON = wezterm.nerdfonts.fa_github_alt
 	local TERRAFORM_ICON = wezterm.nerdfonts.md_terraform
+	local GCLOUD_ICON = wezterm.nerdfonts.md_google_cloud
 
 	local background = colors.background
 
@@ -174,6 +175,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 			title_with_icon = LAZYGIT_ICON
 		elseif exec_name == "terraform" then
 			title_with_icon = TERRAFORM_ICON
+		elseif exec_name == "gcloud" then
+			title_with_icon = GCLOUD_ICON
 		else
 			title_with_icon = TASK_PENDING_ICON
 		end
@@ -224,5 +227,13 @@ config.keys = {
 		}),
 	},
 }
+
+for i = 1, 8 do
+	table.insert(config.keys, {
+		key = tostring(i),
+		mods = "CTRL",
+		action = wezterm.action.ActivateTab(i - 1),
+	})
+end
 
 return config
