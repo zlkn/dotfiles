@@ -210,6 +210,7 @@ wayland_gnome.apply_to_config(config)
 
 -- config.leader = { key = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
+	{ key = "x", mods = "CTRL", action = wezterm.action.ActivateCopyMode },
 	{ key = "l", mods = "CTRL", action = wezterm.action.ShowLauncher },
 	{ key = "-", mods = "CTRL", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "\\", mods = "CTRL", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
