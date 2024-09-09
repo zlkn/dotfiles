@@ -1,6 +1,8 @@
 return {
   {
     "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+
     opts = function(_, opts)
 
       -- transparent background for lualine
@@ -15,7 +17,19 @@ return {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = ''},
       }
-      opts.sections.lualine_z = {}
+      -- opts.sections.lualine_z = {'Schema:', function() return get_schema() end }
+      opts.sections.lualine_z = {
+        'encoding',
+        {
+          function()
+            local schema = require("yaml-companion").get_buf_schema(0)
+            if schema.result[1].name == "none" then
+              return ""
+            end
+            return schema.result[1].name
+          end,
+        },
+      }
     end,
   },
 }
