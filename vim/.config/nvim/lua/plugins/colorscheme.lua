@@ -43,7 +43,7 @@ return {
               -- dep = pal.scale.red[8], -- Deprecated
               field = "#1f1f1f", -- Field
               func = "#871094", -- Functions and Titles
-              -- ident = spec.fg1, -- Identifiers
+              ident = "#1f1f1f", -- Identifiers
               keyword = "#0033b3", -- Keywords
               number = "#1f1f1f", -- Numbers
               -- operator = pl.syntax.constant, -- Operators
