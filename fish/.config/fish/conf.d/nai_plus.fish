@@ -44,14 +44,28 @@ function fish_prompt
             set git_branch $git_branch'...'
         end
 
-        if [ (_git_dirty) ]
-            set git_info $yellow '  ' $git_branch
+        set behind (_git_branch_behind)
+        set ahead (_git_branch_ahead)
+
+        if [ $behind -gt 0 ]
+            set git_info git_info $red ' 󱦳 ' $behind
         else
-            set git_info $green '  ' $git_branch
+
+            if [ $ahead -gt 0 ]
+                set git_info git_info $green ' 󱦲 ' $behind
+            end
+
+            if [ (_git_dirty) ]
+                set git_info $yellow '  ' $git_branch
+            else
+                set git_info $green '  ' $git_branch
+            end
+            echo -n -s $git_info $normal
         end
-        echo -n -s $git_info $normal
+
+        # echo -n -s ' ' $normal
     end
 
-    echo -n -s ' ' $normal
-
+    set -g __fish_git_prompt_showupstream verbose
+    printf '%s %s ' (fish_git_prompt) ' '
 end
