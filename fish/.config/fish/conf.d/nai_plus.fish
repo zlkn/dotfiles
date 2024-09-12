@@ -3,6 +3,15 @@
 # * Current directory name
 # * Git branch and dirty state (if inside a git repo)
 
+function _git_branch_behind
+    echo (command  git rev-list --count HEAD..@{u} 2> /dev/null)
+end
+
+function _git_branch_ahead
+    echo (command  git rev-list --count @{u}..HEAD 2> /dev/null)
+end
+
+
 function _git_branch_name
     echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
 end
