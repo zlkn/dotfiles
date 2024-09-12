@@ -9,7 +9,7 @@ sudo apt update
 sudo apt install wezterm
 ```
 
-Setup goland
+# Setup goland
 
 ```shell
 curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | gpg --dearmor | sudo tee /usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg > /dev/null
@@ -18,7 +18,7 @@ sudo apt update
 sudo apt install goland
 ```
 
-Setup fish
+# Setup fish
 <https://github.com/fish-shell/fish-shell?tab=readme-ov-file#packages-for-linux>
 
 ```shell
@@ -28,7 +28,7 @@ sudo apt update
 sudo apt install fish
 ```
 
-Install kubectl
+# Install kubectl
 <https://kubernetes.io/docs/tasks/tools/>
 
 ```shell
@@ -47,7 +47,7 @@ sudo apt-get update
 sudo apt-get install -y kubectl
 ```
 
-Install gcloud & gke-gcloud-auth-plugin
+# Install gcloud & gke-gcloud-auth-plugin
 <https://cloud.google.com/sdk/docs/install#deb>
 <https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#apt>
 
@@ -63,7 +63,7 @@ gcloud container clusters list
 gcloud container clusters get-credentials us --region=us-central1
 ```
 
-Install terraform
+# Install terraform
 <https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli>
 
 ```shell
@@ -74,7 +74,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 sudo apt update && sudo apt-get install terraform
 ```
 
-Install docker
+# Install docker
 <https://docs.docker.com/engine/install/debian/>
 
 ```shell
