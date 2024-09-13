@@ -60,9 +60,9 @@ function fish_prompt
         if test $ahead -gt 0 -a $behind -gt 0
             set status_color $red
         else if test $ahead -gt 0
-            set status_color $blue
-        else if test $behind -gt 0
             set status_color $yellow
+        else if test $behind -gt 0
+            set status_color $blue
         else
             set status_color $green
         end
