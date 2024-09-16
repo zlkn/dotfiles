@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Configuration
+VG_NAME="thinkpad-vg" # Replace with your volume group name
+LV_NAME="root"        # Replace with your logical volume name (e.g., 'root')
+SNAPSHOT_NAME="${LV_NAME}_$(date +%Y%m%d%H%M%S)"
+SNAPSHOT_SIZE="42G" # Adjust the snapshot size as needed
+
+# Create LVM snapshot
+lvcreate --snapshot --name $SNAPSHOT_NAME --size $SNAPSHOT_SIZE /dev/$VG_NAME/$LV_NAME
+
+# Check if snapshot was created successfully
+if [ $? -ne 0 ]; then
+  echo "Error creating LVM snapshot."
+  exit 1
+fi
+
+echo "LVM snapshot $SNAPSHOT_NAME created successfully."
