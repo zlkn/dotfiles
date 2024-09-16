@@ -61,11 +61,6 @@ config.colors = {
 	tab_bar = { inactive_tab_edge = colors.background },
 	split = colors.background,
 }
--- The filled in variant of the < symbol
-local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
-
--- The filled in variant of the > symbol
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
 
 -- This function returns the suggested title for a tab.
 -- It prefers the title that was set via `tab:set_title()`
@@ -121,8 +116,11 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
 	if tab.is_active then
 		foreground = colors.foreground
+		-- background = "#d9d9d9"
+		background = colors.background
 	elseif hover then
 		foreground = "#707070"
+		background = colors.background
 	end
 
 	local title = tab_title(tab)
@@ -186,19 +184,17 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	title = wezterm.truncate_right(title, max_width - 3)
 
 	return wezterm.format({
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_LEFT_ARROW },
+		{ Background = { Color = background } },
+		{ Foreground = { Color = background } },
+		{ Text = "" },
 
 		{ Background = { Color = background } },
 		{ Foreground = { Color = foreground } },
-		{ Attribute = { Underline = "Single" } },
 		{ Text = title },
-		{ Attribute = { Underline = "None" } },
 
-		{ Background = { Color = edge_background } },
-		{ Foreground = { Color = edge_foreground } },
-		{ Text = SOLID_RIGHT_ARROW },
+		{ Background = { Color = background } },
+		{ Foreground = { Color = background } },
+		{ Text = "" },
 	})
 end)
 
