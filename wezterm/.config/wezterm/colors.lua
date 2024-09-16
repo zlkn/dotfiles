@@ -9,8 +9,10 @@ local colors = {
 	scrollbar_thumb = "#313131",
 	split = "#444444",
 
+	-- Before 16 colors, there were 8 colors: black, red, green, yellow, blue, magenta, cyan, and white.
+	-- The other 8 colors were added as bright variants of these
 	ansi = { "#313131", "#c30771", "#10a778", "#a66f00", "#008ec4", "#523c79", "#20a5ba", "#d9d9d9" },
-	brights = { "#212121", "#fb007a", "#5fd7af", "#f3e430", "#20bbfc", "#6855de", "#4fb8cc", "#a1a1a1" },
+	brights = { "#212121", "#fb007a", "#5fd7af", "#f39c12", "#20bbfc", "#6855de", "#4fb8cc", "#a1a1a1" },
 
 	indexed = {},
 
