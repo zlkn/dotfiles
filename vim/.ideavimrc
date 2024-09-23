@@ -15,6 +15,9 @@ set scrolloff=5
 set incsearch
 " Highlight search results.
 set hlsearch
+set surround
+set easymotion
+set commentary
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
@@ -23,9 +26,6 @@ map Q gq
 
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
-Plug 'tpope/vim-commentary'
-
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code  action
@@ -41,4 +41,7 @@ set clipboard+=unnamed
 
 "" ;keys
 " set <leader> to <space>
-let mapleader = " "
+nnoremap <Space> <Nop>
+let mapleader=" "
+nnoremap <leader>s :action AceAction<CR>
+nnoremap <leader><Space> :action FindInPath<CR>
