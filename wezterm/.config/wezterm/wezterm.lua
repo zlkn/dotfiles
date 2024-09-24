@@ -169,7 +169,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 			title_with_icon = TRANSFER_ICON
 		elseif in_array(exec_name, { "python", "Python", "python3" }) then
 			title_with_icon = PYTHON_ICON
-		elseif exec_name == "lazygit" then
+		elseif in_array(exec_name, { "lazygit", "git" }) then
 			title_with_icon = LAZYGIT_ICON
 		elseif exec_name == "terraform" then
 			title_with_icon = TERRAFORM_ICON
