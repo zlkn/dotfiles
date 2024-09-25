@@ -44,7 +44,7 @@ return {
               field = "#1f1f1f", -- Field
               func = "#871094", -- Functions and Titles
               ident = "#1f1f1f", -- Identifiers
-              keyword = "#0033b3", -- Keywords
+              keyword = "#0055c4", -- Keywords
               number = "#1f1f1f", -- Numbers
               -- operator = pl.syntax.constant, -- Operators
               -- param = "#a66f00", -- Parameters
@@ -52,7 +52,7 @@ return {
               -- regex = pl.syntax.string, -- Regex
               -- statement = pl.syntax.keyword, -- Statements
               -- type = "#bf6408", -- Types
-              tag = "#523c79", -- Tags
+              tag = "#0055c4", -- Tags
               -- variable = "#523c79", -- Variables
             },
             diag = {
