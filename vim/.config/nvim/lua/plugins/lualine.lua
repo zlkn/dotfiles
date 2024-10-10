@@ -30,6 +30,7 @@ return {
             "encoding",
         }
         opts.tabline = {
+            -- lualine_a = opts.sections.lualine_c,
             -- lualine_c = {
             --     LazyVim.lualine.root_dir(),
             --     {
