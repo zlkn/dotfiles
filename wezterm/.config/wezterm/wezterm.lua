@@ -44,7 +44,7 @@ config.window_frame = {
     font_size = 11,
     font = wezterm.font({
         family = "JetBrains Mono",
-        weight = "Light",
+        weight = "Regular",
     }),
 }
 
