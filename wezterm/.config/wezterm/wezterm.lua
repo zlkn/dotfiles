@@ -1,15 +1,14 @@
 local wezterm = require("wezterm")
-
 local config = wezterm.config_builder()
 
--- TODO: Update the path to the colors file
-local colors = require("colors") -- Adjust the path as needed
-
+-- Colorscheme
+local colors = require("colors")
 config.color_scheme = "My"
 config.color_schemes = { ["My"] = colors }
 
 config.default_cursor_style = "BlinkingBar"
 
+-- Fontconfig
 config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
 config.font_size = 11.0
@@ -18,8 +17,16 @@ config.font = wezterm.font({
     weight = "Light",
 })
 
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+-- Gnome integration
+local wayland_gnome = require("wayland_gnome")
+wayland_gnome.apply_to_config(config)
 config.integrated_title_button_style = "Gnome"
+
+-- Window config
+config.initial_cols = 160
+config.initial_rows = 42
+-- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_decorations = NONE
 config.window_padding = { left = 15, right = 5, top = 5, bottom = 5 }
 config.window_frame = {
     inactive_titlebar_bg = colors.background,
@@ -32,15 +39,6 @@ config.window_frame = {
     button_bg = colors.background,
     button_hover_fg = colors.background,
 
-    border_left_width = "0.2cell",
-    border_right_width = "0.2cell",
-    border_bottom_height = "0.1cell",
-    border_top_height = "0.1cell",
-    border_left_color = "black",
-    border_right_color = "black",
-    border_bottom_color = "black",
-    border_top_color = "black",
-
     font_size = 11,
     font = wezterm.font({
         family = "JetBrains Mono",
@@ -48,19 +46,14 @@ config.window_frame = {
     }),
 }
 
-config.initial_cols = 160
-config.initial_rows = 42
-
+--- Tabbar config
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = true
 config.show_tab_index_in_tab_bar = false
+config.show_close_tab_button_in_tabs = false
 config.switch_to_last_active_tab_when_closing_tab = true
 config.show_new_tab_button_in_tab_bar = false
 config.tab_max_width = 25
-config.colors = {
-    tab_bar = { inactive_tab_edge = colors.background },
-    split = colors.background,
-}
 
 -- This function returns the suggested title for a tab.
 -- It prefers the title that was set via `tab:set_title()`
@@ -111,16 +104,11 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     local background = colors.background
 
     local foreground = "#808080"
-    local edge_background = background
-    local edge_foreground = background
 
     if tab.is_active then
         foreground = colors.foreground
-        -- background = "#d9d9d9"
-        background = colors.background
     elseif hover then
         foreground = "#707070"
-        background = colors.background
     end
 
     local title = tab_title(tab)
@@ -186,13 +174,12 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     return wezterm.format({
         { Background = { Color = background } },
         { Foreground = { Color = background } },
+
         { Text = "" },
 
-        { Background = { Color = background } },
         { Foreground = { Color = foreground } },
         { Text = title },
 
-        { Background = { Color = background } },
         { Foreground = { Color = background } },
         { Text = "" },
     })
@@ -217,9 +204,6 @@ end)
 
 config.automatically_reload_config = true
 config.window_close_confirmation = "NeverPrompt"
-
-local wayland_gnome = require("wayland_gnome")
-wayland_gnome.apply_to_config(config)
 
 -- config.leader = { key = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
