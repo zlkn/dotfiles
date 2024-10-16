@@ -3,9 +3,16 @@ local config = wezterm.config_builder()
 
 -- Colorscheme
 local colors = require("colors")
-config.color_scheme = "My"
-config.color_schemes = { ["My"] = colors }
-
+-- config.color_scheme = "My"
+-- config.color_schemes = { ["My"] = colors }
+-- FIXME: This is a workaround for the colorscheme not being applied properly
+-- config.colors = {
+--     tab_bar = {
+--         -- The color of the inactive tab bar edge/divider
+--         inactive_tab_edge = colors.background,
+--     },
+-- }
+config.colors = colors
 config.default_cursor_style = "BlinkingBar"
 
 -- Fontconfig

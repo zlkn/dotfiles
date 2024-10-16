@@ -1,0 +1,4 @@
+foo: bar
+# language = yaml
+baz: |
+  test: qwe
