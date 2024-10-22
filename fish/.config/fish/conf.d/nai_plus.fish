@@ -90,5 +90,5 @@ function fish_prompt
     set -l git_info (_git_info)
     set -l pytohn_env (_python_env)
 
-    echo -ns "$cwd$pytohn_env$git_info "
+    printf '%s' $cwd $pytohn_env $git_info ' '
 end

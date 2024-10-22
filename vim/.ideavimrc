@@ -43,5 +43,5 @@ set clipboard+=unnamed
 " set <leader> to <space>
 nnoremap <Space> <Nop>
 let mapleader=" "
-nnoremap <leader>s :action AceAction<CR>
+nnoremap s :action AceAction<CR>
 nnoremap <leader><Space> :action FindInPath<CR>
