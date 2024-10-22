@@ -6,7 +6,7 @@ return {
         return {
             defaults = {
                 prompt_prefix = " ",
-                selection_caret = " ",
+                selection_caret = " ",
                 layout_strategy = "vertical",
                 layout_config = {
                     vertical = { width = 0.8, height = 0.9 },
