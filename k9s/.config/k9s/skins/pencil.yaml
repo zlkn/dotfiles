@@ -5,7 +5,7 @@
 # Styles...
 foreground: &foreground "#313113"
 background: &background "#f8f8f8"
-current_line: &current_line "#7f7f7f"
+current_line: &current_line "#c1c1c1"
 selection: &selection "#b6d6fd"
 comment: &comment "#707880"
 cyan: &cyan "#20a5ba"
