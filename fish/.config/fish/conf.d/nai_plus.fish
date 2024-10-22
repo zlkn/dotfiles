@@ -45,11 +45,11 @@ function _git_info
         set -l git_branch "$(_git_branch_name)"
 
         if test (string length $git_branch) -gt 0
-            set git_branch " $git_branch"
+            set git_branch "  $git_branch"
         end
-        if test (string length $git_branch) -gt 15
-            set git_branch (string sub -s 1 -l 15 $git_branch)
-            set git_branch " $git_branch..."
+        if test (string length $git_branch) -gt 16
+            set git_branch (string sub -s 1 -l 16 $git_branch)
+            set git_branch "$git_branch..."
         end
 
         # Retrieve ahead and behind counts, ensuring they are numbers or fallback to 0
@@ -67,7 +67,7 @@ function _git_info
             set status_color $green
         end
 
-        set git_info " $status_color$git_branch$normal"
+        set git_info "$status_color$git_branch$normal"
     end
 
     echo $git_info
@@ -78,7 +78,6 @@ function _python_env
     set -l color (set_color bryellow)
     set -l normal (set_color normal)
     if test -n "$VIRTUAL_ENV"
-        # set -l python_env (basename $VIRTUAL_ENV)
         set -l python_version (python --version | awk '{print $2}')
         echo -ns " $color $python_version$normal"
     end
