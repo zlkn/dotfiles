@@ -212,19 +212,20 @@ end)
 config.automatically_reload_config = true
 config.window_close_confirmation = "NeverPrompt"
 
--- config.leader = { key = "CTRL", timeout_milliseconds = 1000 }
+-- config.leader = { key = ""ALT"", timeout_milliseconds = 1000 }
 config.keys = {
-    { key = "x", mods = "CTRL", action = wezterm.action.ActivateCopyMode },
-    { key = "l", mods = "CTRL", action = wezterm.action.ShowLauncher },
-    { key = "-", mods = "CTRL", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-    { key = "\\", mods = "CTRL", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-    { key = "h", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Left") },
-    { key = "j", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Down") },
-    { key = "k", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Up") },
-    { key = "l", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Right") },
+    { key = "w", mods = "ALT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+    { key = "x", mods = "ALT", action = wezterm.action.ActivateCopyMode },
+    { key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
+    { key = "-", mods = "ALT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+    { key = "\\", mods = "ALT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+    { key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Left") },
+    { key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
+    { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
+    { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
     {
         key = "g",
-        mods = "CTRL|SHIFT",
+        mods = "ALT",
         action = wezterm.action.SpawnCommandInNewTab({
             label = "LazyGit",
             args = { "lazygit" },
@@ -236,7 +237,7 @@ config.keys = {
 for i = 1, 8 do
     table.insert(config.keys, {
         key = tostring(i),
-        mods = "CTRL",
+        mods = "ALT",
         action = wezterm.action.ActivateTab(i - 1),
     })
 end
