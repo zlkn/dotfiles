@@ -14,6 +14,10 @@ local colors = require("colors")
 -- }
 config.colors = colors
 config.default_cursor_style = "BlinkingBar"
+config.inactive_pane_hsb = {
+    saturation = 0.8,
+    brightness = 1.0,
+}
 
 -- Fontconfig
 config.freetype_load_target = "Light"
