@@ -1,8 +1,13 @@
 ---
-"foo": bar
-number: 14
-#language=yaml
-value: |
-  bar: baz
-  foo:
-    bar: test
+foo: bar
+# language = yaml
+toplevel: |
+  aaa: qqq
+level1:
+  level2:
+    # languge = yaml
+    qwe: |
+      ---
+      qwe: asd
+      adsfa: asdfas
+  q: a
