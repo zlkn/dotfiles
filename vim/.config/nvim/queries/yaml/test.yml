@@ -2,3 +2,11 @@ foo: bar
 # language = yaml
 baz: |
   test: qwe
+  qqq: zas
+  asdfa:
+    vvf: 1
+
+bar:
+  # language = yaml
+  baz: |
+    foo: test
