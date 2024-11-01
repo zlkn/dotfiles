@@ -1,12 +1,24 @@
 ---
 foo: bar
+
 # language=yaml
 toplevel: |
   aaa: qqq
+
+# language=python
+python: |
+  foo = 'asdafsaa'
+  print(f'{foo}')
+
 level1:
+  # language=python
+  python: |
+    foo = 'asdafsaa'
+    print(f'{foo}')
+
   level2:
     # language=yaml
-    qwe: |
+    qwe: |-
       qwe: asd
       adsfa: asdfas
   q: a
