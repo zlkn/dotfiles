@@ -1,34 +1,33 @@
 ; extend
 
-((comment) @injection.content
-  (#set! injection.language "comment"))
-
-; Inject language from top level yaml
-((comment) @_lang
-  ; (#any-of? @_lang "sql" "yaml")
+; Support Idea-style injection: # language=yaml
+; Inject language toplevel yaml node
+(
+  (comment) @injection.language
+  (#gsub! @injection.language "#%s*language=%s*([%w%p]+)%s*" "%1")
   (block_mapping_pair
-    key: (flow_node)
     value: (block_node
       (block_scalar) @injection.content
-      (#set! injection.language "yaml")
       (#offset! @injection.content 0 1 0 0)
     )
-))
+  )
+)
 
+; Support Idea-style injection: # language=yaml
 ; Inject language in yaml body
 (block_mapping_pair
-  (comment) @_lang
-    value: (block_node
-      (block_mapping
-        (block_mapping_pair
-          key: (flow_node)
-          value: (block_node
-            (block_scalar) @injection.content
-            (#set! injection.language "yaml")
-            (#offset! @injection.content 0 1 0 0)
-          )
+  (comment) @injection.language
+  (#gsub! @injection.language "#%s*language=%s*([%w%p]+)%s*" "%1")
+  value: (block_node
+    (block_mapping
+    (block_mapping_pair
+      value: (block_node
+        (block_scalar) @injection.content
+        ; (#set! injection.language "yaml")
+        (#offset! @injection.content 0 1 0 0)
         )
       )
+    )
   )
 )
 
