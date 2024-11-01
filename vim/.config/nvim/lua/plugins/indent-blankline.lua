@@ -1,4 +1,6 @@
 return {
+    -- Need manual setup cuz of this issue
+    -- https://github.com/lukas-reineke/indent-blankline.nvim/issues/936
     "lukas-reineke/indent-blankline.nvim",
     tag = "v3.8.2",
     enabled = true,

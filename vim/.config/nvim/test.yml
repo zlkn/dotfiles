@@ -1,13 +1,12 @@
 ---
 foo: bar
-# language = yaml
+# language=yaml
 toplevel: |
   aaa: qqq
 level1:
   level2:
-    # languge = yaml
+    # language=yaml
     qwe: |
-      ---
       qwe: asd
       adsfa: asdfas
   q: a
