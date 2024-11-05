@@ -213,10 +213,23 @@ end)
 -- 	}))
 -- end)
 
+wezterm.on("update-right-status", function(window, pane)
+    local leader = ""
+    if window:leader_is_active() then
+        leader = "LEADER"
+    end
+
+    window:set_right_status(wezterm.format({
+        { Background = { Color = colors.foreground } },
+        { Foreground = { Color = colors.background } },
+        { Text = leader },
+    }))
+end)
+
 config.automatically_reload_config = true
 config.window_close_confirmation = "NeverPrompt"
 
--- config.leader = { key = ""ALT"", timeout_milliseconds = 1000 }
+config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
 config.keys = {
     { key = "w", mods = "ALT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
     { key = "x", mods = "ALT", action = wezterm.action.ActivateCopyMode },
