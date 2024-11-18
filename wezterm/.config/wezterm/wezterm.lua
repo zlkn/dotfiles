@@ -239,6 +239,7 @@ config.keys = {
     { key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Left") },
     { key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
     { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
+    { key = "t", mods = "ALT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
     { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
     {
         key = "g",
