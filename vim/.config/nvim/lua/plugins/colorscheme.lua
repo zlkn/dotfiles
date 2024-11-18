@@ -1,7 +1,6 @@
 return {
     {
         "projekt0n/github-nvim-theme",
-        -- tag = "v1.0.2",
         name = "github-nvim-theme",
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
@@ -11,7 +10,6 @@ return {
                 options = {
                     -- Compiled file's destination location
                     compile_path = "/tmp/github-theme",
-                    compile_file_suffix = "_compiled", -- Compiled file suffix
                     transparent = true,
                     styles = {
                         comments = "italic",
@@ -20,40 +18,31 @@ return {
                         tag = "bold",
                     },
                 },
-                palettes = {
-                    all = {
-                        bg0 = "#f8f8f8",
-                        bg1 = "#f8f8f8",
-                        bg2 = "#f8f8f8",
-                        bg3 = "#f8f8f8",
-                        bg4 = "#f8f8f8",
-                    },
-                },
                 specs = {
                     github_light = {
                         syntax = {
+                            bracket = "#1F2328",
+                            builtin0 = "#0550ae",
+                            builtin1 = "#cf222e",
+                            builtin2 = "#523c79",
+                            comment = "#57606a",
+                            conditional = "#cf222e",
+                            const = "#0550ae",
+                            dep = "#82071e",
+                            field = "#1f1f1f",
+                            func = "#871094",
+                            ident = "#1f1f1f",
+                            keyword = "#0055c4",
+                            number = "#1f1f1f",
+                            operator = "#0550ae",
+                            param = "#1F2328",
+                            preproc = "#cf222e",
+                            regex = "#0a3069",
+                            statement = "#cf222e",
                             string = "#27745c",
+                            tag = "#0055c4",
+                            type = "#953800",
                             variable = "#1f1f1f",
-                            -- builtin0 = "#bf6408", -- Builtin variable
-                            -- builtin1 = "#bf6408", -- Builtin type
-                            -- builtin2 = "#ff0101", -- Builtin const
-                            -- comment = "#4fb8cc", -- Comment
-                            -- conditional = pl.syntax.keyword, -- Conditional and loop
-                            -- const = "#ff1010", -- Constants, imports and booleans
-                            -- dep = pal.scale.red[8], -- Deprecated
-                            field = "#1f1f1f", -- Field
-                            func = "#871094", -- Functions and Titles
-                            ident = "#1f1f1f", -- Identifiers
-                            keyword = "#0055c4", -- Keywords
-                            number = "#1f1f1f", -- Numbers
-                            -- operator = pl.syntax.constant, -- Operators
-                            -- param = "#a66f00", -- Parameters
-                            -- preproc = pl.syntax.keyword, -- PreProc
-                            -- regex = pl.syntax.string, -- Regex
-                            -- statement = pl.syntax.keyword, -- Statements
-                            -- type = "#bf6408", -- Types
-                            tag = "#0055c4", -- Tags
-                            -- variable = "#523c79", -- Variables
                         },
                         diag = {
                             -- error = pal.danger.fg,
@@ -65,7 +54,7 @@ return {
                 },
             })
             -- debug print for visualizing the colorscheme
-            -- local spec = require('github-theme.spec').load('github_light')
+            -- local spec = require("github-theme.spec").load("github_light")
             -- print(vim.inspect(spec.syntax))
         end,
     },
