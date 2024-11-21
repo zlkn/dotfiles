@@ -3,7 +3,6 @@ local config = wezterm.config_builder()
 
 -- Colorscheme
 local colors = require("colors")
--- config.color_scheme = "My"
 -- config.color_schemes = { ["My"] = colors }
 -- FIXME: This is a workaround for the colorscheme not being applied properly
 -- config.colors = {
