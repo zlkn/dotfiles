@@ -23,7 +23,8 @@ return {
                         syntax = {
                             bracket = "#1F2328",
                             builtin0 = "#0550ae",
-                            builtin1 = "#cf222e",
+                            -- builtin1 = "#cf222e",
+                            builtin1 = "#5de4c7",
                             builtin2 = "#523c79",
                             comment = "#57606a",
                             conditional = "#cf222e",
