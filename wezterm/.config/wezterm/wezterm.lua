@@ -32,10 +32,10 @@ config.window_decorations = NONE
 config.window_padding = { left = 15, right = 5, top = 5, bottom = 5 }
 config.window_frame = {
     -- Add split line on stacked wezterm
-    border_left_width = "0.15cell",
-    border_right_width = "0.15cell",
-    border_bottom_height = "0.15cell",
-    border_top_height = "0.15cell",
+    border_left_width = "0.12cell",
+    border_right_width = "0.12cell",
+    border_bottom_height = "0.1cell",
+    border_top_height = "0.1cell",
     border_left_color = colors.ansi[8],
     border_right_color = colors.ansi[8],
     border_bottom_color = colors.ansi[8],
