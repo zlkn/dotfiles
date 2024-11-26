@@ -27,10 +27,6 @@ trim_trailing_whitespace = false
 indent_style = space
 indent_size = 4
 
-[docker-compose{,.*}.{yaml,yml}]
-indent_style = space
-indent_size = 2
-
 [{Dockerfile,Dockerfile.*}]
 indent_style = space
 indent_size = 4
