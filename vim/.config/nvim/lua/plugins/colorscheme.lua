@@ -14,7 +14,7 @@ return {
                     styles = {
                         comments = "italic",
                         keywords = "bold",
-                        types = "italic,bold",
+                        types = "italic",
                         tag = "bold",
                     },
                 },
@@ -43,7 +43,7 @@ return {
                             string = "#27745c",
                             tag = "#0055c4",
                             type = "#953800",
-                            variable = "#1f1f1f",
+                            variable = "#008ec4",
                         },
                         diag = {
                             -- error = pal.danger.fg,
