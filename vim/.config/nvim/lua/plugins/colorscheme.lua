@@ -14,7 +14,7 @@ return {
                     styles = {
                         functions = "bold",
                         comments = "italic",
-                        -- keywords = "bold",
+                        keywords = "bold",
                         types = "italic",
                         tag = "bold",
                     },
