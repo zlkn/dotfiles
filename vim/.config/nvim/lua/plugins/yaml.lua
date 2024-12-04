@@ -1,9 +1,44 @@
 return {
-    -- {
     --     "diogo464/kubernetes.nvim",
     --     enabled = false,
     -- },
-    {},
+    -- {
+    --     "someone-stole-my-name/yaml-companion.nvim",
+    --     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+    --     config = function()
+    --         local cfg = require("yaml-companion").setup({
+    --             -- Additional schemas available in Telescope picker
+    --             schemas = {
+    --                 {
+    --                     name = "Flux GitRepository",
+    --                     uri = "https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/gitrepository-source-v1.json",
+    --                 },
+    --             },
+    --
+    --             -- Pass any additional options that will be merged in the final LSP config
+    --             -- Defaults: https://github.com/someone-stole-my-name/yaml-companion.nvim/blob/main/lua/yaml-companion/config.lua
+    --             lspconfig = {
+    --                 settings = {
+    --                     yaml = {
+    --                         validate = true,
+    --                         schemaStore = {
+    --                             enable = false,
+    --                             url = "",
+    --                         },
+    --                         schemas = {
+    --                             ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*.{yml,yaml}",
+    --                         },
+    --                     },
+    --                 },
+    --             },
+    --         })
+    --
+    --         require("lspconfig")["yamlls"].setup(cfg)
+    --
+    --         -- Load Telescope extension for yaml schemas
+    --         require("telescope").load_extension("yaml_schema")
+    --     end,
+    -- },
     {
         "neovim/nvim-lspconfig",
         opts = {
@@ -43,9 +78,11 @@ return {
                                 url = "",
                             },
                             schemas = {
+                                kubernetes = { "k8s**.yaml", "kube*/*.yaml" },
                                 ["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
                                 ["https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json"] = "docker-compose*.{yml,yaml}",
-                                ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"] = "argocd-application.yaml",
+                                ["https://raw.githubusercontent.com/datreeio/CRDhttps://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.jsonhttps://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.jsons-catalog/main/argoproj.io/application_v1alpha1.json"] = "*.Application.yaml",
+                                ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.json"] = "*.ApplicationSet.yaml",
                                 -- ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0/all.json"] = "k8s/**",
                                 -- -- use this if you want to match all '*.yaml' files
                                 -- [require("kubernetes").yamlls_schema()] = "*.yaml",
