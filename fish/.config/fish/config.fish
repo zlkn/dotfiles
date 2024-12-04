@@ -1,8 +1,8 @@
 if status is-interactive
     alias k=kubectl
     alias imgcat='wezterm imgcat'
-    alias ghs='gh copilot suggest'
-    alias ghe='gh copilot suggest'
+    alias ghs='gh copilot suggest -t shell'
+    alias ghe='gh copilot explain -t shell'
 end
 
 function fish_user_key_bindings
