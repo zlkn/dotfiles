@@ -38,3 +38,10 @@ end
 
 vim.api.nvim_create_user_command("PrintCurrentPallete", print_current_pallete, {})
 vim.api.nvim_set_keymap("n", "<leader>rp", [[:PrintCurrentPallete<CR>]], { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap(
+    "n",
+    "<Space>bl",
+    [[<Cmd>lua require"gitsigns".blame_line()<CR>]],
+    { noremap = true, silent = true }
+)
