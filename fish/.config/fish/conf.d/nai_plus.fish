@@ -81,10 +81,37 @@ function _python_env
         set -l python_version (python --version | awk '{print $2}')
         echo -ns " $color $python_version$normal"
     end
-    echo ""
+end
+
+function humantime --argument-names ms --description "Turn milliseconds into a human-readable string"
+    set --query ms[1] || return
+
+    set --local secs (math --scale=1 $ms/1000 % 60)
+    set --local mins (math --scale=0 $ms/60000 % 60)
+    set --local hours (math --scale=0 $ms/3600000)
+
+    test $hours -gt 0 && set --local --append out $hours"h"
+    test $mins -gt 0 && set --local --append out $mins"m"
+    test $secs -gt 0 && set --local --append out $secs"s"
+
+    set --query out && echo $out || echo $ms"ms"
+end
+
+function fish_right_prompt
+    if test $CMD_DURATION -gt 100
+        set -l timing (humantime $CMD_DURATION)
+        printf '%s' $timing
+    end
 end
 
 function fish_prompt
+
+    if test $status -gt 0
+        set -l normal (set_color normal)
+        set -l red (set_color red)
+        echo "$red   $normal Last command exit code:: $status"
+    end
+
     set -l cwd (basename (prompt_pwd))
     set -l git_info (_git_info)
     set -l pytohn_env (_python_env)
