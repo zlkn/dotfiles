@@ -19,6 +19,7 @@ return {
             always_show_tabline = true,
         }
 
+        opts.sections.lualine_c = {}
         opts.sections.lualine_z = {
             { "encoding" },
             { extensions = { "neo-tree", "lazy" } },
