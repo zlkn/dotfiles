@@ -104,17 +104,16 @@ function fish_right_prompt
     end
 end
 
+function _exit_status
+    test $status -gt 0; and echo (set_color red)"✔"(set_color normal)" "
+end
+
 function fish_prompt
 
-    if test $status -gt 0
-        set -l normal (set_color normal)
-        set -l red (set_color red)
-        echo "$red   $normal Last command exit code:: $status"
-    end
-
+    set -l last_status (_exit_status)
     set -l cwd (basename (prompt_pwd))
     set -l git_info (_git_info)
     set -l pytohn_env (_python_env)
 
-    printf '%s' $cwd $pytohn_env $git_info ' '
+    printf '%s' $last_status $cwd $pytohn_env $git_info ' '
 end
