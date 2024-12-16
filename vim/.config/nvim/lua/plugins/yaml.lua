@@ -78,7 +78,7 @@ return {
                                 url = "",
                             },
                             schemas = {
-                                kubernetes = { "k8s**.yaml", "kube*/*.yaml" },
+                                kubernetes = { "k8s**.yaml", "kube*/*.yaml", "tshoot*/*.yaml" },
                                 ["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
                                 ["https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json"] = "docker-compose*.{yml,yaml}",
                                 ["https://raw.githubusercontent.com/datreeio/CRDhttps://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.jsonhttps://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.jsons-catalog/main/argoproj.io/application_v1alpha1.json"] = "*.Application.yaml",
