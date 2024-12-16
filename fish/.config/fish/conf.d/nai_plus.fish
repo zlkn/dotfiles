@@ -105,7 +105,8 @@ function fish_right_prompt
 end
 
 function _exit_status
-    test $status -gt 0; and echo (set_color red)"✔"(set_color normal)" "
+    test $status -gt 0; and echo (set_color red)"✘"(set_color normal)" "
+    # ✔
 end
 
 function fish_prompt
