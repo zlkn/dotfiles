@@ -15,3 +15,7 @@ vim.opt.guicursor = {
     "i-ci:ver25-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
     "r:hor50-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
 }
+
+-- vim.o.winbar = "This is my Winbar"
+-- vim.o.tabline = "This is my Tabline"
+-- vim.o.showtabline = 2
