@@ -45,3 +45,6 @@ vim.api.nvim_set_keymap(
     [[<Cmd>lua require"gitsigns".blame_line()<CR>]],
     { noremap = true, silent = true }
 )
+
+vim.keymap.set("n", "<S-Enter>", "<C-y>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Enter>", "<C-u>", { noremap = true, silent = true })
