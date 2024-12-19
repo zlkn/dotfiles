@@ -1,3 +1,26 @@
+local pallete = {
+    ansi = {
+        balack = "#313131",
+        red = "#c30771",
+        green = "#10a778",
+        yellow = "#a66f00",
+        blue = "#008ec4",
+        magenta = "#523c79",
+        cyan = "#20a5ba",
+        white = "#d9d9d9",
+    },
+    brights = {
+        balack = "#212121",
+        red = "#fb007a",
+        green = "#5fd7af",
+        yellow = "#f39c12",
+        blue = "#20bbfc",
+        magenta = "#6855de",
+        cyan = "#4fb8cc",
+        white = "#a1a1a1",
+    },
+}
+
 local colors = {
     foreground = "#313113",
     background = "#f8f8f8",
@@ -7,7 +30,7 @@ local colors = {
     selection_bg = "#b6d6fd",
     selection_fg = "#313131",
     scrollbar_thumb = "#313131",
-    split = "#f8f8f8",
+    split = pallete.brights.white,
 
     -- Before 16 colors, there were 8 colors: black, red, green, yellow, blue, magenta, cyan, and white.
     -- The other 8 colors were added as bright variants of these
