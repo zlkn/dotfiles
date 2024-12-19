@@ -28,7 +28,7 @@ config.integrated_title_button_style = "Gnome"
 config.initial_cols = 160
 config.initial_rows = 42
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.window_decorations = NONE
+config.window_decorations = "NONE"
 config.window_padding = { left = 15, right = 5, top = 5, bottom = 5 }
 config.window_frame = {
     -- Add split line on stacked wezterm
