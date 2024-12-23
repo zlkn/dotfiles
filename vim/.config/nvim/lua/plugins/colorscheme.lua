@@ -12,7 +12,7 @@ return {
                     compile_path = "/tmp/github-theme",
                     transparent = true,
                     styles = {
-                        functions = "bold",
+                        -- functions = "bold",
                         comments = "italic",
                         keywords = "bold",
                         types = "italic",
