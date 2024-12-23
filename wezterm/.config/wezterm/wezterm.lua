@@ -27,8 +27,9 @@ config.integrated_title_button_style = "Gnome"
 -- Window config
 config.initial_cols = 160
 config.initial_rows = 42
--- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.window_decorations = "NONE"
+config.integrated_title_buttons = { "Close" }
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+-- config.window_decorations = "NONE"
 config.window_padding = { left = 15, right = 5, top = 5, bottom = 5 }
 config.window_frame = {
     -- Add split line on stacked wezterm
@@ -215,16 +216,28 @@ end)
 -- 	}))
 -- end)
 
+local state = {
+    in_copy_mode = false,
+}
+
 wezterm.on("update-right-status", function(window, pane)
     local leader = ""
+    local mode = ""
+
     if window:leader_is_active() then
-        leader = "LEADER"
+        leader = "Leader"
+    end
+
+    if state.in_copy_mode then
+        mode = "Copy Mode"
+    else
+        mode = "Normal Mode"
     end
 
     window:set_right_status(wezterm.format({
-        { Background = { Color = colors.foreground } },
-        { Foreground = { Color = colors.background } },
-        { Text = leader },
+        { Background = { Color = colors.background } },
+        { Foreground = { Color = colors.foreground } },
+        { Text = leader .. mode },
     }))
 end)
 
@@ -233,6 +246,8 @@ config.window_close_confirmation = "NeverPrompt"
 
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
 config.keys = {
+    { key = "UpArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(-1) },
+    { key = "DownArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(1) },
     { key = "w", mods = "ALT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
     { key = "x", mods = "ALT", action = wezterm.action.ActivateCopyMode },
     { key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
@@ -243,6 +258,22 @@ config.keys = {
     { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
     { key = "t", mods = "ALT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
     { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
+    {
+        key = "c",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action_callback(function(window, pane)
+            window:perform_action(wezterm.action.ActivateCopyMode, pane)
+            state.in_copy_mode = true
+        end),
+    },
+    -- {
+    --     key = "Escape",
+    --     mods = "NONE",
+    --     action = wezterm.action_callback(function(window, pane)
+    --         window:perform_action(wezterm.action.CloseCopyMode, pane)
+    --         state.in_copy_mode = false
+    --     end),
+    -- },
     {
         key = "g",
         mods = "ALT",
