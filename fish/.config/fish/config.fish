@@ -1,3 +1,7 @@
+if not status --is-interactive
+    exit
+end
+
 function alias
     if status is-interactive
         alias k=kubectl
@@ -18,10 +22,6 @@ function fish_user_key_bindings
 end
 
 # Based on https://gitlab.freedesktop.org/Per_Bothner/specifications/-/blob/master/proposals/prompts-data/shell-integration.fish
-
-if not status --is-interactive
-    exit
-end
 
 set -g _fishprompt_aid "fish"$fish_pid
 set -g _fishprompt_started 0
