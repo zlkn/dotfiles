@@ -81,13 +81,8 @@ return {
                                 kubernetes = { "k8s**.yaml", "kube*/*.yaml", "tshoot*/*.yaml" },
                                 ["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
                                 ["https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json"] = "docker-compose*.{yml,yaml}",
-                                ["https://raw.githubusercontent.com/datreeio/CRDhttps://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.jsonhttps://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.jsons-catalog/main/argoproj.io/application_v1alpha1.json"] = "*.Application.yaml",
+                                ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"] = "*.Application.yaml",
                                 ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.json"] = "*.ApplicationSet.yaml",
-                                -- ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.0/all.json"] = "k8s/**",
-                                -- -- use this if you want to match all '*.yaml' files
-                                -- [require("kubernetes").yamlls_schema()] = "*.yaml",
-                                -- -- or this to only match '*.<resource>.yaml' files. ex: 'app.deployment.yaml', 'app.argocd.yaml', ...
-                                -- [require("kubernetes").yamlls_schema()] = require("kubernetes").yamlls_filetypes(),
                             },
                         },
                     },
