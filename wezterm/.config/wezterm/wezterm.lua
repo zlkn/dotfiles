@@ -2,8 +2,8 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- Colorscheme
-local colors = require("colors")
-config.colors = colors
+local colorscheme = require("colors")
+config.colors = colorscheme.colors
 config.default_cursor_style = "BlinkingBar"
 config.inactive_pane_hsb = {
     saturation = 0.8,
@@ -27,9 +27,9 @@ config.integrated_title_button_style = "Gnome"
 -- Window config
 config.initial_cols = 160
 config.initial_rows = 42
-config.integrated_title_buttons = { "Close" }
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
--- config.window_decorations = "NONE"
+-- config.integrated_title_buttons = { "Close" }
+-- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_decorations = "NONE"
 config.window_padding = { left = 15, right = 5, top = 5, bottom = 5 }
 config.window_frame = {
     -- Add split line on stacked wezterm
@@ -37,21 +37,21 @@ config.window_frame = {
     border_right_width = "0.12cell",
     border_bottom_height = "0.1cell",
     border_top_height = "0.1cell",
-    border_left_color = colors.ansi[8],
-    border_right_color = colors.ansi[8],
-    border_bottom_color = colors.ansi[8],
-    border_top_color = colors.ansi[8],
+    border_left_color = colorscheme.colors.ansi[8],
+    border_right_color = colorscheme.colors.ansi[8],
+    border_bottom_color = colorscheme.colors.ansi[8],
+    border_top_color = colorscheme.colors.ansi[8],
 
     -- Match tabbar colors with colorscheme
-    inactive_titlebar_bg = colors.background,
-    active_titlebar_bg = colors.background,
-    inactive_titlebar_fg = colors.background,
-    active_titlebar_fg = colors.background,
-    inactive_titlebar_border_bottom = colors.background,
-    active_titlebar_border_bottom = colors.background,
-    button_fg = colors.background,
-    button_bg = colors.background,
-    button_hover_fg = colors.background,
+    inactive_titlebar_bg = colorscheme.colors.background,
+    active_titlebar_bg = colorscheme.colors.background,
+    inactive_titlebar_fg = colorscheme.colors.background,
+    active_titlebar_fg = colorscheme.colors.background,
+    inactive_titlebar_border_bottom = colorscheme.colors.background,
+    active_titlebar_border_bottom = colorscheme.colors.background,
+    button_fg = colorscheme.colors.background,
+    button_bg = colorscheme.colors.background,
+    button_hover_fg = colorscheme.colors.background,
 
     font_size = 11,
     font = wezterm.font({
@@ -99,28 +99,11 @@ local function get_process_name(str)
 end
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-    local SSH_DOMAIN = wezterm.nerdfonts.md_collage
-    local SERVER_ICON = wezterm.nerdfonts.md_access_point
-    local SHELL_ICON = wezterm.nerdfonts.md_console_line
-    local KUBECTL_ICON = wezterm.nerdfonts.md_kubernetes
-    local REMOTE_ICON = wezterm.nerdfonts.md_cloud
-    local DASHBOARD_ICON = wezterm.nerdfonts.md_gauge
-    local TEXT_EDITOR_ICON = wezterm.nerdfonts.linux_neovim
-    local INSPECT_ICON = wezterm.nerdfonts.md_magnify
-    local TRANSFER_ICON = wezterm.nerdfonts.md_flash
-    local PYTHON_ICON = wezterm.nerdfonts.md_language_python
-    local TASK_PENDING_ICON = wezterm.nerdfonts.md_run
-    local SUDO_ICON = wezterm.nerdfonts.md_shield_half_full
-    local LAZYGIT_ICON = wezterm.nerdfonts.fa_github_alt
-    local TERRAFORM_ICON = wezterm.nerdfonts.md_terraform
-    local GCLOUD_ICON = wezterm.nerdfonts.md_google_cloud
-
-    local background = colors.background
-
+    local background = colorscheme.colors.background
     local foreground = "#808080"
 
     if tab.is_active then
-        foreground = colors.foreground
+        foreground = colorscheme.colors.foreground
     elseif hover then
         foreground = "#707070"
     end
@@ -136,49 +119,49 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
     if tab.active_pane.foreground_process_name == "" then
         if tab.active_pane.domain_name == "local" then
-            title_with_icon = TASK_PENDING_ICON .. ".."
+            title_with_icon = wezterm.nerdfonts.md_run .. ".."
         else
-            title_with_icon = SSH_DOMAIN
+            title_with_icon = wezterm.nerdfonts.md_collage
         end
     else
         exec_name = get_process_name(tab.active_pane.foreground_process_name)
 
         if exec_name == "wezterm-gui" then
-            title_with_icon = SERVER_ICON .. " WezTerm"
+            title_with_icon = wezterm.nerdfonts.md_access_point .. " WezTerm"
         elseif exec_name == "sudo" then
-            title_with_icon = SUDO_ICON .. " "
+            title_with_icon = wezterm.nerdfonts.md_shield_half_full .. " "
         elseif in_array(exec_name, { "sh", "bash", "zsh", "fish" }) then
-            title_with_icon = SHELL_ICON .. " "
+            title_with_icon = wezterm.nerdfonts.md_console_line .. " "
         elseif exec_name == "kubectl" then
-            title_with_icon = KUBECTL_ICON .. " "
+            title_with_icon = wezterm.nerdfonts.md_kubernetes .. " "
         elseif in_array(exec_name, { "ssh", "sftp" }) then
-            title_with_icon = REMOTE_ICON .. " "
+            title_with_icon = wezterm.nerdfonts.md_cloud .. " "
         elseif in_array(exec_name, { "btm", "top", "htop", "ntop" }) then
-            title_with_icon = DASHBOARD_ICON .. " "
+            title_with_icon = wezterm.nerdfonts.md_gauge .. " "
         elseif exec_name == "nvim" then
-            title_with_icon = TEXT_EDITOR_ICON
+            title_with_icon = wezterm.nerdfonts.linux_neovim
         elseif exec_name == "vim" then
-            title_with_icon = TEXT_EDITOR_ICON
+            title_with_icon = wezterm.nerdfonts.linux_neovim
         elseif exec_name == "nano" then
-            title_with_icon = TEXT_EDITOR_ICON
+            title_with_icon = wezterm.nerdfonts.linux_neovim
         elseif in_array(exec_name, { "bat", "less", "moar" }) then
-            title_with_icon = INSPECT_ICON
+            title_with_icon = wezterm.nerdfonts.md_magnify
         elseif in_array(exec_name, { "fzf", "peco" }) then
-            title_with_icon = INSPECT_ICON
+            title_with_icon = wezterm.nerdfonts.md_magnify
         elseif exec_name == "man" then
-            title_with_icon = INSPECT_ICON
+            title_with_icon = wezterm.nerdfonts.md_magnify
         elseif in_array(exec_name, { "aria2c", "curl", "wget", "yt-dlp", "rsync" }) then
-            title_with_icon = TRANSFER_ICON
+            title_with_icon = wezterm.nerdfonts.md_flash
         elseif in_array(exec_name, { "python", "Python", "python3" }) then
-            title_with_icon = PYTHON_ICON
+            title_with_icon = wezterm.nerdfonts.md_language_python
         elseif in_array(exec_name, { "lazygit", "git" }) then
-            title_with_icon = LAZYGIT_ICON
+            title_with_icon = wezterm.nerdfonts.fa_github_alt
         elseif exec_name == "terraform" then
-            title_with_icon = TERRAFORM_ICON
+            title_with_icon = wezterm.nerdfonts.md_terraform
         elseif exec_name == "gcloud" then
-            title_with_icon = GCLOUD_ICON
+            title_with_icon = wezterm.nerdfonts.md_google_cloud
         else
-            title_with_icon = TASK_PENDING_ICON
+            title_with_icon = wezterm.nerdfonts.md_run
         end
     end
 
@@ -241,7 +224,7 @@ wezterm.on("update-right-status", function(window, pane)
     }))
 end)
 
-config.automatically_reload_config = true
+config.automatically_reload_config = false
 config.window_close_confirmation = "NeverPrompt"
 
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
@@ -258,22 +241,6 @@ config.keys = {
     { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
     { key = "t", mods = "ALT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
     { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
-    {
-        key = "c",
-        mods = "CTRL|SHIFT",
-        action = wezterm.action_callback(function(window, pane)
-            window:perform_action(wezterm.action.ActivateCopyMode, pane)
-            state.in_copy_mode = true
-        end),
-    },
-    -- {
-    --     key = "Escape",
-    --     mods = "NONE",
-    --     action = wezterm.action_callback(function(window, pane)
-    --         window:perform_action(wezterm.action.CloseCopyMode, pane)
-    --         state.in_copy_mode = false
-    --     end),
-    -- },
     {
         key = "g",
         mods = "ALT",

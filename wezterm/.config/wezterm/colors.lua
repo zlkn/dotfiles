@@ -28,7 +28,7 @@ local colors = {
     cursor_fg = "#424242",
     cursor_border = "#20bbfc",
     selection_bg = "#b6d6fd",
-    selection_fg = "#313131",
+    selection_fg = "#e13131",
     scrollbar_thumb = "#313131",
     split = pallete.brights.white,
 
@@ -52,4 +52,7 @@ local colors = {
     tab_bar = { inactive_tab_edge = "#f8f8f8" },
 }
 
-return colors
+return {
+    palete = pallete,
+    colors = colors,
+}
