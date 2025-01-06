@@ -1,4 +1,4 @@
-local pallete = {
+local palette = {
     ansi = {
         black = "#313131",
         red = "#c30771",
@@ -21,8 +21,8 @@ local pallete = {
     },
     extra = {
         cornflowerBlue = "#b6d6fd",
-        lightGray = "#f8f8f8",
         darkGray = "#424242",
+        lightGray = "#f8f8f8",
         pureWhite = "#ffffff",
     },
 }
@@ -32,7 +32,6 @@ local function get_values(t)
     for _, value in pairs(t) do
         table.insert(values, value)
     end
-    print(values)
     return values
 end
 
@@ -40,35 +39,39 @@ local colors = {
 
     indexed = {},
 
-    foreground = pallete.ansi.black,
-    background = pallete.extra.lightGray,
-    cursor_bg = pallete.brights.blue,
-    cursor_fg = pallete.extra.darkGray,
-    cursor_border = pallete.brights.blue,
-    selection_bg = pallete.extra.cornflowerBlue,
-    selection_fg = pallete.ansi.black,
-    scrollbar_thumb = pallete.ansi.black,
-    split = pallete.brights.white,
+    foreground = palette.ansi.black,
+    background = palette.extra.lightGray,
+
+    cursor_bg = palette.brights.blue,
+    cursor_fg = palette.extra.darkGray,
+    cursor_border = palette.brights.blue,
+
+    selection_bg = palette.extra.cornflowerBlue,
+    selection_fg = palette.ansi.black,
+
+    scrollbar_thumb = palette.ansi.black,
+
+    split = palette.brights.white,
 
     -- Before 16 colors, there were 8 colors: black, red, green, yellow, blue, magenta, cyan, and white.
     -- The other 8 colors were added as bright variants of these
-    ansi = get_values(pallete.ansi),
-    brights = get_values(pallete.brights),
+    ansi = get_values(palette.ansi),
+    brights = get_values(palette.brights),
 
-    copy_mode_active_highlight_bg = { Color = pallete.extra.darkGray },
-    copy_mode_active_highlight_fg = { Color = pallete.ansi.magenta },
-    copy_mode_inactive_highlight_bg = { Color = pallete.ansi.green },
-    copy_mode_inactive_highlight_fg = { AnsiColor = pallete.extra.pureWhite },
+    copy_mode_active_highlight_bg = { Color = palette.extra.cornflowerBlue },
+    copy_mode_active_highlight_fg = { Color = palette.ansi.black },
+    copy_mode_inactive_highlight_bg = { Color = palette.ansi.green },
+    copy_mode_inactive_highlight_fg = { Color = palette.ansi.black },
 
-    quick_select_label_bg = { Color = pallete.ansi.green },
-    quick_select_label_fg = { Color = pallete.extra.pureWhite },
-    quick_select_match_bg = { Color = pallete.extra.cornflowerBlue },
-    quick_select_match_fg = { Color = pallete.extra.darkGray },
+    quick_select_label_bg = { Color = palette.ansi.green },
+    quick_select_label_fg = { Color = palette.brights.black },
+    quick_select_match_bg = { Color = palette.extra.cornflowerBlue },
+    quick_select_match_fg = { Color = palette.brights.black },
 
-    tab_bar = { inactive_tab_edge = pallete.extra.lightGray },
+    tab_bar = { inactive_tab_edge = palette.extra.lightGray },
 }
 
 return {
-    palete = pallete,
+    palette = palette,
     colors = colors,
 }
