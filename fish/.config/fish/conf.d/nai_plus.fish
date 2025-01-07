@@ -1,9 +1,8 @@
+# Fork of https://github.com/oh-my-fish/theme-nai
 # name: nai-plus
 # Display the following bits on the left:
 # * Current directory name
 # * Git branch and dirty state (if inside a git repo)
-
-
 
 function _git_branch_ahead
     set -l ahead (command git rev-list --count @{u}..HEAD 2> /dev/null)
