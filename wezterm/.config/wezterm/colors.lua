@@ -27,14 +27,6 @@ local palette = {
     },
 }
 
-local function get_values(t)
-    local values = {}
-    for _, value in pairs(t) do
-        table.insert(values, value)
-    end
-    return values
-end
-
 local colors = {
 
     indexed = {},
@@ -55,8 +47,26 @@ local colors = {
 
     -- Before 16 colors, there were 8 colors: black, red, green, yellow, blue, magenta, cyan, and white.
     -- The other 8 colors were added as bright variants of these
-    ansi = get_values(palette.ansi),
-    brights = get_values(palette.brights),
+    ansi = {
+        palette.ansi.black,
+        palette.ansi.red,
+        palette.ansi.green,
+        palette.ansi.yellow,
+        palette.ansi.blue,
+        palette.ansi.magenta,
+        palette.ansi.cyan,
+        palette.ansi.white,
+    },
+    brights = {
+        palette.brights.black,
+        palette.brights.red,
+        palette.brights.green,
+        palette.brights.yellow,
+        palette.brights.blue,
+        palette.brights.magenta,
+        palette.brights.cyan,
+        palette.brights.white,
+    },
 
     copy_mode_active_highlight_bg = { Color = palette.extra.cornflowerBlue },
     copy_mode_active_highlight_fg = { Color = palette.ansi.black },
