@@ -22,6 +22,7 @@ local palette = {
     extra = {
         cornflowerBlue = "#b6d6fd",
         darkGray = "#424242",
+        mediumGray = "#808080",
         lightGray = "#f8f8f8",
         pureWhite = "#ffffff",
     },

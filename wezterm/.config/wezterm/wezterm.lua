@@ -22,7 +22,6 @@ config.font = wezterm.font({
 -- Gnome integration
 local wayland_gnome = require("wayland_gnome")
 wayland_gnome.apply_to_config(config)
-config.integrated_title_button_style = "Gnome"
 
 -- Window config
 config.initial_cols = 160
@@ -37,10 +36,10 @@ config.window_frame = {
     border_right_width = "0.12cell",
     border_bottom_height = "0.1cell",
     border_top_height = "0.1cell",
-    border_left_color = colorscheme.colors.ansi[8],
-    border_right_color = colorscheme.colors.ansi[8],
-    border_bottom_color = colorscheme.colors.ansi[8],
-    border_top_color = colorscheme.colors.ansi[8],
+    border_left_color = colorscheme.palette.ansi.white,
+    border_right_color = colorscheme.palette.ansi.white,
+    border_bottom_color = colorscheme.palette.ansi.white,
+    border_top_color = colorscheme.palette.ansi.white,
 
     -- Match tabbar colors with colorscheme
     inactive_titlebar_bg = colorscheme.colors.background,
@@ -67,7 +66,7 @@ config.show_tab_index_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 config.switch_to_last_active_tab_when_closing_tab = true
 config.show_new_tab_button_in_tab_bar = false
-config.tab_max_width = 25
+config.tab_max_width = 999
 
 -- This function returns the suggested title for a tab.
 -- It prefers the title that was set via `tab:set_title()`
@@ -98,130 +97,78 @@ local function get_process_name(str)
     return str:gsub("^.*[/\\]", ""):gsub("%.exe$", "")
 end
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-    local background = colorscheme.colors.background
-    local foreground = "#808080"
-
-    if tab.is_active then
-        foreground = colorscheme.colors.foreground
-    elseif hover then
-        foreground = "#707070"
-    end
-
-    local title = tab_title(tab)
-
-    -- ensure that the titles fit in the available space,
-    -- and that we have room for the edges.
-    title = wezterm.truncate_right(title, max_width - 2)
-
-    local exec_name = ""
-    local title_with_icon = ""
+local function get_icon(tab)
+    local icon = ""
 
     if tab.active_pane.foreground_process_name == "" then
         if tab.active_pane.domain_name == "local" then
-            title_with_icon = wezterm.nerdfonts.md_run .. ".."
+            icon = wezterm.nerdfonts.md_run .. ".."
         else
-            title_with_icon = wezterm.nerdfonts.md_collage
+            icon = wezterm.nerdfonts.md_collage
         end
     else
-        exec_name = get_process_name(tab.active_pane.foreground_process_name)
+        local exec_name = get_process_name(tab.active_pane.foreground_process_name)
 
         if exec_name == "wezterm-gui" then
-            title_with_icon = wezterm.nerdfonts.md_access_point .. " WezTerm"
+            icon = wezterm.nerdfonts.md_access_point .. " WezTerm"
         elseif exec_name == "sudo" then
-            title_with_icon = wezterm.nerdfonts.md_shield_half_full .. " "
+            icon = wezterm.nerdfonts.md_shield_half_full .. " "
         elseif in_array(exec_name, { "sh", "bash", "zsh", "fish" }) then
-            title_with_icon = wezterm.nerdfonts.md_console_line .. " "
+            icon = wezterm.nerdfonts.md_console_line .. " "
         elseif exec_name == "kubectl" then
-            title_with_icon = wezterm.nerdfonts.md_kubernetes .. " "
+            icon = wezterm.nerdfonts.md_kubernetes .. " "
         elseif in_array(exec_name, { "ssh", "sftp" }) then
-            title_with_icon = wezterm.nerdfonts.md_cloud .. " "
+            icon = wezterm.nerdfonts.md_cloud .. " "
         elseif in_array(exec_name, { "btm", "top", "htop", "ntop" }) then
-            title_with_icon = wezterm.nerdfonts.md_gauge .. " "
+            icon = wezterm.nerdfonts.md_gauge .. " "
         elseif exec_name == "nvim" then
-            title_with_icon = wezterm.nerdfonts.linux_neovim
+            icon = wezterm.nerdfonts.linux_neovim
         elseif exec_name == "vim" then
-            title_with_icon = wezterm.nerdfonts.linux_neovim
+            icon = wezterm.nerdfonts.linux_neovim
         elseif exec_name == "nano" then
-            title_with_icon = wezterm.nerdfonts.linux_neovim
+            icon = wezterm.nerdfonts.linux_neovim
         elseif in_array(exec_name, { "bat", "less", "moar" }) then
-            title_with_icon = wezterm.nerdfonts.md_magnify
+            icon = wezterm.nerdfonts.md_magnify
         elseif in_array(exec_name, { "fzf", "peco" }) then
-            title_with_icon = wezterm.nerdfonts.md_magnify
+            icon = wezterm.nerdfonts.md_magnify
         elseif exec_name == "man" then
-            title_with_icon = wezterm.nerdfonts.md_magnify
+            icon = wezterm.nerdfonts.md_magnify
         elseif in_array(exec_name, { "aria2c", "curl", "wget", "yt-dlp", "rsync" }) then
-            title_with_icon = wezterm.nerdfonts.md_flash
+            icon = wezterm.nerdfonts.md_flash
         elseif in_array(exec_name, { "python", "Python", "python3" }) then
-            title_with_icon = wezterm.nerdfonts.md_language_python
+            icon = wezterm.nerdfonts.md_language_python
         elseif in_array(exec_name, { "lazygit", "git" }) then
-            title_with_icon = wezterm.nerdfonts.fa_github_alt
+            icon = wezterm.nerdfonts.fa_github_alt
         elseif exec_name == "terraform" then
-            title_with_icon = wezterm.nerdfonts.md_terraform
+            icon = wezterm.nerdfonts.md_terraform
         elseif exec_name == "gcloud" then
-            title_with_icon = wezterm.nerdfonts.md_google_cloud
+            icon = wezterm.nerdfonts.md_google_cloud
         else
-            title_with_icon = wezterm.nerdfonts.md_run
+            icon = wezterm.nerdfonts.md_run
         end
+
+        icon = icon .. " "
     end
 
-    title = " " .. title_with_icon .. " " .. title .. " "
-    title = wezterm.truncate_right(title, max_width - 3)
+    return icon
+end
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+    local foreground = colorscheme.colors.foreground
+
+    if not tab.is_active then
+        foreground = colorscheme.palette.extra.mediumGray
+    elseif hover then
+        foreground = colorscheme.palette.extra.mediumGray
+    end
+
+    local title = " " .. get_icon(tab) .. tab_title(tab) .. " "
 
     return wezterm.format({
-        { Background = { Color = background } },
-        { Foreground = { Color = background } },
-
-        { Text = "" },
-
+        { Background = { Color = colorscheme.colors.background } },
         { Foreground = { Color = foreground } },
         { Text = title },
-
-        { Foreground = { Color = background } },
-        { Text = "" },
     })
-end)
-
--- Create a status bar on the top right that shows the current workspace and date
--- wezterm.on("update-right-status", function(window, pane)
--- 	local date = wezterm.strftime("%Y-%m-%d %H:%M:%S")
---
--- 	-- Make it italic and underlined
--- 	window:set_right_status(wezterm.format({
--- 		{ Attribute = { Underline = "Single" } },
--- 		{ Attribute = { Italic = true } },
--- 		{ Attribute = { Intensity = "Bold" } },
--- 		{ Background = { colors.background } },
--- 		{ Foreground = { colors.foreground } },
--- 		{ Text = window:active_workspace() },
--- 		{ Text = "   " },
--- 		{ Text = date },
--- 	}))
--- end)
-
-local state = {
-    in_copy_mode = false,
-}
-
-wezterm.on("update-right-status", function(window, pane)
-    local leader = ""
-    local mode = ""
-
-    if window:leader_is_active() then
-        leader = "Leader"
-    end
-
-    if state.in_copy_mode then
-        mode = "Copy Mode"
-    else
-        mode = "Normal Mode"
-    end
-
-    window:set_right_status(wezterm.format({
-        { Background = { Color = colors.background } },
-        { Foreground = { Color = colors.foreground } },
-        { Text = leader .. mode },
-    }))
 end)
 
 config.automatically_reload_config = false
