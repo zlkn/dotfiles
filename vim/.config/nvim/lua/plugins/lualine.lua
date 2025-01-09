@@ -12,6 +12,20 @@ return {
 
         local icons = LazyVim.config.icons
 
+        local function git_root()
+            return function()
+                local git_dir = vim.fn.finddir(".git", ".;")
+                if git_dir == "" then
+                    return ""
+                end
+
+                git_dir = vim.fn.fnamemodify(git_dir, ":p:h:h")
+                git_dir = vim.fn.fnamemodify(git_dir, ":t")
+
+                return git_dir
+            end
+        end
+
         opts.options = {
             theme = auto_theme_custom,
             component_separators = { left = "", right = "" },
@@ -26,7 +40,7 @@ return {
         }
         opts.tabline = {
             lualine_c = {
-                LazyVim.lualine.root_dir(),
+                { git_root() },
                 {
                     "diagnostics",
                     symbols = {
@@ -37,8 +51,21 @@ return {
                     },
                 },
                 { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-                { LazyVim.lualine.pretty_path() },
+                {
+                    "filename",
+                    file_status = true,
+                    newfile_status = false,
+                    path = 1,
+                    shorting_target = 40,
+                    symbols = {
+                        modified = " ",
+                        readonly = "󱚳 ",
+                        unnamed = "[NoName]",
+                        newfile = "[New]",
+                    },
+                },
             },
+            lualine_z = {},
         }
     end,
 }
