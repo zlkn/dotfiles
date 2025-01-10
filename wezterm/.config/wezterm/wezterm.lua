@@ -1,6 +1,8 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+config.automatically_reload_config = false
+
 -- Colorscheme
 local colorscheme = require("colors")
 config.colors = colorscheme.colors
@@ -26,6 +28,7 @@ wayland_gnome.apply_to_config(config)
 -- Window config
 config.initial_cols = 160
 config.initial_rows = 42
+config.window_close_confirmation = "NeverPrompt"
 -- config.integrated_title_buttons = { "Close" }
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_decorations = "NONE"
@@ -108,6 +111,7 @@ local function get_icon(tab)
         end
     else
         local exec_name = get_process_name(tab.active_pane.foreground_process_name)
+        print("exec_name: " .. exec_name)
 
         if exec_name == "wezterm-gui" then
             icon = wezterm.nerdfonts.md_access_point .. " WezTerm"
@@ -170,9 +174,6 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
         { Text = title },
     })
 end)
-
-config.automatically_reload_config = false
-config.window_close_confirmation = "NeverPrompt"
 
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
 config.keys = {
