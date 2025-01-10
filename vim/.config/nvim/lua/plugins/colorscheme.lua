@@ -24,9 +24,7 @@ return {
                         syntax = {
                             bracket = "#1F2328",
                             builtin0 = "#0550ae",
-                            -- builtin1 = "#cf222e",
                             builtin1 = "#20a5ba",
-                            -- builtin1 = "#1f1f1f",
                             builtin2 = "#523c79",
                             comment = "#57606a",
                             conditional = "#cf222e",
@@ -45,8 +43,7 @@ return {
                             string = "#27745c",
                             tag = "#0055c4",
                             type = "#953800",
-                            -- variable = "#008ec4",
-                            variable = "#1f1f1f",
+                            variable = "#2b6380",
                         },
                         diag = {
                             -- error = pal.danger.fg,
