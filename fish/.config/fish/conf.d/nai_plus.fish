@@ -110,6 +110,8 @@ end
 
 function fish_prompt
 
+    __auto_source_venv
+
     set -l last_status (_exit_status)
     set -l cwd (basename (prompt_pwd))
     set -l git_info (_git_info)
