@@ -4,6 +4,7 @@ local palette = {
         red = "#c30771",
         green = "#10a778",
         yellow = "#a66f00",
+        -- yellow = "#d7af5f",
         blue = "#008ec4",
         magenta = "#523c79",
         cyan = "#20a5ba",
@@ -18,6 +19,15 @@ local palette = {
         magenta = "#6855de",
         cyan = "#4fb8cc",
         white = "#a1a1a1",
+    },
+    rainbow = {
+        red = "#cc241d",
+        orange = "#d65d0e",
+        yellow = "#d79921",
+        green = "#689d6a",
+        cyan = "#a89984",
+        blue = "#458588",
+        violet = "#b16286",
     },
     extra = {
         cornflowerBlue = "#b6d6fd",
