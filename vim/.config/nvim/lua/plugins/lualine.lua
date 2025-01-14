@@ -8,6 +8,7 @@ return {
         local auto_theme_custom = require("lualine.themes.auto")
         for mode, _ in pairs(auto_theme_custom) do
             auto_theme_custom[mode].c.bg = "none"
+            auto_theme_custom[mode].c.fg = "#1f1f1f"
         end
 
         local icons = LazyVim.config.icons
