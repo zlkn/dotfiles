@@ -7,8 +7,9 @@ return {
         -- https://www.reddit.com/r/neovim/comments/zh4kc8/comment/jhekub8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
         local auto_theme_custom = require("lualine.themes.auto")
         for mode, _ in pairs(auto_theme_custom) do
-            auto_theme_custom[mode].c.bg = "none"
-            auto_theme_custom[mode].c.fg = "#1f1f1f"
+            -- auto_theme_custom[mode].c.bg = "none"
+            auto_theme_custom[mode].c.bg = "#f1f1f1"
+            auto_theme_custom[mode].c.fg = "#424242"
         end
 
         local icons = LazyVim.config.icons

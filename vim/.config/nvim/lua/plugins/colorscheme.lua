@@ -35,7 +35,7 @@ return {
                             field = "#1f1f1f",
                             func = "#871094",
                             ident = "#1f1f1f",
-                            keyword = "#0055c4",
+                            builtin0 = "#0550ae",
                             number = "#1f1f1f",
                             operator = "#0550ae",
                             param = "#008ec4",
