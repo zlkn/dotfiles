@@ -34,7 +34,7 @@ function _git_info
     set -l git_info ""
 
     set -l yellow (set_color yellow)
-    set -l green (set_color green)
+    set -l green (set_color brgreen)
     set -l blue (set_color blue)
     set -l red (set_color red)
     set -l normal (set_color normal)
@@ -74,7 +74,7 @@ function _git_info
 end
 
 function _python_env
-    set -l color (set_color bryellow)
+    set -l color (set_color yellow)
     set -l normal (set_color normal)
     if test -n "$VIRTUAL_ENV"
         set -l python_version (python --version | awk '{print $2}')
