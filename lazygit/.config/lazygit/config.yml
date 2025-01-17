@@ -1,0 +1,7 @@
+gui:
+  theme:
+    # Background color of selected line.
+    # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#highlighting-the-selected-line
+    selectedLineBgColor:
+      - brblue
+ 
