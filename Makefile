@@ -5,3 +5,4 @@ all:
 	stow -vv fish
 	stow -vv git
 	stow -vv k9s
+	stow -vv lazygit
