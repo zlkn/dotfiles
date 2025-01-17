@@ -29,6 +29,7 @@ local palette = {
         violet = "#b16286",
     },
     extra = {
+        cyan = "#007474",
         -- green = "#10a778",
         cyan = "#4fb8cc",
         green = "#5fd7af",
