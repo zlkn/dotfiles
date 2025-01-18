@@ -6,7 +6,7 @@ SETUVAR --export --path PATH:/usr/local/go/bin\x1e/usr/local/sbin\x1e/usr/local/
 SETUVAR USE_GKE_GCLOUD_AUTH_PLUGIN:False
 SETUVAR --export VIRTUAL_ENV_DISABLE_PROMPT:1
 SETUVAR __fish_initialized:3400
-SETUVAR fish_color_autosuggestion:brblack
+SETUVAR fish_color_autosuggestion:white
 SETUVAR fish_color_cancel:\x2d\x2dreverse
 SETUVAR fish_color_command:blue
 SETUVAR fish_color_comment:black
@@ -15,7 +15,6 @@ SETUVAR fish_color_cwd_root:red
 SETUVAR fish_color_end:green
 SETUVAR fish_color_error:brred
 SETUVAR fish_color_escape:brcyan
-# SETUVAR fish_color_history_current:\x2d\x2dbold
 SETUVAR fish_color_history_current:\x2d\x2dbold
 SETUVAR fish_color_host:normal
 SETUVAR fish_color_host_remote:\x1d
