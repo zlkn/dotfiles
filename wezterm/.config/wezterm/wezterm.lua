@@ -18,7 +18,7 @@ config.freetype_render_target = "HorizontalLcd"
 config.font_size = 11.0
 config.font = wezterm.font({
     family = "JetBrains Mono",
-    weight = "Light",
+    weight = "Regular",
 })
 
 -- Gnome integration
