@@ -7,7 +7,7 @@ local palette = {
         blue = "#0550ae",
         magenta = "#523c79",
         cyan = "#008ec4",
-        white = "#d9d9d9",
+        white = "#57606a",
     },
     brights = {
         black = "#1f1f1f",
@@ -17,7 +17,7 @@ local palette = {
         blue = "#005fd7",
         magenta = "#871094",
         cyan = "#20bbfc",
-        white = "#f1f1f1",
+        white = "#9d9d9d",
     },
     rainbow = {
         red = "#cc241d",
@@ -37,6 +37,7 @@ local palette = {
         yellow = "#d7af5f",
         cornflowerBlue = "#b6d6fd",
         darkGray = "#424242",
+        borderGray = "#9d9d9d",
         mediumGray = "#808080",
         pencilGray = "#f1f1f1",
         lightGray = "#f0f0f0",

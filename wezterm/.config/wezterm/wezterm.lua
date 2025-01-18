@@ -39,10 +39,10 @@ config.window_frame = {
     border_right_width = "0.12cell",
     border_bottom_height = "0.1cell",
     border_top_height = "0.1cell",
-    border_left_color = colorscheme.palette.ansi.white,
-    border_right_color = colorscheme.palette.ansi.white,
-    border_bottom_color = colorscheme.palette.ansi.white,
-    border_top_color = colorscheme.palette.ansi.white,
+    border_left_color = colorscheme.palette.extra.borderGray,
+    border_right_color = colorscheme.palette.extra.borderGray,
+    border_bottom_color = colorscheme.palette.extra.borderGray,
+    border_top_color = colorscheme.palette.extra.borderGray,
 
     -- Match tabbar colors with colorscheme
     inactive_titlebar_bg = colorscheme.colors.background,
