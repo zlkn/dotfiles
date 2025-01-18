@@ -13,6 +13,7 @@ config.inactive_pane_hsb = {
 }
 
 -- Fontconfig
+config.warn_about_missing_glyphs = false
 config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
 config.font_size = 11.0
