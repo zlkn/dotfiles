@@ -2,12 +2,12 @@ local palette = {
     ansi = {
         black = "#212121",
         red = "#c30771",
-        green = "#27745c",
+        green = "#10a778",
         yellow = "#d79921",
         blue = "#0550ae",
         magenta = "#523c79",
         cyan = "#008ec4",
-        white = "#57606a",
+        white = "#9d9d9d",
     },
     brights = {
         black = "#1f1f1f",
@@ -17,7 +17,7 @@ local palette = {
         blue = "#005fd7",
         magenta = "#871094",
         cyan = "#20bbfc",
-        white = "#9d9d9d",
+        white = "#f1f1f1",
     },
     rainbow = {
         red = "#cc241d",
@@ -31,15 +31,16 @@ local palette = {
     extra = {
         cyan = "#007474",
         -- green = "#10a778",
-        cyan = "#4fb8cc",
-        green = "#5fd7af",
+        PineGreen = "#27745c",
+        LightSeaGreen = "#5fd7af",
+        MoonStonecyan = "#4fb8cc",
         brown = "#a66f00",
         yellow = "#d7af5f",
         cornflowerBlue = "#b6d6fd",
         darkGray = "#424242",
-        borderGray = "#9d9d9d",
+        borderGray = "#f1f1f1",
         mediumGray = "#808080",
-        pencilGray = "#f1f1f1",
+        pencilGray = "#9d9d9d",
         lightGray = "#f0f0f0",
         pureWhite = "#ffffff",
     },
@@ -50,7 +51,7 @@ local colors = {
     indexed = {},
 
     foreground = palette.ansi.black,
-    background = palette.extra.pencilGray,
+    background = palette.extra.borderGray,
 
     cursor_bg = "#20bbfc", -- palette.brights.blue,
     -- cursor_fg = palette .. black, -- palette.extra.darkGray,
