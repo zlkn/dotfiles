@@ -60,7 +60,7 @@ return {
                     path = 1,
                     shorting_target = 40,
                     symbols = {
-                        modified = " ",
+                        modified = icons.git.modified,
                         readonly = "󱚳 ",
                         unnamed = "[NoName]",
                         newfile = "[New]",
