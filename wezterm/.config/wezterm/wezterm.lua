@@ -112,7 +112,7 @@ local function get_icon(tab)
         end
     else
         local exec_name = get_process_name(tab.active_pane.foreground_process_name)
-        print("exec_name: " .. exec_name)
+        -- print("exec_name: " .. exec_name)
 
         if exec_name == "wezterm-gui" then
             icon = wezterm.nerdfonts.md_access_point .. " WezTerm"
