@@ -39,6 +39,7 @@ local palette = {
         cornflowerBlue = "#b6d6fd",
         darkGray = "#424242",
         borderGray = "#f1f1f1",
+        border = "#d1d1d1",
         mediumGray = "#808080",
         pencilGray = "#9d9d9d",
         lightGray = "#f0f0f0",
