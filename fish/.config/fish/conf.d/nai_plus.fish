@@ -74,6 +74,9 @@ function _git_info
 end
 
 function _python_env
+
+    __auto_source_venv
+
     set -l color (set_color yellow)
     set -l normal (set_color normal)
     if test -n "$VIRTUAL_ENV"
@@ -110,7 +113,6 @@ end
 
 function fish_prompt
 
-    __auto_source_venv
 
     set -l last_status (_exit_status)
     set -l cwd (basename (prompt_pwd))
