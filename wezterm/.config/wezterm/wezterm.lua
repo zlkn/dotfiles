@@ -29,6 +29,7 @@ wayland_gnome.apply_to_config(config)
 -- Window config
 config.initial_cols = 160
 config.initial_rows = 42
+config.scrollback_lines = 100000
 config.window_close_confirmation = "NeverPrompt"
 -- config.integrated_title_buttons = { "Close" }
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
@@ -180,16 +181,16 @@ config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
 config.keys = {
     { key = "UpArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(-1) },
     { key = "DownArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(1) },
-    { key = "w", mods = "ALT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
-    { key = "x", mods = "ALT", action = wezterm.action.ActivateCopyMode },
-    { key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
+    { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+    { key = "x", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
+    -- { key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
     { key = "-", mods = "ALT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
     { key = "\\", mods = "ALT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-    { key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Left") },
-    { key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
-    { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
-    { key = "t", mods = "ALT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
-    { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
+    { key = "h", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Left") },
+    { key = "j", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Down") },
+    { key = "k", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Up") },
+    { key = "t", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+    { key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Right") },
     {
         key = "g",
         mods = "ALT",
