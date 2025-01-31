@@ -118,15 +118,15 @@ local function get_icon(tab)
         if exec_name == "wezterm-gui" then
             icon = wezterm.nerdfonts.md_access_point .. " WezTerm"
         elseif exec_name == "sudo" then
-            icon = wezterm.nerdfonts.md_shield_half_full .. " "
+            icon = wezterm.nerdfonts.md_shield_half_full
         elseif in_array(exec_name, { "sh", "bash", "zsh", "fish" }) then
-            icon = wezterm.nerdfonts.md_console_line .. " "
+            icon = wezterm.nerdfonts.md_console_line
         elseif exec_name == "kubectl" then
-            icon = wezterm.nerdfonts.md_kubernetes .. " "
+            icon = wezterm.nerdfonts.md_kubernetes
         elseif in_array(exec_name, { "ssh", "sftp" }) then
-            icon = wezterm.nerdfonts.md_cloud .. " "
+            icon = wezterm.nerdfonts.md_cloud
         elseif in_array(exec_name, { "btm", "top", "htop", "ntop" }) then
-            icon = wezterm.nerdfonts.md_gauge .. " "
+            icon = wezterm.nerdfonts.md_gauge
         elseif exec_name == "nvim" then
             icon = wezterm.nerdfonts.linux_neovim
         elseif exec_name == "vim" then
