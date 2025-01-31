@@ -98,7 +98,23 @@ local colors = {
     quick_select_match_bg = { Color = palette.extra.cornflowerBlue },
     quick_select_match_fg = { Color = palette.brights.black },
 
-    tab_bar = { inactive_tab_edge = palette.extra.lightGray },
+    tab_bar = {
+        background = palette.extra.lightGray,
+        inactive_tab_edge = palette.extra.lightGray,
+        active_tab = {
+            -- bg_color = "#2b2042",
+            -- fg_color = "#c0c0c0",
+            bg_color = palette.extra.borderGray,
+            fg_color = palette.ansi.black,
+        },
+
+        inactive_tab = {
+            -- bg_color = "#2b2042",
+            -- fg_color = "#c0c0c0",
+            bg_color = palette.extra.borderGray,
+            fg_color = palette.ansi.black,
+        },
+    },
 }
 
 return {

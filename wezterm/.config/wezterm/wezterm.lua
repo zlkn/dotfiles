@@ -161,19 +161,28 @@ end
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
     local foreground = colorscheme.colors.foreground
+    local background = colorscheme.palette.extra.border
 
     if not tab.is_active then
-        foreground = colorscheme.palette.extra.mediumGray
+        background = colorscheme.palette.extra.borderGray
     elseif hover then
-        foreground = colorscheme.palette.extra.mediumGray
+        background = colorscheme.palette.extra.borderGray
     end
 
-    local title = " " .. get_icon(tab) .. tab_title(tab) .. " "
+    local title = get_icon(tab) .. tab_title(tab)
 
     return wezterm.format({
-        { Background = { Color = colorscheme.colors.background } },
+        { Background = { Color = colorscheme.palette.extra.borderGray } },
+        { Foreground = { Color = background } },
+        { Text = "" },
+        --
+        { Background = { Color = background } },
         { Foreground = { Color = foreground } },
         { Text = title },
+
+        { Background = { Color = colorscheme.palette.extra.borderGray } },
+        { Foreground = { Color = background } },
+        { Text = "" },
     })
 end)
 
@@ -183,8 +192,8 @@ config.keys = {
     { key = "DownArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(1) },
     { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
     { key = "x", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
-    -- { key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
     { key = "-", mods = "ALT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+    -- { key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
     { key = "\\", mods = "ALT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
     { key = "h", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Left") },
     { key = "j", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Down") },
