@@ -102,15 +102,11 @@ local colors = {
         background = palette.extra.lightGray,
         inactive_tab_edge = palette.extra.lightGray,
         active_tab = {
-            -- bg_color = "#2b2042",
-            -- fg_color = "#c0c0c0",
             bg_color = palette.extra.borderGray,
             fg_color = palette.ansi.black,
         },
 
         inactive_tab = {
-            -- bg_color = "#2b2042",
-            -- fg_color = "#c0c0c0",
             bg_color = palette.extra.borderGray,
             fg_color = palette.ansi.black,
         },
