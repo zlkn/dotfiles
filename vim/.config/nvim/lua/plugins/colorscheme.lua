@@ -18,6 +18,7 @@ return {
                         keywords = "bold",
                         types = "bold",
                         tags = "bold",
+                        operators = "bold",
                     },
                 },
                 specs = {
