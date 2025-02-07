@@ -48,3 +48,7 @@ vim.api.nvim_set_keymap(
 
 vim.keymap.set("n", "<S-Enter>", "<C-d>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-Enter>", "<C-u>", { noremap = true, silent = true })
+
+-- Keymaps for run lua code in selection
+vim.keymap.set("n", "<leader>rx", "<cmd>source %<CR>")
+vim.keymap.set("v", "<leader>rx", ":.lua<CR>")
