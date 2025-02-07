@@ -111,13 +111,19 @@ function _exit_status
     # ✔
 end
 
-function fish_prompt
+function _playground_env
+    if test -n "$PLAYGROUND"
+        echo -ns (set_color brcyan)"󰡨 "(set_color normal)
+    end
+end
 
+function fish_prompt
 
     set -l last_status (_exit_status)
     set -l cwd (basename (prompt_pwd))
     set -l git_info (_git_info)
     set -l pytohn_env (_python_env)
+    set -l playground_env (_playground_env)
 
-    printf '%s' $cwd $pytohn_env $git_info $last_status ' '
+    printf '%s' $playground_env $cwd $pytohn_env $git_info $last_status ' '
 end
