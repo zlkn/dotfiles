@@ -2,7 +2,7 @@ local palette = {
     ansi = {
         black = "#212121",
         red = "#c30771",
-        green = "#10a778",
+        green = "#0d844c",
         yellow = "#d79921",
         blue = "#0550ae",
         magenta = "#523c79",
@@ -31,7 +31,7 @@ local palette = {
     extra = {
         cyan = "#007474",
         green = "#10a778",
-        chromeGreen = "#0d8441",
+        chromeGreen = "#0d844c",
         PineGreen = "#27745c",
         LightSeaGreen = "#5fd7af",
         MoonStonecyan = "#4fb8cc",
@@ -90,12 +90,12 @@ local colors = {
     },
 
     copy_mode_active_highlight_bg = { Color = palette.extra.cornflowerBlue },
-    copy_mode_active_highlight_fg = { Color = palette.ansi.black },
+    copy_mode_active_highlight_fg = { Color = palette.ansi.magenta },
     copy_mode_inactive_highlight_bg = { Color = palette.ansi.green },
-    copy_mode_inactive_highlight_fg = { Color = palette.ansi.black },
+    copy_mode_inactive_highlight_fg = { Color = palette.ansi.red },
 
-    quick_select_label_bg = { Color = palette.ansi.green },
-    quick_select_label_fg = { Color = palette.brights.black },
+    quick_select_label_bg = { Color = palette.extra.PineGreen },
+    quick_select_label_fg = { Color = palette.brights.white },
     quick_select_match_bg = { Color = palette.extra.cornflowerBlue },
     quick_select_match_fg = { Color = palette.brights.black },
 
