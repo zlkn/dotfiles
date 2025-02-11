@@ -130,8 +130,10 @@ local function get_icon(tab)
             icon.color = colorscheme.palette.brights.blue
         elseif in_array(exec_name, { "ssh", "sftp" }) then
             icon.symbol = wezterm.nerdfonts.md_cloud
+            icon.color = colorscheme.palette.brights.blue
         elseif in_array(exec_name, { "btm", "top", "htop", "ntop" }) then
             icon.symbol = wezterm.nerdfonts.md_gauge
+            icon.color = colorscheme.palette.brights.black
         elseif exec_name == "nvim" then
             icon.symbol = wezterm.nerdfonts.linux_neovim
             icon.color = colorscheme.palette.extra.PineGreen
@@ -151,11 +153,13 @@ local function get_icon(tab)
             icon.symbol = wezterm.nerdfonts.md_language_python
         elseif in_array(exec_name, { "lazygit", "git" }) then
             icon.symbol = wezterm.nerdfonts.fa_github_alt
+            icon.color = colorscheme.palette.brights.black
         elseif exec_name == "terraform" then
             icon.symbol = wezterm.nerdfonts.md_terraform
-            icon.color = colorscheme.palette.brights.magenta
+            icon.color = colorscheme.palette.brights.mgenta
         elseif exec_name == "gcloud" then
             icon.symbol = wezterm.nerdfonts.md_google_cloud
+            icon.color = colorscheme.palette.extra.darkBlue
         else
             icon.symbol = wezterm.nerdfonts.md_run
         end
@@ -178,6 +182,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 
     local icon = get_icon(tab)
     local title = tab_title(tab)
+    print("title: " .. title)
 
     return wezterm.format({
         { Background = { Color = colorscheme.palette.extra.borderGray } },
