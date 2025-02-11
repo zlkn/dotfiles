@@ -1,6 +1,6 @@
 local palette = {
     ansi = {
-        black = "#212121",
+        black = "#313131",
         red = "#c30771",
         green = "#0d844c",
         yellow = "#d79921",
@@ -35,6 +35,7 @@ local palette = {
         PineGreen = "#27745c",
         LightSeaGreen = "#5fd7af",
         MoonStonecyan = "#4fb8cc",
+        darkBlue = "#0a3069",
         brown = "#a66f00",
         yellow = "#d7af5f",
         cornflowerBlue = "#b6d6fd",
