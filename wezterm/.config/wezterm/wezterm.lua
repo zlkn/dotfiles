@@ -186,8 +186,15 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     })
 end)
 
+wezterm.on("update-right-status", function(window, pane)
+    window:set_left_status("l")
+    window:set_right_status("r")
+end)
+
+-- Keybindings
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
 config.keys = {
+    { key = "<", mods = "CTRL", action = wezterm.action.ShowTabNavigator },
     { key = "UpArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(-1) },
     { key = "DownArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(1) },
     { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },

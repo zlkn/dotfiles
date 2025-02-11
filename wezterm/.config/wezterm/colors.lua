@@ -30,7 +30,8 @@ local palette = {
     },
     extra = {
         cyan = "#007474",
-        -- green = "#10a778",
+        green = "#10a778",
+        chromeGreen = "#0d8441",
         PineGreen = "#27745c",
         LightSeaGreen = "#5fd7af",
         MoonStonecyan = "#4fb8cc",
