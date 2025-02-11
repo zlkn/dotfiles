@@ -103,57 +103,64 @@ local function get_process_name(str)
 end
 
 local function get_icon(tab)
-    local icon = ""
+    local icon = {
+        symbol = "",
+        color = colorscheme.colors.foreground,
+    }
 
     if tab.active_pane.foreground_process_name == "" then
         if tab.active_pane.domain_name == "local" then
-            icon = wezterm.nerdfonts.md_run .. ".."
+            icon.symbol = wezterm.nerdfonts.md_run .. " .."
         else
-            icon = wezterm.nerdfonts.md_collage
+            icon.symbol = wezterm.nerdfonts.md_collage .. " .."
         end
     else
         local exec_name = get_process_name(tab.active_pane.foreground_process_name)
         -- print("exec_name: " .. exec_name)
 
         if exec_name == "wezterm-gui" then
-            icon = wezterm.nerdfonts.md_access_point .. " WezTerm"
+            icon.symbol = wezterm.nerdfonts.md_access_point .. " WezTerm"
         elseif exec_name == "sudo" then
-            icon = wezterm.nerdfonts.md_shield_half_full
+            icon.symbol = wezterm.nerdfonts.md_shield_half_full
         elseif in_array(exec_name, { "sh", "bash", "zsh", "fish" }) then
-            icon = wezterm.nerdfonts.md_console_line
+            icon.symbol = wezterm.nerdfonts.md_console_line
+            icon.color = colorscheme.palette.extra.darkGray
         elseif exec_name == "kubectl" then
-            icon = wezterm.nerdfonts.md_kubernetes
+            icon.symbol = wezterm.nerdfonts.md_kubernetes
+            icon.color = colorscheme.palette.brights.blue
         elseif in_array(exec_name, { "ssh", "sftp" }) then
-            icon = wezterm.nerdfonts.md_cloud
+            icon.symbol = wezterm.nerdfonts.md_cloud
         elseif in_array(exec_name, { "btm", "top", "htop", "ntop" }) then
-            icon = wezterm.nerdfonts.md_gauge
+            icon.symbol = wezterm.nerdfonts.md_gauge
         elseif exec_name == "nvim" then
-            icon = wezterm.nerdfonts.linux_neovim
+            icon.symbol = wezterm.nerdfonts.linux_neovim
+            icon.color = colorscheme.palette.extra.PineGreen
         elseif exec_name == "vim" then
             icon = wezterm.nerdfonts.linux_neovim
         elseif exec_name == "nano" then
-            icon = wezterm.nerdfonts.linux_neovim
+            icon.symbol = wezterm.nerdfonts.linux_neovim
         elseif in_array(exec_name, { "bat", "less", "moar" }) then
-            icon = wezterm.nerdfonts.md_magnify
+            icon.symbol = wezterm.nerdfonts.md_magnify
         elseif in_array(exec_name, { "fzf", "peco" }) then
-            icon = wezterm.nerdfonts.md_magnify
+            icon.symbol = wezterm.nerdfonts.md_magnify
         elseif exec_name == "man" then
-            icon = wezterm.nerdfonts.md_magnify
+            icon.symbol = wezterm.nerdfonts.md_magnify
         elseif in_array(exec_name, { "aria2c", "curl", "wget", "yt-dlp", "rsync" }) then
-            icon = wezterm.nerdfonts.md_flash
+            icon.symbol = wezterm.nerdfonts.md_flash
         elseif in_array(exec_name, { "python", "Python", "python3" }) then
-            icon = wezterm.nerdfonts.md_language_python
+            icon.symbol = wezterm.nerdfonts.md_language_python
         elseif in_array(exec_name, { "lazygit", "git" }) then
-            icon = wezterm.nerdfonts.fa_github_alt
+            icon.symbol = wezterm.nerdfonts.fa_github_alt
         elseif exec_name == "terraform" then
-            icon = wezterm.nerdfonts.md_terraform
+            icon.symbol = wezterm.nerdfonts.md_terraform
+            icon.color = colorscheme.palette.brights.magenta
         elseif exec_name == "gcloud" then
-            icon = wezterm.nerdfonts.md_google_cloud
+            icon.symbol = wezterm.nerdfonts.md_google_cloud
         else
-            icon = wezterm.nerdfonts.md_run
+            icon.symbol = wezterm.nerdfonts.md_run
         end
 
-        icon = icon .. " "
+        icon.symbol = icon.symbol .. " "
     end
 
     return icon
@@ -169,13 +176,18 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
         background = colorscheme.palette.extra.borderGray
     end
 
-    local title = get_icon(tab) .. tab_title(tab)
+    local icon = get_icon(tab)
+    local title = tab_title(tab)
 
     return wezterm.format({
         { Background = { Color = colorscheme.palette.extra.borderGray } },
         { Foreground = { Color = background } },
         { Text = "" },
-        --
+
+        { Background = { Color = background } },
+        { Foreground = { Color = icon.color } },
+        { Text = icon.symbol },
+
         { Background = { Color = background } },
         { Foreground = { Color = foreground } },
         { Text = title },
