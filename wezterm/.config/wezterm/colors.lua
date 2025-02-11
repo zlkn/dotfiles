@@ -92,7 +92,7 @@ local colors = {
     copy_mode_active_highlight_bg = { Color = palette.extra.cornflowerBlue },
     copy_mode_active_highlight_fg = { Color = palette.ansi.magenta },
     copy_mode_inactive_highlight_bg = { Color = palette.ansi.green },
-    copy_mode_inactive_highlight_fg = { Color = palette.ansi.red },
+    copy_mode_inactive_highlight_fg = { Color = palette.brights.white },
 
     quick_select_label_bg = { Color = palette.extra.PineGreen },
     quick_select_label_fg = { Color = palette.brights.white },
