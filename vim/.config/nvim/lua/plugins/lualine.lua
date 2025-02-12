@@ -1,6 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
+    enabled = true,
 
     opts = function(_, opts)
         -- transparent background for lualine
@@ -9,7 +10,7 @@ return {
         for mode, _ in pairs(auto_theme_custom) do
             -- auto_theme_custom[mode].c.bg = "none"
             auto_theme_custom[mode].c.bg = "#f1f1f1"
-            auto_theme_custom[mode].c.fg = "#424242"
+            auto_theme_custom[mode].c.fg = "#313131"
         end
 
         local icons = LazyVim.config.icons

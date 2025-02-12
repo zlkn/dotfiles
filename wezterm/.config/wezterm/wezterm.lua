@@ -122,6 +122,9 @@ local function get_icon(tab)
             icon.symbol = wezterm.nerdfonts.md_access_point .. " WezTerm"
         elseif exec_name == "sudo" then
             icon.symbol = wezterm.nerdfonts.md_shield_half_full
+        elseif exec_name == "ncdu" then
+            icon.symbol = wezterm.nerdfont.fa_pie_chart
+            icon.color = colorscheme.palette.brights.yellow
         elseif in_array(exec_name, { "sh", "bash", "zsh", "fish" }) then
             icon.symbol = wezterm.nerdfonts.md_console_line
             icon.color = colorscheme.palette.extra.darkGray
@@ -170,7 +173,8 @@ local function get_icon(tab)
     return icon
 end
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+---@diagnostic disable-next-line: unused-local
+wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
     local foreground = colorscheme.colors.foreground
     local background = colorscheme.palette.extra.border
 
@@ -203,9 +207,10 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     })
 end)
 
+---@diagnostic disable-next-line: unused-local
 wezterm.on("update-right-status", function(window, pane)
-    window:set_left_status("l")
-    window:set_right_status("r")
+    window:set_left_status("")
+    window:set_right_status("")
 end)
 
 -- Keybindings

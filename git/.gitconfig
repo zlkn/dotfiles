@@ -1,27 +1,23 @@
-[includeIf "gitdir:~/Personal/"]
-    path = "~/.gitconfig-personal"
-[includeIf "gitdir:~/dotfiles/"]
-    path = "~/.gitconfig-personal"
 [init]
-    defaultBranch = master
+    defaultBranch = main
 [push]
     autoSetupRemote = true
 [credential]
     helper = cache --timeout=604800
 [alias]
     bn = "!git rev-parse --abbrev-ref HEAD"
-    mrtd = "!git push -o merge_request.create -o merge_request.target=develop -o merge_request.remove_source_branch,merge_request.squash origin $(git bn)"
-    mrtr = "!git push -o merge_request.create -o merge_request.target=release -o merge_request.remove_source_branch,merge_request.squash origin $(git bn)"
-    mrtm = "!git push -o merge_request.create -o merge_request.target=main -o merge_request.remove_source_branch,merge_request.squash origin $(git bn)"
+    mrtd = "!git push -o merge_request.create -o merge_request.target=develop -o merge_request.remove_source_branch -o merge_request.squash origin $(git bn)"
+    mrtr = "!git push -o merge_request.create -o merge_request.target=release -o merge_request.remove_source_branch -o merge_request.squash origin $(git bn)"
+    mrtm = "!git push -o merge_request.create -o merge_request.target=main -o merge_request.remove_source_branch -o merge_request.squash origin $(git bn)"
 [core]
     autocrlf = input
-    sshCommand = ssh -i ~/.ssh/id_ed25519
     editor = nvim
-[user]
-    name = Yuri Zolkin
-    email = yzolkin@scorewarrior.com
-[commit]
-    gpgSign = true
-
 [pull]
-	ff = only
+	rebase = true
+[includeIf "gitdir:~/Workspace/"]
+    path = /home/yzolkin/dotfiles/git/.gitconfig-workspace
+[includeIf "gitdir:~/Personal/"]
+    path = /home/yzolkin/dotfiles/git/.gitconfig-personal
+[includeIf "gitdir:~/dotfiles/"]
+    path = /home/yzolkin/dotfiles/git/.gitconfig-personal
+

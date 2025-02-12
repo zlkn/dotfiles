@@ -5,3 +5,5 @@
   email = yzolkin@scorewarrior.com
 [commit]
   gpgsign = true
+;[gpg]
+;  format = ssh
