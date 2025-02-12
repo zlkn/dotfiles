@@ -173,7 +173,8 @@ local function get_icon(tab)
     return icon
 end
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+---@diagnostic disable-next-line: unused-local
+wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
     local foreground = colorscheme.colors.foreground
     local background = colorscheme.palette.extra.border
 
@@ -206,6 +207,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     })
 end)
 
+---@diagnostic disable-next-line: unused-local
 wezterm.on("update-right-status", function(window, pane)
     window:set_left_status("")
     window:set_right_status("")
