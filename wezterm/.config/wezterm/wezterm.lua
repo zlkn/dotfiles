@@ -133,7 +133,7 @@ local function get_icon(tab)
             icon.color = colorscheme.palette.brights.blue
         elseif in_array(exec_name, { "ssh", "sftp" }) then
             icon.symbol = wezterm.nerdfonts.md_cloud
-            icon.color = colorscheme.palette.brights.blue
+            icon.color = colorscheme.palette.extra.deepTeal
         elseif in_array(exec_name, { "btm", "top", "htop", "ntop" }) then
             icon.symbol = wezterm.nerdfonts.md_gauge
             icon.color = colorscheme.palette.brights.black
@@ -247,5 +247,12 @@ for i = 1, 8 do
         action = wezterm.action.ActivateTab(i - 1),
     })
 end
+
+config.unix_domains = {
+    {
+        name = "neovim",
+        proxy_command = { "docker", "exec", "-i", "neovim", "wezterm", "cli", "proxy" },
+    },
+}
 
 return config
