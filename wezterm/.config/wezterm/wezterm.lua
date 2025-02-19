@@ -213,6 +213,11 @@ wezterm.on("update-right-status", function(window, pane)
     window:set_right_status("")
 end)
 
+-- Command Palette
+config.command_palette_font_size = 11
+config.command_palette_bg_color = colorscheme.palette.extra.border
+config.command_palette_fg_color = colorscheme.colors.foreground
+
 -- Keybindings
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
 config.keys = {
