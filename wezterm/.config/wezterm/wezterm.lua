@@ -103,73 +103,54 @@ local function get_process_name(str)
 end
 
 local function get_icon(tab)
-    local icon = {
-        symbol = "",
-        color = colorscheme.colors.foreground,
+    local icons = {
+        ["wezterm-gui"] = { symbol = wezterm.nerdfonts.md_access_point .. " WezTerm" },
+        ["sudo"] = { symbol = wezterm.nerdfonts.md_shield_half_full },
+        -- ["ncdu"] = { symbol = wezterm.nerdfont.fa_pie_chart, color = colorscheme.palette.brights.yellow },
+        ["sh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
+        ["bash"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
+        ["zsh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
+        ["fish"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
+        ["kubectl"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colorscheme.palette.brights.blue },
+        ["ssh"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.extra.deepTeal },
+        ["sftp"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.extra.deepTeal },
+        ["btm"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
+        ["top"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
+        ["htop"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
+        ["ntop"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
+        ["nvim"] = { symbol = wezterm.nerdfonts.linux_neovim, color = colorscheme.palette.extra.PineGreen },
+        ["vim"] = { symbol = wezterm.nerdfonts.linux_neovim },
+        ["nano"] = { symbol = wezterm.nerdfonts.linux_neovim },
+        ["bat"] = { symbol = wezterm.nerdfonts.md_magnify },
+        ["less"] = { symbol = wezterm.nerdfonts.md_magnify },
+        ["moar"] = { symbol = wezterm.nerdfonts.md_magnify },
+        ["fzf"] = { symbol = wezterm.nerdfonts.md_magnify },
+        ["peco"] = { symbol = wezterm.nerdfonts.md_magnify },
+        ["man"] = { symbol = wezterm.nerdfonts.md_magnify },
+        ["aria2c"] = { symbol = wezterm.nerdfonts.md_flash },
+        ["curl"] = { symbol = wezterm.nerdfonts.md_flash },
+        ["wget"] = { symbol = wezterm.nerdfonts.md_flash },
+        ["yt-dlp"] = { symbol = wezterm.nerdfonts.md_flash },
+        ["rsync"] = { symbol = wezterm.nerdfonts.md_flash },
+        ["python"] = { symbol = wezterm.nerdfonts.md_language_python },
+        ["Python"] = { symbol = wezterm.nerdfonts.md_language_python },
+        ["python3"] = { symbol = wezterm.nerdfonts.md_language_python },
+        ["lazygit"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.black },
+        ["git"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.black },
+        ["terraform"] = { symbol = wezterm.nerdfonts.md_terraform, color = colorscheme.palette.brights.mgenta },
+        ["gcloud"] = { symbol = wezterm.nerdfonts.md_google_cloud, color = colorscheme.palette.extra.darkBlue },
     }
 
+    local icon = { symbol = wezterm.nerdfonts.md_run, color = colorscheme.palette.extra.darkGray }
     if tab.active_pane.foreground_process_name == "" then
-        if tab.active_pane.domain_name == "local" then
-            icon.symbol = wezterm.nerdfonts.md_run .. " .."
-        else
-            icon.symbol = wezterm.nerdfonts.md_collage .. " .."
-        end
+        print("debug")
     else
         local exec_name = get_process_name(tab.active_pane.foreground_process_name)
-        -- print("exec_name: " .. exec_name)
-
-        if exec_name == "wezterm-gui" then
-            icon.symbol = wezterm.nerdfonts.md_access_point .. " WezTerm"
-        elseif exec_name == "sudo" then
-            icon.symbol = wezterm.nerdfonts.md_shield_half_full
-        elseif exec_name == "ncdu" then
-            icon.symbol = wezterm.nerdfont.fa_pie_chart
-            icon.color = colorscheme.palette.brights.yellow
-        elseif in_array(exec_name, { "sh", "bash", "zsh", "fish" }) then
-            icon.symbol = wezterm.nerdfonts.md_console_line
-            icon.color = colorscheme.palette.extra.darkGray
-        elseif exec_name == "kubectl" then
-            icon.symbol = wezterm.nerdfonts.md_kubernetes
-            icon.color = colorscheme.palette.brights.blue
-        elseif in_array(exec_name, { "ssh", "sftp" }) then
-            icon.symbol = wezterm.nerdfonts.md_cloud
-            icon.color = colorscheme.palette.extra.deepTeal
-        elseif in_array(exec_name, { "btm", "top", "htop", "ntop" }) then
-            icon.symbol = wezterm.nerdfonts.md_gauge
-            icon.color = colorscheme.palette.brights.black
-        elseif exec_name == "nvim" then
-            icon.symbol = wezterm.nerdfonts.linux_neovim
-            icon.color = colorscheme.palette.extra.PineGreen
-        elseif exec_name == "vim" then
-            icon = wezterm.nerdfonts.linux_neovim
-        elseif exec_name == "nano" then
-            icon.symbol = wezterm.nerdfonts.linux_neovim
-        elseif in_array(exec_name, { "bat", "less", "moar" }) then
-            icon.symbol = wezterm.nerdfonts.md_magnify
-        elseif in_array(exec_name, { "fzf", "peco" }) then
-            icon.symbol = wezterm.nerdfonts.md_magnify
-        elseif exec_name == "man" then
-            icon.symbol = wezterm.nerdfonts.md_magnify
-        elseif in_array(exec_name, { "aria2c", "curl", "wget", "yt-dlp", "rsync" }) then
-            icon.symbol = wezterm.nerdfonts.md_flash
-        elseif in_array(exec_name, { "python", "Python", "python3" }) then
-            icon.symbol = wezterm.nerdfonts.md_language_python
-        elseif in_array(exec_name, { "lazygit", "git" }) then
-            icon.symbol = wezterm.nerdfonts.fa_github_alt
-            icon.color = colorscheme.palette.brights.black
-        elseif exec_name == "terraform" then
-            icon.symbol = wezterm.nerdfonts.md_terraform
-            icon.color = colorscheme.palette.brights.mgenta
-        elseif exec_name == "gcloud" then
-            icon.symbol = wezterm.nerdfonts.md_google_cloud
-            icon.color = colorscheme.palette.extra.darkBlue
-        else
-            icon.symbol = wezterm.nerdfonts.md_run
-        end
-
-        icon.symbol = icon.symbol .. " "
+        print("exec_name" .. exec_name)
+        icon = icons[exec_name] or { symbol = wezterm.nerdfonts.md_run, color = colorscheme.palette.extra.darkGray }
     end
 
+    icon.symbol = icon.symbol .. " "
     return icon
 end
 
