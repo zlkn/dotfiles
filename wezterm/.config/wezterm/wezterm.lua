@@ -88,16 +88,6 @@ local function tab_title(tab_info)
     return tab_info.active_pane.title
 end
 
-local function in_array(value, array)
-    for _, val in ipairs(array) do
-        if val == value then
-            return true
-        end
-    end
-
-    return false
-end
-
 local function get_process_name(str)
     return str:gsub("^.*[/\\]", ""):gsub("%.exe$", "")
 end
@@ -143,10 +133,9 @@ local function get_icon(tab)
 
     local icon = { symbol = wezterm.nerdfonts.md_run, color = colorscheme.palette.extra.darkGray }
     if tab.active_pane.foreground_process_name == "" then
-        print("debug")
+        icon = { symbol = wezterm.nerdfonts.md_collage, color = colorscheme.palette.extra.darkGray }
     else
         local exec_name = get_process_name(tab.active_pane.foreground_process_name)
-        print("exec_name" .. exec_name)
         icon = icons[exec_name] or { symbol = wezterm.nerdfonts.md_run, color = colorscheme.palette.extra.darkGray }
     end
 
@@ -198,6 +187,11 @@ end)
 config.command_palette_font_size = 11
 config.command_palette_bg_color = colorscheme.palette.extra.border
 config.command_palette_fg_color = colorscheme.colors.foreground
+
+-- Char select
+config.char_select_font_size = 11
+config.char_select_bg_color = colorscheme.palette.extra.border
+config.char_select_fg_color = colorscheme.colors.foreground
 
 -- Keybindings
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
