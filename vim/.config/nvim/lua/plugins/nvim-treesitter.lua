@@ -23,6 +23,31 @@ MiniDeps.later(function()
     -- Possible to immediately execute code which depends on the added plugin
     require("nvim-treesitter.configs").setup({
         ensure_installed = { "lua", "vimdoc", "yaml" },
+        ensure_installed = {
+            "bash",
+            "c",
+            "diff",
+            "html",
+            "javascript",
+            "jsdoc",
+            "json",
+            "jsonc",
+            "lua",
+            "luadoc",
+            "luap",
+            "markdown",
+            "markdown_inline",
+            "printf",
+            "python",
+            "query",
+            "regex",
+            "toml",
+            "tsx",
+            "vim",
+            "vimdoc",
+            "xml",
+            "yaml",
+        },
         highlight = { enable = true },
     })
 
