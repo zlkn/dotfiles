@@ -34,7 +34,7 @@ function _git_info
     set -l git_info ""
 
     set -l yellow (set_color yellow)
-    set -l green (set_color brgreen)
+    set -l green (set_color green)
     set -l blue (set_color blue)
     set -l red (set_color red)
     set -l normal (set_color normal)
@@ -99,16 +99,22 @@ function humantime --argument-names ms --description "Turn milliseconds into a h
     set --query out && echo $out || echo $ms"ms"
 end
 
-function fish_right_prompt
+function _cmd_duration
     if test $CMD_DURATION -gt 100
-        set -l timing (humantime $CMD_DURATION)
-        printf '%s' $timing
+        set -l duration " "(humantime $CMD_DURATION)
+        echo $duration
     end
 end
 
 function _exit_status
-    test $status -gt 0; and echo " "(set_color red)"✘"(set_color normal)
-    # ✔
+    set -l last_status $status
+    set -g CMD_COUNT (math $CMD_COUNT + 1)
+
+    if test $last_status -gt 0
+        echo " "(set_color red)"✘"(set_color normal)
+    else if test $CMD_COUNT -gt 1
+        echo " "(set_color green)"✔"(set_color normal)
+    end
 end
 
 function _playground_env
@@ -118,12 +124,12 @@ function _playground_env
 end
 
 function fish_prompt
-
     set -l last_status (_exit_status)
+    set -l cmd_duration (_cmd_duration)
     set -l cwd (basename (prompt_pwd))
     set -l git_info (_git_info)
     set -l pytohn_env (_python_env)
     set -l playground_env (_playground_env)
 
-    printf '%s' $playground_env $cwd $pytohn_env $git_info $last_status ' '
+    printf '%s' $playground_env $cwd $pytohn_env $git_info $cmd_duration $last_status ' '
 end
