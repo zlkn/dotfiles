@@ -7,9 +7,11 @@ MiniDeps.add({
 -- https://www.reddit.com/r/neovim/comments/zh4kc8/comment/jhekub8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 local auto_theme_custom = require("lualine.themes.auto")
 for mode, _ in pairs(auto_theme_custom) do
-    -- auto_theme_custom[mode].c.bg = "none"
-    auto_theme_custom[mode].c.bg = "#f4f5f5"
-    auto_theme_custom[mode].c.fg = "#313131"
+    for _, part in ipairs({ "a", "b", "c" }) do
+        auto_theme_custom[mode][part].bg = "#f4f5f5"
+        -- auto_theme_custom[mode].c.bg = "none"
+        auto_theme_custom[mode][part].fg = "#313131"
+    end
 end
 
 local function git_root()
@@ -46,14 +48,25 @@ end
 require("lualine").setup({
     options = {
         theme = auto_theme_custom,
+        -- section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
         always_show_tabline = true,
         globalstatus = true,
+        section_separators = "",
+        disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+        },
     },
     sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff" },
         lualine_c = {},
-        lualine_z = { "encoding" },
+        -- lualine_z = { "encoding" },
+        lualine_x = {},
+        -- lualine_y = { "progress", "location" },
+        lualine_y = {},
+        lualine_z = { "progress", "location", "encoding", "filetype", "fileformat" },
     },
     tabline = {
         lualine_c = {
