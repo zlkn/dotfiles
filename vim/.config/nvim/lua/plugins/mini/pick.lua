@@ -14,4 +14,6 @@ MiniDeps.later(function()
     vim.keymap.set("n", "<leader>g/", function()
         MiniPick.builtin.files({ items = { "foo", "bar" } })
     end, { desc = "Changed files " })
+
+    vim.keymap.set("n", "<leader>gfm", ":Pick git_files scope='modified'<CR>", { desc = "Find modified files" })
 end)
