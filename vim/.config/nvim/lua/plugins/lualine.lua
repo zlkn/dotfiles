@@ -90,7 +90,7 @@ require("lualine").setup({
                 symbols = {
                     modified = "m",
                     readonly = "󱚳 ",
-                    unnamed = "[NoName]",
+                    unnamed = "",
                     newfile = "[New]",
                 },
             },
