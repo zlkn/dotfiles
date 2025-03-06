@@ -51,5 +51,5 @@ MiniDeps.later(function()
         highlight = { enable = true },
     })
 
-    vim.keymap.set({ "<c-space>", desc = "Increment Selection", mode = { "x", "n" } })
+    -- vim.keymap.set("n", "<c-space>", , {desc = "Increment Selection" })
 end)

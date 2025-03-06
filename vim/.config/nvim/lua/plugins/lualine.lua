@@ -60,12 +60,12 @@ require("lualine").setup({
             { git_root() },
             {
                 "diagnostics",
-                symbols = {
-                    error = "✘",
-                    warn = "▲",
-                    info = "ℹ",
-                    hint = "⚑",
-                },
+                -- symbols = {
+                --     error = "✘",
+                --     warn = "▲",
+                --     info = "ℹ",
+                --     hint = "⚑",
+                -- },
             },
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
             {

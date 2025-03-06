@@ -17,12 +17,10 @@ require("keymaps")
 require("plugins.colorscheme")
 require("plugins.colorizer")
 require("plugins.lualine")
+
 -- require("plugins.blink")
 require("plugins.flash")
--- require("plugins.telescope")
--- require('plugins.lazydev')
 
--- require("plugins.mini.animate")
 require("plugins.mini.clue")
 require("plugins.mini.files")
 require("plugins.mini.pairs")
@@ -32,6 +30,7 @@ require("plugins.mini.cursorword")
 require("plugins.mini.hipatterns")
 require("plugins.mini.icons")
 
+-- Enhance ui
 require("plugins.indent-blankline")
 require("plugins.rainbow-delimiter")
 
