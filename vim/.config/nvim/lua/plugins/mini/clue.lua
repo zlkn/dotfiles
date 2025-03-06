@@ -32,6 +32,9 @@ MiniDeps.later(function()
             -- `z` key
             { mode = "n", keys = "z" },
             { mode = "x", keys = "z" },
+            -- `s` key
+            { mode = "n", keys = "s" },
+            { mode = "x", keys = "s" },
         },
 
         clues = {
