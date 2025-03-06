@@ -16,4 +16,10 @@ MiniDeps.later(function()
     end, { desc = "Changed files " })
 
     vim.keymap.set("n", "<leader>gfm", ":Pick git_files scope='modified'<CR>", { desc = "Find modified files" })
+
+    vim.keymap.set("n", "gD", ":Pick lsp scope='declaration'<CR>", { desc = "Goto declaration" })
+    vim.keymap.set("n", "gd", ":Pick lsp scope='definition'<CR>", { desc = "Goto definition" })
+    vim.keymap.set("n", "gi", ":Pick lsp scope='implementation'<CR>", { desc = "Goto implementation" })
+    vim.keymap.set("n", "gR", ":Pick lsp scope='references'<CR>", { desc = "Goto references" })
+    vim.keymap.set("n", "gy", ":Pick lsp scope='type_definition'<CR>", { desc = "Goto t[y]pe definition" })
 end)
