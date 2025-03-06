@@ -3,7 +3,7 @@ vim.keymap.set("n", "<S-Enter>", "<C-d>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-Enter>", "<C-u>", { noremap = true, silent = true })
 
 -- Keymaps for run lua code in selection
--- vim.keymap.set("n", "<leader>rx", "<cmd>source %<CR>", { desc = "Execute lua code" })
+vim.keymap.set("n", "<leader>rx", "<cmd>source %<CR>", { desc = "Execute lua code" })
 vim.keymap.set("v", "<leader>rx", ":.lua<CR>", { desc = "Execute lua code" })
 
 -- Split window
