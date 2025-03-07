@@ -13,7 +13,12 @@ MiniDeps.later(function()
             use_as_default_explorer = true,
         },
     })
-    vim.keymap.set("n", "<leader>fm", ":.lua MiniFiles.open()<CR>", { desc = "Open MiniFiles" })
+    vim.keymap.set("n", "<leader>fm", function()
+        local buf_name = vim.api.nvim_buf_get_name(0)
+        local path = vim.fn.filereadable(buf_name) == 1 and buf_name or vim.fn.getcwd()
+        MiniFiles.open(path)
+        MiniFiles.reveal_cwd()
+    end, { desc = "Open MiniFiles" })
     vim.keymap.set("n", "<leader>fM", function()
         require("mini.files").open(vim.uv.cwd())
     end, { desc = "Open MiniFiles in CWD" })
