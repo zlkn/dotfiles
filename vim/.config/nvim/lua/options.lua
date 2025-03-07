@@ -34,7 +34,18 @@ vim.o.virtualedit = "block" -- Allow going past the end of line in visual block 
 vim.o.formatoptions = "qjl1" -- Don't autoformat comments
 
 -- transparent background
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+
+vim.o.tabstop = 2 -- A TAB character looks like 4 spaces
+vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.o.softtabstop = 2 -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 2 -- Number of spaces inserted when indenting
+
+vim.opt.guicursor = {
+    "n-v-c:block-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
+    "i-ci:ver25-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
+    "r:hor50-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
+}
