@@ -14,6 +14,21 @@ for mode, _ in pairs(auto_theme_custom) do
     end
 end
 
+local function mode()
+    return function()
+        local mode_icons = {
+            n = " ", -- Normal mode, a balanced icon
+            i = "  ", -- Insert mode, a pencil-like icon
+            v = "󱈅 ", -- Visual mode, a classic choice
+            V = "󱈅 ", -- Visual-line mode, a variant for line-wise selection
+            c = " ", -- Command mode, a sharp icon
+            R = " ", -- Replace mode, a distinct icon
+        }
+        local mode = vim.fn.mode()
+        return mode_icons[mode] or "Unknown"
+    end
+end
+
 local function git_root()
     return function()
         local git_dir = vim.fn.finddir(".git", ".;")
@@ -59,7 +74,7 @@ require("lualine").setup({
         },
     },
     sections = {
-        lualine_a = { "mode" },
+        lualine_a = { mode() },
         lualine_b = { "branch", "diff" },
         lualine_c = {},
         -- lualine_z = { "encoding" },
