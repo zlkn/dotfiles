@@ -22,7 +22,6 @@ add({
 MiniDeps.later(function()
     -- Possible to immediately execute code which depends on the added plugin
     require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "vimdoc", "yaml" },
         ensure_installed = {
             "bash",
             "c",
@@ -47,6 +46,8 @@ MiniDeps.later(function()
             "vimdoc",
             "xml",
             "yaml",
+            "terraform",
+            "hcl",
         },
         highlight = { enable = true },
     })
