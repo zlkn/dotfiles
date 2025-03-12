@@ -41,7 +41,16 @@ MiniDeps.later(function()
             "hcl",
         },
         highlight = { enable = true },
-        textobkects({ enable = true }),
+        textobjects = { enable = true },
+        incremental_selection = {
+            enable = true,
+            keymaps = {
+                init_selection = "<C-space>",
+                node_incremental = "<C-space>",
+                scope_incremental = false,
+                node_decremental = "<bs>",
+            },
+        },
     })
 
     -- vim.keymap.set("n", "<c-space>", , {desc = "Increment Selection" })
