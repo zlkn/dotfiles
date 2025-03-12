@@ -15,18 +15,16 @@ for mode, _ in pairs(auto_theme_custom) do
 end
 
 local function mode()
-    return function()
-        local mode_icons = {
-            n = " ", -- Normal mode, a balanced icon
-            i = "  ", -- Insert mode, a pencil-like icon
-            v = "󱈅 ", -- Visual mode, a classic choice
-            V = "󱈅 ", -- Visual-line mode, a variant for line-wise selection
-            c = " ", -- Command mode, a sharp icon
-            R = " ", -- Replace mode, a distinct icon
-        }
-        local mode = vim.fn.mode()
-        return mode_icons[mode] or "Unknown"
-    end
+    local mode_icons = {
+        n = " ", -- Normal mode, a balanced icon
+        i = " ", -- Insert mode, a pencil-like icon
+        v = "󱈅 ", -- Visual mode, a classic choice
+        V = "󱈅 ", -- Visual-line mode, a variant for line-wise selection
+        c = " ", -- Command mode, a sharp icon
+        R = " ", -- Replace mode, a distinct icon
+    }
+    local mode = vim.fn.mode()
+    return mode_icons[mode] or "Unknown"
 end
 
 local function git_root()
@@ -74,27 +72,17 @@ require("lualine").setup({
         },
     },
     sections = {
-        lualine_a = { mode() },
+        lualine_a = { mode },
         lualine_b = { "branch", "diff" },
         lualine_c = {},
-        -- lualine_z = { "encoding" },
         lualine_x = {},
-        -- lualine_y = { "progress", "location" },
         lualine_y = {},
         lualine_z = { "progress", "location", "encoding", "filetype", "fileformat" },
     },
     tabline = {
         lualine_c = {
             { git_root() },
-            {
-                "diagnostics",
-                -- symbols = {
-                --     error = "✘",
-                --     warn = "▲",
-                --     info = "ℹ",
-                --     hint = "⚑",
-                -- },
-            },
+            { "diagnostics" },
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
             {
                 "filename",
@@ -103,13 +91,13 @@ require("lualine").setup({
                 path = 1,
                 shorting_target = 40,
                 symbols = {
-                    modified = "m",
+                    modified = " ",
                     readonly = "󱚳 ",
                     unnamed = "",
                     newfile = "[New]",
                 },
             },
         },
-        lualine_z = { { lsp_status() } },
+        lualine_z = {},
     },
 })
