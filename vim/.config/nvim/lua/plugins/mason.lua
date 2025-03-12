@@ -7,6 +7,7 @@ MiniDeps.later(function()
             "lua-language-server",
             "yaml-language-server",
             "tflint",
+            "terraform-ls",
         },
         ui = {
             border = "rounded",
