@@ -1,5 +1,6 @@
 MiniDeps.add("neovim/nvim-lspconfig")
 MiniDeps.later(function()
+    print("Setup lsp servers")
     local lspconfig = require("lspconfig")
 
     local function get_diagnostic()
@@ -10,5 +11,4 @@ MiniDeps.later(function()
     end
 
     -- vim.keymap.set("n", "<leader>ld", get_diagnostic(), { desc = "Get diagnotics messages for current buffer", remap = true, silent = true })
-    print("Setup lsp servers")
 end)
