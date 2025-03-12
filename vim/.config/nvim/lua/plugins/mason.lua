@@ -6,6 +6,7 @@ MiniDeps.later(function()
             "stylua",
             "lua-language-server",
             "yaml-language-server",
+            "tflint",
         },
         ui = {
             border = "rounded",
