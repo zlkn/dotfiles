@@ -34,7 +34,7 @@ config.window_close_confirmation = "NeverPrompt"
 -- config.integrated_title_buttons = { "Close" }
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_decorations = "NONE"
-config.window_padding = { left = 15, right = 5, top = 5, bottom = 5 }
+config.window_padding = { left = 15, right = 2, top = 2, bottom = 2 }
 config.window_frame = {
     -- Add split line on stacked wezterm
     border_left_width = "0.12cell",
@@ -196,7 +196,7 @@ config.char_select_fg_color = colorscheme.colors.foreground
 -- Keybindings
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
 config.keys = {
-    { key = "<", mods = "CTRL", action = wezterm.action.ShowTabNavigator },
+    { key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ShowTabNavigator },
     { key = "UpArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(-1) },
     { key = "DownArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(1) },
     { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
