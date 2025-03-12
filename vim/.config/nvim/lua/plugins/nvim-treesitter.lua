@@ -1,13 +1,4 @@
-local add = MiniDeps.add
-
--- Add to current session (install if absent)
--- add({
---     source = "neovim/nvim-lspconfig",
---     -- Supply dependencies near target plugin
---     depends = { "williamboman/mason.nvim" },
--- })
-
-add({
+MiniDeps.add({
     source = "nvim-treesitter/nvim-treesitter",
     -- Use 'master' while monitoring updates in 'main'
     checkout = "master",
@@ -50,6 +41,7 @@ MiniDeps.later(function()
             "hcl",
         },
         highlight = { enable = true },
+        textobkects({ enable = true }),
     })
 
     -- vim.keymap.set("n", "<c-space>", , {desc = "Increment Selection" })
