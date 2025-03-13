@@ -17,7 +17,7 @@ vim.o.cursorline = true
 vim.o.breakindent = true -- Indent wrapped lines to match line start
 vim.o.wrap = false -- Display long lines as just one line
 
-vim.o.signcolumn = "yes" -- Always show sign column (otherwise it will shift text)
+-- vim.o.signcolumn = "yes" -- Always show sign column (otherwise it will shift text)
 vim.o.fillchars = "eob: " -- Don't show `~` outside of buffer
 
 vim.opt.clipboard = "unnamedplus"
@@ -39,10 +39,10 @@ vim.o.formatoptions = "qjl1" -- Don't autoformat comments
 -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
 
-vim.o.tabstop = 2 -- A TAB character looks like 4 spaces
+vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
-vim.o.softtabstop = 2 -- Number of spaces inserted instead of a TAB character
-vim.o.shiftwidth = 2 -- Number of spaces inserted when indenting
+vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 
 vim.opt.guicursor = {
     "n-v-c:block-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
