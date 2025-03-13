@@ -2,6 +2,34 @@ MiniDeps.add("neovim/nvim-lspconfig")
 MiniDeps.later(function()
     print("Setup lsp servers")
     local lspconfig = require("lspconfig")
+
+    lspconfig.yamlls.setup({
+        settings = {
+            redhat = { telemetry = { enabled = false } },
+            yaml = {
+                keyOrdering = false,
+                format = {
+                    enable = false,
+                },
+                validate = true,
+                schemaStore = {
+                    -- Must disable built-in schemaStore support to use
+                    -- schemas from SchemaStore.nvim plugin
+                    enable = false,
+                    -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                    url = "",
+                },
+                schemas = {
+                    kubernetes = { "k8s**.yaml", "kube*/*.yaml", "tshoot*/*.yaml" },
+                    ["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
+                    ["https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json"] = "docker-compose*.{yml,yaml}",
+                    ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"] = "*.Application.yaml",
+                    ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.json"] = "*.ApplicationSet.yaml",
+                },
+            },
+        },
+    })
+
     require("lspconfig").lua_ls.setup({
         on_init = function(client)
             if client.workspace_folders then
@@ -35,7 +63,23 @@ MiniDeps.later(function()
             })
         end,
         settings = {
-            Lua = {},
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" },
+                },
+            },
         },
     })
+
+    lspconfig.terraformls.setup({
+        servers = {
+            terraformls = {
+                cmd = { "terraform-ls", "serve" },
+                filetypes = { "terraform", "tf" },
+                root_dir = require("lspconfig.util").root_pattern(".git", ".terraform", ".tf"),
+            },
+        },
+    })
+
+    lspconfig.tflint.setup({})
 end)
