@@ -24,3 +24,10 @@ vim.keymap.set("n", "<leader>qq", ":q!<CR>", { desc = "Exit without saving", nor
 -- Map <leader>wq to save and then exit
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", { desc = "Save and Exit", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ww", ":w<CR><CR>", { desc = "Save and Format", noremap = true, silent = true })
+
+vim.keymap.set("n", "[d", function()
+    vim.diagnostic.jump({ count = -1, float = true })
+end)
+vim.keymap.set("n", "]d", function()
+    vim.diagnostic.jump({ count = 1, float = true })
+end)
