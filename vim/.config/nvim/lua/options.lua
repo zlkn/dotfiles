@@ -49,3 +49,24 @@ vim.opt.guicursor = {
     "i-ci:ver25-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
     "r:hor50-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
 }
+
+vim.diagnostic.config({
+    underline = true,
+    -- virtual_text = {
+    --     prefix = "",
+    --     severity = nil,
+    --     source = "if_many",
+    --     format = nil,
+    -- },
+
+    float = {
+        -- UI.
+        header = false,
+        border = "rounded",
+        focusable = true,
+    },
+
+    signs = true,
+    severity_sort = true,
+    update_in_insert = false,
+})
