@@ -82,7 +82,19 @@ require("lualine").setup({
     tabline = {
         lualine_c = {
             { git_root() },
-            { "diagnostics" },
+            {
+                "diagnostics",
+                symbols = {
+                    error = " ",
+                    -- ▏   ▏   error = " ",
+                    -- ▏   ▏   warn = " ",
+                    -- ▏   ▏   hint = " ",
+                    -- ▏   ▏   info = " ",
+                    warn = " ",
+                    info = " ",
+                    hint = " ",
+                },
+            },
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
             {
                 "filename",
