@@ -15,12 +15,12 @@ require("autocmds")
 require("keymaps")
 
 require("plugins.colorscheme")
-require("plugins.colorizer")
 require("plugins.lualine")
 
 require("plugins.blink")
 require("plugins.flash")
 require("plugins.lazydev")
+require("plugins.hover")
 
 -- require("plugins.mini.completion")
 require("plugins.mini.clue")
