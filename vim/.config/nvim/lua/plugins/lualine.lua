@@ -14,6 +14,12 @@ for mode, _ in pairs(auto_theme_custom) do
     end
 end
 
+local function get_lsp()
+    return function()
+        return "lsp: " .. vim.lsp.get_clients()[1].name or "None"
+    end
+end
+
 local function mode()
     local mode_icons = {
         n = " ", -- Normal mode, a balanced icon
@@ -76,7 +82,7 @@ require("lualine").setup({
         lualine_b = { "branch", "diff" },
         lualine_c = {},
         lualine_x = {},
-        lualine_y = {},
+        lualine_y = { get_lsp() },
         lualine_z = { "progress", "location", "encoding", "filetype", "fileformat" },
     },
     tabline = {
