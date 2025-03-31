@@ -65,7 +65,7 @@ MiniDeps.later(function()
         settings = {
             Lua = {
                 diagnostics = {
-                    globals = { "vim" },
+                    globals = { "vim", "MiniDeps" },
                 },
             },
         },
