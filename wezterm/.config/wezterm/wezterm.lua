@@ -31,10 +31,10 @@ config.initial_cols = 160
 config.initial_rows = 42
 config.scrollback_lines = 100000
 config.window_close_confirmation = "NeverPrompt"
--- config.integrated_title_buttons = { "Close" }
+-- config.integrated_title_buttons = {}
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_decorations = "NONE"
-config.window_padding = { left = 15, right = 2, top = 2, bottom = 2 }
+config.window_padding = { left = 15, right = 5, top = 2, bottom = 2 }
 config.window_frame = {
     -- Add split line on stacked wezterm
     border_left_width = "0.12cell",
@@ -156,7 +156,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
 
     local icon = get_icon(tab)
     local title = tab_title(tab)
-    print("title: " .. title)
+    -- print("title: " .. title)
 
     return wezterm.format({
         { Background = { Color = colorscheme.palette.extra.borderGray } },
