@@ -16,7 +16,7 @@ end
 
 local function get_lsp()
     return function()
-        return "lsp: " .. vim.lsp.get_clients()[1].name or "None"
+        return "󱔸 : " .. vim.lsp.get_clients()[1].name or "None"
     end
 end
 
