@@ -37,7 +37,7 @@ vim.o.formatoptions = "qjl1" -- Don't autoformat comments
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
--- vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "#d1d1d1" })
 
 vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
@@ -66,7 +66,14 @@ vim.diagnostic.config({
         focusable = true,
     },
 
-    signs = true,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = "󰗖 ",
+            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
+        },
+    },
     severity_sort = true,
     update_in_insert = false,
 })
