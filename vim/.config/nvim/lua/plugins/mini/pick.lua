@@ -17,6 +17,7 @@ MiniDeps.later(function()
 
     vim.keymap.set("n", "<leader>pgm", ":Pick git_files scope='modified'<CR>", { desc = "Find modified files" })
     vim.keymap.set("n", "<leader>pr", ":Pick resume<CR>", { desc = "Resume last search" })
+    vim.keymap.set("n", "<leader>pd", ":Pick diagnostic<CR>", { desc = "Diagnostics" })
 
     vim.keymap.set("n", "gD", ":Pick lsp scope='declaration'<CR>", { desc = "Goto declaration" })
     vim.keymap.set("n", "gd", ":Pick lsp scope='definition'<CR>", { desc = "Goto definition" })
