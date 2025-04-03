@@ -17,6 +17,7 @@ vim.o.cursorline = true
 vim.o.breakindent = true -- Indent wrapped lines to match line start
 vim.o.wrap = false -- Display long lines as just one line
 
+vim.o.statuscolumn = "%l%s" -- Sign columng after numbers
 vim.o.signcolumn = "yes" -- Always show sign column (otherwise it will shift text)
 vim.o.fillchars = "eob: " -- Don't show `~` outside of buffer
 
