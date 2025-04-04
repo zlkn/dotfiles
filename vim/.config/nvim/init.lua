@@ -20,7 +20,7 @@ require("plugins.lualine")
 require("plugins.blink")
 require("plugins.flash")
 require("plugins.lazydev")
-require("plugins.hover")
+-- require("plugins.hover")
 
 -- require("plugins.mini.completion")
 require("plugins.mini.clue")
@@ -41,7 +41,7 @@ require("plugins.rainbow-delimiter")
 require("plugins.git.gitsigns")
 require("plugins.git.diffview")
 
---
+-- Syntax highlight and lsp
 require("plugins.nvim-treesitter")
 require("plugins.nvim-treesitter-context")
 require("plugins.nvim-lspconfig")
