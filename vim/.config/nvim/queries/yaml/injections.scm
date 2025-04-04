@@ -65,4 +65,3 @@
             (single_quote_scalar)
           ] @injection.content
           (#offset! @injection.content 0 1 0 -1))))))
-

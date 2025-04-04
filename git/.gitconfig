@@ -21,3 +21,5 @@
 [includeIf "gitdir:~/dotfiles/"]
     path = /home/yzolkin/dotfiles/git/.gitconfig-personal
 
+[remote "origin"]
+	glab-resolved = base
