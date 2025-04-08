@@ -14,13 +14,13 @@ MiniDeps.later(function()
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 500,
-                border = "rounded",
+                -- border = "rounded",
                 window = {
-                    border = "rounded",
+                    border = "single",
                 },
             },
             menu = {
-                border = "rounded",
+                border = "single",
                 draw = {
                     treesitter = { "lsp" },
                 },
@@ -35,7 +35,10 @@ MiniDeps.later(function()
         },
     })
 
-    vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = "#d1d1d1" })
-    vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = "none", bg = "none" })
-    vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#d1d1d1" })
+    -- FIXME: Hardcoded colors
+    local borderColor = "#a1a1a1"
+    vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = borderColor })
+    vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = borderColor })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = "#f4f5f5", bg = "#f4f5f5" })
+    vim.api.nvim_set_hl(0, "BlinkCmpScrollBarThumb", { bg = borderColor })
 end)
