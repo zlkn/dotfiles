@@ -83,5 +83,23 @@ MiniDeps.later(function()
 
     lspconfig.tflint.setup({})
 
-    lspconfig.ansiblels.setup({})
+    -- lspconfig.ansiblels.setup({})
+
+    lspconfig["ansiblels"].setup({
+        cmd = { "ansible-language-server", "--stdio" },
+        settings = {
+            ansible = {
+                python = { interpreterPath = "python3" },
+                ansible = { path = "ansible" },
+                executionEnvironment = { enabled = false },
+                validation = {
+                    enabled = false,
+                    lint = { enabled = true, path = "ansible-lint" },
+                },
+            },
+        },
+        filetypes = { "yaml", "yml", "ansible" },
+        root_dir = lspconfig.util.root_pattern("roles", "playbooks"),
+        single_file_support = false,
+    })
 end)
