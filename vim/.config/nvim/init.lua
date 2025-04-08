@@ -20,7 +20,6 @@ require("plugins.lualine")
 require("plugins.blink")
 require("plugins.flash")
 require("plugins.lazydev")
--- require("plugins.hover")
 
 -- require("plugins.mini.completion")
 require("plugins.mini.clue")
@@ -36,6 +35,7 @@ require("plugins.mini.icons")
 -- Enhance ui
 require("plugins.indent-blankline")
 require("plugins.rainbow-delimiter")
+require("plugins.hover")
 
 -- git ingegration
 require("plugins.git.gitsigns")
