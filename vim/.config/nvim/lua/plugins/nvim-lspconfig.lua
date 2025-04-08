@@ -82,4 +82,6 @@ MiniDeps.later(function()
     })
 
     lspconfig.tflint.setup({})
+
+    lspconfig.ansiblels.setup({})
 end)
