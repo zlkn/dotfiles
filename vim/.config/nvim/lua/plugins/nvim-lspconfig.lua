@@ -1,5 +1,5 @@
 MiniDeps.add("neovim/nvim-lspconfig")
-MiniDeps.later(function()
+MiniDeps.now(function()
     print("Setup lsp servers")
     local lspconfig = require("lspconfig")
 
@@ -101,5 +101,12 @@ MiniDeps.later(function()
         filetypes = { "yaml", "yml", "ansible" },
         root_dir = lspconfig.util.root_pattern("roles", "playbooks"),
         single_file_support = false,
+    })
+
+    vim.filetype.add({
+        pattern = {
+            [".*/playbooks/([^/]+/)*[^/]+%.ya?ml$"] = "ansible",
+            [".*/roles/([^/]+/)*[^/]+%.ya?ml$"] = "ansible",
+        },
     })
 end)

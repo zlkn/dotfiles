@@ -1,5 +1,5 @@
 MiniDeps.add("williamboman/mason.nvim")
-MiniDeps.later(function()
+MiniDeps.now(function()
     local mason = require("mason")
     mason.setup({
         ensure_installed = {
