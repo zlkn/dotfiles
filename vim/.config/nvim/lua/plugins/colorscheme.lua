@@ -15,8 +15,8 @@ MiniDeps.now(function()
             compile_path = "/tmp/github-theme",
             transparent = true,
             styles = {
-                builtin2 = "boold",
-                functions = "italic",
+                builtin2 = "italic",
+                functions = "bold",
                 comments = "italic",
                 keywords = "bold",
                 types = "bold",
