@@ -29,8 +29,8 @@ local function mode()
         c = " ", -- Command mode, a sharp icon
         R = " ", -- Replace mode, a distinct icon
     }
-    local mode = vim.fn.mode()
-    return mode_icons[mode] or "Unknown"
+    local current_mode = vim.fn.mode()
+    return mode_icons[current_mode] or "Unknown"
 end
 
 local function git_root()
@@ -104,7 +104,7 @@ require("lualine").setup({
                     info = " ",
                 },
             },
-            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+            -- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
             {
                 "filename",
                 file_status = true,
