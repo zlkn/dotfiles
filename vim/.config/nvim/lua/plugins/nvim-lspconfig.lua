@@ -83,8 +83,6 @@ MiniDeps.now(function()
 
     lspconfig.tflint.setup({})
 
-    -- lspconfig.ansiblels.setup({})
-
     lspconfig["ansiblels"].setup({
         cmd = { "ansible-language-server", "--stdio" },
         settings = {
