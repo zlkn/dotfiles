@@ -39,6 +39,6 @@ MiniDeps.later(function()
     local borderColor = "#a1a1a1"
     vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = borderColor })
     vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = borderColor })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = "#f4f5f5", bg = "#f4f5f5" })
+    vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = "#f4f5f5", bg = "#f4f5f5" })
     vim.api.nvim_set_hl(0, "BlinkCmpScrollBarThumb", { bg = borderColor })
 end)
