@@ -14,7 +14,9 @@
   "diagnostics": {
     "global": [
       "vim",
-      "MiniDeps"
+      "MiniDeps",
+      "MiniPick",
+      "MiniFiles"
     ]
   }
 }

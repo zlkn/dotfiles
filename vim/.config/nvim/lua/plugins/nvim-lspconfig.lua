@@ -1,9 +1,8 @@
 MiniDeps.add("neovim/nvim-lspconfig")
 MiniDeps.now(function()
     print("Setup lsp servers")
-    local lspconfig = require("lspconfig")
-
-    lspconfig.yamlls.setup({
+    vim.lsp.enable("yamlls")
+    vim.lsp.config("yamlls", {
         settings = {
             redhat = { telemetry = { enabled = false } },
             yaml = {
@@ -30,7 +29,8 @@ MiniDeps.now(function()
         },
     })
 
-    require("lspconfig").lua_ls.setup({
+    vim.lsp.enable("lua_ls")
+    vim.lsp.config("lua_ls", {
         on_init = function(client)
             if client.workspace_folders then
                 local path = client.workspace_folders[1].name
@@ -71,19 +71,20 @@ MiniDeps.now(function()
         },
     })
 
-    lspconfig.terraformls.setup({
+    vim.lsp.enable("tflint")
+    vim.lsp.enable("terraformls")
+    vim.lsp.config("terraformls", {
         servers = {
             terraformls = {
                 cmd = { "terraform-ls", "serve" },
                 filetypes = { "terraform", "tf" },
-                root_dir = require("lspconfig.util").root_pattern(".git", ".terraform", ".tf"),
+                root_markers = { ".terraform", ".git" },
             },
         },
     })
 
-    lspconfig.tflint.setup({})
-
-    lspconfig["ansiblels"].setup({
+    vim.lsp.enable("ansiblels")
+    vim.lsp.config("ansiblels", {
         cmd = { "ansible-language-server", "--stdio" },
         settings = {
             ansible = {
@@ -97,7 +98,7 @@ MiniDeps.now(function()
             },
         },
         filetypes = { "yaml", "yml", "ansible" },
-        root_dir = lspconfig.util.root_pattern("roles", "playbooks"),
+        root_markers = { "ansible.cfg", ".ansible-lint" },
         single_file_support = false,
     })
 
@@ -107,4 +108,6 @@ MiniDeps.now(function()
             [".*/roles/([^/]+/)*[^/]+%.ya?ml$"] = "ansible",
         },
     })
+
+    vim.lsp.enable("pyright")
 end)
