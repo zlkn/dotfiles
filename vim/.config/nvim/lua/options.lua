@@ -34,12 +34,6 @@ vim.o.completeopt = "menuone,noselect" -- Customize completions
 vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
 vim.o.formatoptions = "qjl1" -- Don't autoformat comments
 
--- transparent background
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-vim.api.nvim_set_hl(0, "Pmenu", { bg = "#d1d1d1" })
-
 vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
@@ -53,13 +47,6 @@ vim.opt.guicursor = {
 
 vim.diagnostic.config({
     underline = true,
-    -- virtual_text = {
-    --     prefix = "",
-    --     severity = nil,
-    --     source = "if_many",
-    --     format = nil,
-    -- },
-
     float = {
         -- UI.
         header = false,
@@ -69,11 +56,6 @@ vim.diagnostic.config({
 
     signs = {
         text = {
-            -- [vim.diagnostic.severity.ERROR] = " ",
-            -- [vim.diagnostic.severity.WARN] = "󰗖 ",
-            -- [vim.diagnostic.severity.INFO] = " ",
-            -- [vim.diagnostic.severity.HINT] = " ",
-
             [vim.diagnostic.severity.ERROR] = "",
             [vim.diagnostic.severity.WARN] = "",
             [vim.diagnostic.severity.INFO] = "",
@@ -83,6 +65,7 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.ERROR] = "ErrorMsg",
             [vim.diagnostic.severity.WARN] = "WarningMsg",
             [vim.diagnostic.severity.INFO] = "InfoMsg",
+            [vim.diagnostic.severity.HINT] = "HintMsg",
         },
     },
     severity_sort = true,
