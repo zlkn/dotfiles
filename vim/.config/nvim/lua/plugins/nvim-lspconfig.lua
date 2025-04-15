@@ -1,6 +1,6 @@
 MiniDeps.add("neovim/nvim-lspconfig")
 MiniDeps.now(function()
-    -- print("Setup lsp servers\n")
+    -- print("Setup lsp servers")
 
     vim.lsp.enable("yamlls")
     vim.lsp.config("yamlls", {
