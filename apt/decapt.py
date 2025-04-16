@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-decapt.py - Declarative apt package manager using python-apt API
+decapt.py - Declarative apt package manager using python-apt API with an AptWrapper
 
 This script manages Debian apt packages in a declarative style with three commands:
 
-  init   - Writes the current manual/auto installed package state to a file (JSON).
-  plan   - Compares the current APT cache against a configuration file,
+  init   - Writes the current manual/auto installed package state to a JSON file.
+  plan   - Compares the current APT cache (using the wrapper) against a configuration file,
            computes a diff (install, remove, update actions), and writes a plan (JSON).
-  apply  - Uses the python-apt API to apply the planned changes (install, remove, update).
+  apply  - Uses the AptWrapper methods to mark packages for installation, removal, or update,
+           then commits the changes via the python-apt API.
 
 Usage:
   ./decapt.py init
@@ -43,38 +44,101 @@ STATE_FILE = os.path.join(STATE_DIR, "state.json")
 PLAN_FILE = os.path.join(STATE_DIR, "plan.json")
 
 
+class AptWrapper:
+    """
+    A wrapper class to encapsulate operations with the python-apt API.
+    """
+    def __init__(self):
+        self.cache = apt.Cache()
+
+    def refresh(self):
+        """Refresh the cache if needed."""
+        self.cache.open()
+
+    def get_installed_packages(self):
+        """
+        Returns a dictionary mapping installed package names to their installed version.
+        """
+        installed = {}
+        for pkg in self.cache:
+            if pkg.is_installed:
+                installed[pkg.name] = pkg.installed.version
+        return installed
+
+    def get_manual_auto(self):
+        """
+        Returns a tuple (manual, auto) listing package names.
+          - manual: packages not marked as auto-installed.
+          - auto: packages marked as auto-installed.
+        """
+        manual = []
+        auto = []
+        for pkg in self.cache:
+            if pkg.is_installed:
+                if pkg.is_auto_installed:
+                    auto.append(pkg.name)
+                else:
+                    manual.append(pkg.name)
+        return manual, auto
+
+    def mark_for_install(self, pkg_name, version=None):
+        """
+        Marks a package for installation (or update). If a version is specified, tries
+        to set the candidate version accordingly.
+        Returns True on success, False otherwise.
+        """
+        if pkg_name not in self.cache:
+            print(f"Warning: Package {pkg_name} not found in cache.", file=sys.stderr)
+            return False
+        pkg = self.cache[pkg_name]
+        if version is not None:
+            candidate = None
+            for candidate_ver in pkg.versions:
+                if candidate_ver.version == version:
+                    candidate = candidate_ver
+                    break
+            if candidate is None:
+                print(f"Warning: Desired version {version} for package {pkg_name} not found.", file=sys.stderr)
+                return False
+            pkg.candidate = candidate
+        pkg.mark_install(from_user=True)
+        return True
+
+    def mark_for_removal(self, pkg_name):
+        """
+        Marks a package for removal if installed.
+        Returns True on success, False otherwise.
+        """
+        if pkg_name not in self.cache:
+            print(f"Warning: Package {pkg_name} not found in cache.", file=sys.stderr)
+            return False
+        pkg = self.cache[pkg_name]
+        if pkg.is_installed:
+            pkg.mark_delete(auto_remove=True)
+        else:
+            print(f"Package {pkg_name} is not installed; skipping removal.", file=sys.stderr)
+        return True
+
+    def commit(self, install_progress, acquire_progress):
+        """Commits the marked changes using the provided progress handlers."""
+        self.cache.commit(install_progress, acquire_progress)
+
+
 def ensure_state_dir():
     """Ensure that the directory for state and plan files exists."""
     if not os.path.exists(STATE_DIR):
         os.makedirs(STATE_DIR, exist_ok=True)
 
 
-def init_state():
-    """
-    Build state info using python-apt.
-    Iterate over the APT cache and, for installed packages,
-    separate those marked as automatically installed from those manually installed.
-    Returns a dict with keys 'manual' and 'auto' listing package names.
-    """
-    cache = apt.Cache()
-    manual = []
-    auto = []
-    # Iterate over all packages in the cache.
-    for pkg in cache:
-        if pkg.is_installed:
-            if pkg.is_auto_installed:
-                auto.append(pkg.name)
-            else:
-                manual.append(pkg.name)
-    return {"manual": manual, "auto": auto}
-
-
 def cmd_init():
     """
     INIT command:
-      Save the current manual/auto package state (using python-apt API) to the state file (JSON).
+      Uses AptWrapper to get manual and auto installed packages,
+      then writes that state to the JSON state file.
     """
-    state = init_state()
+    apt_wrapper = AptWrapper()
+    manual, auto = apt_wrapper.get_manual_auto()
+    state = {"manual": manual, "auto": auto}
     ensure_state_dir()
     try:
         with open(STATE_FILE, "w") as f:
@@ -84,14 +148,14 @@ def cmd_init():
         sys.exit(1)
     print(f"Manual/Auto package state has been written to {STATE_FILE}")
     print("Additional info:")
-    print(f"  Manual packages count: {len(state['manual'])}")
-    print(f"  Auto packages count: {len(state['auto'])}")
+    print(f"  Manual packages count: {len(manual)}")
+    print(f"  Auto packages count: {len(auto)}")
 
 
 def read_state():
     """
-    Read the stored state (manual/auto lists) from the state file.
-    Returns the parsed dict or exits if not found.
+    Reads the stored state (manual and auto lists) from the state file.
+    Exits if the file is not found or cannot be parsed.
     """
     if os.path.exists(STATE_FILE):
         try:
@@ -181,32 +245,27 @@ def parse_pkg_spec(spec):
 
 def build_installed_dict():
     """
-    Build a dictionary of installed packages using python-apt.
+    Builds a dictionary of installed packages using the AptWrapper.
     Returns: {package_name: installed_version}
     """
-    cache = apt.Cache()
-    installed = {}
-    for pkg in cache:
-        if pkg.is_installed:
-            installed[pkg.name] = pkg.installed.version
-    return installed
+    apt_wrapper = AptWrapper()
+    return apt_wrapper.get_installed_packages()
 
 
 def cmd_plan(config_file):
     """
     PLAN command:
-      - Retrieve live installed package info (name and version) via python-apt.
-      - Ensure the state file (from init) exists (for informational purposes).
-      - Read the desired package list from the configuration file.
-      - Build a plan:
+      - Uses the AptWrapper to get live package info (name and version).
+      - Verifies that the state file (from 'init') exists (for informational purposes).
+      - Reads the desired package list from the configuration file.
+      - Builds a plan:
            * For each desired package not installed -> install.
            * For installed packages with a version mismatch -> update.
-           * For installed packages not listed in the desired config -> remove.
-      - Write the plan as a JSON file and print it.
+           * For packages installed but not desired -> remove.
+      - Writes the plan to a JSON file and prints it.
     """
     installed = build_installed_dict()
-
-    # Just verify the state file exists (its info is informational only).
+    # Ensure state file exists.
     read_state()
 
     if not os.path.exists(config_file):
@@ -214,7 +273,7 @@ def cmd_plan(config_file):
         sys.exit(1)
     config = parse_config_file(config_file)
 
-    # Combine all desired packages from all sections into a single dict.
+    # Combine desired packages from all sections into a single dict.
     desired = {}  # key: package name, value: desired version (or None)
     for section, pkg_list in config.items():
         for spec in pkg_list:
@@ -223,8 +282,8 @@ def cmd_plan(config_file):
 
     plan = {"install": [], "remove": [], "update": []}
 
-    # For each desired package, if not installed then plan to install.
-    # If installed but a desired version is specified and does not match, plan to update.
+    # For each desired package: if not installed, plan to install;
+    # if installed but version mismatch and version is specified, plan an update.
     for pkg, desired_version in desired.items():
         if pkg not in installed:
             plan["install"].append({"package": pkg, "version": desired_version})
@@ -236,7 +295,7 @@ def cmd_plan(config_file):
                     "installed_version": installed[pkg]
                 })
 
-    # For packages that are installed but not desired, plan removal.
+    # For packages installed but not desired, plan removal.
     for pkg in installed.keys():
         if pkg not in desired:
             plan["remove"].append(pkg)
@@ -255,50 +314,25 @@ def cmd_plan(config_file):
 def commit_changes(changes):
     """
     Given a list of changes (each a tuple (action, package_name, version)),
-    use python-apt API to mark changes and commit them.
-    action: 'install', 'remove', or 'update'
+    uses the AptWrapper to mark changes and then commits them.
+    action: 'install', 'remove', or 'update'.
     For 'update', the desired version must be specified.
     """
-    cache = apt.Cache()
-    # Mark changes.
+    apt_wrapper = AptWrapper()
     for change in changes:
         action, pkg_name, ver = change
-        if pkg_name not in cache:
-            print(f"Warning: Package {pkg_name} not found in cache. Skipping.", file=sys.stderr)
-            continue
-        pkg = cache[pkg_name]
         if action == "remove":
-            if pkg.is_installed:
-                print(f"Marking {pkg_name} for removal.")
-                pkg.mark_delete(auto_remove=True)
-            else:
-                print(f"Package {pkg_name} is not installed; skipping removal.")
+            apt_wrapper.mark_for_removal(pkg_name)
         elif action in ("install", "update"):
-            # For update, we force the version if specified.
-            # Find a version that matches the desired version if provided.
-            if ver is not None:
-                candidate = None
-                for candidate_ver in pkg.versions:
-                    if candidate_ver.version == ver:
-                        candidate = candidate_ver
-                        break
-                if candidate is None:
-                    print(f"Warning: Desired version {ver} for package {pkg_name} not found. Skipping {action}.", file=sys.stderr)
-                    continue
-                # Set the candidate to desired version.
-                pkg.candidate = candidate
-            print(f"Marking {pkg_name} for installation/update.")
-            pkg.mark_install(from_user=True)
+            apt_wrapper.mark_for_install(pkg_name, version=ver)
         else:
             print(f"Unknown action {action} for package {pkg_name}.", file=sys.stderr)
 
-    # Commit changes.
     try:
         print("Committing changes...")
-        # Use a simple text progress handler.
         install_progress = apt.progress.text.InstallProgress()
         acquire_progress = apt.progress.text.AcquireProgress()
-        cache.commit(install_progress, acquire_progress)
+        apt_wrapper.commit(install_progress, acquire_progress)
     except Exception as err:
         print(f"Error committing changes: {err}", file=sys.stderr)
         sys.exit(1)
@@ -307,9 +341,10 @@ def commit_changes(changes):
 def cmd_apply():
     """
     APPLY command:
-      - Read the plan file (JSON).
-      - For each action in the plan (install, update, remove), mark the change in the APT cache.
-      - Commit changes using the python-apt API.
+      - Reads the plan file (JSON).
+      - For each action (install, update, remove) in the plan, calls the appropriate
+        method of the AptWrapper to mark the change.
+      - Commits the changes.
     """
     if not os.path.exists(PLAN_FILE):
         print("Error: Plan file not found. Please run the 'plan' command first.", file=sys.stderr)
@@ -322,10 +357,8 @@ def cmd_apply():
         sys.exit(1)
 
     changes = []
-    # For removals, the plan contains package names.
     for pkg in plan.get("remove", []):
         changes.append(("remove", pkg, None))
-    # For installs, the plan is a dict with package name and version.
     for entry in plan.get("install", []):
         changes.append(("install", entry["package"], entry.get("version")))
     for entry in plan.get("update", []):
@@ -341,7 +374,7 @@ def cmd_apply():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Declarative Debian apt package manager using python-apt API (manual/auto state only)"
+        description="Declarative Debian apt package manager using an AptWrapper with python-apt API"
     )
     parser.add_argument("command", choices=["init", "plan", "apply"],
                         help="Command to execute: init, plan, or apply")
@@ -359,4 +392,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
