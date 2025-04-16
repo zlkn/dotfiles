@@ -20,6 +20,25 @@ local function get_lsp()
     end
 end
 
+local function get_lsp()
+    return function()
+        local clients = vim.lsp.get_clients()
+
+        if not clients or next(clients) == nil then
+            return "󱔸 : None"
+        end
+
+        -- Collect all client names in a table.
+        local names = {}
+        for _, client in pairs(clients) do
+            table.insert(names, client.name)
+        end
+
+        -- Concatenate names separated by ", ".
+        return "󱔸 : " .. table.concat(names, "/")
+    end
+end
+
 local function mode()
     local mode_icons = {
         n = " ", -- Normal mode, a balanced icon
