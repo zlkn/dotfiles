@@ -36,31 +36,41 @@ class DApt:
         self.plan_file = os.path.join(self.state_dir, "plan.json")
         self.config = config
 
+
+    def get_apt_state(self):
+        state = {
+            "declarative": {},
+            "manual":     {},
+            "auto":       {}
+        }
+
+        state = AptWrapper.get_installed_packages()
+        state["declarative"] = {}
+        return state
+
+
     def init(self):
         if os.path.exists(self.state):
             print(f"State file already exists at {self.state}")
             sys.exit(0)
 
-        if not os.path.exists(self.state_dir):
-            os.makedirs(self.state_dir, exist_ok=True)
+        os.makedirs(self.state_dir, exist_ok=True)
 
-        packages = AptWrapper.get_installed_packages()
-        packages["declarative"] = {}
-
-        state = {}
-        state["packages"]= packages
+        state = self.get_apt_state()
 
         try:
             with open(self.state, "w") as f:
-                json.dump(packages, f, indent=2)
+                json.dump(state, f, indent=2)
+
+            print(f"Declarative/Manual/Auto package state has been written to {self.state}")
+            print("Additional info:")
+            print(f"  Declarative packages count: {len(state["declarative"])}")
+            print(f"  Manual packages count: {len(state["manual"])}")
+            print(f"  Auto packages count: {len(state["auto"])}")
+
         except Exception as err:
             print(f"Error writing state file: {err}", file=sys.stderr)
             sys.exit(1)
-        print(f"Declarative/Manual/Auto package state has been written to {self.state}")
-        print("Additional info:")
-        print(f"  Declarative packages count: {len(packages["declarative"])}")
-        print(f"  Manual packages count: {len(packages["manual"])}")
-        print(f"  Auto packages count: {len(packages["auto"])}")
 
 
     def plan(self):
