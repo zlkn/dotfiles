@@ -63,8 +63,17 @@ MiniDeps.now(function()
                 },
             })
         end,
+
+        on_attach = function(client, bufnr)
+            if client.server_capabilities.inlayHintProvider then
+                print("Inlay hint avaliable")
+                -- vim.lsp.buf.inlay_hint(bufnr, true)
+            end
+        end,
+
         settings = {
             Lua = {
+                hint = { enable = true },
                 diagnostics = {
                     globals = { "vim", "MiniDeps", "MiniPick", "MiniFiles" },
                 },
@@ -98,17 +107,18 @@ MiniDeps.now(function()
                 },
             },
         },
-        filetypes = { "yaml", "yml", "ansible" },
+        filetypes = { "yaml.ansible" },
         root_markers = { "ansible.cfg", ".ansible-lint" },
         single_file_support = false,
     })
 
     vim.filetype.add({
         pattern = {
-            [".*/playbooks/([^/]+/)*[^/]+%.ya?ml$"] = "ansible",
-            [".*/roles/([^/]+/)*[^/]+%.ya?ml$"] = "ansible",
+            ["^playbooks/([^/]+/)*[^/]+%.ya?ml$"] = "yaml.ansible",
+            ["^roles/([^/]+/)*[^/]+%.ya?ml$"] = "yaml.ansible",
         },
     })
 
+    vim.lsp.enable("dockerls")
     vim.lsp.enable("pyright")
 end)
