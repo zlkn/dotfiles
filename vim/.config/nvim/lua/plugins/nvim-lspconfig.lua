@@ -114,8 +114,8 @@ MiniDeps.now(function()
 
     vim.filetype.add({
         pattern = {
-            ["^playbooks/([^/]+/)*[^/]+%.ya?ml$"] = "yaml.ansible",
-            ["^roles/([^/]+/)*[^/]+%.ya?ml$"] = "yaml.ansible",
+            [".*/playbooks/.*%.ya?ml"] = "yaml.ansible",
+            [".*/roles/.*%.ya?ml"] = "yaml.ansible",
         },
     })
 
