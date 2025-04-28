@@ -6,8 +6,8 @@ MiniDeps.later(function()
             tab_char = "▏",
         },
         scope = {
-            enabled = false,
-            show_start = true,
+            enabled = true,
+            show_start = false,
             show_end = false,
         },
         whitespace = {
