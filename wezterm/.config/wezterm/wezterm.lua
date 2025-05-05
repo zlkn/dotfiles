@@ -95,6 +95,7 @@ end
 local function get_icon(tab)
     local icons = {
         ["wezterm-gui"] = { symbol = wezterm.nerdfonts.md_access_point .. " WezTerm" },
+        -- TODO: I'd like to use this icon as additional extra symbol in tab
         ["sudo"] = { symbol = wezterm.nerdfonts.md_shield_half_full },
         -- ["ncdu"] = { symbol = wezterm.nerdfont.fa_pie_chart, color = colorscheme.palette.brights.yellow },
         ["sh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },

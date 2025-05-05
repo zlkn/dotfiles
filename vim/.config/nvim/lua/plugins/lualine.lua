@@ -92,15 +92,8 @@ require("lualine").setup({
             { git_root() },
             {
                 "diagnostics",
-                -- symbols = {
-                --     -- error = " ",
-                --     -- warn = " ",
-                --     -- info = " ",
-                --     -- hint = " ",
-                -- },
                 symbols = {
                     error = " ",
-                    --    warn = " ",
                     warn = "󰗖 ",
                     hint = " ",
                     info = " ",
@@ -120,6 +113,7 @@ require("lualine").setup({
                     newfile = "[New]",
                 },
             },
+            -- { function() return nvim_treesitter#statusline(90) end },
         },
         lualine_z = {},
     },
