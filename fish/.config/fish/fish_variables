@@ -3,7 +3,7 @@
 SETUVAR CMD_COUNT:0
 SETUVAR --export GIT_CONFIG:/home/yzolkin/\x2egitconfig
 SETUVAR --path GOPATH:/usr/local/go/bin
-SETUVAR --export --path PATH:/usr/local/go/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/sbin\x1e/usr/bin\x1e/sbin\x1e/bin\x1e/usr/games\x1e/usr/local/games\x1e/snap/bin\x1e/snap/bin\x1e/home/yzolkin/\x2ekrew/bin
+SETUVAR NPM_PACKAGES:/home/yzolkin/\x2enpm\x2dpackages
 SETUVAR USE_GKE_GCLOUD_AUTH_PLUGIN:False
 SETUVAR --export VIRTUAL_ENV_DISABLE_PROMPT:1
 SETUVAR __fish_initialized:3800
@@ -36,7 +36,8 @@ SETUVAR fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactiv
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_background:\x1d
 SETUVAR fish_pager_color_completion:normal
-SETUVAR fish_pager_color_description:B3A06D\x1e\x2d\x2ditalics
+# SETUVAR fish_pager_color_description:B3A06D\x1e\x2d\x2ditalics
+SETUVAR fish_pager_color_description:#A66F00\x1e\x2d\x2ditalics
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:white\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_secondary_background:\x1d
@@ -47,4 +48,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dreverse
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/home/yzolkin/\x2ekrew/bin\x1e/usr/local/go/bin
+SETUVAR fish_user_paths:/home/yzolkin/\x2enpm\x2dpackages/bin\x1e/home/yzolkin/\x2enpm\x2dpackages\x1e/home/yzolkin/\x2ekrew/bin\x1e/usr/local/go/bin
