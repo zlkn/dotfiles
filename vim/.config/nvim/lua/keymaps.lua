@@ -31,3 +31,8 @@ end)
 vim.keymap.set("n", "]d", function()
     vim.diagnostic.jump({ count = 1, float = true })
 end)
+
+
+-- make < > shifts keep selection
+vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
