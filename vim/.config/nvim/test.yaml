@@ -21,10 +21,10 @@ python1: |
 healthcheck1:
   # language=python
   lvl2_block_node1: |
-    print(f'bar{foo})
+    print(f'bar{foo}')
   # language=python
   lvl2_block_node2: >
-    print(f'bar{foo})
+    print(f'bar{foo}')
 
 ---
 bar: foo
