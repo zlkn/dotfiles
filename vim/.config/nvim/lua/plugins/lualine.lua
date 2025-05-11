@@ -16,26 +16,18 @@ end
 
 local function get_lsp()
     return function()
-        return "󱔸 : " .. vim.lsp.get_clients()[1].name or "None"
-    end
-end
-
-local function get_lsp()
-    return function()
         local clients = vim.lsp.get_clients()
 
         if not clients or next(clients) == nil then
-            return "󱔸 : None"
+            return "󱔹 "
         end
 
-        -- Collect all client names in a table.
         local names = {}
         for _, client in pairs(clients) do
             table.insert(names, client.name)
         end
 
-        -- Concatenate names separated by ", ".
-        return "󱔸 : " .. table.concat(names, "/")
+        return "󱔸 " .. table.concat(names, "/")
     end
 end
 
@@ -85,7 +77,7 @@ require("lualine").setup({
         lualine_c = {},
         lualine_x = {},
         lualine_y = { get_lsp() },
-        lualine_z = { "progress", "location", "encoding", "filetype", "fileformat" },
+        lualine_z = { "progress", "location", "filetype", "encoding", "fileformat" },
     },
     tabline = {
         lualine_c = {
@@ -99,7 +91,6 @@ require("lualine").setup({
                     info = " ",
                 },
             },
-            -- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
             {
                 "filename",
                 file_status = true,
@@ -113,7 +104,6 @@ require("lualine").setup({
                     newfile = "[New]",
                 },
             },
-            -- { function() return nvim_treesitter#statusline(90) end },
         },
         lualine_z = {},
     },
