@@ -1,6 +1,8 @@
 MiniDeps.add("echasnovski/mini.pick")
 MiniDeps.later(function()
-    require("mini.pick").setup({})
+    require("mini.pick").setup({
+        window = { prompt_prefix = " " },
+    })
 
     vim.keymap.set("n", "<leader><leader>", function()
         MiniPick.builtin.files()
