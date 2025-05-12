@@ -61,23 +61,31 @@ end
 require("lualine").setup({
     options = {
         theme = auto_theme_custom,
-        -- section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
         always_show_tabline = true,
         globalstatus = true,
         section_separators = "",
+        component_separators = "",
         disabled_filetypes = {
             statusline = {},
             winbar = {},
+        },
+        ignore_focus = {
+            "minipick",
+            "neo-tree",
+            "toggleterm",
+            "netrw",
+            "TelescopePrompt",
+            "mason",
+            "lazy",
         },
     },
     sections = {
         lualine_a = { mode },
         lualine_b = { "branch", "diff" },
         lualine_c = {},
-        lualine_x = {},
+        lualine_x = { "searchcount" },
         lualine_y = { get_lsp() },
-        lualine_z = { "progress", "location", "filetype", "encoding", "fileformat" },
+        lualine_z = { "filetype", "encoding", "progress", "fileformat" },
     },
     tabline = {
         lualine_c = {
