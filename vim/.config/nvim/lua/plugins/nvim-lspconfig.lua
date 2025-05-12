@@ -65,8 +65,9 @@ MiniDeps.now(function()
         end,
 
         on_attach = function(client, bufnr)
+            -- If enabled write buffer stuck
             if client.server_capabilities.inlayHintProvider then
-                print("Inlay hint avaliable")
+                -- print("Inlay hint avaliable")
                 -- vim.lsp.buf.inlay_hint(bufnr, true)
             end
         end,
