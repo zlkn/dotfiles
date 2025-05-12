@@ -21,7 +21,6 @@ return {
   ["mini.pick"] = "fa1e449e1080bf7aa9b2890ee186d23b1b4e1287",
   ["mini.surround"] = "aa5e245829dd12d8ff0c96ef11da28681d6049aa",
   ["nvim-lspconfig"] = "61e5109c8cf24807e4ae29813a3a82b31821dd45",
-  ["nvim-navic"] = "f887d794a0f4594882814d7780980a949200a238",
   ["nvim-treesitter"] = "28d480e0624b259095e56f353ec911f9f2a0f404",
   ["nvim-treesitter-context"] = "5c48b8ba1b0b7b25feb6e34e7eb293ea893aedc4",
   ["rainbow-delimiters.nvim"] = "55ad4fb76ab68460f700599b7449385f0c4e858e"
