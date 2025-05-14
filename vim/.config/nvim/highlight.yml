@@ -1,7 +1,0 @@
-unquoted: Bronw for blah
-singleQuoted: 'Brown fox blablabla...'
-doubleQuoted: "Brown fox mehehe..."
-
-foo:
-  bar:
-    baz: qwe
