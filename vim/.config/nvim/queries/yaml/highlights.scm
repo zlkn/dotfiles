@@ -91,10 +91,10 @@
         (flow_node
           (plain_scalar
             (string_scalar) @boolean
-            (#any-of? @boolean "TRUE" "FALSE" "True" "False")))))))
+            (#any-of? @boolean "TRUE" "FALSE" "True" "False" "true" "false")))))))
 
 (block_mapping_pair
   value: (flow_node
     (plain_scalar
       (string_scalar) @boolean
-      (#any-of? @boolean "TRUE" "FALSE" "True" "False"))))
+      (#any-of? @boolean "TRUE" "FALSE" "True" "False" "true" "false"))))

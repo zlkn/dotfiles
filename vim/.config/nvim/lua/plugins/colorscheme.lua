@@ -22,7 +22,7 @@ MiniDeps.now(function()
                 types = "bold",
                 tags = "bold",
                 operators = "bold",
-                number = "bold",
+                numbers = "bold",
             },
         },
         specs = {
