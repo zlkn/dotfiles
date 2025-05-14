@@ -26,13 +26,12 @@ vim.keymap.set("n", "<leader>wq", ":wq<CR>", { desc = "Save and Exit", noremap =
 vim.keymap.set("n", "<leader>ww", ":w<CR><CR>", { desc = "Save and Format", noremap = true, silent = true })
 
 vim.keymap.set("n", "[d", function()
-    vim.diagnostic.jump({ count = -1, float = true })
+    vim.diagnostic.jump({ count = -1, float = false })
 end)
 vim.keymap.set("n", "]d", function()
-    vim.diagnostic.jump({ count = 1, float = true })
+    vim.diagnostic.jump({ count = 1, float = false })
 end)
 
-
 -- make < > shifts keep selection
-vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })

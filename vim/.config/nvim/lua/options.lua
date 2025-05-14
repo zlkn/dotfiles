@@ -46,11 +46,14 @@ vim.opt.guicursor = {
 }
 
 vim.diagnostic.config({
-    underline = true,
+    virtual_lines = {
+        current_line = true,
+    },
+    -- underline = true,
     float = {
         -- UI.
         header = false,
-        border = "rounded",
+        border = "single",
         focusable = true,
     },
 
