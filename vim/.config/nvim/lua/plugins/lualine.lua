@@ -58,61 +58,63 @@ local function git_root()
     end
 end
 
-require("lualine").setup({
-    options = {
-        theme = auto_theme_custom,
-        always_show_tabline = true,
-        globalstatus = true,
-        section_separators = "",
-        component_separators = "",
-        disabled_filetypes = {
-            statusline = {},
-            winbar = {},
-        },
-        ignore_focus = {
-            "minipick",
-            "neo-tree",
-            "toggleterm",
-            "netrw",
-            "TelescopePrompt",
-            "mason",
-            "lazy",
-        },
-    },
-    sections = {
-        lualine_a = { mode },
-        lualine_b = { "branch", "diff" },
-        lualine_c = {},
-        lualine_x = { "searchcount" },
-        lualine_y = { get_lsp() },
-        lualine_z = { "filetype", "encoding", "progress", "fileformat" },
-    },
-    tabline = {
-        lualine_c = {
-            { git_root() },
-            {
-                "diagnostics",
-                symbols = {
-                    error = " ",
-                    warn = "󰗖 ",
-                    hint = " ",
-                    info = " ",
-                },
+MiniDeps.later(function()
+    require("lualine").setup({
+        options = {
+            theme = auto_theme_custom,
+            always_show_tabline = true,
+            globalstatus = true,
+            section_separators = "",
+            component_separators = "",
+            disabled_filetypes = {
+                statusline = {},
+                winbar = {},
             },
-            {
-                "filename",
-                file_status = true,
-                newfile_status = false,
-                path = 1,
-                shorting_target = 40,
-                symbols = {
-                    modified = " ",
-                    readonly = "󱚳 ",
-                    unnamed = "",
-                    newfile = "[New]",
-                },
+            ignore_focus = {
+                "minipick",
+                "neo-tree",
+                "toggleterm",
+                "netrw",
+                "TelescopePrompt",
+                "mason",
+                "lazy",
             },
         },
-        lualine_z = {},
-    },
-})
+        sections = {
+            lualine_a = { mode },
+            lualine_b = { "branch", "diff" },
+            lualine_c = {},
+            lualine_x = { "searchcount" },
+            lualine_y = { get_lsp() },
+            lualine_z = { "progress", "filetype", "fileformat" },
+        },
+        tabline = {
+            lualine_c = {
+                { git_root() },
+                {
+                    "diagnostics",
+                    symbols = {
+                        error = " ",
+                        warn = "󰗖 ",
+                        hint = " ",
+                        info = " ",
+                    },
+                },
+                {
+                    "filename",
+                    file_status = true,
+                    newfile_status = false,
+                    path = 1,
+                    shorting_target = 40,
+                    symbols = {
+                        modified = " ",
+                        readonly = "󱚳 ",
+                        unnamed = "",
+                        newfile = "[New]",
+                    },
+                },
+            },
+            lualine_z = {},
+        },
+    })
+end)
