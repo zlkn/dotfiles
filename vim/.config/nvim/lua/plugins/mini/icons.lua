@@ -1,5 +1,6 @@
 MiniDeps.add({ source = "echasnovski/mini.icons" })
-MiniDeps.later(function()
+MiniDeps.now(function()
     local icons = require("mini.icons")
     icons.setup({})
+    icons.mock_nvim_web_devicons()
 end)
