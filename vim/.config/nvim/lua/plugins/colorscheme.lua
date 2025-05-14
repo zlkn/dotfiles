@@ -29,7 +29,7 @@ MiniDeps.now(function()
             github_light = {
                 syntax = {
                     bracket = "#313131",
-                    builtin0 = "#c30771",
+                    builtin0 = "#980054",
                     builtin1 = "#008ec4",
                     builtin2 = "#523c79",
                     comment = "#57606a",
@@ -43,7 +43,7 @@ MiniDeps.now(function()
                     number = "#313131",
                     operator = "#0550ae",
                     param = "#007474",
-                    preproc = "#cf222e",
+                    preproc = "#c30771",
                     regex = "#0a3069",
                     statement = "#cf222e",
                     string = "#0d844c",
