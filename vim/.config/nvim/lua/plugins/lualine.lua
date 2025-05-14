@@ -84,13 +84,7 @@ MiniDeps.later(function()
             lualine_a = { mode },
             lualine_b = { "branch", "diff" },
             lualine_c = {},
-            lualine_x = { "searchcount" },
-            lualine_y = { get_lsp() },
-            lualine_z = { "progress", "filetype", "fileformat" },
-        },
-        tabline = {
-            lualine_c = {
-                { git_root() },
+            lualine_x = {
                 {
                     "diagnostics",
                     symbols = {
@@ -100,6 +94,14 @@ MiniDeps.later(function()
                         info = " ",
                     },
                 },
+            },
+            lualine_y = { get_lsp() },
+            lualine_z = { "progress", "filetype", "fileformat" },
+        },
+        tabline = {
+            lualine_c = {
+                { git_root() },
+                { "filetype", icon_only = true },
                 {
                     "filename",
                     file_status = true,
@@ -112,6 +114,15 @@ MiniDeps.later(function()
                         unnamed = "",
                         newfile = "[New]",
                     },
+                },
+                {
+                    function()
+                        -- return require("nvim-treesitter").statusline({
+                        --     indicator_size = 70,
+                        --     type_patterns = { "class", "function", "method", "block_mapping_pair" },
+                        --     separator = "->",
+                        -- })
+                    end,
                 },
             },
             lualine_z = {},
