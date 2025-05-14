@@ -101,7 +101,6 @@ MiniDeps.later(function()
         tabline = {
             lualine_c = {
                 { git_root() },
-                { "filetype", icon_only = true },
                 {
                     "filename",
                     file_status = true,
@@ -115,15 +114,15 @@ MiniDeps.later(function()
                         newfile = "[New]",
                     },
                 },
-                {
-                    function()
-                        -- return require("nvim-treesitter").statusline({
-                        --     indicator_size = 70,
-                        --     type_patterns = { "class", "function", "method", "block_mapping_pair" },
-                        --     separator = "->",
-                        -- })
-                    end,
-                },
+                -- {
+                -- function()
+                -- return require("nvim-treesitter").statusline({
+                --     indicator_size = 70,
+                --     type_patterns = { "class", "function", "method", "block_mapping_pair" },
+                --     separator = "->",
+                -- })
+                -- end,
+                -- },
             },
             lualine_z = {},
         },
