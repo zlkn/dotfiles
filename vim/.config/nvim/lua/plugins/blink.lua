@@ -5,7 +5,7 @@ MiniDeps.add({
 })
 
 MiniDeps.later(function()
-    print("Configure blink.cmp")
+    -- print("Configure blink.cmp")
     require("blink.cmp").setup({
         keymap = {
             preset = "default",
@@ -37,8 +37,9 @@ MiniDeps.later(function()
 
     -- FIXME: Hardcoded colors
     local borderColor = "#a1a1a1"
+    local backgroundColor = "#f4f5f5"
     vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = borderColor })
     vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = borderColor })
-    vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = "#f4f5f5", bg = "#f4f5f5" })
+    vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = backgroundColor, bg = backgroundColor })
     vim.api.nvim_set_hl(0, "BlinkCmpScrollBarThumb", { bg = borderColor })
 end)
