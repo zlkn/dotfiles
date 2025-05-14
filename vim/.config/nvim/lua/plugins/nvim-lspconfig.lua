@@ -4,6 +4,7 @@ MiniDeps.now(function()
 
     vim.lsp.enable("yamlls")
     vim.lsp.config("yamlls", {
+        filetypes = { "yaml", "yml", "yaml.docker-compose" },
         settings = {
             redhat = { telemetry = { enabled = false } },
             yaml = {
@@ -32,6 +33,7 @@ MiniDeps.now(function()
 
     vim.lsp.enable("lua_ls")
     vim.lsp.config("lua_ls", {
+        filetypes = { "lua" },
         on_init = function(client)
             if client.workspace_folders then
                 local path = client.workspace_folders[1].name
@@ -83,6 +85,10 @@ MiniDeps.now(function()
     })
 
     vim.lsp.enable("tflint")
+    vim.lsp.config("tflint", {
+        filetypes = { "tflint", "tf" },
+        root_markers = { ".terraform", ".git" },
+    })
     vim.lsp.enable("terraformls")
     vim.lsp.config("terraformls", {
         servers = {
@@ -122,4 +128,7 @@ MiniDeps.now(function()
 
     vim.lsp.enable("dockerls")
     vim.lsp.enable("pyright")
+    vim.lsp.config("pyright", {
+        filetypes = { "python", "py" },
+    })
 end)
