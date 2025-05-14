@@ -197,19 +197,23 @@ config.char_select_fg_color = colorscheme.colors.foreground
 -- Keybindings
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
 config.keys = {
-    { key = "l",         mods = "CTRL|SHIFT", action = wezterm.action.ShowTabNavigator },
-    { key = "UpArrow",   mods = "SHIFT",      action = wezterm.action.ScrollToPrompt(-1) },
-    { key = "DownArrow", mods = "SHIFT",      action = wezterm.action.ScrollToPrompt(1) },
-    { key = "w",         mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
-    { key = "x",         mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
-    { key = "-",         mods = "ALT",        action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+    { key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ShowTabNavigator },
+    { key = "UpArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(-1) },
+    { key = "DownArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(1) },
+    { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+    { key = "x", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
+    { key = "-", mods = "ALT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
     -- { key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
-    { key = "\\",        mods = "ALT",        action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-    { key = "h",         mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Left") },
-    { key = "j",         mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Down") },
-    { key = "k",         mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Up") },
-    { key = "t",         mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
-    { key = "l",         mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Right") },
+    {
+        key = "\\",
+        mods = "ALT",
+        action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+    },
+    { key = "h", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Left") },
+    { key = "j", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Down") },
+    { key = "k", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Up") },
+    { key = "t", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+    { key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Right") },
     {
         key = "g",
         mods = "ALT",
@@ -228,12 +232,5 @@ for i = 1, 8 do
         action = wezterm.action.ActivateTab(i - 1),
     })
 end
-
-config.unix_domains = {
-    {
-        name = "neovim",
-        proxy_command = { "docker", "exec", "-i", "neovim", "wezterm", "cli", "proxy" },
-    },
-}
 
 return config
