@@ -1,16 +1,20 @@
 MiniDeps.add("williamboman/mason.nvim")
-MiniDeps.now(function()
+MiniDeps.later(function()
+    -- https://github.com/mason-org/mason.nvim/discussions/1760
     local mason = require("mason")
-    mason.setup({
-        ensure_installed = {
-            "stylua",
-            "lua-language-server",
-            "yaml-language-server",
-            "tflint",
-            "terraform-ls",
-        },
-        ui = {
-            border = "rounded",
-        },
-    })
+    mason.setup({ ui = { border = "single" } })
+
+    local packages = {
+        "lua-language-server",
+        "bash-language-server",
+        "dockerfile-language-server",
+    }
+
+    local mason_registry = require("mason-registry")
+    for _, pkg in pairs(packages) do
+        local package = mason_registry.get_package(pkg)
+        if not package:is_installed() then
+            package:install()
+        end
+    end
 end)
