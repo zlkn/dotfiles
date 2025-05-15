@@ -1,0 +1,8 @@
+Package: lvm-snapshot
+Version: 1.0
+Section: admin
+Priority: optional
+Architecture: all
+Maintainer: Yuriy Zolkin zolkin.u.a@gmail.com
+Description: Automates LVM root snapshots with systemd timer and environment configuration.
+

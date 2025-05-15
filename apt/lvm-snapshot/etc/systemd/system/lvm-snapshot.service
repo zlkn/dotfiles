@@ -1,0 +1,10 @@
+[Unit]
+Description=Create LVM snapshot of root volume and clean up old snapshots
+
+[Service]
+Type=oneshot
+Environment="SIZE=40G"
+Environment="LV=root"
+Environment="VG=thinkpad-vg"
+ExecStart=/usr/local/bin/lvm-snapshot
+

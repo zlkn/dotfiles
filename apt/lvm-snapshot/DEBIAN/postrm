@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+case "$1" in
+    remove|purge)
+        # Disable and stop the systemd timer
+        systemctl disable --now lvm-snapshot.timer || true
+        # Remove the timer and service unit files
+        rm -f /etc/systemd/system/lvm-snapshot.timer
+        rm -f /etc/systemd/system/lvm-snapshot.service
+        # Reload systemd manager configuration
+        systemctl daemon-reload || true
+        ;;
+esac
+
+exit 0

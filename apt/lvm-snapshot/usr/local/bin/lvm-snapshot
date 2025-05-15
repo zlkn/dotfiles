@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# VG=""
+# LV=""
+# SIZE=""
+SNAP_PREFIX="${LV}"
+
+function create() {
+  DATE=$(date +%Y-%m-%d)
+  SNAP_NAME="${SNAP_PREFIX}-${DATE}"
+  lvcreate --size $SIZE --snapshot --name $SNAP_NAME /dev/${VG}/${LV}
+}
+# Clean up old snapshots beyond the 3 most recent
+function cleanup() {
+  SNAPS=$(lvs --noheadings -o lv_name,lv_attr,origin | awk '$2 ~ /^s/ && $3 == "'$LV'" && $1 ~ /^'"$SNAP_PREFIX"'-[0-9]+$/ { print $1 }' | sort -r)
+  COUNT=0
+  for SNAP in $SNAPS; do
+      ((COUNT++))
+      if [ $COUNT -gt 3 ]; then
+          echo "Removing snapshot: $SNAP"
+          # lvremove -y /dev/${VG}/${SNAP}
+      else
+        echo "Keep snapshot:  $SNAP"
+      fi
+  done
+}
+
+function validate_env_vars() {
+    local MISSING=()
+    for VAR in SIZE VG LV; do
+        if [[ -z "${!VAR}" ]]; then
+            MISSING+=("$VAR")
+        fi
+    done
+
+    if (( ${#MISSING[@]} > 0 )); then
+        echo "Error: Atleast one of variables not set or empty: ${MISSING[*]}"
+        exit 1
+    fi
+}
+
+validate_env_vars
+create
+cleanup

@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily LVM snapshot for root volume
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+
