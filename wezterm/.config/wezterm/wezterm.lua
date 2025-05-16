@@ -184,6 +184,11 @@ wezterm.on("update-right-status", function(window, pane)
     window:set_right_status("")
 end)
 
+---@diagnostic disable-next-line: unused-local
+wezterm.on("window-config-reloaded", function(window, pane)
+    window:toast_notification("wezterm", "configuration reloaded!", nil, 4000)
+end)
+
 -- Command Palette
 config.command_palette_font_size = 11
 config.command_palette_bg_color = colorscheme.palette.extra.border
