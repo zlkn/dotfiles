@@ -11,7 +11,7 @@ MiniDeps.later(function()
             show_end = false,
         },
         whitespace = {
-            remove_blankline_trail = true,
+            -- remove_blankline_trail = true,
         },
         exclude = {
             filetypes = {
