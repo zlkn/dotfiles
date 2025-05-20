@@ -119,12 +119,23 @@ MiniDeps.now(function()
         single_file_support = false,
     })
 
-    vim.filetype.add({
-        pattern = {
-            [".*/playbooks/.*%.ya?ml"] = "yaml.ansible",
-            [".*/roles/.*%.ya?ml"] = "yaml.ansible",
-        },
-    })
+    -- snitched https://github.com/mfussenegger/nvim-ansible/blob/main/ftdetect/ansible.lua
+    if vim.filetype then
+        vim.filetype.add({
+            pattern = {
+                [".*/defaults/.*%.ya?ml"] = "yaml.ansible",
+                [".*/host_vars/.*%.ya?ml"] = "yaml.ansible",
+                [".*/group_vars/.*%.ya?ml"] = "yaml.ansible",
+                [".*/group_vars/.*/.*%.ya?ml"] = "yaml.ansible",
+                [".*/playbook.*%.ya?ml"] = "yaml.ansible",
+                [".*/playbooks/.*%.ya?ml"] = "yaml.ansible",
+                [".*/roles/.*/tasks/.*%.ya?ml"] = "yaml.ansible",
+                [".*/roles/.*/handlers/.*%.ya?ml"] = "yaml.ansible",
+                [".*/tasks/.*%.ya?ml"] = "yaml.ansible",
+                [".*/molecule/.*%.ya?ml"] = "yaml.ansible",
+            },
+        })
+    end
 
     vim.lsp.enable("dockerls")
     vim.lsp.enable("pyright")
