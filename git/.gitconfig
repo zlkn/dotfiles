@@ -23,3 +23,8 @@
 
 [remote "origin"]
 	glab-resolved = base
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
