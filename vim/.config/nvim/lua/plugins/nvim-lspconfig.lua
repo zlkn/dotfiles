@@ -86,7 +86,7 @@ MiniDeps.now(function()
 
     vim.lsp.enable("tflint")
     vim.lsp.config("tflint", {
-        filetypes = { "tflint", "tf" },
+        filetypes = { "terraform", "tf" },
         root_markers = { ".terraform", ".git" },
     })
     vim.lsp.enable("terraformls")
@@ -116,7 +116,7 @@ MiniDeps.now(function()
         },
         filetypes = { "yaml.ansible" },
         root_markers = { "ansible.cfg", ".ansible-lint" },
-        single_file_support = false,
+        single_file_support = true,
     })
 
     -- snitched https://github.com/mfussenegger/nvim-ansible/blob/main/ftdetect/ansible.lua
