@@ -65,4 +65,8 @@ MiniDeps.now(function()
     -- print(vim.inspect(spec.syntax))
 
     vim.cmd([[ colorscheme github_light ]])
+    vim.cmd([[ hi FloatBorder guifg=#a1a1a1 guibg=#f4f5f5]])
+    vim.cmd([[ hi MiniPickPromptCaret guifg=#a1a1a1 guibg=#f4f5f5]])
+    vim.cmd([[ hi MiniPickPromptPrefix guifg=#a1a1a1 guibg=#f4f5f5]])
+    vim.cmd([[ hi MiniPickPrompt guifg=#313131 guibg=#f4f5f5]])
 end)
