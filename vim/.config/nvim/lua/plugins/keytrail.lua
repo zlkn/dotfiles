@@ -1,0 +1,5 @@
+MiniDeps.add("JFryy/keytrail.nvim")
+MiniDeps.later(function()
+    local keytrail = require("keytrail")
+    keytrail.setup({})
+end)

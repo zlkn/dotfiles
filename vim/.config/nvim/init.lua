@@ -45,4 +45,7 @@ require("plugins.nvim-treesitter")
 require("plugins.nvim-treesitter-context")
 require("plugins.nvim-lspconfig")
 require("plugins.mason")
-require("plugins.conform")
+-- require("plugins.conform")
+
+-- Testing
+require("plugins.keytrail")

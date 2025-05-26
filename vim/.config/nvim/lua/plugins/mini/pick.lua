@@ -26,4 +26,6 @@ MiniDeps.later(function()
     vim.keymap.set("n", "gi", ":Pick lsp scope='implementation'<CR>", { desc = "Goto implementation" })
     vim.keymap.set("n", "gR", ":Pick lsp scope='references'<CR>", { desc = "Goto references" })
     vim.keymap.set("n", "gy", ":Pick lsp scope='type_definition'<CR>", { desc = "Goto t[y]pe definition" })
+
+    vim.keymap.set("n", "<leader>pp", ":echo 'Not Implemeted'<CR>", { desc = "Mock for jq over current buffer" })
 end)
