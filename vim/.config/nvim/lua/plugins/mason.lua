@@ -8,6 +8,7 @@ MiniDeps.later(function()
         "lua-language-server",
         "bash-language-server",
         "dockerfile-language-server",
+        "ruff",
     }
 
     local mason_registry = require("mason-registry")
