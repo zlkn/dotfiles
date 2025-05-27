@@ -20,7 +20,9 @@ vim.keymap.set("n", "L", ":bprev<CR>", { noremap = true, silent = true })
 
 -- Exit
 -- Map <leader>qq to exit without saving
-vim.keymap.set("n", "<leader>qq", ":q!<CR>", { desc = "Exit without saving", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>qq", ":q!<CR>", { desc = "Exit buffer without saving", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>qa", ":qa!<CR>", {desc = "Exit nvim without saving", noremap = true, silent = true })
+
 -- Map <leader>wq to save and then exit
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", { desc = "Save and Exit", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ww", ":w<CR><CR>", { desc = "Save and Format", noremap = true, silent = true })
