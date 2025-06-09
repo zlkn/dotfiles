@@ -20,7 +20,7 @@ goland(){
 }
 
 fish(){
-  curl -fsSL https://download.opensuse.org/repositories/shells:fish/Debian_12/Release.key | gpg --dearmor | sudo tee /usr/share/keyrings/fish.pgp > /dev/null
+  curl -fsSL https://download.opensuse.org/repositories/shells:fish/Debian_12/Release.key | gpg --dearmor -o /usr/share/keyrings/fish.pgp
   echo 'deb [signed-by=/usr/share/keyrings/fish.pgp] http://download.opensuse.org/repositories/shells:/fish/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/shells:fish.list
   apt update
   apt install fish
