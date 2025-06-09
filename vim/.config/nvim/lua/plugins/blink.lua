@@ -2,6 +2,7 @@
 MiniDeps.add({
     source = "saghen/blink.cmp",
     checkout = "v0.12.4",
+    depends = { "zbirenbaum/copilot.lua" },
 })
 
 MiniDeps.later(function()
@@ -20,18 +21,62 @@ MiniDeps.later(function()
                 },
             },
             menu = {
-                border = "single",
+                border = nil,
+                scrollbar = false,
+                scrolloff = 1,
                 draw = {
                     treesitter = { "lsp" },
+                    columns = {
+                        { "kind_icon" },
+                        { "label", "label_description", gap = 1 },
+                        { "source_name" },
+                    },
                 },
             },
         },
         signature = {
             enabled = true,
         },
+        sources = {
+            providers = {},
+        },
         appearance = {
             use_nvim_cmp_as_default = true,
             nerd_font_variant = "normal",
+            -- Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
+            kind_icons = {
+                Copilot = "",
+                Text = "󰉿",
+                Method = "󰊕",
+                Function = "󰊕",
+                Constructor = "󰒓",
+
+                Field = "󰜢",
+                Variable = "󰆦",
+                Property = "󰖷",
+
+                Class = "󱡠",
+                Interface = "󱡠",
+                Struct = "󱡠",
+                Module = "󰅩",
+
+                Unit = "󰪚",
+                Value = "󰦨",
+                Enum = "󰦨",
+                EnumMember = "󰦨",
+
+                Keyword = "󰻾",
+                Constant = "󰏿",
+
+                Snippet = "󱄽",
+                Color = "󰏘",
+                File = "󰈔",
+                Reference = "󰬲",
+                Folder = "󰉋",
+                Event = "󱐋",
+                Operator = "󰪚",
+                TypeParameter = "󰬛",
+            },
         },
     })
 
@@ -40,6 +85,7 @@ MiniDeps.later(function()
     local backgroundColor = "#f4f5f5"
     vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = borderColor })
     vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = borderColor })
-    vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = backgroundColor, bg = backgroundColor })
+    vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = backgroundColor, bg = "#e9e9e9" })
     vim.api.nvim_set_hl(0, "BlinkCmpScrollBarThumb", { bg = borderColor })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpKind", { bg = none, fg = "#313131" })
 end)
