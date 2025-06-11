@@ -16,18 +16,24 @@ end
 
 local function get_lsp()
     return function()
+        local names = {}
+        local copilot = " "
+
         local clients = vim.lsp.get_clients()
 
         if not clients or next(clients) == nil then
-            return "󱔹 "
+            return "  󱔹 "
         end
 
-        local names = {}
         for _, client in pairs(clients) do
-            table.insert(names, client.name)
+            if client.name == "copilot" then
+                copilot = " "
+            else
+                table.insert(names, client.name)
+            end
         end
 
-        return "󱔸 " .. table.concat(names, "/")
+        return copilot .. " 󱔸 " .. table.concat(names, "/")
     end
 end
 
