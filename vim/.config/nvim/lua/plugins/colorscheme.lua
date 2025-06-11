@@ -69,4 +69,6 @@ MiniDeps.now(function()
     vim.cmd([[ hi MiniPickPromptCaret guifg=#a1a1a1 guibg=#f4f5f5]])
     vim.cmd([[ hi MiniPickPromptPrefix guifg=#a1a1a1 guibg=#f4f5f5]])
     vim.cmd([[ hi MiniPickPrompt guifg=#313131 guibg=#f4f5f5]])
+
+    vim.cmd([[ hi MiniPickMatchRanges guifg=#871094 guibg=none]])
 end)
