@@ -23,12 +23,9 @@ MiniDeps.now(function()
                 schemas = {
                     kubernetes = { "k8s**.yaml", "kube*/*.yaml", "tshoot*/*.yaml" },
                     ["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
-                    ["https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json"] =
-                    "docker-compose*.{yml,yaml}",
-                    ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"] =
-                    "*.Application.yaml",
-                    ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.json"] =
-                    "*.ApplicationSet.yaml",
+                    ["https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json"] = "docker-compose*.{yml,yaml}",
+                    ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"] = "*.Application.yaml",
+                    ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.json"] = "*.ApplicationSet.yaml",
                 },
             },
         },
@@ -142,10 +139,10 @@ MiniDeps.now(function()
 
     vim.lsp.enable("dockerls")
 
-    vim.lsp.enable("pyright")
-    vim.lsp.config("pyright", {
-        -- filetypes = { "python", "py" },
-    })
+    -- vim.lsp.enable("pyright")
+    -- vim.lsp.config("pyright", {
+    -- filetypes = { "python", "py" },
+    -- })
 
     vim.lsp.enable("ruff")
     vim.lsp.config("ruff", {})

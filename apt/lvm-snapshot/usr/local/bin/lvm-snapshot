@@ -1,28 +1,46 @@
-#!/bin/bash
+#!/bin/bash -e
 
-# VG=""
-# LV=""
-# SIZE=""
+VG="thinkpad-vg"
+LV="root"
+SIZE="42"
 SNAP_PREFIX="${LV}"
 
+
 function create() {
+  local DATE
   DATE=$(date +%Y-%m-%d)
+  local SNAP_NAME
   SNAP_NAME="${SNAP_PREFIX}-${DATE}"
-  lvcreate --size $SIZE --snapshot --name $SNAP_NAME /dev/${VG}/${LV}
+
+  local SNAP_PATH="/dev/${VG}/${SNAP_NAME}"
+
+  if lvdisplay "${SNAP_PATH}" &> /dev/null; then
+    echo "Snapshot ${SNAP_NAME} already exists; skipping creation."
+  else
+    lvcreate --size "$SIZE" --snapshot --name "$SNAP_NAME" "/dev/${VG}/${LV}"
+    if [ $? -eq 0 ]; then
+      echo "Snapshot ${SNAP_NAME} created successfully."
+    else
+      echo "Failed to create snapshot ${SNAP_NAME}." >&2
+      return 1
+    fi
+  fi
 }
-# Clean up old snapshots beyond the 3 most recent
+
+
 function cleanup() {
-  SNAPS=$(lvs --noheadings -o lv_name,lv_attr,origin | awk '$2 ~ /^s/ && $3 == "'$LV'" && $1 ~ /^'"$SNAP_PREFIX"'-[0-9]+$/ { print $1 }' | sort -r)
+  export SNAPS="$(lvs --noheadings -o lv_name,lv_attr,origin | awk '$1 ~ /^root.[0-9]+/ { print $1 }' | sort -r)"
   COUNT=0
   for SNAP in $SNAPS; do
-      ((COUNT++))
-      if [ $COUNT -gt 3 ]; then
-          echo "Removing snapshot: $SNAP"
-          # lvremove -y /dev/${VG}/${SNAP}
-      else
-        echo "Keep snapshot:  $SNAP"
-      fi
-  done
+    # Safe increment that won't trigger set -e
+    COUNT=$(( COUNT + 1 ))
+    if [ $COUNT -gt 3 ]; then
+      echo "Removing snapshot: $SNAP"
+      lvremove -y /dev/${VG}/${SNAP}
+    else
+      echo  "Keep snapshot: $SNAP"
+    fi
+done
 }
 
 function validate_env_vars() {

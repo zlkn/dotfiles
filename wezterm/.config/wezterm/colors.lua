@@ -3,14 +3,10 @@ local palette = {
         black = "#313131",
         red = "#c30771",
         green = "#0d844c",
-        -- yellow = "#d79921",
-        -- yellow = "#9B632C",
-        -- yellow = "#cc8800",
         yellow = "#a66f00",
         blue = "#0550ae",
         magenta = "#523c79",
         cyan = "#008ec4",
-        -- cyan = "#3a869c",
         white = "#9d9d9d",
     },
     brights = {
@@ -21,7 +17,6 @@ local palette = {
         blue = "#005fd7",
         magenta = "#871094",
         cyan = "#20bbfc",
-        -- cyan = "#008ec4",
         white = "#f1f1f1",
     },
     rainbow = {

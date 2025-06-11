@@ -40,7 +40,10 @@ MiniDeps.later(function()
             "terraform",
             "hcl",
         },
-        highlight = { enable = true },
+        highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = { "yaml.ansible" },
+        },
         textobjects = { enable = true },
         incremental_selection = {
             enable = true,
