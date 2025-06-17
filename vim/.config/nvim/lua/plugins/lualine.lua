@@ -19,7 +19,9 @@ local function get_lsp()
         local names = {}
         local copilot = " "
 
-        local clients = vim.lsp.get_clients()
+        -- local clients = vim.lsp.get_clients()
+        -- Get LSP clients attached to the current buffer only
+        local clients = vim.lsp.get_active_clients({ bufnr = 0 })
 
         if not clients or next(clients) == nil then
             return "  󱔹 "
@@ -120,15 +122,37 @@ MiniDeps.later(function()
                         newfile = "[New]",
                     },
                 },
-                -- {
-                -- function()
-                -- return require("nvim-treesitter").statusline({
-                --     indicator_size = 70,
-                --     type_patterns = { "class", "function", "method", "block_mapping_pair" },
-                --     separator = "->",
-                -- })
-                -- end,
-                -- },
+                {
+                    function()
+                        local f = require("nvim-treesitter").statusline({
+                            indicator_size = 70,
+                            type_patterns = {
+                                -- "class",
+                                -- "function",
+                                -- "method",
+                                -- "interface",
+                                -- "type_spec",
+                                -- "table",
+                                -- "if_statement",
+                                -- "for_statement",
+                                -- "for_in_statement",
+                                -- "block_mapping_pair",
+                                "string_scalar",
+                            },
+                        })
+                        for node in f do
+                            if node.type == "string_scalar" then
+                                return "󰅌 " .. node.text
+                            end
+                        end
+                        local context = string.format("%s", f) -- convert to string, it may be a empty ts node
+
+                        if context == "vim.NIL" then
+                            return " "
+                        end
+                        return " " .. context
+                    end,
+                },
             },
             lualine_z = {},
         },
