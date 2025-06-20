@@ -65,3 +65,17 @@
             (single_quote_scalar)
           ] @injection.content
           (#offset! @injection.content 0 1 0 -1))))))
+
+
+
+((plain_scalar) @injection.content
+  (#match? @injection.content "\\{\\{.*\\}\\}")
+  (#set! injection.language "jinja"))
+
+((double_quote_scalar) @injection.content
+  (#match? @injection.content "\\{\\{.*\\}\\}")
+  (#set! injection.language "jinja"))
+
+((single_quote_scalar) @injection.content
+  (#match? @injection.content "\\{\\{.*\\}\\}")
+  (#set! injection.language "jinja"))
