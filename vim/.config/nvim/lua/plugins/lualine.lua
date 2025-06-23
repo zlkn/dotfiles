@@ -124,33 +124,31 @@ MiniDeps.later(function()
                 },
                 {
                     function()
-                        local f = require("nvim-treesitter").statusline({
-                            indicator_size = 70,
+                        local breadcrumbs = require("nvim-treesitter").statusline({
+                            -- indicator_size = 70,
                             type_patterns = {
-                                -- "class",
-                                -- "function",
-                                -- "method",
-                                -- "interface",
-                                -- "type_spec",
-                                -- "table",
-                                -- "if_statement",
-                                -- "for_statement",
-                                -- "for_in_statement",
-                                -- "block_mapping_pair",
-                                "string_scalar",
+                                --     -- "class",
+                                --     -- "function",
+                                --     -- "method",
+                                --     -- "interface",
+                                --     -- "type_spec",
+                                --     -- "table",
+                                --     -- "if_statement",
+                                --     -- "for_statement",
+                                --     -- "for_in_statement",
+                                "block_mapping_pair",
+                                --     "string_scalar",
+                                -- "plain_scalar",
                             },
+                            separator = "",
                         })
-                        for node in f do
-                            if node.type == "string_scalar" then
-                                return "󰅌 " .. node.text
-                            end
-                        end
-                        local context = string.format("%s", f) -- convert to string, it may be a empty ts node
 
-                        if context == "vim.NIL" then
-                            return " "
+                        local context = string.format("%s", breadcrumbs):gsub(":", ".")
+                        if context == "" or context == "vim.NIL" or context == "nil" then
+                            return ""
                         end
-                        return " " .. context
+
+                        return " " .. context
                     end,
                 },
             },
