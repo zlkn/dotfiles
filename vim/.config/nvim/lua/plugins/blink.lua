@@ -19,7 +19,6 @@ MiniDeps.later(function()
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 500,
-                -- border = "rounded",
                 window = {
                     border = "single",
                 },
@@ -63,7 +62,7 @@ MiniDeps.later(function()
             enabled = true,
         },
         sources = {
-            default = { "lsp", "path", "copilot" },
+            default = { "lsp", "path", "copilot", "buffer" },
             providers = {
                 copilot = {
                     name = "copilot",
