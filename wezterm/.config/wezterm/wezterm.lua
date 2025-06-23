@@ -128,7 +128,7 @@ local function get_icon(tab)
         ["python3"] = { symbol = wezterm.nerdfonts.md_language_python },
         ["lazygit"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.black },
         ["git"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.black },
-        ["terraform"] = { symbol = wezterm.nerdfonts.md_terraform, color = colorscheme.palette.brights.mgenta },
+        ["terraform"] = { symbol = wezterm.nerdfonts.md_terraform, color = colorscheme.palette.brights.magenta },
         ["gcloud"] = { symbol = wezterm.nerdfonts.md_google_cloud, color = colorscheme.palette.extra.darkBlue },
     }
 
