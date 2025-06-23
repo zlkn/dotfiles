@@ -2,16 +2,9 @@ MiniDeps.add("lewis6991/hover.nvim")
 MiniDeps.later(function()
     require("hover").setup({
         init = function()
-            -- Require providers
             require("hover.providers.lsp")
-            -- require('hover.providers.gh')
-            -- require('hover.providers.gh_user')
-            -- require('hover.providers.jira')
-            -- require('hover.providers.dap')
-            -- require('hover.providers.fold_preview')
             require("hover.providers.diagnostic")
             require("hover.providers.man")
-            -- require('hover.providers.dictionary')
         end,
         preview_opts = {
             border = "single",
@@ -28,7 +21,6 @@ MiniDeps.later(function()
 
     -- Setup keymaps
     vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
-    vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "hover.nvim (select)" })
     vim.keymap.set("n", "<Tab>", function()
         require("hover").hover_switch("next")
     end, { desc = "hover.nvim (next source)" })
