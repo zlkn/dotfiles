@@ -1,64 +1,12 @@
 local M = {}
 
--- Recursively convert Tree-sitter YAML nodes into a flat list of paths
-local function collect_paths(node, prefix, paths)
-    print("collect_paths")
-    local flattened = {}
-    for child, count in node:iter_children() do
-        local type = child:type()
-        if type == "block_mapping" then
-            local key_node = child:field("key")[1]
-            local key = vim.treesitter.get_node_text(key_node, 0)
-            print("blcok_mapping key:" .. key)
-            table.insert(flattened, key)
-            local new_prefix = #prefix > 0 and (prefix .. "." .. key) or key
-            local value_node = child:field("value")[1]
-            collect_paths(value_node, new_prefix, paths)
-        elseif type == "block_sequence" or type == "flow_sequence" then
-            for i, item in ipairs(child:children()) do
-                local idx_prefix = prefix .. "[" .. i .. "]"
-                collect_paths(item, idx_prefix, paths)
-            end
-        elseif type == "block_mapping" or type == "flow_mapping" then
-            collect_paths(child, prefix, paths)
-        elseif type == "string" or type == "number" or type == "true" or type == "false" or type == "null" then
-            table.insert(paths, prefix)
-        end
-    end
+-- Helper: extract key from node text
+---@param key string
+local function clean_key(key)
+    return key:gsub("^[\"']", ""):gsub("[\"']$", "")
 end
 
--- Main entry: returns table of "path:line" entries
-function M.get_yaml_paths()
-    local bufnr = vim.api.nvim_get_current_buf()
-    local parser = vim.treesitter.get_parser(bufnr, "yaml")
-    local tree = parser:parse()[1]
-    local root = tree:root()
-    local paths = {}
-    collect_paths(root, "", paths)
-
-    -- attach line numbers
-    local items = {}
-    for _, path in ipairs(paths) do
-        print(path)
-    end
-    return items
-end
-
--- FZF integration: launch fzf to select a path and jump to its line
-function M.search_yaml_paths()
-    local items = M.get_yaml_paths()
-    if vim.tbl_isempty(items) then
-        print("No YAML paths found")
-        return
-    end
-    print("Done")
-end
-
-local function get_treesitter_path(ft)
-    if not ensure_parser_ready(ft) then
-        return nil
-    end
-
+function M.get_treesitter_path(ft)
     local ok_parser, parser = pcall(vim.treesitter.get_parser, 0, ft)
     if not ok_parser or not parser then
         return nil
@@ -119,7 +67,114 @@ local function get_treesitter_path(ft)
     end
 
     -- Join path segments with a beautiful delimiter
-    return table.concat(path, config.get().delimiter)
+    return table.concat(path, ".")
+end
+
+---Get all possible paths in the current document
+---@return table paths Array of paths
+function M.get_all_paths()
+    local ft = vim.bo.filetype
+    local ok_parser, parser = pcall(vim.treesitter.get_parser, 0, ft)
+    if not ok_parser or not parser then
+        return {}
+    end
+
+    local trees = parser:parse()
+    if not trees or not trees[1] then
+        return {}
+    end
+
+    local tree = trees[1]
+    local root = tree:root()
+    if not root then
+        return {}
+    end
+
+    local paths = {}
+    local function traverse_node(node, current_path)
+        local type = node:type()
+
+        -- Handle YAML document structure
+        if ft == "yaml" then
+            if type == "stream" or type == "document" or type == "block_node" then
+                for child in node:iter_children() do
+                    traverse_node(child, current_path)
+                end
+                return
+            end
+        end
+
+        -- Handle JSON structure
+        if ft == "json" then
+            if type == "program" or type == "document" or type == "object" then
+                for child in node:iter_children() do
+                    traverse_node(child, current_path)
+                end
+                return
+            end
+
+            if type == "array" then
+                local index = 0
+                for child in node:iter_children() do
+                    if child:type() == "array_element" then
+                        local new_path = current_path .. "[" .. index .. "]"
+                        table.insert(paths, new_path)
+                        traverse_node(child, new_path)
+                        index = index + 1
+                    end
+                end
+                return
+            end
+        end
+
+        -- Handle object properties
+        if type == "pair" or type == "block_mapping_pair" or type == "flow_mapping_pair" then
+            local key_node = node:field("key")[1]
+            if key_node then
+                local key = clean_key(vim.treesitter.get_node_text(key_node, 0))
+                local new_path = current_path .. (current_path ~= "" and config.get().delimiter or "") .. key
+                table.insert(paths, new_path)
+
+                -- Traverse value node
+                local value_node = node:field("value")[1]
+                if value_node then
+                    traverse_node(value_node, new_path)
+                end
+            end
+            -- Handle array items
+        elseif type == "block_sequence_item" or type == "flow_sequence_item" then
+            local parent = node:parent()
+            if parent then
+                local index = 0
+                for child in parent:iter_children() do
+                    if child == node then
+                        break
+                    end
+                    if child:type() == type then
+                        index = index + 1
+                    end
+                end
+                local new_path = current_path .. "[" .. index .. "]"
+                table.insert(paths, new_path)
+
+                -- Traverse array item content
+                for child in node:iter_children() do
+                    traverse_node(child, new_path)
+                end
+            end
+            -- Handle block mappings and sequences
+        elseif type == "block_mapping" or type == "flow_mapping" or type == "block_sequence" or type == "flow_sequence" then
+            for child in node:iter_children() do
+                traverse_node(child, current_path)
+            end
+        end
+    end
+
+    traverse_node(root, "")
+
+    print("Found paths: " .. #paths)
+
+    return paths
 end
 
 return M
