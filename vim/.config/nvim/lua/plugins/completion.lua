@@ -2,10 +2,15 @@
 MiniDeps.add({
     source = "saghen/blink.cmp",
     checkout = "v0.12.4",
-    depends = { "fang2hou/blink-copilot" },
+    depends = { "fang2hou/blink-copilot", "zbirenbaum/copilot.lua" },
 })
 
 MiniDeps.later(function()
+    require("copilot").setup({})
+    require("blink-copilot").setup({
+        max_completions = 1,
+        kind_icon = " ",
+    })
     require("blink.cmp").setup({
         keymap = {
             preset = "default",
@@ -28,7 +33,9 @@ MiniDeps.later(function()
                         { "kind_icon" },
                         { "label", "label_description", gap = 1 },
                         { "source_name" },
+                        { "kind" },
                     },
+                    components = {},
                 },
             },
         },
@@ -39,10 +46,8 @@ MiniDeps.later(function()
             default = { "lsp", "path", "copilot", "buffer" },
             providers = {
                 copilot = {
-                    name = "copilot",
+                    name = "Copilot",
                     module = "blink-copilot",
-                    score_offset = 100,
-                    async = true,
                 },
             },
         },
@@ -88,4 +93,5 @@ MiniDeps.later(function()
 
     local backgroundColor = "#f4f5f5"
     vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = backgroundColor, bg = "#d1d1d1" })
+    vim.api.nvim_set_hl(0, "BlinkCmpKindText", { fg = "#313131", bg = none })
 end)

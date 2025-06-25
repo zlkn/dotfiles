@@ -97,7 +97,7 @@ local function get_icon(tab)
         ["wezterm-gui"] = { symbol = wezterm.nerdfonts.md_access_point .. " WezTerm" },
         -- TODO: I'd like to use this icon as additional extra symbol in tab
         ["sudo"] = { symbol = wezterm.nerdfonts.md_shield_half_full },
-        -- ["ncdu"] = { symbol = wezterm.nerdfont.fa_pie_chart, color = colorscheme.palette.brights.yellow },
+        ["ncdu"] = { symbol = wezterm.nerdfonts.fa_pie_chart, color = colorscheme.palette.brights.magenta },
         ["sh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
         ["bash"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
         ["zsh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
@@ -123,9 +123,10 @@ local function get_icon(tab)
         ["wget"] = { symbol = wezterm.nerdfonts.md_flash },
         ["yt-dlp"] = { symbol = wezterm.nerdfonts.md_flash },
         ["rsync"] = { symbol = wezterm.nerdfonts.md_flash },
-        ["python"] = { symbol = wezterm.nerdfonts.md_language_python },
-        ["Python"] = { symbol = wezterm.nerdfonts.md_language_python },
-        ["python3"] = { symbol = wezterm.nerdfonts.md_language_python },
+        ["python"] = { symbol = wezterm.nerdfonts.md_language_python, color = colorscheme.palette.ansi.yellow },
+        ["Python"] = { symbol = wezterm.nerdfonts.md_language_python, color = colorscheme.palette.ansi.yellow },
+        ["python3"] = { symbol = wezterm.nerdfonts.md_language_python, color = colorscheme.palette.ansi.yellow },
+        ["python3.13"] = { symbol = wezterm.nerdfonts.md_language_python, color = colorscheme.palette.ansi.yellow },
         ["lazygit"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.black },
         ["git"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.black },
         ["terraform"] = { symbol = wezterm.nerdfonts.md_terraform, color = colorscheme.palette.brights.magenta },
@@ -138,6 +139,8 @@ local function get_icon(tab)
     else
         local exec_name = get_process_name(tab.active_pane.foreground_process_name)
         icon = icons[exec_name] or { symbol = wezterm.nerdfonts.md_run, color = colorscheme.palette.extra.darkGray }
+        print("exec_name: " .. exec_name)
+        print("tab " .. tab.active_pane.foreground_process_name)
     end
 
     icon.symbol = icon.symbol .. " "
@@ -157,7 +160,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
 
     local icon = get_icon(tab)
     local title = tab_title(tab)
-    -- print("title: " .. title)
+    print("title: " .. title)
 
     return wezterm.format({
         { Background = { Color = colorscheme.palette.extra.borderGray } },
