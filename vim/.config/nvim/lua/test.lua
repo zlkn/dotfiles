@@ -1,5 +1,7 @@
 local M = {}
 
+local delimiter = "."
+
 -- Helper: extract key from node text
 ---@param key string
 local function clean_key(key)
@@ -132,7 +134,7 @@ function M.get_all_paths()
             local key_node = node:field("key")[1]
             if key_node then
                 local key = clean_key(vim.treesitter.get_node_text(key_node, 0))
-                local new_path = current_path .. (current_path ~= "" and config.get().delimiter or "") .. key
+                local new_path = current_path .. (current_path ~= "" and delimiter or "") .. key
                 table.insert(paths, new_path)
 
                 -- Traverse value node
@@ -173,6 +175,9 @@ function M.get_all_paths()
     traverse_node(root, "")
 
     print("Found paths: " .. #paths)
+    for _, path in ipairs(paths) do
+        print(path)
+    end
 
     return paths
 end
