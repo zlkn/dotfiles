@@ -40,6 +40,8 @@ MiniDeps.later(function()
             "yaml",
             "terraform",
             "hcl",
+            "jinja",
+            "jinja_inline",
         },
         highlight = {
             enable = true,
