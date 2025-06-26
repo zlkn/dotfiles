@@ -16,7 +16,7 @@ require("keymaps")
 require("plugins.colorscheme")
 require("plugins.lualine")
 
-require("plugins.blink")
+require("plugins.completion")
 require("plugins.flash")
 require("plugins.lazydev")
 
@@ -37,7 +37,7 @@ require("plugins.hover")
 
 -- git ingegration
 require("plugins.git.gitsigns")
-require("plugins.git.diffview")
+-- require("plugins.git.diffview")
 
 -- Syntax highlight and lsp
 require("plugins.nvim-treesitter")
@@ -47,5 +47,4 @@ require("plugins.mason")
 require("plugins.conform")
 
 -- Testing
-require("plugins.keytrail")
-require("plugins.copilot")
+-- require("plugins.keytrail")
