@@ -19,7 +19,7 @@ MiniDeps.now(function()
                 -- functions = "bold",
                 comments = "italic",
                 -- keywords = "bold",
-                types = "bold",
+                -- types = "bold",
                 -- tags = "bold",
                 operators = "bold",
                 numbers = "bold",
