@@ -140,11 +140,7 @@ MiniDeps.now(function()
     end
 
     vim.lsp.enable("dockerls")
-
-    -- vim.lsp.enable("pyright")
-    -- vim.lsp.config("pyright", {
-    -- filetypes = { "python", "py" },
-    -- })
+    vim.lsp.config("dockerls", {})
 
     vim.lsp.enable("ruff")
     vim.lsp.config("ruff", {})
