@@ -13,6 +13,8 @@
   },
   "diagnostics": {
     "global": [
+      "none",
+      "luv",
       "vim",
       "MiniDeps",
       "MiniPick",

@@ -40,8 +40,6 @@ vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 
 -- somewhere in your init.lua or a helper module:
 
--- map it to a key, e.g. <leader>ys
-local h = require("helper")
-vim.keymap.set("n", "<leader>ys", function()
-    return h.yaml_get_json_schema()
-end)
+-- Create a Vim command
+vim.cmd([[command! YamlCurrentPosition lua print(require('test').get_treesitter_path('yaml')) ]])
+vim.cmd([[command! YamlGetAllPaths lua print(require('test').get_all_paths()) ]])

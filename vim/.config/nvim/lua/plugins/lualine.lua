@@ -14,6 +14,16 @@ for mode, _ in pairs(auto_theme_custom) do
     end
 end
 
+local function keytrail_in_yaml()
+    return function()
+        local path = require("test").get_treesitter_path()
+        if path == "" or path == "nil" then
+            return ""
+        end
+        return " " .. path
+    end
+end
+
 local function get_lsp()
     return function()
         local names = {}
@@ -122,37 +132,7 @@ MiniDeps.later(function()
                         newfile = "[New]",
                     },
                 },
-                {
-                    function()
-                        local f = require("nvim-treesitter").statusline({
-                            indicator_size = 70,
-                            type_patterns = {
-                                -- "class",
-                                -- "function",
-                                -- "method",
-                                -- "interface",
-                                -- "type_spec",
-                                -- "table",
-                                -- "if_statement",
-                                -- "for_statement",
-                                -- "for_in_statement",
-                                -- "block_mapping_pair",
-                                "string_scalar",
-                            },
-                        })
-                        for node in f do
-                            if node.type == "string_scalar" then
-                                return "󰅌 " .. node.text
-                            end
-                        end
-                        local context = string.format("%s", f) -- convert to string, it may be a empty ts node
-
-                        if context == "vim.NIL" then
-                            return " "
-                        end
-                        return " " .. context
-                    end,
-                },
+                { keytrail_in_yaml() },
             },
             lualine_z = {},
         },

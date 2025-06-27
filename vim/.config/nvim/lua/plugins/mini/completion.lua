@@ -1,5 +1,0 @@
-MiniDeps.add("echasnovski/mini.completion")
-MiniDeps.later(function()
-    local completion = require("mini.completion")
-    completion.setup({})
-end)

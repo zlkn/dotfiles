@@ -1,5 +1,0 @@
-MiniDeps.add({ source = "fang2hou/blink-copilot", depends = { "zbirenbaum/copilot.lua" } })
-MiniDeps.later(function()
-    require("copilot").setup({})
-    require("blink-copilot").setup({})
-end)

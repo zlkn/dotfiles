@@ -6,8 +6,13 @@ doubleQuoted: "Brown fox mehehe..."
 foo:
   bar:
     baz: qwe
-
-foo: bar
+    list:
+      - a: {}
+      - b:
+          q: 1
+          w: 2
+          e: 3
+      - c: {}
 
 # language=python
 python: |
