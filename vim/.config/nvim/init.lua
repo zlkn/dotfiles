@@ -2,7 +2,6 @@ local path_package = vim.fn.stdpath("data") .. "/site/"
 local mini_path = path_package .. "pack/deps/start/mini.nvim"
 print("MiniPath: " .. mini_path)
 if not vim.loop.fs_stat(mini_path) then
-    -- local clone_cmd = { "git", "clone", "--filter=blob:none", "https://github.com/echasnovski/mini.nvim", mini_path }
     local clone_cmd = { "git", "clone", "--filter=blob:none", "https://github.com/echasnovski/mini.deps", mini_path }
     vim.fn.system(clone_cmd)
     vim.cmd('echo "Installed `mini.deps`" | redraw')
