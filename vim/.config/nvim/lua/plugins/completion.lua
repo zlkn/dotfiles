@@ -90,8 +90,7 @@ MiniDeps.later(function()
             },
         },
     })
-
-    local backgroundColor = "#f4f5f5"
-    vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = backgroundColor, bg = "#e9e9e9" })
+    -- local backgroundColor = "#f4f5f5"
+    vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = none, bg = "#e9e9e9" })
     vim.api.nvim_set_hl(0, "BlinkCmpKindText", { fg = "#313131", bg = none })
 end)

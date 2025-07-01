@@ -71,4 +71,11 @@ MiniDeps.now(function()
     vim.cmd([[ hi MiniPickPrompt guifg=#313131 guibg=#f4f5f5]])
 
     vim.cmd([[ hi MiniPickMatchRanges guifg=#871094 guibg=none]])
+
+    --  ansible_semantic_highlight
+    -- vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = "#871094" })
+    -- vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = "#008ec4" })
+
+    vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = "#980054" })
+    vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = "#004c63" })
 end)
