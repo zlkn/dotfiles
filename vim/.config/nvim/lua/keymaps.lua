@@ -43,3 +43,7 @@ vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 -- Create a Vim command
 vim.cmd([[command! YamlCurrentPosition lua print(require('test').get_treesitter_path('yaml')) ]])
 vim.cmd([[command! YamlGetAllPaths lua print(require('test').get_all_paths()) ]])
+
+vim.keymap.set("n", "<leader>i", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+end)
