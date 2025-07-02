@@ -12,6 +12,7 @@
 [core]
     autocrlf = input
     editor = nvim
+	hooksPath = .githooks
 [pull]
 	rebase = true
 [includeIf "gitdir:~/Workspace/"]
