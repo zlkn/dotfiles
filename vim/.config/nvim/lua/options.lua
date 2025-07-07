@@ -75,7 +75,7 @@ vim.diagnostic.config({
     update_in_insert = false,
 })
 
-vim.opt.messagesopt = "wait:2000,history:5000"
+-- vim.opt.messagesopt = "wait:2000,history:5000"
 
 -- force transparent background for all themes
 -- vim.cmd([[
