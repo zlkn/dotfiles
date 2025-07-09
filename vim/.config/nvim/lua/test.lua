@@ -92,7 +92,12 @@ function M.get_all_paths()
         return {}
     end
 
+    local function add_position(sr, sc, path)
+        return tonumber(sr) + 1 .. ":" .. tonumber(sc) + 1 .. "|" .. path
+    end
+
     local paths = {}
+
     local function traverse_node(node, current_path)
         local type = node:type()
 
@@ -119,8 +124,9 @@ function M.get_all_paths()
                 local index = 0
                 for child in node:iter_children() do
                     if child:type() == "array_element" then
+                        local sr, sc, _, _ = node:range()
                         local new_path = current_path .. "[" .. index .. "]"
-                        table.insert(paths, new_path)
+                        table.insert(paths, add_position(sr, sc, new_path))
                         traverse_node(child, new_path)
                         index = index + 1
                     end
@@ -134,8 +140,9 @@ function M.get_all_paths()
             local key_node = node:field("key")[1]
             if key_node then
                 local key = clean_key(vim.treesitter.get_node_text(key_node, 0))
+                local sr, sc, _, _ = node:range()
                 local new_path = current_path .. (current_path ~= "" and delimiter or "") .. key
-                table.insert(paths, new_path)
+                table.insert(paths, add_position(sr, sc, new_path))
 
                 -- Traverse value node
                 local value_node = node:field("value")[1]
@@ -156,8 +163,9 @@ function M.get_all_paths()
                         index = index + 1
                     end
                 end
+                local sr, sc, _, _ = node:range()
                 local new_path = current_path .. "[" .. index .. "]"
-                table.insert(paths, new_path)
+                table.insert(paths, add_position(sr, sc, new_path))
 
                 -- Traverse array item content
                 for child in node:iter_children() do
