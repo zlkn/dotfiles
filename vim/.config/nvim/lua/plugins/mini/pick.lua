@@ -30,71 +30,42 @@ MiniDeps.later(function()
     vim.keymap.set("n", "gR", ":Pick lsp scope='references'<CR>", { desc = "Goto references" })
     vim.keymap.set("n", "gy", ":Pick lsp scope='type_definition'<CR>", { desc = "Goto t[y]pe definition" })
 
-    vim.keymap.set("n", "<leader>py", ":Pick yaml_keytrail", { desc = "Fzf over yaml file" })
+    vim.keymap.set("n", "<leader>py", ":Pick yaml_keytrail<CR>", { desc = "Fzf over yaml file" })
 end)
 
 M = {}
-M.yaml_jump_to_node = function(path)
-    local ok_parser, parser = pcall(vim.treesitter.get_parser, 0, "yaml")
-    if not ok_parser or not parser then
-        print("Could not get parser for YAML")
-        return nil
+
+-- Jump to a given row:col in buf_id, in the window that triggered the picker
+M.yaml_jump_to_node = function(buf_id, path)
+    local sr, sc = path:match("^(%d+):(%d+)|")
+    local row, col = tonumber(sr), tonumber(sc) - 1 -- col is 0-based
+    print("Jumping to node at " .. row .. ":" .. (col + 1) .. " in buffer " .. buf_id)
+
+    -- get the window that launched the picker
+    local state = MiniPick.get_picker_state()
+    local win = state.windows.target
+    if win == nil or vim.api.nvim_win_get_buf(win) ~= buf_id then
+        vim.api.nvim_err_writeln("Target window not showing buffer " .. buf_id)
+        return
     end
 
-    local trees = parser:parse()
-    if not trees or not trees[1] then
-        print("No trees found")
-        return nil
-    end
-
-    local tree = trees[1]
-    local node = tree:root()
-    if not node then
-        print("No root node found")
-        return nil
-    end
-
-    local bufnr = vim.api.nvim_get_current_buf()
-
-    -- iterate each segment in the dotted path
-    for part in path:gmatch("[^.]+") do
-        local found = nil
-
-        for child in node:iter_children() do
-            print("NodeName: " .. vim.treesitter.get_node_text(child, bufnr))
-            if child:named() and child then
-                local txt = vim.treesitter.get_node_text(child, bufnr)
-                if txt == part then
-                    found = child
-                    break
-                end
-            end
-        end
-
-        if not found then
-            vim.notify(("Couldn’t find “%s” under %s"):format(part, node:type()), vim.log.levels.WARN)
-            return
-        end
-
-        node = found
-    end
-
-    print("Find position for Node" .. node)
-
-    local ts_utils = require("nvim-treesitter.ts_utils")
-    ts_utils.goto_node(node, true)
+    -- focus and set cursor there
+    vim.api.nvim_set_current_win(win)
+    vim.api.nvim_win_set_cursor(win, { row, col })
 end
 
 M.yaml_keytrail = function(_, opts)
     local items = require("test").get_all_paths()
+    local buf_id = vim.api.nvim_get_current_buf()
+    print("Current buffer ID: " .. buf_id)
     table.sort(items)
 
     local function choose(item)
         print("Choose item: " .. item)
-        M.yaml_jump_to_node(item)
+        M.yaml_jump_to_node(buf_id, item)
     end
 
-    local function preview(bufnr, item)
+    local function preview(buf_id, item)
         return nil
     end
 
