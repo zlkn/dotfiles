@@ -31,9 +31,7 @@ config.initial_cols = 160
 config.initial_rows = 42
 config.scrollback_lines = 100000
 config.window_close_confirmation = "NeverPrompt"
--- config.integrated_title_buttons = {}
--- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.window_decorations = "NONE"
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_padding = { left = 10, right = 10, top = 2, bottom = 2 }
 config.window_frame = {
     -- Add split line on stacked wezterm
