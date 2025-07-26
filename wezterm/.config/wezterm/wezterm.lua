@@ -26,6 +26,16 @@ config.font = wezterm.font({
 local wayland_gnome = require("wayland_gnome")
 wayland_gnome.apply_to_config(config)
 
+-- Command Palette
+config.command_palette_font_size = 11
+config.command_palette_bg_color = colorscheme.palette.extra.border
+config.command_palette_fg_color = colorscheme.colors.foreground
+
+-- Char select
+config.char_select_font_size = 11
+config.char_select_bg_color = colorscheme.palette.extra.border
+config.char_select_fg_color = colorscheme.colors.foreground
+
 -- Window config
 config.initial_cols = 160
 config.initial_rows = 42
@@ -131,17 +141,16 @@ local function get_icon(tab)
         ["gcloud"] = { symbol = wezterm.nerdfonts.md_google_cloud, color = colorscheme.palette.extra.darkBlue },
     }
 
-    local icon = { symbol = wezterm.nerdfonts.md_run, color = colorscheme.palette.extra.darkGray }
+    local icon = { symbol = wezterm.nerdfonts.md_collage, color = colorscheme.palette.extra.darkGray }
     if tab.active_pane.foreground_process_name == "" then
-        icon = { symbol = wezterm.nerdfonts.md_collage, color = colorscheme.palette.extra.darkGray }
-    else
-        local exec_name = get_process_name(tab.active_pane.foreground_process_name)
-        icon = icons[exec_name] or { symbol = wezterm.nerdfonts.md_run, color = colorscheme.palette.extra.darkGray }
-        print("exec_name: " .. exec_name)
-        print("tab " .. tab.active_pane.foreground_process_name)
+        return icon
     end
 
-    icon.symbol = icon.symbol .. " "
+    local exec_name = get_process_name(tab.active_pane.foreground_process_name)
+    icon.symbol = icons[exec_name].symbol or wezterm.nerdfonts.md_run
+    icon.color = icons[exec_name].color or colorscheme.palette.extra.darkGray
+    print("exec_name: " .. exec_name .. " tab: " .. tab.active_pane.foreground_process_name)
+
     return icon
 end
 
@@ -167,7 +176,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
 
         { Background = { Color = background } },
         { Foreground = { Color = icon.color } },
-        { Text = icon.symbol },
+        { Text = icon.symbol .. " " },
 
         { Background = { Color = background } },
         { Foreground = { Color = foreground } },
@@ -179,27 +188,6 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
     })
 end)
 
----@diagnostic disable-next-line: unused-local
-wezterm.on("update-right-status", function(window, pane)
-    window:set_left_status("")
-    window:set_right_status("")
-end)
-
----@diagnostic disable-next-line: unused-local
-wezterm.on("window-config-reloaded", function(window, pane)
-    -- window:toast_notification("wezterm", "configuration reloaded!", nil, 4)
-end)
-
--- Command Palette
-config.command_palette_font_size = 11
-config.command_palette_bg_color = colorscheme.palette.extra.border
-config.command_palette_fg_color = colorscheme.colors.foreground
-
--- Char select
-config.char_select_font_size = 11
-config.char_select_bg_color = colorscheme.palette.extra.border
-config.char_select_fg_color = colorscheme.colors.foreground
-
 -- Keybindings
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
 config.keys = {
@@ -209,7 +197,6 @@ config.keys = {
     { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
     { key = "x", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
     { key = "-", mods = "ALT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-    -- { key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
     {
         key = "\\",
         mods = "ALT",
