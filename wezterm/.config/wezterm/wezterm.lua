@@ -140,6 +140,7 @@ local function get_icon(tab)
         ["git"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.black },
         ["terraform"] = { symbol = wezterm.nerdfonts.md_terraform, color = colorscheme.palette.brights.magenta },
         ["gcloud"] = { symbol = wezterm.nerdfonts.md_google_cloud, color = colorscheme.palette.extra.darkBlue },
+        ["make"] = { symbol = wezterm.nerdfonts.cod_run_all, color = colorscheme.palette.extra.green },
     }
 
     local icon = { symbol = wezterm.nerdfonts.md_collage, color = colorscheme.palette.extra.darkGray }
