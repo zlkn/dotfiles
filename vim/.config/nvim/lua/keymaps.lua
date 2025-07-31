@@ -40,10 +40,25 @@ vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 
 -- somewhere in your init.lua or a helper module:
 
--- Create a Vim command
-vim.cmd([[command! YamlCurrentPosition lua print(require('test').get_treesitter_path('yaml')) ]])
-vim.cmd([[command! YamlGetAllPaths lua print(require('test').get_all_paths()) ]])
-
 vim.keymap.set("n", "<leader>i", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
 end)
+
+-- Create a Vim command
+-- vim.cmd([[command! YamlCurrentPosition lua print(require('yaml').get_treesitter_path('yaml')) ]])
+vim.api.nvim_create_user_command("YamlCurrentPosition", function()
+    print(require("yaml").get_treesitter_path("yaml"))
+end, {})
+-- vim.cmd([[command! YamlGetAllPaths lua print(require('yaml').get_all_paths()) ]])
+vim.api.nvim_create_user_command("YamlGetAllPaths", function()
+    print(require("yaml").get_all_paths())
+end, {})
+
+vim.api.nvim_create_user_command("ShowYamlSchema", function()
+    local clients = vim.lsp.get_active_clients()
+    for _, client in ipairs(clients) do
+        if client.name == "yamlls" then
+            print(vim.inspect(client.config.settings.yaml.schemas))
+        end
+    end
+end, {})

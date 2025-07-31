@@ -39,7 +39,6 @@ M = {}
 M.yaml_jump_to_node = function(buf_id, path)
     local sr, sc = path:match("^(%d+):(%d+)|")
     local row, col = tonumber(sr), tonumber(sc) - 1 -- col is 0-based
-    print("Jumping to node at " .. row .. ":" .. (col + 1) .. " in buffer " .. buf_id)
 
     -- get the window that launched the picker
     local state = MiniPick.get_picker_state()
@@ -55,13 +54,11 @@ M.yaml_jump_to_node = function(buf_id, path)
 end
 
 M.yaml_keytrail = function(_, opts)
-    local items = require("test").get_all_paths()
+    local items = require("yaml").get_all_paths()
     local buf_id = vim.api.nvim_get_current_buf()
-    print("Current buffer ID: " .. buf_id)
     table.sort(items)
 
     local function choose(item)
-        print("Choose item: " .. item)
         M.yaml_jump_to_node(buf_id, item)
     end
 
