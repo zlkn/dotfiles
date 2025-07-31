@@ -1,4 +1,4 @@
-MiniDeps.add("neovim/nvim-lspconfig")
+MiniDeps.add({ source = "neovim/nvim-lspconfig", depends = { "b0o/SchemaStore.nvim" } })
 MiniDeps.now(function()
     -- print("Setup lsp servers")
 
@@ -22,13 +22,13 @@ MiniDeps.now(function()
                     -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
                     url = "",
                 },
-                schemas = {
+                schemas = vim.tbl_deep_extend("force", require("schemastore").yaml.schemas(), {
                     kubernetes = { "k8s**.yaml", "kube*/*.yaml", "tshoot*/*.yaml" },
                     ["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
                     ["https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json"] = "docker-compose*.{yml,yaml}",
                     ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"] = "*.Application.yaml",
                     ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.json"] = "*.ApplicationSet.yaml",
-                },
+                }),
             },
         },
     })
