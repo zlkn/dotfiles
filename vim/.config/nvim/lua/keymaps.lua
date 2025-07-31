@@ -74,8 +74,6 @@ function CopyRelativePathToClipboard()
         return
     end
 
-    -- Get the relative path from the current working directory
-    local cwd = vim.fn.getcwd()
     local relative_path = vim.fn.fnamemodify(filepath, ":.")
 
     -- Copy to system clipboard
