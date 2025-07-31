@@ -3,6 +3,7 @@ local M = {}
 local delimiter = "."
 
 -- Helper: extract key from node text
+-- removes one leading and one trailing quote
 ---@param key string
 local function clean_key(key)
     return key:gsub("^[\"']", ""):gsub("[\"']$", "")

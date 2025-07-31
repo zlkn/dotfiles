@@ -66,3 +66,22 @@ end, {})
 vim.api.nvim_create_user_command("Yaml", function()
     require("yaml").yaml_get_json_schema()
 end, {})
+
+function CopyRelativePathToClipboard()
+    local filepath = vim.api.nvim_buf_get_name(0)
+    if filepath == "" then
+        vim.notify("No file loaded", vim.log.levels.WARN)
+        return
+    end
+
+    -- Get the relative path from the current working directory
+    local cwd = vim.fn.getcwd()
+    local relative_path = vim.fn.fnamemodify(filepath, ":.")
+
+    -- Copy to system clipboard
+    vim.fn.setreg("+", relative_path)
+
+    -- Optionally notify
+    vim.notify("Copied relative path to clipboard: " .. relative_path, vim.log.levels.INFO)
+end
+vim.keymap.set("n", "<leader>cp", CopyRelativePathToClipboard, { desc = "Copy relative path to clipboard" })
