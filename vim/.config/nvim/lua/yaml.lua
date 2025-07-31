@@ -182,11 +182,6 @@ function M.get_all_paths()
 
     traverse_node(root, "")
 
-    print("Found paths: " .. #paths)
-    for _, path in ipairs(paths) do
-        print(path)
-    end
-
     return paths
 end
 
