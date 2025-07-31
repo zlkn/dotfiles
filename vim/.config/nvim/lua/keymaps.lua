@@ -54,11 +54,15 @@ vim.api.nvim_create_user_command("YamlGetAllPaths", function()
     print(require("yaml").get_all_paths())
 end, {})
 
-vim.api.nvim_create_user_command("ShowYamlSchema", function()
+vim.api.nvim_create_user_command("YamlSchemas", function()
     local clients = vim.lsp.get_active_clients()
     for _, client in ipairs(clients) do
         if client.name == "yamlls" then
             print(vim.inspect(client.config.settings.yaml.schemas))
         end
     end
+end, {})
+
+vim.api.nvim_create_user_command("Yaml", function()
+    require("yaml").yaml_get_json_schema()
 end, {})
