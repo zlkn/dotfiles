@@ -12,7 +12,6 @@ vim.o.number = true
 
 vim.o.cmdheight = 0
 vim.o.scrolloff = 5
-vim.o.cursorline = true
 
 vim.o.breakindent = true -- Indent wrapped lines to match line start
 vim.o.wrap = false -- Display long lines as just one line

@@ -54,3 +54,16 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         end
     end,
 })
+
+-- Show cursor line only in active window
+local cursorGrp = vim.api.nvim_create_augroup("CursorLine", { clear = true })
+
+vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+    pattern = "*",
+    command = "set cursorline",
+})
+
+vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
+    pattern = "*",
+    command = "set nocursorline",
+})
