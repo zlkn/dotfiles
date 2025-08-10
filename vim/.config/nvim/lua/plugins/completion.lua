@@ -6,11 +6,16 @@ MiniDeps.add({
 })
 
 MiniDeps.later(function()
-    require("copilot").setup({})
+    require("copilot").setup({
+        filetypes = {
+            yaml = true,
+        },
+    })
     require("blink-copilot").setup({
         max_completions = 1,
         kind_icon = " ",
     })
+
     require("blink.cmp").setup({
         keymap = {
             preset = "default",
