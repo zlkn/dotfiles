@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR CMD_COUNT:0
-SETUVAR --export GIT_CONFIG:/home/yzolkin/\x2egitconfig
+# SETUVAR --export GIT_CONFIG:/home/yzolkin/\x2egitconfig
 SETUVAR --path GOPATH:/usr/local/go/bin
 SETUVAR NPM_PACKAGES:/home/yzolkin/\x2enpm\x2dpackages
 SETUVAR USE_GKE_GCLOUD_AUTH_PLUGIN:False
