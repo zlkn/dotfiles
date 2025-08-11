@@ -112,6 +112,7 @@ local function get_icon(tab)
         ["zsh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
         ["fish"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
         ["kubectl"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colorscheme.palette.brights.blue },
+        ["k9s"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colorscheme.palette.brights.blue },
         ["ssh"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.extra.deepTeal },
         ["sftp"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.extra.deepTeal },
         ["btm"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
