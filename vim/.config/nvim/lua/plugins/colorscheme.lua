@@ -38,7 +38,7 @@ MiniDeps.now(function()
                     dep = "#82071e",
                     field = "#004c63",
                     func = "#871094",
-                    ident = "#313131",
+                    ident = "#424242",
                     keyword = "#0550ae",
                     number = "#313131",
                     operator = "#0550ae",
@@ -48,8 +48,8 @@ MiniDeps.now(function()
                     statement = "#cf222e",
                     string = "#0d844c",
                     tag = "#0055c4",
-                    type = "#1f1f1f",
-                    variable = "#313131",
+                    type = "#424242",
+                    variable = "#424242",
                 },
                 diag = {
                     -- error = pal.danger.fg,
@@ -68,7 +68,7 @@ MiniDeps.now(function()
     vim.cmd([[ hi FloatBorder guifg=#a1a1a1 guibg=none]])
     vim.cmd([[ hi MiniPickPromptCaret guifg=#a1a1a1 guibg=none ]])
     vim.cmd([[ hi MiniPickPromptPrefix guifg=#a1a1a1 guibg=none]])
-    vim.cmd([[ hi MiniPickPrompt guifg=#313131 guibg=none]])
+    vim.cmd([[ hi MiniPickPrompt guifg=#424242 guibg=none]])
 
     vim.cmd([[ hi MiniPickMatchRanges guifg=#871094 guibg=none]])
 

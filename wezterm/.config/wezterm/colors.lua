@@ -1,6 +1,6 @@
 local palette = {
     ansi = {
-        black = "#313131",
+        black = "#424242",
         red = "#c30771",
         green = "#0d844c",
         yellow = "#a66f00",
@@ -17,7 +17,7 @@ local palette = {
         blue = "#005fd7",
         magenta = "#871094",
         cyan = "#20bbfc",
-        white = "#f1f1f1",
+        white = "#57606a",
     },
     rainbow = {
         red = "#cc241d",
