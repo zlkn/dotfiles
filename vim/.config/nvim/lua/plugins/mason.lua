@@ -9,6 +9,21 @@ MiniDeps.later(function()
         "bash-language-server",
         "dockerfile-language-server",
         "ruff",
+        "ansible-language-server",
+        "ansible-lint",
+        "bash-language-server",
+        "clangd",
+        "copilot-language-server",
+        "docker-compose-language-service",
+        "dockerfile-language-server",
+        "lua-language-server",
+        "prettier",
+        "ruff",
+        "stylua"
+        "terraform-ls",
+        "tflint",
+        "tree-sitter-cli",
+        "yaml-language-server"
     }
 
     local mason_registry = require("mason-registry")
