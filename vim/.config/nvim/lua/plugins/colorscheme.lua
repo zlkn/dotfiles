@@ -19,7 +19,7 @@ MiniDeps.now(function()
                 -- functions = "bold",
                 comments = "italic",
                 -- keywords = "bold",
-                -- types = "bold",
+                types = "bold",
                 -- tags = "bold",
                 operators = "bold",
                 numbers = "bold",
@@ -28,9 +28,10 @@ MiniDeps.now(function()
         specs = {
             github_light = {
                 syntax = {
-                    bracket = "#313131",
+                    bracket = "#1f1f1f",
                     builtin0 = "#980054",
-                    builtin1 = "#008ec4",
+                    -- builtin1 = "#008ec4",
+                    builtin1 = "#015692",
                     builtin2 = "#523c79",
                     comment = "#57606a",
                     conditional = "#cf222e",
@@ -40,7 +41,7 @@ MiniDeps.now(function()
                     func = "#871094",
                     ident = "#424242",
                     keyword = "#0550ae",
-                    number = "#313131",
+                    number = "#424242",
                     operator = "#0550ae",
                     param = "#007474",
                     preproc = "#c30771",
@@ -48,7 +49,7 @@ MiniDeps.now(function()
                     statement = "#cf222e",
                     string = "#0d844c",
                     tag = "#0055c4",
-                    type = "#424242",
+                    type = "#1f1f1f",
                     variable = "#424242",
                 },
                 diag = {
