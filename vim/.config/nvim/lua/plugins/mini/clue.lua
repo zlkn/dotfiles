@@ -35,6 +35,8 @@ MiniDeps.later(function()
             -- `s` key
             { mode = "n", keys = "s" },
             { mode = "x", keys = "s" },
+            -- `t` key for toogle options menu
+            { mode = "n", keys = "t" },
         },
 
         clues = {

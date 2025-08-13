@@ -40,10 +40,6 @@ vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 
 -- somewhere in your init.lua or a helper module:
 
-vim.keymap.set("n", "<leader>i", function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
-end)
-
 -- Create a Vim command
 -- vim.cmd([[command! YamlCurrentPosition lua print(require('yaml').get_treesitter_path('yaml')) ]])
 vim.api.nvim_create_user_command("YamlCurrentPosition", function()
@@ -83,3 +79,17 @@ function CopyRelativePathToClipboard()
     vim.notify("Copied relative path to clipboard: " .. relative_path, vim.log.levels.INFO)
 end
 vim.keymap.set("n", "<leader>cp", CopyRelativePathToClipboard, { desc = "Copy relative path to clipboard" })
+
+-- Toggle current hlsearch
+vim.keymap.set("n", "th", function()
+    if vim.o.hlsearch == true and vim.v.hlsearch == 1 then
+        vim.cmd("nohl")
+    else
+        vim.cmd("set hlsearch")
+    end
+end, { desc = "toogle hlsearch" })
+
+-- Toogle inlay_hint
+vim.keymap.set("n", "ti", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+end, { desc = "tootle inlay hint" })
