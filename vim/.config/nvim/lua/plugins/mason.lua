@@ -19,11 +19,11 @@ MiniDeps.later(function()
         "lua-language-server",
         "prettier",
         "ruff",
-        "stylua"
+        "stylua",
         "terraform-ls",
         "tflint",
         "tree-sitter-cli",
-        "yaml-language-server"
+        "yaml-language-server",
     }
 
     local mason_registry = require("mason-registry")
