@@ -1,0 +1,2 @@
+; extend
+(identifier) @variable
