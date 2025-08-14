@@ -82,11 +82,12 @@ vim.keymap.set("n", "<leader>cp", CopyRelativePathToClipboard, { desc = "Copy re
 
 -- Toggle current hlsearch
 vim.keymap.set("n", "th", function()
-    if vim.o.hlsearch == true and vim.v.hlsearch == 1 then
-        vim.cmd("nohl")
-    else
-        vim.cmd("set hlsearch")
-    end
+    vim.v.hlsearch = vim.v.hlsearch ~= 1
+    -- if vim.o.hlsearch == true and vim.v.hlsearch == 1 then
+    --     vim.cmd("nohl")
+    -- else
+    --     vim.cmd("set hlsearch")
+    -- end
 end, { desc = "toogle hlsearch" })
 
 -- Toogle inlay_hint
