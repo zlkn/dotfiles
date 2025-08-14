@@ -56,9 +56,6 @@ MiniDeps.now(function()
             },
         },
     })
-    -- debug print for visualizing the colorscheme
-    local spec = require("github-theme.spec").load("github_light")
-    print(vim.inspect(spec.syntax))
 
     vim.cmd([[ colorscheme github_light ]])
     vim.cmd([[ hi FloatBorder guifg=#a1a1a1 guibg=none]])
@@ -66,6 +63,16 @@ MiniDeps.now(function()
     vim.cmd([[ hi MiniPickPromptPrefix guifg=#a1a1a1 guibg=none]])
     vim.cmd([[ hi MiniPickPrompt guifg=#424242 guibg=none]])
 
+    -- force transparent background for all themes
+    -- vim.cmd([[
+    -- "highlight Normal guibg=none
+    -- "highlight NonText guibg=none
+    -- "highlight Normal ctermbg=none
+    -- "highlight NonText ctermbg=none
+    -- ]])
+    -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "#007474" })
+
+    -- Minipick
     vim.cmd([[ hi MiniPickMatchRanges guifg=#871094 guibg=none]])
 
     vim.api.nvim_set_hl(0, "@constructor", { fg = "#980054" })
