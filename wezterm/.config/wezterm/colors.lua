@@ -17,7 +17,8 @@ local palette = {
         blue = "#005fd7",
         magenta = "#871094",
         cyan = "#20bbfc",
-        white = "#57606a",
+        -- white = "#57606a",
+        white = "#d1d1d1",
     },
     rainbow = {
         red = "#cc241d",
@@ -97,7 +98,7 @@ local colors = {
     copy_mode_inactive_highlight_fg = { Color = palette.brights.white },
 
     quick_select_label_bg = { Color = palette.extra.PineGreen },
-    quick_select_label_fg = { Color = palette.brights.white },
+    quick_select_label_fg = { Color = palette.extra.pureWhite },
     quick_select_match_bg = { Color = palette.extra.cornflowerBlue },
     quick_select_match_fg = { Color = palette.brights.black },
 
