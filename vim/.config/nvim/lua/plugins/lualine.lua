@@ -72,7 +72,7 @@ local function git_root()
         git_dir = vim.fn.fnamemodify(git_dir, ":p:h:h")
         git_dir = vim.fn.fnamemodify(git_dir, ":t")
 
-        return " " .. git_dir
+        return "󱉭 " .. git_dir
     end
 end
 
