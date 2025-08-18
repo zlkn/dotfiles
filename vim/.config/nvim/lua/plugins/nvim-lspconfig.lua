@@ -2,6 +2,17 @@ MiniDeps.add({ source = "neovim/nvim-lspconfig", depends = { "b0o/SchemaStore.nv
 MiniDeps.now(function()
     -- print("Setup lsp servers")
 
+    vim.lsp.enable("helm_ls")
+    vim.lsp.config("helm_ls", {})
+    -- snitched https://github.com/mfussenegger/nvim-ansible/blob/main/ftdetect/ansible.lua
+    if vim.filetype then
+        vim.filetype.add({
+            pattern = {
+                [".*/templates/.*%.ya?ml"] = "helm",
+            },
+        })
+    end
+
     vim.lsp.enable("yamlls")
     vim.lsp.config("yamlls", {
         filetypes = { "yaml", "yml", "yaml.docker-compose" },
