@@ -46,7 +46,7 @@ vim.opt.guicursor = {
 
 vim.diagnostic.config({
     virtual_lines = {
-        current_line = true,
+        current_line = false,
     },
     underline = true,
     float = {
@@ -84,3 +84,4 @@ vim.diagnostic.config({
 --   highlight NonText ctermbg=none
 -- ]])
 -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "#007474" })
+-- vim.o.winborder = "rounded"

@@ -21,7 +21,7 @@ local palette = {
         cyan = "#1fbdd0",
         -- white = "#57606a",
         -- white = "#d1d1d1",
-        white = "#f4f5f5",
+        white = "#dfdfe1",
     },
     rainbow = {
         red = "#cc241d",

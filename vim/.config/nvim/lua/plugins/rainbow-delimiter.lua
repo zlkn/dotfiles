@@ -10,6 +10,13 @@ MiniDeps.later(function()
             "RainbowDelimiterGreen",
             "RainbowDelimiterViolet",
             "RainbowDelimiterCyan",
+            -- "RainbowRed",
+            -- "RainbowYellow",
+            -- "RainbowBlue",
+            -- "RainbowOrange",
+            -- "RainbowGreen",
+            -- "RainbowViolet",
+            -- "RainbowCyan",
         },
     })
 end)
