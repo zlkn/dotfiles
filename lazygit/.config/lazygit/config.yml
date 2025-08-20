@@ -3,6 +3,6 @@ gui:
     # Background color of selected line.
     # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#highlighting-the-selected-line
     selectedLineBgColor:
-      # - cyan
-      - "#e9e9e9"
+      - "#dfdfe1"
+      # - "#e9e9e9"
  
