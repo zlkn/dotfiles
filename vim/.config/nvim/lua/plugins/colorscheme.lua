@@ -60,18 +60,25 @@ MiniDeps.now(function()
     })
 
     vim.cmd([[ colorscheme github_light ]])
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#dfdfe1" })
+
+    -- Transparent/“inherit terminal” bg for builtin tabline
+    vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE", fg = "#888888" })
+    vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE", fg = "#ffffff", bold = true })
+
     vim.cmd([[ hi FloatBorder guifg=#a1a1a1 guibg=none]])
     vim.cmd([[ hi MiniPickPromptCaret guifg=#a1a1a1 guibg=none ]])
     vim.cmd([[ hi MiniPickPromptPrefix guifg=#a1a1a1 guibg=none]])
     vim.cmd([[ hi MiniPickPrompt guifg=#424242 guibg=none]])
 
     -- force transparent background for all themes
-    -- vim.cmd([[
-    -- "highlight Normal guibg=none
-    -- "highlight NonText guibg=none
-    -- "highlight Normal ctermbg=none
-    -- "highlight NonText ctermbg=none
-    -- ]])
+    vim.cmd([[
+        highlight Normal guibg=none
+        highlight NonText guibg=none
+        highlight Normal ctermbg=none
+        highlight NonText ctermbg=none
+    ]])
     -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "#007474" })
 
     -- Minipick
