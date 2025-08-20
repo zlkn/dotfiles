@@ -62,6 +62,8 @@ MiniDeps.now(function()
     vim.cmd([[ colorscheme github_light ]])
     vim.api.nvim_set_hl(0, "CursorLine", { bg = "#dfdfe1" })
 
+    vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = "#b6d6fd" })
+
     -- Transparent/“inherit terminal” bg for builtin tabline
     vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
     vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE", fg = "#888888" })
