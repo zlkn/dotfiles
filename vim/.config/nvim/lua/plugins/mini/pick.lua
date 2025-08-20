@@ -1,7 +1,7 @@
 MiniDeps.add("echasnovski/mini.pick")
 MiniDeps.later(function()
     require("mini.pick").setup({
-        window = { prompt_prefix = " " },
+        window = { prompt_prefix = " ", config = { border = "rounded" } },
     })
     MiniPick.registry.yaml_keytrail = M.yaml_keytrail
 
