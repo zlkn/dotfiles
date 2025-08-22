@@ -19,9 +19,10 @@ local palette = {
         magenta = "#871094",
         -- cyan = "#20bbfc",
         cyan = "#1fbdd0",
-        -- white = "#57606a",
+        white = "#57606a",
         -- white = "#d1d1d1",
-        white = "#dfdfe1",
+        -- white = "#dfdfe1",
+        -- white = "#f7f6f3",
     },
     rainbow = {
         red = "#cc241d",
@@ -47,7 +48,7 @@ local palette = {
         darkGray = "#424242",
         -- borderGray = "#f4f5f5",
         -- borderGray = "#ececef",
-        borderGray = "#ebebed",
+        borderGray = "#ebebed", -- <-
         -- borderGray = "#dde3e9",
         -- borderGray = "#f6f6f6",
         border = "#d1d1d1",
@@ -55,6 +56,7 @@ local palette = {
         pencilGray = "#9d9d9d",
         lightGray = "#f0f0f0",
         pureWhite = "#ffffff",
+        -- borderGray = "#f7f6f3",
     },
 }
 
