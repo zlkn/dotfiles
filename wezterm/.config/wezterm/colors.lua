@@ -46,17 +46,12 @@ local palette = {
         yellow = "#d7af5f",
         cornflowerBlue = "#b6d6fd",
         darkGray = "#424242",
-        -- borderGray = "#f4f5f5",
-        -- borderGray = "#ececef",
         borderGray = "#ebebed", -- <-
-        -- borderGray = "#dde3e9",
-        -- borderGray = "#f6f6f6",
         border = "#d1d1d1",
         mediumGray = "#808080",
         pencilGray = "#9d9d9d",
         lightGray = "#f0f0f0",
         pureWhite = "#ffffff",
-        -- borderGray = "#f7f6f3",
     },
 }
 
