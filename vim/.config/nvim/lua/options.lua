@@ -25,6 +25,7 @@ vim.opt.clipboard = "unnamedplus"
 -- Editing
 vim.o.ignorecase = true -- Ignore case when searching (use `\C` to force not doing that)
 vim.o.incsearch = true -- Show search results while typing
+vim.fn.searchcount({ maxcount = 0 }) -- maxcount = 0 makes the number not be capped at 99
 vim.o.infercase = true -- Infer letter cases for a richer built-in keyword completion
 vim.o.smartcase = true -- Don't ignore case when searching if pattern has upper case
 vim.o.smartindent = true -- Make indenting smart

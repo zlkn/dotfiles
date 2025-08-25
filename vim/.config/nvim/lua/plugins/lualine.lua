@@ -8,7 +8,6 @@ MiniDeps.add({
 local auto_theme_custom = require("lualine.themes.auto")
 for mode, _ in pairs(auto_theme_custom) do
     for _, part in ipairs({ "a", "b", "c" }) do
-        -- auto_theme_custom[mode][part].bg = "#f4f5f5"
         auto_theme_custom[mode][part].bg = none
         auto_theme_custom[mode][part].fg = "#313131"
     end
@@ -113,7 +112,10 @@ MiniDeps.later(function()
                     },
                 },
             },
-            lualine_y = { get_lsp() },
+            lualine_y = {
+                "searchcount",
+                get_lsp(),
+            },
             lualine_z = { "progress", "filetype", "fileformat" },
         },
         tabline = {
