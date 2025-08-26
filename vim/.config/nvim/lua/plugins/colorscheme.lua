@@ -18,6 +18,7 @@ MiniDeps.now(function()
                 comments = "italic",
                 operators = "bold",
                 numbers = "bold",
+                constants = "bold",
             },
         },
         specs = {
@@ -27,10 +28,10 @@ MiniDeps.now(function()
                     builtin0 = "#980054",
                     builtin1 = "#015692",
                     builtin2 = "#8a4794",
-                    -- builtib2 = "#8430ce",
                     comment = "#57606a",
                     conditional = "#fb007a",
-                    const = "#015692",
+                    -- const = "#015692",
+                    const = "#523c79",
                     dep = "#82071e",
                     field = "#004c63",
                     func = "#871094",
@@ -45,15 +46,11 @@ MiniDeps.now(function()
                     statement = "#fb007a",
                     string = "#0d844c",
                     tag = "#0550ae",
-                    -- tag = "#5b4d79",
                     type = "#1f1f1f",
                     variable = "#424242",
                 },
                 diag = {
-                    -- error = pal.danger.fg,
-                    -- warn = "#4fb8cc",
-                    -- info = "#4fb8cc",
-                    hint = "#4fb8cc",
+                    hint = "#1fbdd0",
                 },
             },
         },
@@ -81,7 +78,7 @@ MiniDeps.now(function()
         highlight Normal ctermbg=none
         highlight NonText ctermbg=none
     ]])
-    -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "#007474" })
+    -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "", fg = "" })
 
     -- Minipick
     vim.cmd([[ hi MiniPickMatchRanges guifg=#871094 guibg=none]])
