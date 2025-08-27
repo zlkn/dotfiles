@@ -45,3 +45,6 @@ require("plugins.nvim-lspconfig")
 require("plugins.mason")
 require("plugins.conform")
 -- require("plugins.codecompanion")
+
+-- TEST
+require("plugins.smart-splits")

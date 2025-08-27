@@ -205,11 +205,6 @@ config.keys = {
         mods = "ALT",
         action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
     },
-    { key = "h", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Left") },
-    { key = "j", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Down") },
-    { key = "k", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Up") },
-    { key = "t", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
-    { key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Right") },
     {
         key = "g",
         mods = "ALT",
@@ -228,5 +223,18 @@ for i = 1, 8 do
         action = wezterm.action.ActivateTab(i - 1),
     })
 end
+
+local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
+smart_splits.apply_to_config(config, {
+    direction_keys = {
+        move = { "h", "j", "k", "l" },
+        resize = { "LeftArrow", "DownArrow", "UpArrow", "RightArrow" },
+    },
+    modifiers = {
+        move = "CTRL",
+        resize = "META",
+    },
+    log_level = "info",
+})
 
 return config
