@@ -151,7 +151,7 @@ MiniDeps.now(function()
         },
         filetypes = { "yaml.ansible" },
         root_markers = { "ansible.cfg", ".ansible-lint" },
-        single_file_support = true,
+        single_file_support = false,
     })
 
     -- snitched https://github.com/mfussenegger/nvim-ansible/blob/main/ftdetect/ansible.lua
