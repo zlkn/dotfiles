@@ -15,11 +15,11 @@ end
 
 local function keytrail_in_yaml()
     return function()
-        local path = require("test").get_treesitter_path()
+        local path = require("yaml").get_treesitter_path()
         if path == "" or path == "nil" then
             return ""
         end
-        return " " .. path
+        return " " .. path
     end
 end
 
@@ -29,7 +29,7 @@ local function get_lsp()
         local copilot = " "
 
         -- local clients = vim.lsp.get_clients()
-        -- Get LSP clients attached to the current buffer only
+        -- Get LSP clients attached to the current buffer onlo
         local clients = vim.lsp.get_active_clients({ bufnr = 0 })
 
         if not clients or next(clients) == nil then
