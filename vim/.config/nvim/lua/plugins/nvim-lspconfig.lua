@@ -34,8 +34,6 @@ MiniDeps.now(function()
                     url = "",
                 },
                 schemas = vim.tbl_deep_extend("force", require("schemastore").yaml.schemas(), {
-                    -- kubernetes = { "k8s**.yaml", "kube*/*.yaml", "tshoot*/*.yaml" },
-                    -- kubernetes = { "*.yaml" },
                     ["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
                     ["https://raw.githubusercontent.com/docker/compose/master/compose/config/compose_spec.json"] = "docker-compose*.{yml,yaml}",
                     ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"] = "*.Application.yaml",
@@ -103,19 +101,19 @@ MiniDeps.now(function()
             })
         end,
 
-        on_attach = function(client, bufnr)
-            -- If enabled write buffer stuck
-            if client.server_capabilities.inlayHintProvider then
-                -- print("Inlay hint avaliable")
-                -- vim.lsp.buf.inlay_hint(bufnr, true)
-            end
-        end,
+        -- on_attach = function(client, bufnr)
+        -- If enabled write buffer stuck
+        -- if client.server_capabilities.inlayHintProvider then
+        -- print("Inlay hint avaliable")
+        -- vim.lsp.buf.inlay_hint(bufnr, true)
+        -- end
+        -- end,
 
         settings = {
             Lua = {
                 hint = { enable = true },
                 diagnostics = {
-                    globals = { "vim", "MiniDeps", "MiniPick", "MiniFiles" },
+                    globals = { "vim", "MiniDeps", "MiniPick", "MiniFiles", "none" },
                 },
             },
         },
