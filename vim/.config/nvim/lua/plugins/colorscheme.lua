@@ -58,6 +58,8 @@ MiniDeps.now(function()
 
     vim.cmd([[ colorscheme github_light ]])
     vim.api.nvim_set_hl(0, "CursorLine", { bg = "#dfdfe1" })
+    vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "#dfdfe1" })
+    vim.api.nvim_set_hl(0, "CursorLineSign", { bg = "#dfdfe1" })
 
     vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = "#b6d6fd" })
 
