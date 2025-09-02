@@ -93,4 +93,9 @@ end, { desc = "toogle hlsearch" })
 -- Toogle inlay_hint
 vim.keymap.set("n", "ti", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+    if vim.lsp.inlay_hint.is_enabled() then
+        vim.notify("Enable inlay hints", vim.log.levels.INFO)
+    else
+        vim.notify("Disable inlay hints", vim.log.levels.WARN)
+    end
 end, { desc = "tootle inlay hint" })
