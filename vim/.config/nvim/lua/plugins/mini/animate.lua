@@ -6,8 +6,13 @@ MiniDeps.later(function()
             -- Disable Scroll Animations, as the can interfer with mouse Scrolling
             enable = false,
         },
-        cursor = {
-            timing = animate.gen_timing.cubic({ duration = 200, unit = "total" }),
-        },
+        -- Disable window animation due blinking background
+        open = { enable = false },
+        close = { enable = false },
+        resize = { enable = false },
+
+        -- cursor = {
+        --     timing = animate.gen_timing.cubic({ duration = 200, unit = "total" }),
+        -- },
     })
 end)

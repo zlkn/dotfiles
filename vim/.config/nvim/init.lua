@@ -15,6 +15,7 @@ require("keymaps")
 
 require("plugins.colorscheme")
 require("plugins.lualine")
+require("plugins.smart-splits")
 
 require("plugins.completion")
 require("plugins.flash")
@@ -29,6 +30,7 @@ require("plugins.mini.surround")
 require("plugins.mini.cursorword")
 require("plugins.mini.hipatterns")
 require("plugins.mini.icons")
+require("plugins.mini.animate")
 
 -- Enhance ui
 require("plugins.indent-blankline")
@@ -45,6 +47,3 @@ require("plugins.nvim-lspconfig")
 require("plugins.mason")
 require("plugins.conform")
 -- require("plugins.codecompanion")
-
--- TEST
-require("plugins.smart-splits")
