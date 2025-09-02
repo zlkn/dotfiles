@@ -19,7 +19,7 @@ local function keytrail_in_yaml()
         if path == "" or path == "nil" then
             return ""
         end
-        return " " .. path
+        return " " .. path
     end
 end
 
