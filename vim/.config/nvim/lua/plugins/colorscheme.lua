@@ -45,7 +45,7 @@ MiniDeps.now(function()
                     regex = "#0a3069",
                     statement = "#fb007a",
                     string = "#0d844c",
-                    tag = "#0550ae",
+                    tag = "#015692",
                     type = "#1f1f1f",
                     variable = "#424242",
                 },
