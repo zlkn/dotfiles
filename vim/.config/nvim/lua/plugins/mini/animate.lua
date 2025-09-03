@@ -11,8 +11,8 @@ MiniDeps.later(function()
         close = { enable = false },
         resize = { enable = false },
 
-        -- cursor = {
-        --     timing = animate.gen_timing.cubic({ duration = 200, unit = "total" }),
-        -- },
+        cursor = {
+            timing = animate.gen_timing.cubic({ duration = 200, unit = "total" }),
+        },
     })
 end)
