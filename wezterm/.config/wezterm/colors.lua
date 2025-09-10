@@ -18,6 +18,7 @@ local palette = {
         magenta = "#871094",
         cyan = "#1fbdd0",
         white = "#57606a",
+        -- white = "#004c63",
     },
     rainbow = {
         red = "#cc241d",
@@ -29,6 +30,7 @@ local palette = {
         violet = "#b16286",
     },
     extra = {
+        test = "#004c63",
         cyan = "#007474",
         green = "#10a778",
         chromeGreen = "#0d844c",
@@ -43,6 +45,7 @@ local palette = {
         cornflowerBlue = "#b6d6fd",
         darkGray = "#424242",
         borderGray = "#ebebed", -- <-
+        backgroundGray = "#ececec",
         border = "#d1d1d1",
         mediumGray = "#808080",
         pencilGray = "#9d9d9d",
@@ -56,7 +59,7 @@ local colors = {
     indexed = {},
 
     foreground = palette.ansi.black,
-    background = palette.extra.borderGray,
+    background = palette.extra.backgroundGray,
 
     cursor_bg = "#20bbfc", -- palette.brights.blue,
     -- cursor_fg = palette .. black, -- palette.extra.darkGray,
