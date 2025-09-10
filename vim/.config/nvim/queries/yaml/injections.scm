@@ -67,6 +67,9 @@
           (#offset! @injection.content 0 1 0 -1))))))
 
 
+((block_scalar) @injection.content
+  (#match? @injection.content "\\{\\{.*\\}\\}")
+  (#set! injection.language "jinja"))
 
 ((plain_scalar) @injection.content
   (#match? @injection.content "\\{\\{.*\\}\\}")
