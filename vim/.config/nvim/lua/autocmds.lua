@@ -16,7 +16,11 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = augroup("highlight_yank"),
     callback = function()
-        (vim.hl or vim.highlight).on_yank()
+        (vim.hl or vim.highlight).on_yank({
+            higroup = "IncSearch", -- or your custom highlight group
+            timeout = 200,
+            priority = 1000,
+        })
     end,
 })
 
@@ -59,7 +63,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- local cursorGrp = vim.api.nvim_create_augroup("CursorLine", { clear = true })
 
 vim.api.nvim_create_autocmd({
-    -- "InsertLeave",
+    "InsertLeave",
     "WinEnter",
 }, {
     pattern = "*",
@@ -67,7 +71,7 @@ vim.api.nvim_create_autocmd({
 })
 
 vim.api.nvim_create_autocmd({
-    -- "InsertEnter",
+    "InsertEnter",
     "WinLeave",
 }, {
     pattern = "*",
