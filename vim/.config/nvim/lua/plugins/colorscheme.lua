@@ -26,6 +26,7 @@ MiniDeps.now(function()
             white = "#57606a",
         },
         extra = {
+            deepTeal = "#3a869c",
             darkBlue = "#0a3069",
             teal = "#004c63",
             tirquose = "#007474",
@@ -54,15 +55,11 @@ MiniDeps.now(function()
             github_light = {
                 syntax = {
                     bracket = palette.brights.black,
-                    -- builtin0 = palette.ansi.red,
                     builtin0 = palette.extra.cherry,
                     builtin1 = palette.ansi.blue,
                     builtin2 = palette.brights.magenta,
                     comment = palette.brights.white,
                     conditional = palette.brights.red,
-                    -- const = palette.ansi.blue,
-                    -- const = palette.ansi.magenta,
-                    -- const = palette.brights.white,
                     const = palette.extra.darkBlue,
                     dep = palette.brights.cyan,
                     field = palette.extra.teal,
@@ -70,7 +67,7 @@ MiniDeps.now(function()
                     ident = palette.ansi.black,
                     keyword = palette.brights.blue,
                     number = palette.ansi.black,
-                    operator = palette.extra.darkBlue,
+                    operator = palette.extra.deepTeal,
                     param = palette.extra.tirquose,
                     preproc = palette.ansi.red,
                     regex = palette.brights.yellow,

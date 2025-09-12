@@ -13,14 +13,6 @@ require("options")
 require("autocmds")
 require("keymaps")
 
-require("plugins.colorscheme")
-require("plugins.lualine")
-require("plugins.smart-splits")
-
-require("plugins.completion")
-require("plugins.flash")
-require("plugins.lazydev")
-
 require("plugins.mini.clue")
 require("plugins.mini.files")
 require("plugins.mini.pairs")
@@ -33,17 +25,28 @@ require("plugins.mini.icons")
 require("plugins.mini.animate")
 
 -- Enhance ui
+require("plugins.colorscheme")
 require("plugins.indent-blankline")
 require("plugins.rainbow-delimiter")
-require("plugins.hover")
+require("plugins.smart-splits")
+require("plugins.lualine")
+require("plugins.flash")
 
 -- git ingegration
 require("plugins.git.gitsigns")
 
--- Syntax highlight and lsp
+-- Syntax highlight
 require("plugins.nvim-treesitter")
 require("plugins.nvim-treesitter-context")
+
+-- LSP/completion/autoformat/docs
 require("plugins.nvim-lspconfig")
 require("plugins.mason")
+require("plugins.completion")
+
 require("plugins.conform")
+require("plugins.hover")
+require("plugins.lazydev")
+
+-- TEST
 -- require("plugins.codecompanion")
