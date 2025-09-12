@@ -70,7 +70,7 @@ MiniDeps.now(function()
                     operator = palette.extra.deepTeal,
                     param = palette.extra.tirquose,
                     preproc = palette.ansi.red,
-                    regex = palette.brights.yellow,
+                    regex = palette.ansi.magenta,
                     statement = palette.brights.red,
                     string = palette.ansi.green,
                     tag = palette.ansi.blue,
