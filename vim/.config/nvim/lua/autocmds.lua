@@ -48,7 +48,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
-    group = general_settings,
+    -- group = general_settings,
     desc = "remember last cursor place",
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
