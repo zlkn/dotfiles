@@ -39,7 +39,7 @@ MiniDeps.now(function()
                     operator = palette.brights.black,
                     param = palette.extra.tirquose,
                     preproc = palette.ansi.red,
-                    regex = palette.ansi.magenta,
+                    regex = palette.ansi.yellow,
                     statement = palette.brights.red,
                     string = palette.ansi.green,
                     tag = palette.ansi.blue,
@@ -84,7 +84,6 @@ MiniDeps.now(function()
     --     highlight Normal ctermbg=none
     --     highlight NonText ctermbg=none
     -- ]])
-    -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "", fg = "" })
 
     vim.api.nvim_set_hl(0, "@constructor", { fg = palette.extra.cherry })
 
@@ -97,4 +96,7 @@ MiniDeps.now(function()
 
     -- golang semantic highlight
     vim.api.nvim_set_hl(0, "@keyword.function", { fg = palette.ansi.blue, bold = true })
+
+    -- lua semantic highlight
+    vim.api.nvim_set_hl(0, "@lsp.mod.global.lua", { bold = true })
 end)

@@ -1,16 +1,5 @@
 MiniDeps.add("HiPhish/rainbow-delimiters.nvim")
 MiniDeps.later(function()
-    local suite_all_black = {
-
-        "RainbowDelimiterBlack",
-        "RainbowDelimiterBlack",
-        "RainbowDelimiterBlack",
-        "RainbowDelimiterBlack",
-        "RainbowDelimiterBlack",
-        "RainbowDelimiterBlack",
-        "RainbowDelimiterBlack",
-        "RainbowDelimiterBlack",
-    }
     local suite_rainbow = {
         "RainbowDelimiterBlack",
         "RainbowDelimiterRed",
@@ -21,15 +10,21 @@ MiniDeps.later(function()
         "RainbowDelimiterViolet",
         "RainbowDelimiterCyan",
     }
-    local rd = require("rainbow-delimiters.setup")
 
-    function _G.ToogleRainbowDelimiters()
-        if vim.g.rainbow_delimiters_enabled then
-            rd.setup({ highlight = suite_all_black })
-            vim.g.rainbow_delimiters_enabled = false
-        else
-            rd.setup({ highlight = suite_rainbow })
-            vim.g.rainbow_delimiters_enabled = true
-        end
+    require("rainbow-delimiters.setup").setup({
+        highlight = suite_rainbow,
+        condition = function()
+            return false
+        end,
+    })
+    -- vim.g.rainbow_delimiters = { highlight = suite_rainbow }
+    vim.g.rainbow_delimiters_enabled = false
+
+    local toggle_rainbow_delimiter = function()
+        vim.g.rainbow_delimiters_enabled = not vim.g.rainbow_delimiters_enabled
+        require("rainbow-delimiters").toggle(0)
+        print((vim.g.rainbow_delimiters_enabled and "Enable" or "Disable") .. " rainbow delimiters")
     end
+    -- Toogle rainbow_delimiters
+    vim.keymap.set("n", "<leader>tr", toggle_rainbow_delimiter, { desc = "toggle rainbow delimiters" })
 end)
