@@ -123,6 +123,9 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.extra.cherry })
     vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.extra.tirquose })
 
+    -- terraform semantic highlight
+    vim.api.nvim_set_hl(0, "@boolean.terraform", { bold = true })
+
     -- golang semantic highlight
     vim.api.nvim_set_hl(0, "@keyword.function", { fg = palette.ansi.blue, bold = true })
 end)
