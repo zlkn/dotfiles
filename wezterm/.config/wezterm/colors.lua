@@ -8,14 +8,14 @@ local colors = {
 
     cursor_bg = "#20bbfc", -- palette.brights.blue,
     -- cursor_fg = palette .. black, -- palette.extra.darkGray,
-    cursor_border = palette.extra.borderGray, -- palette.brights.blue,
+    cursor_border = palette.brights.white, -- palette.brights.blue,
 
     selection_bg = palette.extra.cornflowerBlue,
     selection_fg = palette.ansi.black,
 
     scrollbar_thumb = palette.ansi.black,
 
-    split = palette.extra.border,
+    split = palette.extra.gray2,
 
     -- Before 16 colors, there were 8 colors: black, red, green, yellow, blue, magenta, cyan, and white.
     -- The other 8 colors were added as bright variants of these
