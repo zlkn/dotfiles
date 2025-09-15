@@ -4,40 +4,8 @@ MiniDeps.add({
 })
 
 MiniDeps.now(function()
-    local palette = {
-        ansi = {
-            black = "#424242",
-            red = "#c30771",
-            green = "#0d844c",
-            yellow = "#a66f00",
-            blue = "#015692",
-            magenta = "#523c79",
-            cyan = "#008ec4",
-            white = "#9d9d9d",
-        },
-        brights = {
-            black = "#1f1f1f",
-            red = "#fb007a",
-            green = "#10b97a",
-            yellow = "#ee9900",
-            blue = "#0550ae",
-            magenta = "#871094",
-            cyan = "#1fbdd0",
-            white = "#57606a",
-        },
-        extra = {
-            deepTeal = "#3a869c",
-            darkBlue = "#0a3069",
-            teal = "#004c63",
-            tirquose = "#007474",
-            cornflowerBlue = "#b6d6fd",
-            gray0 = "#dfdfe1",
-            gray1 = "#a1a1a1",
-            cherry = "#980054",
-            dep = "#82071e",
-            func = "#8430ce",
-        },
-    }
+    local palette = require("palette")
+
     require("github-theme").setup({
         options = {
             -- Compiled file's destination location
@@ -45,6 +13,7 @@ MiniDeps.now(function()
             transparent = true,
             styles = {
                 comments = "italic",
+                keyword = "bold",
                 -- operators = "bold",
                 -- numbers = "bold",
                 -- constants = "bold",
@@ -78,7 +47,7 @@ MiniDeps.now(function()
                     variable = palette.ansi.black,
                 },
                 diag = {
-                    hint = "#1fbdd0",
+                    -- hint = "#1fbdd0",
                 },
             },
         },
@@ -101,12 +70,12 @@ MiniDeps.now(function()
 
     -- Minipick
     vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { fg = palette.brights.magenta })
-    vim.api.nvim_set_hl(0, "MiniPickPromptCaret", { fg = palette.extra.gray1 })
-    vim.api.nvim_set_hl(0, "MiniPickPromptPrefix", { fg = palette.extra.gray1 })
+    vim.api.nvim_set_hl(0, "MiniPickPromptCaret", { fg = palette.extra.gray2 })
+    vim.api.nvim_set_hl(0, "MiniPickPromptPrefix", { fg = palette.extra.gray2 })
     vim.api.nvim_set_hl(0, "MiniPickPrompt", { fg = palette.ansi.black })
 
     -- All floating window border
-    vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.extra.gray1, bg = none })
+    vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.extra.gray2, bg = none })
 
     -- -- force transparent background for all themes
     -- vim.cmd([[
