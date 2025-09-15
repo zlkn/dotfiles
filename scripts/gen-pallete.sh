@@ -1,12 +1,13 @@
 #!/bin/bash
 
-DEST = (
-  "../vim/.config/nvim/lua/palette.lua"
-  )
+declare -a DESTS=("../vim/.config/nvim/lua/palette.lua")
 # language=lua
-for i in DEST;
+for dst in ${DESTS[@]};
 do
-  cat << EOD > $
+  echo "Populate palette ${dst}"
+
+  cat << EOD > ${dst}
+  -- !!! Generated do not edit manually !!!
   local palette = {
       ansi = {
           black = "#424242",
@@ -45,8 +46,8 @@ do
       },
   }
   return palette
-  EOD
+EOD
+
 done
 
-echo "Done"
 

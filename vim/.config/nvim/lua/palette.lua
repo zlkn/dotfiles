@@ -1,3 +1,4 @@
+  -- !!! Generated do not edit manually !!!
   local palette = {
       ansi = {
           black = "#424242",
