@@ -81,7 +81,7 @@ end
 vim.keymap.set("n", "<leader>cp", CopyRelativePathToClipboard, { desc = "Copy relative path to clipboard" })
 
 -- Toggle current hlsearch
-vim.keymap.set("n", "th", function()
+vim.keymap.set("n", "<leader>th", function()
     vim.v.hlsearch = vim.v.hlsearch ~= 1
     -- if vim.o.hlsearch == true and vim.v.hlsearch == 1 then
     --     vim.cmd("nohl")
@@ -91,7 +91,7 @@ vim.keymap.set("n", "th", function()
 end, { desc = "toogle hlsearch" })
 
 -- Toogle inlay_hint
-vim.keymap.set("n", "ti", function()
+vim.keymap.set("n", "<leader>ti", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
     if vim.lsp.inlay_hint.is_enabled() then
         vim.notify("Enable inlay hints", vim.log.levels.INFO)
