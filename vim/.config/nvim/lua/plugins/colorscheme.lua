@@ -34,8 +34,8 @@ MiniDeps.now(function()
             gray0 = "#dfdfe1",
             gray1 = "#a1a1a1",
             cherry = "#980054",
-            -- dep = "#82071e",
-            -- func = "#8430ce",
+            dep = "#82071e",
+            func = "#8430ce",
         },
     }
     require("github-theme").setup({
@@ -45,7 +45,7 @@ MiniDeps.now(function()
             transparent = true,
             styles = {
                 comments = "italic",
-                operators = "bold",
+                -- operators = "bold",
                 -- numbers = "bold",
                 -- constants = "bold",
                 builtins = "bold",
@@ -55,9 +55,9 @@ MiniDeps.now(function()
             github_light = {
                 syntax = {
                     bracket = palette.brights.black,
-                    builtin0 = palette.extra.cherry,
+                    builtin0 = palette.ansi.magenta,
                     builtin1 = palette.ansi.blue,
-                    builtin2 = palette.brights.magenta,
+                    builtin2 = palette.ansi.magenta,
                     comment = palette.brights.white,
                     conditional = palette.brights.red,
                     const = palette.extra.darkBlue,
@@ -67,7 +67,7 @@ MiniDeps.now(function()
                     ident = palette.ansi.black,
                     keyword = palette.brights.blue,
                     number = palette.ansi.black,
-                    operator = palette.extra.deepTeal,
+                    operator = palette.brights.black,
                     param = palette.extra.tirquose,
                     preproc = palette.ansi.red,
                     regex = palette.ansi.magenta,
