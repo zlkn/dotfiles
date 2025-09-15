@@ -54,12 +54,12 @@ local colors = {
         background = palette.extra.lightGray,
         inactive_tab_edge = palette.extra.lightGray,
         active_tab = {
-            bg_color = palette.extra.borderGray,
+            bg_color = palette.extra.backgroundGray,
             fg_color = palette.ansi.black,
         },
 
         inactive_tab = {
-            bg_color = palette.extra.borderGray,
+            bg_color = palette.extra.backgroundGray,
             fg_color = palette.ansi.black,
         },
     },
