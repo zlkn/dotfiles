@@ -28,12 +28,12 @@ wayland_gnome.apply_to_config(config)
 
 -- Command Palette
 config.command_palette_font_size = 11
-config.command_palette_bg_color = colorscheme.palette.extra.border
+config.command_palette_bg_color = colorscheme.palette.extra.gray1
 config.command_palette_fg_color = colorscheme.colors.foreground
 
 -- Char select
 config.char_select_font_size = 11
-config.char_select_bg_color = colorscheme.palette.extra.border
+config.char_select_bg_color = colorscheme.palette.extra.gray1
 config.char_select_fg_color = colorscheme.colors.foreground
 
 -- Window config
@@ -50,8 +50,8 @@ config.window_frame = {
     border_right_width = "0.12cell",
     border_bottom_height = "0.1cell",
     border_top_height = "0.1cell",
-    border_left_color = colorscheme.palette.extra.border,
-    border_right_color = colorscheme.palette.extra.border,
+    border_left_color = colorscheme.palette.extra.gray1,
+    border_right_color = colorscheme.palette.extra.gray1,
     border_bottom_color = colorscheme.palette.extra.borderGray,
     border_top_color = colorscheme.palette.extra.borderGray,
 
@@ -163,9 +163,9 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
     local background = colorscheme.palette.extra.border
 
     if not tab.is_active then
-        background = colorscheme.palette.extra.borderGray
+        background = colorscheme.palette.extra.gray1
     elseif hover then
-        background = colorscheme.palette.extra.borderGray
+        background = colorscheme.palette.extra.gray2
     end
 
     local icon = get_icon(tab)
@@ -231,7 +231,7 @@ smart_splits.apply_to_config(config, {
         resize = { "LeftArrow", "DownArrow", "UpArrow", "RightArrow" },
     },
     modifiers = {
-        move = "ALT",
+        move = "CTRL|SHIFT",
         resize = "META",
     },
     log_level = "info",
