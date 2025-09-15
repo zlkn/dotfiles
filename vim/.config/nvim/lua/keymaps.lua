@@ -83,19 +83,11 @@ vim.keymap.set("n", "<leader>cp", CopyRelativePathToClipboard, { desc = "Copy re
 -- Toggle current hlsearch
 vim.keymap.set("n", "<leader>th", function()
     vim.v.hlsearch = vim.v.hlsearch ~= 1
-    -- if vim.o.hlsearch == true and vim.v.hlsearch == 1 then
-    --     vim.cmd("nohl")
-    -- else
-    --     vim.cmd("set hlsearch")
-    -- end
+    vim.print((vim.o.hlsearch and vim.v.hlsearch == 1 and "Enable" or "Disable") .. " hlsearch")
 end, { desc = "toogle hlsearch" })
 
 -- Toogle inlay_hint
 vim.keymap.set("n", "<leader>ti", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
-    if vim.lsp.inlay_hint.is_enabled() then
-        vim.notify("Enable inlay hints", vim.log.levels.INFO)
-    else
-        vim.notify("Disable inlay hints", vim.log.levels.WARN)
-    end
+    print((vim.lsp.inlay_hint.is_enabled and "Enable" or "Disable") .. " inlay hints")
 end, { desc = "tootle inlay hint" })
