@@ -1,12 +1,3 @@
-#!/bin/bash
-
-declare -a DESTS=("../vim/.config/nvim/lua/palette.lua" "../wezterm/.config/wezterm/palette.lua")
-# language=lua
-for dst in ${DESTS[@]};
-do
-  echo "Populate palette ${dst}"
-
-  cat << EOD > ${dst}
   -- !!! Generated do not edit manually !!!
   local palette = {
       ansi = {
@@ -67,8 +58,3 @@ do
       },
   }
   return palette
-EOD
-
-done
-
-
