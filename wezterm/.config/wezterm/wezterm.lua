@@ -50,8 +50,8 @@ config.window_frame = {
     border_right_width = "0.12cell",
     border_bottom_height = "0.1cell",
     border_top_height = "0.1cell",
-    border_left_color = colorscheme.palette.extra.gray1,
-    border_right_color = colorscheme.palette.extra.gray1,
+    border_left_color = colorscheme.palette.extra.gray2,
+    border_right_color = colorscheme.palette.extra.gray2,
     border_bottom_color = colorscheme.palette.extra.borderGray,
     border_top_color = colorscheme.palette.extra.borderGray,
 
@@ -160,12 +160,12 @@ end
 ---@diagnostic disable-next-line: unused-local
 wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
     local foreground = colorscheme.colors.foreground
-    local background = colorscheme.palette.extra.border
+    local background = colorscheme.colors.background
 
-    if not tab.is_active then
+    if tab.is_active then
         background = colorscheme.palette.extra.gray1
     elseif hover then
-        background = colorscheme.palette.extra.gray2
+        background = colorscheme.palette.extra.gray1
     end
 
     local icon = get_icon(tab)
@@ -173,7 +173,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
     print("title: " .. title)
 
     return wezterm.format({
-        { Background = { Color = colorscheme.palette.extra.borderGray } },
+        { Background = { Color = colorscheme.palette.extra.backgroundGray } },
         { Foreground = { Color = background } },
         { Text = "" },
 
@@ -185,7 +185,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
         { Foreground = { Color = foreground } },
         { Text = title },
 
-        { Background = { Color = colorscheme.palette.extra.borderGray } },
+        { Background = { Color = colorscheme.palette.extra.backgroundGray } },
         { Foreground = { Color = background } },
         { Text = "" },
     })

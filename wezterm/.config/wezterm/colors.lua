@@ -51,8 +51,8 @@ local colors = {
     quick_select_match_fg = { Color = palette.brights.black },
 
     tab_bar = {
-        background = palette.extra.lightGray,
-        inactive_tab_edge = palette.extra.lightGray,
+        background = palette.extra.backgroundGray,
+        inactive_tab_edge = palette.extra.backgroundGray,
         active_tab = {
             bg_color = palette.extra.backgroundGray,
             fg_color = palette.ansi.black,

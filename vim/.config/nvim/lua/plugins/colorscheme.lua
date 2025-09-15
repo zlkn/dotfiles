@@ -46,9 +46,6 @@ MiniDeps.now(function()
                     type = palette.brights.black,
                     variable = palette.ansi.black,
                 },
-                diag = {
-                    -- hint = "#1fbdd0",
-                },
             },
         },
     })
