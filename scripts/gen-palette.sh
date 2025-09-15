@@ -6,6 +6,7 @@ for dst in ${DESTS[@]};
 do
   echo "Populate palette ${dst}"
 
+  # language=lua
   cat << EOD > ${dst}
   -- !!! Generated do not edit manually !!!
   local palette = {
@@ -35,33 +36,24 @@ do
           teal = "#004c63",
           tirquose = "#007474",
           test = "#00897b",
-          cornflowerBlue = "#b6d6fd",
-          gray0 = "#dfdfe1",
-          gray1 = "#d1d1d1",
-          gray2 = "#a1a1a1",
           cherry = "#980054",
           dep = "#82071e",
           func = "#8430ce",
           broghtBrown = "#993c00",
-          test = "#004c63",
-          cyan = "#007474",
           green = "#10a778",
           chromeGreen = "#0d844c",
           PineGreen = "#27745c",
           lightSeaGreen = "#5fd7af",
-          deepTeal = "#3a869c",
-          teal = "#007474",
           moonStonecyan = "#4fb8cc",
-          darkBlue = "#0a3069",
-          brown = "#a66f00",
           yellow = "#d7af5f",
           cornflowerBlue = "#b6d6fd",
-          darkGray = "#424242",
-          borderGray = "#ebebed", -- <-
           backgroundGray = "#ececec",
-          border = "#d1d1d1",
+          darkGray = "#424242",
           mediumGray = "#808080",
           pencilGray = "#9d9d9d",
+          gray0 = "#dfdfe1",
+          gray1 = "#d1d1d1",
+          gray2 = "#a1a1a1",
           lightGray = "#f0f0f0",
           pureWhite = "#ffffff",
       },

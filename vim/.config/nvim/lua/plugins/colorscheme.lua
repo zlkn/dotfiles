@@ -13,11 +13,11 @@ MiniDeps.now(function()
             transparent = true,
             styles = {
                 comments = "italic",
-                keyword = "bold",
+                -- keyword = "bold",
                 -- operators = "bold",
                 -- numbers = "bold",
                 -- constants = "bold",
-                builtins = "bold",
+                -- builtins = "bold",
             },
         },
         specs = {
@@ -86,6 +86,7 @@ MiniDeps.now(function()
     -- ]])
 
     vim.api.nvim_set_hl(0, "@constructor", { fg = palette.extra.cherry })
+    vim.api.nvim_set_hl(0, "@string.escape", { fg = palette.ansi.yellow })
 
     --  ansible_semantic_highlight
     vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.extra.cherry })
