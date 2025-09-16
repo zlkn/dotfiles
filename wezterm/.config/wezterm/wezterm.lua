@@ -16,7 +16,7 @@ config.inactive_pane_hsb = {
 config.warn_about_missing_glyphs = false
 config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
-config.font_size = 11.0
+config.font_size = 11.2
 config.font = wezterm.font({
     family = "JetBrains Mono",
     weight = "Light",
@@ -27,12 +27,12 @@ local wayland_gnome = require("wayland_gnome")
 wayland_gnome.apply_to_config(config)
 
 -- Command Palette
-config.command_palette_font_size = 11
+config.command_palette_font_size = 11.2
 config.command_palette_bg_color = colorscheme.palette.extra.gray1
 config.command_palette_fg_color = colorscheme.colors.foreground
 
 -- Char select
-config.char_select_font_size = 11
+config.char_select_font_size = 11.2
 config.char_select_bg_color = colorscheme.palette.extra.gray1
 config.char_select_fg_color = colorscheme.colors.foreground
 
@@ -66,7 +66,7 @@ config.window_frame = {
     button_bg = colorscheme.colors.background,
     button_hover_fg = colorscheme.colors.background,
 
-    font_size = 11,
+    font_size = 11.2,
     font = wezterm.font({
         family = "JetBrains Mono",
         weight = "Regular",

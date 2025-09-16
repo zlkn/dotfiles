@@ -13,10 +13,11 @@ MiniDeps.now(function()
             transparent = true,
             styles = {
                 comments = "italic",
+                types = "italic",
                 -- keyword = "bold",
                 -- operators = "bold",
                 -- numbers = "bold",
-                -- constants = "bold",
+                constants = "bold",
                 -- builtins = "bold",
             },
         },
@@ -97,4 +98,5 @@ MiniDeps.now(function()
 
     -- lua semantic highlight
     vim.api.nvim_set_hl(0, "@lsp.mod.global.lua", { bold = true })
+    vim.api.nvim_set_hl(0, "@boolean.lua", { bold = true })
 end)
