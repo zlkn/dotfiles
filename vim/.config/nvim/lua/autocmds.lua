@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    group = augroup("auto_create_dir"),
+    group = augroup("create_dir"),
     callback = function(event)
         if event.match:match("^%w%w+:[\\/][\\/]") then
             return
@@ -37,6 +37,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 vim.api.nvim_create_autocmd("VimEnter", {
+    group = augroup("enance_ui"),
     callback = function()
         vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
         vim.api.nvim_set_hl(0, "Cursor", {
@@ -48,7 +49,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
-    -- group = general_settings,
+    group = augroup("global"),
     desc = "remember last cursor place",
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
@@ -58,9 +59,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         end
     end,
 })
-
--- Show cursor line only in active window
--- local cursorGrp = vim.api.nvim_create_augroup("CursorLine", { clear = true })
 
 vim.api.nvim_create_autocmd({
     "InsertLeave",
