@@ -16,9 +16,11 @@ MiniDeps.later(function()
         kind_icon = " ",
     })
 
-    require("blink.cmp").setup({
+    local blink = require("blink.cmp")
+    blink.setup({
         keymap = {
-            preset = "default",
+            preset = "enter",
+            ["<Tab>"] = { "select_next", "fallback" },
         },
         completion = {
             documentation = {
