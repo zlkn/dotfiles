@@ -18,11 +18,12 @@ do
           blue = "#015692",
           magenta = "#5e2d88",
           cyan = "#138cbf",
-          white = "#9d9d9d",
+          white = "#d9d9d9",
       },
       brights = {
           black = "#1f1f1f",
           green = "#10b97a",
+          -- green = "#87af5f",
           red = "#c30771",
           -- yellow = "#ee9900",
           -- yellow = "#f57400",
@@ -33,6 +34,7 @@ do
           white = "#57606a",
       },
       extra = {
+
           cyan = "#008ec4",
           deepTeal = "#3a869c",
           darkBlue = "#0a3069",
@@ -58,7 +60,8 @@ do
           gray0 = "#dfdfe1",
           gray1 = "#d1d1d1",
           gray2 = "#a1a1a1",
-          lightGray = "#f0f0f0",
+          gray3 = "#57606a",
+          ightGray = "#f0f0f0",
           pureWhite = "#ffffff",
       },
   }
