@@ -74,15 +74,3 @@ vim.diagnostic.config({
     severity_sort = true,
     update_in_insert = false,
 })
-
--- vim.opt.messagesopt = "wait:2000,history:5000"
-
--- force transparent background for all themes
--- vim.cmd([[
---   highlight Normal guibg=none
---   highlight NonText guibg=none
---   highlight Normal ctermbg=none
---   highlight NonText ctermbg=none
--- ]])
--- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "#007474" })
--- vim.o.winborder = "rounded"

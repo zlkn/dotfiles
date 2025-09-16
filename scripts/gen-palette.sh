@@ -34,7 +34,7 @@ do
           white = "#57606a",
       },
       extra = {
-
+          cyan1 = "#009999",
           cyan = "#008ec4",
           deepTeal = "#3a869c",
           darkBlue = "#0a3069",
