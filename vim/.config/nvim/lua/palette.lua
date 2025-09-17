@@ -3,7 +3,14 @@
       ansi = {
           black = "#424242",
           -- green = "#0d844c",
-          green = "#208d5a",
+          -- green = "#208d5a",
+          -- green = "#238f5a",
+          -- green = "#478768",
+          -- green = "#0a5a2d",
+          -- green = "#145a00", -- emerald
+          -- green = "#327a4d",
+          -- green = "#3e943a",
+          green = "#1a7248",
           red = "#980054",
           yellow = "#a66f00",
           blue = "#015692",
