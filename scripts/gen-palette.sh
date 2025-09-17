@@ -12,7 +12,8 @@ do
   local palette = {
       ansi = {
           black = "#424242",
-          green = "#0d844c",
+          -- green = "#0d844c",
+          green = "#208d5a",
           red = "#980054",
           yellow = "#a66f00",
           blue = "#015692",
@@ -22,8 +23,12 @@ do
       },
       brights = {
           black = "#1f1f1f",
-          green = "#10b97a",
+          -- green = "#10b97a",
+          green = "#10a678",
+          -- green = "#3a944a",
+          -- green = "#27745c",
           -- green = "#87af5f",
+          -- green = "#2ec27e",
           red = "#c30771",
           -- yellow = "#ee9900",
           -- yellow = "#f57400",
@@ -61,6 +66,7 @@ do
           gray1 = "#d1d1d1",
           gray2 = "#a1a1a1",
           gray3 = "#57606a",
+          white = "#6f8396",
           ightGray = "#f0f0f0",
           pureWhite = "#ffffff",
       },
