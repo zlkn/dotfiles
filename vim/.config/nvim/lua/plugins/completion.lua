@@ -19,8 +19,12 @@ MiniDeps.later(function()
     local blink = require("blink.cmp")
     blink.setup({
         keymap = {
-            preset = "enter",
+            preset = "default",
+            -- Simulate completion in commandline
+            -- Enter approve select
+            -- tab and shift-tab to loop over completion
             ["<Tab>"] = { "select_next", "fallback" },
+            ["<S-Tab>"] = { "select_prev", "fallback" },
         },
         completion = {
             documentation = {
