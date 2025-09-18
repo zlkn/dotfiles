@@ -38,7 +38,9 @@ MiniDeps.now(function()
                     keyword = palette.brights.blue,
                     number = palette.ansi.black,
                     operator = palette.brights.black,
-                    param = palette.extra.tirquose,
+                    -- param = palette.extra.tirquose,
+                    -- param = palette.ansi.cyan,
+                    param = palette.ansi.black,
                     preproc = palette.ansi.red,
                     regex = palette.ansi.yellow,
                     statement = palette.brights.red,
@@ -63,8 +65,6 @@ MiniDeps.now(function()
 
     -- Transparent/“inherit terminal” bg for builtin tabline
     vim.api.nvim_set_hl(0, "TabLineFill", { bg = none })
-    -- vim.api.nvim_set_hl(0, "TabLine", { bg = none, fg = "#888888" })
-    -- vim.api.nvim_set_hl(0, "TabLineSel", { bg = none, fg = "#ffffff", bold = true })
 
     -- Minipick
     vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { fg = palette.brights.magenta })

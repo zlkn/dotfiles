@@ -6,10 +6,11 @@ MiniDeps.add({
 -- transparent background for lualine
 -- https://www.reddit.com/r/neovim/comments/zh4kc8/comment/jhekub8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 local auto_theme_custom = require("lualine.themes.auto")
+local palette = require("palette")
 for mode, _ in pairs(auto_theme_custom) do
     for _, part in ipairs({ "a", "b", "c" }) do
         auto_theme_custom[mode][part].bg = none
-        auto_theme_custom[mode][part].fg = "#313131"
+        auto_theme_custom[mode][part].fg = palette.brights.black
     end
 end
 
