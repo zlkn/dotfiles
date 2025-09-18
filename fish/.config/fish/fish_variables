@@ -37,7 +37,7 @@ SETUVAR fish_pager_color_background:\x1d
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:\x23A66F00\x1e\x2d\x2ditalics
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
-SETUVAR fish_pager_color_progress:white\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_progress:black\x1e\x2d\x2dbackground\x3dwhite
 SETUVAR fish_pager_color_secondary_background:\x1d
 SETUVAR fish_pager_color_secondary_completion:normal
 SETUVAR fish_pager_color_secondary_description:\x1d
