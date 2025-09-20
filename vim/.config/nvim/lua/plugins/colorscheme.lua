@@ -53,6 +53,8 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "CursorLineNr", { bg = palette.extra.gray0 })
     vim.api.nvim_set_hl(0, "CursorLineSign", { bg = palette.extra.gray0 })
 
+    vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = palette.ansi.cyan })
+
     vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.cornflowerBlue })
 
     -- Transparent/“inherit terminal” bg for builtin tabline
