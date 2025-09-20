@@ -14,11 +14,7 @@ MiniDeps.now(function()
             styles = {
                 comments = "italic",
                 types = "italic",
-                -- keyword = "bold",
-                -- operators = "bold",
-                -- numbers = "bold",
                 constants = "bold",
-                -- builtins = "bold",
             },
         },
         specs = {
@@ -38,8 +34,6 @@ MiniDeps.now(function()
                     keyword = palette.brights.blue,
                     number = palette.ansi.black,
                     operator = palette.brights.black,
-                    -- param = palette.extra.tirquose,
-                    -- param = palette.ansi.cyan,
                     param = palette.ansi.black,
                     preproc = palette.ansi.red,
                     regex = palette.ansi.yellow,
@@ -60,8 +54,6 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "CursorLineSign", { bg = palette.extra.gray0 })
 
     vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.cornflowerBlue })
-    -- vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { underline = true, sp = palette.brights.cyan })
-    -- vim.api.nvim_set_hl(0, "MiniCursorword", { underline = true, sp = palette.brights.cyan })
 
     -- Transparent/“inherit terminal” bg for builtin tabline
     vim.api.nvim_set_hl(0, "TabLineFill", { bg = none })
@@ -74,14 +66,6 @@ MiniDeps.now(function()
 
     -- All floating window border
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.extra.gray2, bg = none })
-
-    -- -- force transparent background for all themes
-    -- vim.cmd([[
-    --     highlight Normal guibg=none
-    --     highlight NonText guibg=none
-    --     highlight Normal ctermbg=none
-    --     highlight NonText ctermbg=none
-    -- ]])
 
     vim.api.nvim_set_hl(0, "@constructor", { fg = palette.extra.cherry })
     vim.api.nvim_set_hl(0, "@string.escape", { fg = palette.ansi.yellow })

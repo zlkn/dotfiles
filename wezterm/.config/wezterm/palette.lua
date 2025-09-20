@@ -13,7 +13,8 @@
           blue = "#015692",
           magenta = "#5e2d88",
           cyan = "#138cbf",
-          white = "#d9d9d9",
+          -- white = "#d9d9d9",
+          white = "#9d9d9d",
       },
       brights = {
           black = "#1f1f1f",
