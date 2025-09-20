@@ -119,7 +119,7 @@ local function get_icon(tab)
         ["top"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
         ["htop"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
         ["ntop"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
-        ["nvim"] = { symbol = wezterm.nerdfonts.linux_neovim, color = colorscheme.palette.extra.PineGreen },
+        ["nvim"] = { symbol = wezterm.nerdfonts.linux_neovim, color = colorscheme.palette.extra.pineGreen },
         ["vim"] = { symbol = wezterm.nerdfonts.linux_neovim },
         ["nano"] = { symbol = wezterm.nerdfonts.linux_neovim },
         ["bat"] = { symbol = wezterm.nerdfonts.md_magnify },

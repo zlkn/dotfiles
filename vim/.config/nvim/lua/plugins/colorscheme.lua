@@ -44,7 +44,7 @@ MiniDeps.now(function()
                     preproc = palette.ansi.red,
                     regex = palette.ansi.yellow,
                     statement = palette.brights.red,
-                    string = palette.ansi.green,
+                    string = palette.extra.darkGreen,
                     tag = palette.ansi.blue,
                     type = palette.brights.black,
                     variable = palette.ansi.black,
