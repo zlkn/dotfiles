@@ -22,7 +22,7 @@ MiniDeps.now(function()
                 syntax = {
                     bracket = palette.brights.black,
                     builtin0 = palette.ansi.magenta,
-                    builtin1 = palette.ansi.blue,
+                    builtin1 = palette.brights.blue,
                     builtin2 = palette.ansi.magenta,
                     comment = palette.brights.white,
                     conditional = palette.brights.red,
@@ -31,7 +31,7 @@ MiniDeps.now(function()
                     field = palette.extra.teal,
                     func = palette.brights.magenta,
                     ident = palette.ansi.black,
-                    keyword = palette.brights.blue,
+                    keyword = palette.ansi.blue,
                     number = palette.ansi.black,
                     operator = palette.brights.black,
                     param = palette.ansi.black,
@@ -39,7 +39,7 @@ MiniDeps.now(function()
                     regex = palette.ansi.yellow,
                     statement = palette.brights.red,
                     string = palette.extra.darkGreen,
-                    tag = palette.ansi.blue,
+                    tag = palette.brights.blue,
                     type = palette.brights.black,
                     variable = palette.ansi.black,
                 },
@@ -87,9 +87,12 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "@boolean.terraform", { bold = true })
 
     -- golang semantic highlight
-    vim.api.nvim_set_hl(0, "@keyword.function", { fg = palette.ansi.blue, bold = true })
+    vim.api.nvim_set_hl(0, "@keyword.function", { fg = palette.brights.blue, bold = true })
 
     -- lua semantic highlight
     vim.api.nvim_set_hl(0, "@lsp.mod.global.lua", { bold = true })
     vim.api.nvim_set_hl(0, "@boolean.lua", { bold = true })
+
+    -- golang semantic highlight
+    vim.api.nvim_set_hl(0, "@constant.builtin.go", { fg = palette.brights.yellow })
 end)

@@ -8,7 +8,7 @@ SETUVAR --export VIRTUAL_ENV_DISABLE_PROMPT:1
 SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:brwhite
 SETUVAR fish_color_cancel:\x2d\x2dreverse
-SETUVAR fish_color_command:blue
+SETUVAR fish_color_command:brblue
 SETUVAR fish_color_comment:black
 SETUVAR fish_color_cwd:green
 SETUVAR fish_color_cwd_root:brred
