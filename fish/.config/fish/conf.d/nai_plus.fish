@@ -35,7 +35,7 @@ function _git_info
 
     set -l yellow (set_color yellow)
     set -l green (set_color green)
-    set -l blue (set_color blue)
+    set -l blue (set_color brblue)
     set -l brred (set_color brred)
     set -l normal (set_color normal)
 
