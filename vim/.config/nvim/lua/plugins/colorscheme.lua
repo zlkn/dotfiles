@@ -59,12 +59,19 @@ MiniDeps.now(function()
 
     -- Transparent/“inherit terminal” bg for builtin tabline
     vim.api.nvim_set_hl(0, "TabLineFill", { bg = none })
+    vim.api.nvim_set_hl(0, "Visual", { bg = "#dfdfe1" })
 
     -- Minipick
     vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { fg = palette.brights.magenta })
     vim.api.nvim_set_hl(0, "MiniPickPromptCaret", { fg = palette.extra.gray2 })
     vim.api.nvim_set_hl(0, "MiniPickPromptPrefix", { fg = palette.extra.gray2 })
     vim.api.nvim_set_hl(0, "MiniPickPrompt", { fg = palette.ansi.black })
+
+    -- MiniHipatterns
+    vim.api.nvim_set_hl(0, "MiniHipatternsFixme", { bg = palette.extra.red, fg = palette.brights.black })
+    vim.api.nvim_set_hl(0, "MiniHipatternsHack", { bg = palette.extra.yellow, fg = palette.brights.black })
+    vim.api.nvim_set_hl(0, "MiniHipatternsTodo", { bg = palette.brights.green, fg = palette.brights.black })
+    vim.api.nvim_set_hl(0, "MiniHipatternsNote", { bg = palette.extra.moonStonecyan, fg = palette.brights.black })
 
     -- All floating window border
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.extra.gray2, bg = none })

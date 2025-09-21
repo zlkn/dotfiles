@@ -45,6 +45,7 @@ do
           tirquose = "#007474",
           test = "#00897b",
           cherry = "#980054",
+          red = "#d75fa1",
           dep = "#82071e",
           func = "#8430ce",
           broghtBrown = "#993c00",
