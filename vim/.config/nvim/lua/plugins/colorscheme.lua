@@ -53,13 +53,22 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "CursorLineNr", { bg = palette.extra.gray0 })
     vim.api.nvim_set_hl(0, "CursorLineSign", { bg = palette.extra.gray0 })
 
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#ececec" })
+    vim.api.nvim_set_hl(0, "FloatTitle", { bg = "#ececec" })
+
+    vim.api.nvim_set_hl(0, "MiniNotifyNormal", { bg = "#ececec" })
+    vim.api.nvim_set_hl(0, "MiniNotifyBorder", { bg = "#ececec" })
+
+    -- Diagnostic virual text
     vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = palette.ansi.cyan })
 
-    vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.cornflowerBlue })
-
-    -- Transparent/“inherit terminal” bg for builtin tabline
+    -- Transparent tabline
     vim.api.nvim_set_hl(0, "TabLineFill", { bg = none })
+
     vim.api.nvim_set_hl(0, "Visual", { bg = "#dfdfe1" })
+
+    -- MiniCursorword
+    vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.cornflowerBlue })
 
     -- Minipick
     vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { fg = palette.brights.magenta })
