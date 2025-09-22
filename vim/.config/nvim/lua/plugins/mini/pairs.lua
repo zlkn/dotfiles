@@ -1,4 +1,4 @@
-MiniDeps.add({ source = "echasnovski/mini.pairs" })
+MiniDeps.add({ source = "nvim-mini/mini.pairs" })
 MiniDeps.later(function()
     require("mini.pairs").setup({
         -- skip autopair when next character is one of these

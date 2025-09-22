@@ -1,4 +1,4 @@
-MiniDeps.add("echasnovski/mini.pick")
+MiniDeps.add("nvim-mini/mini.pick")
 MiniDeps.later(function()
     require("mini.pick").setup({
         window = { prompt_prefix = " ", config = { border = "rounded" } },

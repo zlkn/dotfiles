@@ -1,4 +1,4 @@
-MiniDeps.add("echasnovski/mini.extra")
+MiniDeps.add("nvim-mini/mini.extra")
 MiniDeps.later(function()
     local extra = require("mini.extra")
     extra.setup()

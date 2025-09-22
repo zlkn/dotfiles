@@ -1,4 +1,4 @@
-MiniDeps.add("echasnovski/mini.animate")
+MiniDeps.add("nvim-mini/mini.animate")
 MiniDeps.later(function()
     local animate = require("mini.animate")
     animate.setup({

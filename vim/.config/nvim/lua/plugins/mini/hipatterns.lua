@@ -1,4 +1,4 @@
-MiniDeps.add("echasnovski/mini.hipatterns")
+MiniDeps.add("nvim-mini/mini.hipatterns")
 MiniDeps.later(function()
     local hipatterns = require("mini.hipatterns")
     hipatterns.setup({
