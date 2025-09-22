@@ -50,3 +50,4 @@ require("plugins.lazydev")
 
 -- TEST
 -- require("plugins.codecompanion")
+require("plugins.mini.notify")
