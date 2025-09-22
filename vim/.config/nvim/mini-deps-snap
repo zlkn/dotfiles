@@ -1,9 +1,9 @@
 return {
-  ["SchemaStore.nvim"] = "68f3e590cabe4f07a1f64fa73dab0bd244b13cf5",
-  ["blink-copilot"] = "41e91a659bd9b8cba9ba2ea68a69b52ba5a9ebd8",
+  ["SchemaStore.nvim"] = "22f0c2f7c727a15b45b7bfcbbab533720223b840",
+  ["blink-copilot"] = "424cc953a4fd52f4e141b5845bed7095be811501",
   ["blink.cmp"] = "18b352d12b35bca148427b607098df14b75a218f",
   ["conform.nvim"] = "b4aab989db276993ea5dcb78872be494ce546521",
-  ["copilot.lua"] = "af3114aeb915beb14fcbc46849c7b08a5e3e2c1a",
+  ["copilot.lua"] = "f8fa941f1152ad89c73f8f2ae6e570869bf62b28",
   ["flash.nvim"] = "b68bda044d68e4026c4e1ec6df3c5afd7eb8e341",
   ["github-nvim-theme"] = "c106c9472154d6b2c74b74565616b877ae8ed31d",
   ["gitsigns.nvim"] = "f780609807eca1f783a36a8a31c30a48fbe150c5",
@@ -19,13 +19,14 @@ return {
   ["mini.files"] = "2db6db37c37ee5955fe72907e33fa31cd2dd0fd4",
   ["mini.hipatterns"] = "96d07d32a0db0d8d8a10c83a964ec557cca005e7",
   ["mini.icons"] = "f9a177c11daa7829389b7b6eaaec8b8a5c47052d",
-  ["mini.nvim"] = "2a435df3b71c1c8bce9a1af62146d0a9e00de312",
+  ["mini.notify"] = "9aae6c2e1020267a898b3950fc0b97eb0d83ce37",
+  ["mini.nvim"] = "6c30f0453507021aa3ce5459aaf98f865f9c66b6",
   ["mini.pairs"] = "3738ea30ff33e0cbf2983dc67319a5468d25b0a9",
   ["mini.pick"] = "36635165862b445d91c9ba7ae6d3ac37f50c99bf",
   ["mini.surround"] = "5aab42fcdcf31fa010f012771eda5631c077840a",
-  ["nvim-lspconfig"] = "107c2458cdc780c4ed2c2b5e1b7800cd019010bd",
+  ["nvim-lspconfig"] = "ef73a4f2a1ddf0439eb97b46de2aab265ddba1cd",
   ["nvim-treesitter"] = "42fc28ba918343ebfd5565147a42a26580579482",
   ["nvim-treesitter-context"] = "41847d3dafb5004464708a3db06b14f12bde548a",
   ["rainbow-delimiters.nvim"] = "687ef75fdbd497eabc9eea92b52e7b4d403b3319",
-  ["smart-splits.nvim"] = "e4f0c09277ca18d035ebb5da39fb14df0e2743f8"
+  ["smart-splits.nvim"] = "e8ef796c13abd22d3643c5271375543fc2abf682"
 }
