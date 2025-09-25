@@ -57,7 +57,8 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "FloatTitle", { bg = "#ececec" })
 
     vim.api.nvim_set_hl(0, "MiniNotifyNormal", { bg = "#ececec" })
-    vim.api.nvim_set_hl(0, "MiniNotifyBorder", { bg = "#ececec" })
+    vim.api.nvim_set_hl(0, "MiniNotifyBorder", { fg = "#ececec", bg = "#ececec" })
+    vim.api.nvim_set_hl(0, "MiniNotifyTitle", { fg = "#ececec", bg = "#ececec" })
 
     -- Diagnostic virual text
     vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = palette.ansi.cyan })
