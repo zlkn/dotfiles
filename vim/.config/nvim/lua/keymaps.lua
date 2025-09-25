@@ -1,36 +1,45 @@
+local map = vim.keymap.set
 -- Enhance buffer scroling
-vim.keymap.set("n", "<S-Enter>", "<C-d>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-Enter>", "<C-u>", { noremap = true, silent = true })
+map("n", "<S-Enter>", "<C-d>", { noremap = true, silent = true })
+map("n", "<C-Enter>", "<C-u>", { noremap = true, silent = true })
+
+-- Permanent delete without copy in buffer
+map({ "n", "v" }, "x", '"_x')
+map({ "n", "v" }, "X", '"_X')
+
+--
+map("n", "O", "O<Esc>", { desc = "Append empty line" })
+map("n", "o", "o<Esc>", { desc = "Prepend empty line" })
 
 -- Keymaps for run lua code in selection
-vim.keymap.set("n", "<leader>rx", "<cmd>source %<CR>", { desc = "Execute lua code" })
-vim.keymap.set("v", "<leader>rx", ":.lua<CR>", { desc = "Execute lua code" })
+map("n", "<leader>rx", "<cmd>source %<CR>", { desc = "Execute lua code" })
+map("v", "<leader>rx", ":.lua<CR>", { desc = "Execute lua code" })
 
 -- Split window
-vim.keymap.set("n", "<leader>\\", "<cmd>vsplit<CR>", { desc = "Split vertial" })
-vim.keymap.set("n", "<leader>-", "<cmd>split<CR>", { desc = "Split horisontal" })
+map("n", "<leader>\\", "<cmd>vsplit<CR>", { desc = "Split vertial" })
+map("n", "<leader>-", "<cmd>split<CR>", { desc = "Split horisontal" })
 
 -- Jump
-vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { silent = true })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
-vim.keymap.set("n", "H", ":bnext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "L", ":bprev<CR>", { noremap = true, silent = true })
+map("n", "<C-h>", "<C-w>h", { silent = true })
+map("n", "<C-j>", "<C-w>j", { silent = true })
+map("n", "<C-k>", "<C-w>k", { silent = true })
+map("n", "<C-l>", "<C-w>l", { silent = true })
+map("n", "H", ":bnext<CR>", { noremap = true, silent = true })
+map("n", "L", ":bprev<CR>", { noremap = true, silent = true })
 
 -- Exit
 -- Map <leader>qq to exit without saving
-vim.keymap.set("n", "<leader>qq", ":q!<CR>", { desc = "Exit buffer without saving", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>qa", ":qa!<CR>", { desc = "Exit nvim without saving", noremap = true, silent = true })
+map("n", "<leader>qq", ":q!<CR>", { desc = "Exit buffer without saving", noremap = true, silent = true })
+map("n", "<leader>qa", ":qa!<CR>", { desc = "Exit nvim without saving", noremap = true, silent = true })
 
 -- Map <leader>wq to save and then exit
-vim.keymap.set("n", "<leader>wq", ":wq<CR>", { desc = "Save and Exit", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>ww", ":w<CR><CR>", { desc = "Save and Format", noremap = true, silent = true })
+map("n", "<leader>wq", ":wq<CR>", { desc = "Save and Exit", noremap = true, silent = true })
+map("n", "<leader>ww", ":w<CR><CR>", { desc = "Save and Format", noremap = true, silent = true })
 
-vim.keymap.set("n", "[d", function()
+map("n", "[d", function()
     vim.diagnostic.jump({ count = -1, float = false })
 end)
-vim.keymap.set("n", "]d", function()
+map("n", "]d", function()
     vim.diagnostic.jump({ count = 1, float = false })
 end)
 
@@ -78,16 +87,16 @@ function CopyRelativePathToClipboard()
     -- Optionally notify
     vim.notify("Copied relative path to clipboard: " .. relative_path, vim.log.levels.INFO)
 end
-vim.keymap.set("n", "<leader>cp", CopyRelativePathToClipboard, { desc = "Copy relative path to clipboard" })
+map("n", "<leader>cp", CopyRelativePathToClipboard, { desc = "Copy relative path to clipboard" })
 
 -- Toggle current hlsearch
-vim.keymap.set("n", "<leader>th", function()
+map("n", "<leader>th", function()
     vim.v.hlsearch = vim.v.hlsearch ~= 1
     vim.print((vim.o.hlsearch and vim.v.hlsearch == 1 and "Enable" or "Disable") .. " hlsearch")
 end, { desc = "toogle hlsearch" })
 
 -- Toogle inlay_hint
-vim.keymap.set("n", "<leader>ti", function()
+map("n", "<leader>ti", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
     print((vim.lsp.inlay_hint.is_enabled and "Enable" or "Disable") .. " inlay hints")
 end, { desc = "tootle inlay hint" })
