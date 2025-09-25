@@ -25,6 +25,7 @@
           cyan = "#008ec4",
           deepTeal = "#3a869c",
           darkBlue = "#0a3069",
+          brightBlue = "#0550ae",
           teal = "#004c63",
           tirquose = "#007474",
           test = "#00897b",
