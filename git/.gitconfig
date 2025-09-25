@@ -29,3 +29,5 @@
     prune = true
     pruneTags = true
     all = true
+[rerere]
+	enabled = true
