@@ -1,9 +1,10 @@
   -- !!! Generated do not edit manually !!!
   local palette = {
       ansi = {
-          black = "#313131",
-          -- green = "#218242",
-          green = "#0A6E41",
+          -- black = "#313131",
+          black = "#3a3a3a",
+          green = "#218242",
+          -- green = "#0A6E41",
           -- green = "#005B1D",
           red = "#980054",
           yellow = "#a66f00",
