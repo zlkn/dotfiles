@@ -231,7 +231,7 @@ smart_splits.apply_to_config(config, {
         resize = { "LeftArrow", "DownArrow", "UpArrow", "RightArrow" },
     },
     modifiers = {
-        move = "CTRL|SHIFT",
+        move = "ALT",
         resize = "META",
     },
     log_level = "info",
