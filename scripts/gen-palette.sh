@@ -46,7 +46,7 @@ do
           red = "#d75fa1",
           dep = "#82071e",
           func = "#8430ce",
-          broghtBrown = "#993c00",
+          brightBrown = "#993c00",
           green = "#10a778",
           chromeGreen = "#0d844c",
           pineGreen = "#27745c",
