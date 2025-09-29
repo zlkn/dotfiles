@@ -10,7 +10,8 @@ local colors = {
     -- cursor_fg = palette .. black, -- palette.extra.darkGray,
     cursor_border = palette.brights.white, -- palette.brights.blue,
 
-    selection_bg = palette.extra.cornflowerBlue,
+    -- selection_bg = palette.extra.cornflowerBlue,
+    selection_bg = palette.extra.gray0,
     selection_fg = palette.ansi.black,
 
     scrollbar_thumb = palette.ansi.black,
