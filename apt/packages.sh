@@ -69,11 +69,11 @@ jetbrains(){
   sudo apt update
 }
 
-# gitlab
-# wezterm
-# fish
-# kubectl
-# gcloud
-# hashicorp
+gitlab
+wezterm
+fish
+kubectl
+gcloud
+hashicorp
 jetbrains
 
