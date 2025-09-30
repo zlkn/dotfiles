@@ -11,7 +11,7 @@ local colors = {
     cursor_border = palette.brights.white, -- palette.brights.blue,
 
     -- selection_bg = palette.extra.cornflowerBlue,
-    selection_bg = palette.extra.gray0,
+    selection_bg = palette.extra.gray1,
     selection_fg = palette.ansi.black,
 
     scrollbar_thumb = palette.ansi.black,

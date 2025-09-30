@@ -66,10 +66,12 @@ MiniDeps.now(function()
     -- Transparent tabline
     vim.api.nvim_set_hl(0, "TabLineFill", { bg = none })
 
-    vim.api.nvim_set_hl(0, "Visual", { bg = "#dfdfe1" })
+    vim.api.nvim_set_hl(0, "Visual", { bg = palette.extra.gray1 })
 
     -- MiniCursorword
-    vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.cornflowerBlue })
+    -- vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.cornflowerBlue })
+    vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.gray1 })
+    vim.api.nvim_set_hl(0, "MiniCUrsorword", { bg = palette.extra.gray0 })
 
     -- Minipick
     vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { fg = palette.brights.magenta })
