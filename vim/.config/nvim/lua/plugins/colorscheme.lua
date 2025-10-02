@@ -22,7 +22,7 @@ MiniDeps.now(function()
                 syntax = {
                     bracket = palette.brights.black,
                     builtin0 = palette.ansi.magenta,
-                    builtin1 = palette.brights.blue,
+                    builtin1 = palette.ansi.cyan,
                     builtin2 = palette.ansi.magenta,
                     comment = palette.brights.white,
                     conditional = palette.brights.red,
@@ -31,7 +31,7 @@ MiniDeps.now(function()
                     field = palette.extra.teal,
                     func = palette.brights.magenta,
                     ident = palette.ansi.black,
-                    keyword = palette.ansi.blue,
+                    keyword = palette.brights.blue,
                     number = palette.ansi.black,
                     operator = palette.brights.black,
                     param = palette.ansi.black,
