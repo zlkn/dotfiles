@@ -29,7 +29,7 @@ MiniDeps.now(function()
                     const = palette.extra.darkBlue,
                     dep = palette.brights.cyan,
                     field = palette.extra.teal,
-                    func = palette.ansi.magenta,
+                    func = palette.brights.magenta,
                     ident = palette.ansi.black,
                     keyword = palette.brights.blue,
                     number = palette.ansi.black,
