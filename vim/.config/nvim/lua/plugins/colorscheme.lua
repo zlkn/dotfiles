@@ -113,4 +113,7 @@ MiniDeps.now(function()
 
     -- golang semantic highlight
     vim.api.nvim_set_hl(0, "@constant.builtin.go", { fg = palette.brights.yellow })
+
+    -- jinja semantic highlight
+    vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.magenta })
 end)

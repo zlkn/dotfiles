@@ -15,7 +15,7 @@ MiniDeps.now(function()
 
     vim.lsp.enable("yamlls")
     vim.lsp.config("yamlls", {
-        filetypes = { "yaml", "yml", "yaml.docker-compose" },
+        filetypes = { "yaml", "yml", "yaml.docker-compose", "yaml.ansible" },
         settings = {
             redhat = { telemetry = { enabled = false } },
             yaml = {
@@ -100,14 +100,6 @@ MiniDeps.now(function()
                 },
             })
         end,
-
-        -- on_attach = function(client, bufnr)
-        -- If enabled write buffer stuck
-        -- if client.server_capabilities.inlayHintProvider then
-        -- print("Inlay hint avaliable")
-        -- vim.lsp.buf.inlay_hint(bufnr, true)
-        -- end
-        -- end,
 
         settings = {
             Lua = {
