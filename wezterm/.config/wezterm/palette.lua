@@ -17,7 +17,8 @@
           yellow = "#e57400",
           blue = "#015493",
           magenta = "#871094",
-          cyan = "#1fbdd0",
+          -- cyan = "#1fbdd0",
+          cyan = "#007474",
           white = "#57606a",
       },
       extra = {

@@ -22,7 +22,7 @@ MiniDeps.now(function()
                 syntax = {
                     bracket = palette.brights.black,
                     builtin0 = palette.ansi.magenta,
-                    builtin1 = palette.ansi.cyan,
+                    builtin1 = palette.brights.cyan,
                     builtin2 = palette.brights.magenta,
                     comment = palette.brights.white,
                     conditional = palette.brights.red,
@@ -115,5 +115,6 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "@constant.builtin.go", { fg = palette.brights.yellow })
 
     -- jinja semantic highlight
-    vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.magenta })
+    -- vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.magenta })
+    vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.yellow })
 end)
