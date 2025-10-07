@@ -92,11 +92,12 @@ MiniDeps.now(function()
     -- All floating window border
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.extra.gray2, bg = none })
 
-    vim.api.nvim_set_hl(0, "@constructor", { fg = palette.extra.cherry })
+    -- vim.api.nvim_set_hl(0, "@constructor", { fg = palette.extra.cherry })
     vim.api.nvim_set_hl(0, "@string.escape", { fg = palette.ansi.yellow })
 
     --  ansible_semantic_highlight
-    vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.extra.cherry })
+    -- vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.extra.cherry })
+    vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
     vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.extra.tirquose })
     vim.api.nvim_set_hl(0, "@lsp.type.keyword.yaml.ansible", { fg = palette.brights.blue })
     vim.api.nvim_set_hl(0, "@boolean.yaml", { bold = true })
