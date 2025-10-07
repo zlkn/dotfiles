@@ -117,5 +117,5 @@ MiniDeps.now(function()
 
     -- jinja semantic highlight
     -- vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.magenta })
-    vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.yellow })
+    vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.brights.green, bold = true })
 end)
