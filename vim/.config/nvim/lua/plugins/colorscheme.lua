@@ -71,7 +71,7 @@ MiniDeps.now(function()
     -- MiniCursorword
     -- vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.cornflowerBlue })
     vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.gray1 })
-    vim.api.nvim_set_hl(0, "MiniCUrsorword", { bg = palette.extra.gray0 })
+    vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.extra.gray1 })
 
     -- Minipick
     vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { fg = palette.brights.magenta })
