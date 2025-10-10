@@ -70,8 +70,8 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "Visual", { bg = palette.extra.gray1 })
 
     -- MiniCursorword
-    vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.gray1 })
-    vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.extra.gray1 })
+    vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.gray4 })
+    vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.extra.gray4 })
 
     -- Minipick
     vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { fg = palette.brights.magenta })

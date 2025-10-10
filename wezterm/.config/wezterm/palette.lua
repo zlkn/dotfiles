@@ -49,6 +49,7 @@
           darkGray = "#424242",
           mediumGray = "#808080",
           pencilGray = "#9d9d9d",
+          gray4 = "#d1dfe1",
           gray0 = "#dfdfe1",
           gray1 = "#d1d1d1",
           gray2 = "#a1a1a1",
