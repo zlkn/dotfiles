@@ -38,7 +38,8 @@ MiniDeps.now(function()
                     preproc = palette.ansi.red,
                     regex = palette.ansi.yellow,
                     statement = palette.brights.red,
-                    string = palette.extra.darkGreen,
+                    -- string = palette.extra.darkGreen,
+                    string = palette.ansi.green,
                     tag = palette.brights.blue,
                     type = palette.brights.black,
                     variable = palette.ansi.black,
@@ -69,7 +70,6 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "Visual", { bg = palette.extra.gray1 })
 
     -- MiniCursorword
-    -- vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.cornflowerBlue })
     vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.gray1 })
     vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.extra.gray1 })
 

@@ -13,10 +13,12 @@ do
       ansi = {
           black = "#313131",
           green = "#218242",
+          -- green = "#007a5a",
           red = "#980054",
           yellow = "#b57414",
           blue = "#0550ae",
           magenta = "#5e2d88",
+          -- magenta = "#7c43a0",
           cyan = "#138cbf",
           white = "#9d9d9d",
       },
