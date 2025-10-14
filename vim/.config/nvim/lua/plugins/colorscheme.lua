@@ -32,13 +32,12 @@ MiniDeps.now(function()
                     func = palette.brights.magenta,
                     ident = palette.ansi.black,
                     keyword = palette.brights.blue,
-                    number = palette.ansi.black,
+                    number = palette.brights.black,
                     operator = palette.brights.black,
                     param = palette.ansi.black,
                     preproc = palette.ansi.red,
                     regex = palette.ansi.yellow,
                     statement = palette.brights.red,
-                    -- string = palette.extra.darkGreen,
                     string = palette.ansi.green,
                     tag = palette.brights.blue,
                     type = palette.brights.black,
@@ -80,13 +79,9 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "MiniPickPrompt", { fg = palette.ansi.black })
 
     -- MiniHipatterns
-    -- vim.api.nvim_set_hl(0, "MiniHipatternsFixme", { bg = palette.extra.red, fg = palette.brights.black })
     vim.api.nvim_set_hl(0, "MiniHipatternsFixme", { bg = "#f4d8e4", fg = palette.brights.black })
-    -- vim.api.nvim_set_hl(0, "MiniHipatternsHack", { bg = palette.extra.yellow, fg = palette.brights.black })
     vim.api.nvim_set_hl(0, "MiniHipatternsHack", { bg = "#f2e3b7", fg = palette.brights.black })
-    -- vim.api.nvim_set_hl(0, "MiniHipatternsTodo", { bg = palette.brights.green, fg = palette.brights.black })
     vim.api.nvim_set_hl(0, "MiniHipatternsTodo", { bg = "#d7e6dd", fg = palette.brights.black })
-    -- vim.api.nvim_set_hl(0, "MiniHipatternsNote", { bg = palette.extra.moonStonecyan, fg = palette.brights.black })
     vim.api.nvim_set_hl(0, "MiniHipatternsNote", { bg = "#d3e4f1", fg = palette.brights.black })
 
     -- All floating window border
@@ -96,7 +91,6 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "@string.escape", { fg = palette.ansi.yellow })
 
     --  ansible_semantic_highlight
-    -- vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.extra.cherry })
     vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
     vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.extra.tirquose })
     vim.api.nvim_set_hl(0, "@lsp.type.keyword.yaml.ansible", { fg = palette.brights.blue })
@@ -113,7 +107,7 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "@boolean.lua", { bold = true })
 
     -- golang semantic highlight
-    vim.api.nvim_set_hl(0, "@constant.builtin.go", { fg = palette.brights.yellow })
+    vim.api.nvim_set_hl(0, "@constant.builtin.go", { fg = palette.brights.yellow, bold = true })
 
     -- jinja semantic highlight
     -- vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.magenta })
