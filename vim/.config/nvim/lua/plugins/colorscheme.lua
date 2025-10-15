@@ -94,7 +94,10 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
     vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.extra.tirquose })
     vim.api.nvim_set_hl(0, "@lsp.type.keyword.yaml.ansible", { fg = palette.brights.blue })
+
+    -- yaml semantic highlight
     vim.api.nvim_set_hl(0, "@boolean.yaml", { bold = true })
+    -- vim.api.nvim_set_hl(0, "@number.yaml", { fg = palette.ansi.yellow })
 
     -- terraform semantic highlight
     vim.api.nvim_set_hl(0, "@boolean.terraform", { bold = true })
