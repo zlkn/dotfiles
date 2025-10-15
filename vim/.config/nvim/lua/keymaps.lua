@@ -34,7 +34,7 @@ map("n", "<leader>qa", ":qa!<CR>", { desc = "Exit nvim without saving", noremap 
 
 -- Map <leader>wq to save and then exit
 map("n", "<leader>wq", ":wq<CR>", { desc = "Save and Exit", noremap = true, silent = true })
-map("n", "<leader>ww", ":w<CR><CR>", { desc = "Save and Format", noremap = true, silent = true })
+map("n", "<leader>ww", ":w<CR>", { desc = "Save and Format", noremap = true, silent = false })
 
 map("n", "[d", function()
     vim.diagnostic.jump({ count = -1, float = false })
