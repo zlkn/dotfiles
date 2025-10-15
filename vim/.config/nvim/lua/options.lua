@@ -47,7 +47,7 @@ vim.opt.guicursor = {
 
 vim.diagnostic.config({
     virtual_lines = {
-        current_line = false,
+        current_line = true,
     },
     underline = true,
     float = {
