@@ -26,7 +26,7 @@ MiniDeps.now(function()
                     builtin2 = palette.brights.magenta,
                     comment = palette.brights.white,
                     conditional = palette.brights.red,
-                    const = palette.extra.darkBlue,
+                    const = palette.brights.black,
                     dep = palette.brights.cyan,
                     field = palette.extra.teal,
                     func = palette.brights.magenta,
@@ -87,7 +87,6 @@ MiniDeps.now(function()
     -- All floating window border
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.extra.gray2, bg = none })
 
-    -- vim.api.nvim_set_hl(0, "@constructor", { fg = palette.extra.cherry })
     vim.api.nvim_set_hl(0, "@string.escape", { fg = palette.ansi.yellow })
 
     --  ansible_semantic_highlight
