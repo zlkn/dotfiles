@@ -22,13 +22,14 @@ MiniDeps.now(function()
                 syntax = {
                     bracket = palette.brights.black,
                     builtin0 = palette.ansi.magenta,
-                    builtin1 = palette.brights.cyan,
+                    builtin1 = palette.ansi.cyan,
                     builtin2 = palette.brights.magenta,
                     comment = palette.brights.white,
                     conditional = palette.brights.red,
-                    const = palette.brights.black,
+                    const = palette.ansi.black,
                     dep = palette.brights.cyan,
-                    field = palette.extra.teal,
+                    -- field = palette.extra.teal,
+                    field = palette.brights.cyan,
                     func = palette.brights.magenta,
                     ident = palette.ansi.black,
                     keyword = palette.brights.blue,
@@ -91,7 +92,7 @@ MiniDeps.now(function()
 
     --  ansible_semantic_highlight
     vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
-    vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.extra.tirquose })
+    vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.brights.cyan })
     vim.api.nvim_set_hl(0, "@lsp.type.keyword.yaml.ansible", { fg = palette.brights.blue })
 
     -- yaml semantic highlight
