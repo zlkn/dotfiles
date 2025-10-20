@@ -17,7 +17,7 @@ local font_size = 12
 config.warn_about_missing_glyphs = false
 config.freetype_load_target = "Light"
 config.font_size = font_size
-config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font({ family = "JetBrains Mono", weight = "Regular" })
 
 -- Command Palette
 config.command_palette_font_size = font_size
@@ -42,7 +42,8 @@ config.window_decorations = "NONE"
 config.window_padding = { left = 10, right = 10, top = 2, bottom = 2 }
 config.window_frame = {
     font_size = font_size,
-    font = wezterm.font("JetBrains Mono"),
+    -- font = wezterm.font("JetBrains Mono"),
+    font = wezterm.font({ family = "JetBrains Mono", weight = "Regular" }),
 
     -- Add split line on stacked wezterm
     border_left_width = "0.12cell",
@@ -145,7 +146,7 @@ local function get_icon(tab)
     local exec_name = get_process_name(tab.active_pane.foreground_process_name)
     icon.symbol = icons[exec_name].symbol or wezterm.nerdfonts.md_run
     icon.color = icons[exec_name].color or colorscheme.palette.extra.darkGray
-    print("exec_name: " .. exec_name .. " tab: " .. tab.active_pane.foreground_process_name)
+    -- print("exec_name: " .. exec_name .. " tab: " .. tab.active_pane.foreground_process_name)
 
     return icon
 end
@@ -163,7 +164,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
 
     local icon = get_icon(tab)
     local title = tab_title(tab)
-    print("title: " .. title)
+    -- print("title: " .. title)
 
     return wezterm.format({
         { Background = { Color = colorscheme.palette.extra.backgroundGray } },
