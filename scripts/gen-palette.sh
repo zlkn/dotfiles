@@ -1,6 +1,10 @@
 #!/bin/bash
 
-declare -a DESTS=("../vim/.config/nvim/lua/palette.lua" "../wezterm/.config/wezterm/palette.lua")
+declare -a DESTS=(
+  "../vim/.config/nvim/lua/palette.lua"
+  "../wezterm/.config/wezterm/palette.lua"
+)
+
 # language=lua
 for dst in ${DESTS[@]};
 do
