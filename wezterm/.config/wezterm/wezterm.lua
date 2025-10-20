@@ -13,39 +13,37 @@ config.inactive_pane_hsb = {
 }
 
 -- Fontconfig
+local font_size = 12
 config.warn_about_missing_glyphs = false
 config.freetype_load_target = "Light"
-config.freetype_render_target = "HorizontalLcd"
-config.font_size = 12
-config.font = wezterm.font({
-    family = "JetBrains Mono",
-    -- weight = "Light",
-    weight = "Regular",
-})
-
--- Gnome integration
-local wayland_gnome = require("wayland_gnome")
-wayland_gnome.apply_to_config(config)
+config.font_size = font_size
+config.font = wezterm.font("JetBrains Mono")
 
 -- Command Palette
-config.command_palette_font_size = 12
+config.command_palette_font_size = font_size
 config.command_palette_bg_color = colorscheme.palette.extra.gray1
 config.command_palette_fg_color = colorscheme.colors.foreground
 
 -- Char select
-config.char_select_font_size = 12
+config.char_select_font_size = font_size
 config.char_select_bg_color = colorscheme.palette.extra.gray1
 config.char_select_fg_color = colorscheme.colors.foreground
+
+-- Gnome integration
+local wayland_gnome = require("wayland_gnome")
+wayland_gnome.apply_to_config(config)
 
 -- Window config
 config.initial_cols = 160
 config.initial_rows = 42
 config.scrollback_lines = 100000
 config.window_close_confirmation = "NeverPrompt"
--- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_decorations = "NONE"
 config.window_padding = { left = 10, right = 10, top = 2, bottom = 2 }
 config.window_frame = {
+    font_size = font_size,
+    font = wezterm.font("JetBrains Mono"),
+
     -- Add split line on stacked wezterm
     border_left_width = "0.12cell",
     border_right_width = "0.12cell",
@@ -66,18 +64,12 @@ config.window_frame = {
     button_fg = colorscheme.colors.background,
     button_bg = colorscheme.colors.background,
     button_hover_fg = colorscheme.colors.background,
-
-    font_size = 12,
-    font = wezterm.font({
-        family = "JetBrains Mono",
-        weight = "Regular",
-    }),
 }
 
 --- Tabbar config
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = true
-config.show_tab_index_in_tab_bar = false
+config.show_tab_index_in_tab_bar = true
 config.show_close_tab_button_in_tabs = false
 config.switch_to_last_active_tab_when_closing_tab = true
 config.show_new_tab_button_in_tab_bar = false
@@ -120,7 +112,7 @@ local function get_icon(tab)
         ["top"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
         ["htop"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
         ["ntop"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
-        ["nvim"] = { symbol = wezterm.nerdfonts.linux_neovim, color = colorscheme.palette.extra.pineGreen },
+        ["nvim"] = { symbol = wezterm.nerdfonts.linux_neovim, color = colorscheme.palette.brights.green },
         ["vim"] = { symbol = wezterm.nerdfonts.linux_neovim },
         ["nano"] = { symbol = wezterm.nerdfonts.linux_neovim },
         ["bat"] = { symbol = wezterm.nerdfonts.md_magnify },
