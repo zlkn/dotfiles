@@ -23,7 +23,8 @@ local palette = {
         blue = "#138cbf",
         cyan = "#009999",
         magenta = "#5e2d88",
-        white = "#9d9d9d",
+        -- white = "#9d9d9d",
+        white = "#57606a",
     },
     brights = {
         black = "#000000",
@@ -33,7 +34,8 @@ local palette = {
         yellow = "#e57400",
         cyan = "#007474",
         magenta = "#871094",
-        white = "#57606a",
+        -- white = "#57606a",
+        white = "#004c63",
     },
     extra = {
         deepTeal = "#3a869c",
