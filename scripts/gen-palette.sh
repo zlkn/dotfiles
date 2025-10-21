@@ -16,15 +16,13 @@ do
 local palette = {
     ansi = {
         black = "#313131",
-        -- green = "#10a678",
         green = "#009965",
         red = "#c30771",
         yellow = "#b57414",
         blue = "#138cbf",
         cyan = "#009999",
         magenta = "#5e2d88",
-        -- white = "#9d9d9d",
-        white = "#57606a",
+        white = "#778491",
     },
     brights = {
         black = "#000000",
