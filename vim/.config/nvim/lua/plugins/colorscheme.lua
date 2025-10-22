@@ -118,5 +118,5 @@ MiniDeps.now(function()
     vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.blue })
 
     -- c semantic highlight
-    vim.api.nvim_set_hl(0, "@keyword.conditional.ternary.c", { fg = palette.brights.red, bold = true })
+    vim.api.nvim_set_hl(0, "@keyword.conditional.ternary.c", { fg = palette.ansi.yellow, bold = true })
 end)
