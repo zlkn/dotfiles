@@ -34,7 +34,7 @@ function _git_info
     set -l git_info ""
 
     set -l yellow (set_color yellow)
-    set -l green (set_color green)
+    set -l green (set_color brgreen)
     set -l blue (set_color brblue)
     set -l brred (set_color brred)
     set -l normal (set_color normal)
@@ -111,9 +111,9 @@ function _exit_status
     set -g CMD_COUNT (math $CMD_COUNT + 1)
 
     if test $last_status -gt 0
-        echo " "(set_color brred)"✘"(set_color normal)
+        echo " "(set_color red)"✘"(set_color normal)
     else if test $CMD_COUNT -gt 1
-        echo " "(set_color green)"✔"(set_color normal)
+        echo " "(set_color brgreen)"✔"(set_color normal)
     end
 end
 

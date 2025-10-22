@@ -1,6 +1,10 @@
 #!/bin/bash
 
-declare -a DESTS=("../vim/.config/nvim/lua/palette.lua" "../wezterm/.config/wezterm/palette.lua")
+declare -a DESTS=(
+  "../vim/.config/nvim/lua/palette.lua"
+  "../wezterm/.config/wezterm/palette.lua"
+)
+
 # language=lua
 for dst in ${DESTS[@]};
 do
@@ -9,66 +13,52 @@ do
   # language=lua
   cat << EOD > ${dst}
   -- !!! Generated do not edit manually !!!
-  local palette = {
-      ansi = {
-          black = "#313131",
-          green = "#218242",
-          -- green = "#007a5a",
-          red = "#980054",
-          yellow = "#b57414",
-          -- blue = "#0550ae",
-          blue = "#453dc8",
-          magenta = "#5e2d88",
-          cyan = "#138cbf",
-          white = "#9d9d9d",
-      },
-      brights = {
-          black = "#000000",
-          green = "#10a678",
-          red = "#c30771",
-          yellow = "#e57400",
-          blue = "#015493",
-          magenta = "#871094",
-          cyan = "#007474",
-          white = "#57606a",
-      },
-      extra = {
-          cyan1 = "#009999",
-          cyan = "#008ec4",
-          deepTeal = "#3a869c",
-          darkBlue = "#0a3069",
-          brightBlue = "#0550ae",
-          teal = "#004c63",
-          tirquose = "#007474",
-          test = "#00897b",
-          cherry = "#980054",
-          red = "#d75fa1",
-          dep = "#82071e",
-          func = "#8430ce",
-          brightBrown = "#993c00",
-          green = "#10a778",
-          chromeGreen = "#0d844c",
-          pineGreen = "#27745c",
-          darkGreen = "#1a7248",
-          lightSeaGreen = "#5fd7af",
-          moonStonecyan = "#4fb8cc",
-          yellow = "#d7af5f",
-          cornflowerBlue = "#b6d6fd",
-          backgroundGray = "#ececec",
-          darkGray = "#424242",
-          mediumGray = "#808080",
-          pencilGray = "#9d9d9d",
-          gray4 = "#d1dfe1",
-          gray0 = "#dfdfe1",
-          gray1 = "#d1d1d1",
-          gray2 = "#a1a1a1",
-          gray3 = "#57606a",
-          white = "#6f8396",
-          ightGray = "#f0f0f0",
-          pureWhite = "#ffffff",
-      },
-  }
-  return palette
+local palette = {
+    ansi = {
+        black = "#313131",
+        green = "#009965",
+        red = "#c30771",
+        yellow = "#b57414",
+        blue = "#138cbf",
+        cyan = "#009999",
+        magenta = "#5e2d88",
+        white = "#778491",
+    },
+    brights = {
+        black = "#000000",
+        green = "#218242",
+        red = "#980054",
+        blue = "#015493",
+        yellow = "#e57400",
+        cyan = "#007474",
+        magenta = "#871094",
+        -- white = "#57606a",
+        white = "#004c63",
+    },
+    extra = {
+        deepTeal = "#3a869c",
+        darkBlue = "#0a3069",
+        brightBlue = "#0550ae",
+        teal = "#004c63",
+        tirquose = "#007474",
+        darkGreen = "#1a7248",
+        moonStonecyan = "#4fb8cc",
+        cornflowerBlue = "#b6d6fd",
+        -- backgroundGray = "#ececec",
+        backgroundGray = "#ebebed",
+        darkGray = "#424242",
+        mediumGray = "#808080",
+        pencilGray = "#9d9d9d",
+        gray4 = "#d1dfe1",
+        gray0 = "#dfdfe1",
+        gray1 = "#d1d1d1",
+        gray2 = "#a1a1a1",
+        gray3 = "#57606a",
+        white = "#6f8396",
+        pureWhite = "#ffffff",
+    },
+}
+return palette
 EOD
 
 done

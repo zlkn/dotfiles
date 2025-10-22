@@ -42,14 +42,15 @@ local colors = {
     },
 
     copy_mode_active_highlight_bg = { Color = palette.extra.cornflowerBlue },
-    copy_mode_active_highlight_fg = { Color = palette.ansi.magenta },
-    copy_mode_inactive_highlight_bg = { Color = palette.ansi.green },
-    copy_mode_inactive_highlight_fg = { Color = palette.brights.white },
+    copy_mode_active_highlight_fg = { Color = palette.ansi.black },
 
-    quick_select_label_bg = { Color = palette.extra.pineGreen },
+    copy_mode_inactive_highlight_bg = { Color = palette.ansi.green },
+    copy_mode_inactive_highlight_fg = { Color = palette.ansi.black },
+
+    quick_select_label_bg = { Color = palette.brights.green },
     quick_select_label_fg = { Color = palette.extra.pureWhite },
     quick_select_match_bg = { Color = palette.extra.cornflowerBlue },
-    quick_select_match_fg = { Color = palette.brights.black },
+    quick_select_match_fg = { Color = palette.ansi.black },
 
     tab_bar = {
         background = palette.extra.backgroundGray,

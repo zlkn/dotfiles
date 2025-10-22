@@ -24,11 +24,12 @@ MiniDeps.now(function()
                     builtin0 = palette.ansi.magenta,
                     builtin1 = palette.brights.cyan,
                     builtin2 = palette.brights.magenta,
-                    comment = palette.brights.white,
+                    comment = palette.ansi.white,
                     conditional = palette.brights.red,
-                    const = palette.extra.darkBlue,
+                    const = palette.ansi.black,
                     dep = palette.brights.cyan,
-                    field = palette.extra.teal,
+                    field = palette.brights.white,
+                    -- field = palette.brights.cyan,
                     func = palette.brights.magenta,
                     ident = palette.ansi.black,
                     keyword = palette.brights.blue,
@@ -38,7 +39,7 @@ MiniDeps.now(function()
                     preproc = palette.ansi.red,
                     regex = palette.ansi.yellow,
                     statement = palette.brights.red,
-                    string = palette.ansi.green,
+                    string = palette.brights.green,
                     tag = palette.brights.blue,
                     type = palette.brights.black,
                     variable = palette.ansi.black,
@@ -87,12 +88,11 @@ MiniDeps.now(function()
     -- All floating window border
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.extra.gray2, bg = none })
 
-    -- vim.api.nvim_set_hl(0, "@constructor", { fg = palette.extra.cherry })
     vim.api.nvim_set_hl(0, "@string.escape", { fg = palette.ansi.yellow })
 
     --  ansible_semantic_highlight
     vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
-    vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.extra.tirquose })
+    vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.brights.cyan })
     vim.api.nvim_set_hl(0, "@lsp.type.keyword.yaml.ansible", { fg = palette.brights.blue })
 
     -- yaml semantic highlight
@@ -115,5 +115,8 @@ MiniDeps.now(function()
     -- jinja semantic highlight
     -- vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.magenta })
     -- vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.brights.green, bold = true })
-    vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.cyan })
+    vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.blue })
+
+    -- c semantic highlight
+    vim.api.nvim_set_hl(0, "@keyword.conditional.ternary.c", { fg = palette.brights.red, bold = true })
 end)
