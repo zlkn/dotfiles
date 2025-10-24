@@ -17,7 +17,7 @@ local font_size = 12
 config.warn_about_missing_glyphs = false
 config.freetype_load_target = "Light"
 config.font_size = font_size
-config.font = wezterm.font({ family = "JetBrains Mono", weight = "Light" })
+config.font = wezterm.font({ family = "JetBrains Mono", weight = "Regular" })
 
 -- Command Palette
 config.command_palette_font_size = font_size
