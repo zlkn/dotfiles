@@ -18,6 +18,32 @@ MiniDeps.now(function()
             },
         },
         specs = {
+            github_light_tritanopia = {
+                syntax = {
+                    bracket = palette.ansi.black,
+                    builtin0 = palette.ansi.magenta,
+                    builtin1 = palette.brights.blue, -- C lang types
+                    builtin2 = palette.ansi.black,
+                    comment = palette.ansi.white,
+                    conditional = palette.ansi.black,
+                    const = palette.ansi.black,
+                    dep = palette.ansi.black,
+                    field = palette.ansi.black,
+                    func = palette.brights.cyan,
+                    ident = palette.ansi.black,
+                    keyword = palette.brights.black,
+                    number = palette.ansi.black,
+                    operator = palette.ansi.black,
+                    param = palette.ansi.black,
+                    preproc = palette.ansi.black,
+                    regex = palette.ansi.yellow,
+                    statement = palette.ansi.black,
+                    string = palette.brights.green,
+                    tag = palette.brights.blue,
+                    type = palette.ansi.black,
+                    variable = palette.ansi.black,
+                },
+            },
             github_light = {
                 syntax = {
                     bracket = palette.brights.black,
@@ -48,75 +74,88 @@ MiniDeps.now(function()
         },
     })
 
-    vim.cmd([[ colorscheme github_light ]])
+    -- vim.cmd([[ colorscheme github_light ]])
+    vim.cmd([[ colorscheme github_light_tritanopia ]])
 
-    vim.api.nvim_set_hl(0, "CursorLine", { bg = palette.extra.gray0 })
-    vim.api.nvim_set_hl(0, "CursorLineNr", { bg = palette.extra.gray0 })
-    vim.api.nvim_set_hl(0, "CursorLineSign", { bg = palette.extra.gray0 })
+    local hl = vim.api.nvim_set_hl
 
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#ececec" })
-    vim.api.nvim_set_hl(0, "FloatTitle", { bg = "#ececec" })
+    hl(0, "CursorLine", { bg = palette.extra.gray0 })
+    hl(0, "CursorLineNr", { bg = palette.extra.gray0 })
+    hl(0, "CursorLineSign", { bg = palette.extra.gray0 })
 
-    vim.api.nvim_set_hl(0, "MiniNotifyNormal", { bg = "#ececec" })
-    vim.api.nvim_set_hl(0, "MiniNotifyBorder", { fg = "#ececec", bg = "#ececec" })
-    vim.api.nvim_set_hl(0, "MiniNotifyTitle", { fg = "#ececec", bg = "#ececec" })
+    hl(0, "NormalFloat", { bg = "#ececec" })
+    hl(0, "FloatTitle", { bg = "#ececec" })
+
+    hl(0, "MiniNotifyNormal", { bg = "#ececec" })
+    hl(0, "MiniNotifyBorder", { fg = "#ececec", bg = "#ececec" })
+    hl(0, "MiniNotifyTitle", { fg = "#ececec", bg = "#ececec" })
 
     -- Diagnostic virual text
-    vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = palette.ansi.cyan })
+    hl(0, "DiagnosticHint", { fg = palette.ansi.cyan })
 
     -- Transparent tabline
-    vim.api.nvim_set_hl(0, "TabLineFill", { bg = none })
+    hl(0, "TabLineFill", { bg = none })
 
-    vim.api.nvim_set_hl(0, "Visual", { bg = palette.extra.gray1 })
+    hl(0, "Visual", { bg = palette.extra.gray1 })
 
     -- MiniCursorword
-    vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = palette.extra.gray4 })
-    vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.extra.gray4 })
+    hl(0, "MiniCursorwordCurrent", { bg = palette.extra.gray4 })
+    hl(0, "MiniCursorword", { bg = palette.extra.gray4 })
 
     -- Minipick
-    vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { fg = palette.brights.magenta })
-    vim.api.nvim_set_hl(0, "MiniPickPromptCaret", { fg = palette.extra.gray2 })
-    vim.api.nvim_set_hl(0, "MiniPickPromptPrefix", { fg = palette.extra.gray2 })
-    vim.api.nvim_set_hl(0, "MiniPickPrompt", { fg = palette.ansi.black })
+    hl(0, "MiniPickMatchRanges", { fg = palette.brights.magenta })
+    hl(0, "MiniPickPromptCaret", { fg = palette.extra.gray2 })
+    hl(0, "MiniPickPromptPrefix", { fg = palette.extra.gray2 })
+    hl(0, "MiniPickPrompt", { fg = palette.ansi.black })
 
     -- MiniHipatterns
-    vim.api.nvim_set_hl(0, "MiniHipatternsFixme", { bg = "#f4d8e4", fg = palette.brights.black })
-    vim.api.nvim_set_hl(0, "MiniHipatternsHack", { bg = "#f2e3b7", fg = palette.brights.black })
-    vim.api.nvim_set_hl(0, "MiniHipatternsTodo", { bg = "#d7e6dd", fg = palette.brights.black })
-    vim.api.nvim_set_hl(0, "MiniHipatternsNote", { bg = "#d3e4f1", fg = palette.brights.black })
+    hl(0, "MiniHipatternsFixme", { bg = "#f4d8e4", fg = palette.brights.black })
+    hl(0, "MiniHipatternsHack", { bg = "#f2e3b7", fg = palette.brights.black })
+    hl(0, "MiniHipatternsTodo", { bg = "#d7e6dd", fg = palette.brights.black })
+    hl(0, "MiniHipatternsNote", { bg = "#d3e4f1", fg = palette.brights.black })
+
+    hl(0, "BlinkCmpMenu", { fg = none, bg = palette.extra.gray1 })
+    hl(0, "BlinkCmpKindText", { fg = palette.ansi.black, bg = none })
+    hl(0, "BlinkCmpLabelMatch", { fg = palette.brights.magenta, bg = none })
+    hl(0, "BlinkCmpSignatureHelp", { fg = palette.brights.magenta, bg = color })
+    hl(0, "BlinkCmpSignatureHelpBorder", { fg = palette.brights.cyan, bg = color })
+    hl(0, "BlinkCmpSignatureHelpActiveParameter", { fg = palette.ansi.red, bg = color })
 
     -- All floating window border
-    vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.extra.gray2, bg = none })
+    hl(0, "FloatBorder", { fg = palette.extra.gray2, bg = none })
 
-    vim.api.nvim_set_hl(0, "@string.escape", { fg = palette.ansi.yellow })
+    -- Extra lsp semantic_highlight
+    hl(0, "@string.escape", { fg = palette.ansi.yellow })
+    hl(0, "@constructor", { fg = palette.ansi.magenta })
 
     --  ansible_semantic_highlight
-    vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
-    vim.api.nvim_set_hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.brights.cyan })
-    vim.api.nvim_set_hl(0, "@lsp.type.keyword.yaml.ansible", { fg = palette.brights.blue })
+    hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
+    hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.brights.cyan })
+    hl(0, "@lsp.type.keyword.yaml.ansible", { fg = palette.brights.blue })
 
     -- yaml semantic highlight
-    vim.api.nvim_set_hl(0, "@boolean.yaml", { bold = true })
-    -- vim.api.nvim_set_hl(0, "@number.yaml", { fg = palette.ansi.yellow })
+    hl(0, "@boolean.yaml", { bold = true })
+    -- hl(0, "@number.yaml", { fg = palette.ansi.yellow })
 
     -- terraform semantic highlight
-    vim.api.nvim_set_hl(0, "@boolean.terraform", { bold = true })
+    hl(0, "@boolean.terraform", { bold = true })
 
     -- golang semantic highlight
-    vim.api.nvim_set_hl(0, "@keyword.function", { fg = palette.brights.blue, bold = true })
+    hl(0, "@keyword.function", { fg = palette.brights.blue, bold = true })
 
     -- lua semantic highlight
-    vim.api.nvim_set_hl(0, "@lsp.mod.global.lua", { bold = true })
-    vim.api.nvim_set_hl(0, "@boolean.lua", { bold = true })
+    hl(0, "@lsp.mod.global.lua", { bold = true })
+    hl(0, "@boolean.lua", { bold = true })
+    hl(0, "@lsp.typemod.function.defaultLibrary.lua", { fg = palette.ansi.magenta })
 
     -- golang semantic highlight
-    vim.api.nvim_set_hl(0, "@constant.builtin.go", { fg = palette.brights.yellow, bold = true })
+    hl(0, "@constant.builtin.go", { fg = palette.brights.yellow })
 
     -- jinja semantic highlight
-    -- vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.magenta })
-    -- vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.brights.green, bold = true })
-    vim.api.nvim_set_hl(0, "@keyword.directive.jinja", { fg = palette.ansi.blue })
+    -- hl(0, "@keyword.directive.jinja", { fg = palette.ansi.magenta })
+    -- hl(0, "@keyword.directive.jinja", { fg = palette.brights.green, bold = true })
+    hl(0, "@keyword.directive.jinja", { fg = palette.ansi.blue })
 
     -- c semantic highlight
-    vim.api.nvim_set_hl(0, "@keyword.conditional.ternary.c", { fg = palette.ansi.yellow, bold = true })
+    hl(0, "@keyword.conditional.ternary.c", { fg = palette.ansi.yellow, bold = true })
 end)

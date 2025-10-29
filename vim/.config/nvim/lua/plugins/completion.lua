@@ -108,10 +108,4 @@ MiniDeps.later(function()
             },
         },
     })
-    local color = "#d1d1d1"
-    vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = none, bg = color })
-    vim.api.nvim_set_hl(0, "BlinkCmpKindText", { fg = "#313131", bg = none })
-    vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelp", { fg = "#871094", bg = color })
-    vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { fg = "#007474", bg = color })
-    vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpActiveParameter", { fg = "#c30771", bg = color })
 end)
