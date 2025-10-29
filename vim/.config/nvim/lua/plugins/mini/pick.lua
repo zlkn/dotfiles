@@ -1,7 +1,21 @@
 MiniDeps.add("nvim-mini/mini.pick")
 MiniDeps.later(function()
     require("mini.pick").setup({
-        window = { prompt_prefix = " ", config = { border = "rounded" } },
+        window = {
+            prompt_prefix = " ",
+            config = function()
+                local max_width = vim.o.columns
+                local width = max_width
+
+                if max_width > 160 then
+                    width = math.floor(max_width * 0.618)
+                elseif max_width > 120 then
+                    width = 120
+                end
+
+                return { width = width, border = "rounded" }
+            end,
+        },
     })
     MiniPick.registry.yaml_keytrail = M.yaml_keytrail
 
