@@ -2,6 +2,9 @@ MiniDeps.add({ source = "folke/flash.nvim" })
 MiniDeps.later(function()
     require("flash").setup({
         modes = {
+            search = {
+                enabled = true,
+            },
             char = {
                 enabled = false, -- Disable f, F, t, T motion
             },
