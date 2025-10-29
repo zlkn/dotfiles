@@ -127,6 +127,7 @@ MiniDeps.now(function()
     -- Extra lsp semantic_highlight
     hl(0, "@string.escape", { fg = palette.ansi.yellow })
     hl(0, "@constructor", { fg = palette.ansi.magenta })
+    hl(0, "@function.builtin", { fg = palette.ansi.magenta })
 
     --  ansible_semantic_highlight
     hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
