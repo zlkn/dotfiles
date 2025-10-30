@@ -13,4 +13,12 @@ MiniDeps.later(function()
     vim.keymap.set({ "n", "x", "o" }, "f", function()
         require("flash").jump()
     end, { desc = "Start flash jump mode", noremap = true, silent = true })
+    vim.keymap.set({ "n", "x", "o" }, "<c-space>", function()
+        require("flash").treesitter({
+            actions = {
+                ["<c-space>"] = "next",
+                ["<BS>"] = "prev",
+            },
+        })
+    end, { desc = "Treesitter incremental selection" })
 end)
