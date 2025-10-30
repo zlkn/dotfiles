@@ -139,6 +139,7 @@ MiniDeps.now(function()
 
     -- terraform semantic highlight
     hl(0, "@boolean.terraform", { bold = true })
+    hl(0, "@lsp.type.type.terraform", { fg = palette.brights.white })
 
     -- golang semantic highlight
     hl(0, "@keyword.function", { fg = palette.brights.blue, bold = true })
