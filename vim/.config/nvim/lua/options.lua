@@ -9,10 +9,8 @@ vim.o.writebackup = false -- Don't store backup while overwriting the file
 
 -- UI options
 vim.o.number = true
-
 vim.o.cmdheight = 0
 vim.o.scrolloff = 5
-
 vim.o.breakindent = true -- Indent wrapped lines to match line start
 vim.o.wrap = false -- Display long lines as just one line
 
@@ -20,7 +18,7 @@ vim.o.statuscolumn = "%l%s" -- Sign columng after numbers
 vim.o.signcolumn = "yes" -- Always show sign column (otherwise it will shift text)
 vim.o.fillchars = "eob: " -- Don't show `~` outside of buffer
 
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus" -- Copy to systemc clipbiard
 
 -- Editing
 vim.o.ignorecase = true -- Ignore case when searching (use `\C` to force not doing that)
