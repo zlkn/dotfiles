@@ -5,6 +5,56 @@ MiniDeps.add({
 
 MiniDeps.now(function()
     local palette = require("palette")
+    local syntax = {
+        aqua = {
+            bracket = palette.ansi.black,
+            builtin0 = palette.ansi.magenta,
+            builtin1 = palette.brights.blue, -- C lang types
+            builtin2 = palette.ansi.black,
+            comment = palette.ansi.white,
+            conditional = palette.ansi.black,
+            const = palette.ansi.black,
+            dep = palette.ansi.black,
+            field = palette.ansi.black,
+            func = palette.brights.cyan,
+            ident = palette.ansi.black,
+            keyword = palette.brights.black,
+            number = palette.ansi.black,
+            operator = palette.ansi.black,
+            param = palette.ansi.black,
+            preproc = palette.ansi.black,
+            regex = palette.ansi.yellow,
+            statement = palette.ansi.black,
+            string = palette.brights.green,
+            tag = palette.brights.blue,
+            type = palette.ansi.black,
+            variable = palette.ansi.black,
+        },
+        default = {
+            bracket = palette.brights.black,
+            builtin0 = palette.ansi.magenta,
+            builtin1 = palette.brights.cyan,
+            builtin2 = palette.brights.magenta,
+            comment = palette.ansi.white,
+            conditional = palette.brights.red,
+            const = palette.ansi.black,
+            dep = palette.brights.cyan,
+            field = palette.brights.white,
+            func = palette.brights.magenta,
+            ident = palette.ansi.black,
+            keyword = palette.brights.blue,
+            number = palette.brights.black,
+            operator = palette.brights.black,
+            param = palette.ansi.black,
+            preproc = palette.ansi.red,
+            regex = palette.ansi.yellow,
+            statement = palette.brights.red,
+            string = palette.brights.green,
+            tag = palette.brights.blue,
+            type = palette.brights.black,
+            variable = palette.ansi.black,
+        },
+    }
 
     require("github-theme").setup({
         options = {
@@ -18,64 +68,13 @@ MiniDeps.now(function()
             },
         },
         specs = {
-            github_light_tritanopia = {
-                syntax = {
-                    bracket = palette.ansi.black,
-                    builtin0 = palette.ansi.magenta,
-                    builtin1 = palette.brights.blue, -- C lang types
-                    builtin2 = palette.ansi.black,
-                    comment = palette.ansi.white,
-                    conditional = palette.ansi.black,
-                    const = palette.ansi.black,
-                    dep = palette.ansi.black,
-                    field = palette.ansi.black,
-                    func = palette.brights.cyan,
-                    ident = palette.ansi.black,
-                    keyword = palette.brights.black,
-                    number = palette.ansi.black,
-                    operator = palette.ansi.black,
-                    param = palette.ansi.black,
-                    preproc = palette.ansi.black,
-                    regex = palette.ansi.yellow,
-                    statement = palette.ansi.black,
-                    string = palette.brights.green,
-                    tag = palette.brights.blue,
-                    type = palette.ansi.black,
-                    variable = palette.ansi.black,
-                },
-            },
             github_light = {
-                syntax = {
-                    bracket = palette.brights.black,
-                    builtin0 = palette.ansi.magenta,
-                    builtin1 = palette.brights.cyan,
-                    builtin2 = palette.brights.magenta,
-                    comment = palette.ansi.white,
-                    conditional = palette.brights.red,
-                    const = palette.ansi.black,
-                    dep = palette.brights.cyan,
-                    field = palette.brights.white,
-                    -- field = palette.brights.cyan,
-                    func = palette.brights.magenta,
-                    ident = palette.ansi.black,
-                    keyword = palette.brights.blue,
-                    number = palette.brights.black,
-                    operator = palette.brights.black,
-                    param = palette.ansi.black,
-                    preproc = palette.ansi.red,
-                    regex = palette.ansi.yellow,
-                    statement = palette.brights.red,
-                    string = palette.brights.green,
-                    tag = palette.brights.blue,
-                    type = palette.brights.black,
-                    variable = palette.ansi.black,
-                },
+                syntax = syntax.aqua,
             },
         },
     })
 
-    -- vim.cmd([[ colorscheme github_light ]])
-    vim.cmd([[ colorscheme github_light_tritanopia ]])
+    vim.cmd([[ colorscheme github_light ]])
 
     local hl = vim.api.nvim_set_hl
 
