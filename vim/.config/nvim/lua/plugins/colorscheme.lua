@@ -10,7 +10,7 @@ MiniDeps.now(function()
             bracket = palette.ansi.black,
             builtin0 = palette.ansi.magenta,
             builtin1 = palette.brights.blue, -- C lang types
-            builtin2 = palette.ansi.black,
+            builtin2 = palette.ansi.white,
             comment = palette.ansi.white,
             conditional = palette.ansi.black,
             const = palette.ansi.black,
@@ -127,6 +127,7 @@ MiniDeps.now(function()
     hl(0, "@string.escape", { fg = palette.ansi.yellow })
     hl(0, "@constructor", { fg = palette.ansi.magenta })
     hl(0, "@function.builtin", { fg = palette.ansi.magenta })
+    hl(0, "@keyword.exception", { fg = palette.brights.magenta })
 
     --  ansible_semantic_highlight
     hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
