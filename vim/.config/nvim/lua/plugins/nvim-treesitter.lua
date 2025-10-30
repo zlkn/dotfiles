@@ -15,6 +15,8 @@ MiniDeps.later(function()
     local packages = {
         "bash",
         "c",
+        "cpp",
+        "rust",
         "go",
         "gomod",
         "diff",
