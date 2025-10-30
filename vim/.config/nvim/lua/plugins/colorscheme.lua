@@ -117,9 +117,9 @@ MiniDeps.now(function()
     hl(0, "BlinkCmpMenu", { fg = none, bg = palette.extra.gray1 })
     hl(0, "BlinkCmpKindText", { fg = palette.ansi.black, bg = none })
     hl(0, "BlinkCmpLabelMatch", { fg = palette.brights.magenta, bg = none })
-    hl(0, "BlinkCmpSignatureHelp", { fg = palette.brights.magenta, bg = color })
-    hl(0, "BlinkCmpSignatureHelpBorder", { fg = palette.brights.cyan, bg = color })
-    hl(0, "BlinkCmpSignatureHelpActiveParameter", { fg = palette.ansi.red, bg = color })
+    hl(0, "BlinkCmpSignatureHelp", { fg = palette.brights.magenta, bg = palette.extra.gray1 })
+    hl(0, "BlinkCmpSignatureHelpBorder", { fg = palette.brights.cyan, bg = palette.extra.gray1 })
+    hl(0, "BlinkCmpSignatureHelpActiveParameter", { fg = palette.ansi.red, bg = palette.extra.gray1 })
 
     -- All floating window border
     hl(0, "FloatBorder", { fg = palette.extra.gray2, bg = none })
