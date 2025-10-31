@@ -10,7 +10,7 @@ MiniDeps.now(function()
             bracket = palette.ansi.black,
             builtin0 = palette.ansi.magenta,
             builtin1 = palette.brights.blue, -- C lang types
-            builtin2 = palette.ansi.white,
+            builtin2 = palette.brights.white,
             comment = palette.ansi.white,
             conditional = palette.ansi.black,
             const = palette.ansi.black,
