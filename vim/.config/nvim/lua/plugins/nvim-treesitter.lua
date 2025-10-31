@@ -11,7 +11,7 @@ MiniDeps.add({
     },
 })
 
-MiniDeps.later(function()
+MiniDeps.now(function()
     local packages = {
         "bash",
         "c",
