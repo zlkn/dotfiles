@@ -27,7 +27,7 @@ MiniDeps.now(function()
             statement = palette.ansi.black,
             string = palette.brights.green,
             tag = palette.brights.blue,
-            type = palette.ansi.black,
+            type = palette.brights.white,
             variable = palette.ansi.black,
         },
         default = {
