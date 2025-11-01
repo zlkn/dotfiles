@@ -70,7 +70,7 @@ config.window_frame = {
 --- Tabbar config
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = true
-config.show_tab_index_in_tab_bar = true
+config.show_tab_index_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 config.switch_to_last_active_tab_when_closing_tab = true
 config.show_new_tab_button_in_tab_bar = false
@@ -183,6 +183,29 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
         { Foreground = { Color = background } },
         { Text = "" },
     })
+end)
+
+-- Toggle tab indices while Leader is held
+wezterm.on("update-right-status", function(window, _)
+    local want = window:leader_is_active()
+    local overrides = window:get_config_overrides() or {}
+
+    -- turn on while leader is held
+    if want and overrides.show_tab_index_in_tab_bar ~= true then
+        window:set_config_overrides(overrides)
+    end
+
+    -- turn off when leader released (nil = revert to base config)
+    if not want and overrides.show_tab_index_in_tab_bar ~= nil then
+        window:set_config_overrides(overrides)
+    end
+
+    local hint = want and "Leader Active " or " "
+    -- Optional: a tiny visual hint in the right status when Leader is down
+    window:set_right_status(wezterm.format({
+        { Foreground = { Color = colorscheme.palette.ansi.black } },
+        { Text = hint },
+    }))
 end)
 
 -- Keybindings
