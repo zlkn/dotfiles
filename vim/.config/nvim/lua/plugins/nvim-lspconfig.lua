@@ -4,14 +4,6 @@ MiniDeps.now(function()
 
     vim.lsp.enable("helm_ls")
     vim.lsp.config("helm_ls", {})
-    -- snitched https://github.com/mfussenegger/nvim-ansible/blob/main/ftdetect/ansible.lua
-    if vim.filetype then
-        vim.filetype.add({
-            pattern = {
-                [".*/templates/.*%.ya?ml"] = "helm",
-            },
-        })
-    end
 
     vim.lsp.enable("yamlls")
     vim.lsp.config("yamlls", {
@@ -146,24 +138,6 @@ MiniDeps.now(function()
         root_markers = { "ansible.cfg", ".ansible-lint" },
         single_file_support = false,
     })
-
-    -- snitched https://github.com/mfussenegger/nvim-ansible/blob/main/ftdetect/ansible.lua
-    if vim.filetype then
-        vim.filetype.add({
-            pattern = {
-                [".*/defaults/.*%.ya?ml"] = "yaml.ansible",
-                [".*/host_vars/.*%.ya?ml"] = "yaml.ansible",
-                [".*/group_vars/.*%.ya?ml"] = "yaml.ansible",
-                [".*/group_vars/.*/.*%.ya?ml"] = "yaml.ansible",
-                [".*/playbook.*%.ya?ml"] = "yaml.ansible",
-                [".*/playbooks/.*%.ya?ml"] = "yaml.ansible",
-                [".*/roles/.*/tasks/.*%.ya?ml"] = "yaml.ansible",
-                [".*/roles/.*/handlers/.*%.ya?ml"] = "yaml.ansible",
-                [".*/tasks/.*%.ya?ml"] = "yaml.ansible",
-                [".*/molecule/.*%.ya?ml"] = "yaml.ansible",
-            },
-        })
-    end
 
     vim.lsp.enable("dockerls")
     vim.lsp.config("dockerls", {})
