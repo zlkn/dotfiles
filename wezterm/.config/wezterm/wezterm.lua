@@ -12,12 +12,15 @@ config.inactive_pane_hsb = {
     brightness = 1.0,
 }
 
+-- config.front_end = "WebGpu"
+
 -- Fontconfig
 local font_size = 12
+local font = { family = "JetBrains Mono", weight = "Regular" }
+config.font = wezterm.font(font)
 config.warn_about_missing_glyphs = false
 config.freetype_load_target = "Light"
 config.font_size = font_size
-config.font = wezterm.font({ family = "JetBrains Mono", weight = "Regular" })
 
 -- Command Palette
 config.command_palette_font_size = font_size
@@ -43,7 +46,7 @@ config.window_padding = { left = 10, right = 10, top = 2, bottom = 2 }
 config.window_frame = {
     font_size = font_size,
     -- font = wezterm.font("JetBrains Mono"),
-    font = wezterm.font({ family = "JetBrains Mono", weight = "Regular" }),
+    font = wezterm.font(font),
 
     -- Add split line on stacked wezterm
     border_left_width = "0.12cell",
