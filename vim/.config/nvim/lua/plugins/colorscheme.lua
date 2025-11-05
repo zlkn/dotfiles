@@ -65,6 +65,7 @@ MiniDeps.now(function()
                 comments = "italic",
                 types = "italic",
                 constants = "bold",
+                -- keywords = "bold",
             },
         },
         specs = {
@@ -142,16 +143,10 @@ MiniDeps.now(function()
     hl(0, "@boolean.terraform", { bold = true })
     hl(0, "@lsp.type.type.terraform", { fg = palette.brights.white })
 
-    -- golang semantic highlight
-    hl(0, "@keyword.function", { fg = palette.brights.blue, bold = true })
-
     -- lua semantic highlight
     hl(0, "@lsp.mod.global.lua", { bold = true })
     hl(0, "@boolean.lua", { bold = true })
     hl(0, "@lsp.typemod.function.defaultLibrary.lua", { fg = palette.ansi.magenta })
-
-    -- golang semantic highlight
-    hl(0, "@constant.builtin.go", { fg = palette.brights.yellow })
 
     -- jinja semantic highlight
     -- hl(0, "@keyword.directive.jinja", { fg = palette.ansi.magenta })
