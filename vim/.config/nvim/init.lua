@@ -44,7 +44,7 @@ require("plugins.lualine")
 require("plugins.flash")
 
 -- git ingegration
-require("plugins.git.gitsigns")
+require("plugins.gitsigns")
 
 -- Syntax highlight
 require("plugins.nvim-treesitter")
