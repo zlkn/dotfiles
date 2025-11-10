@@ -7,10 +7,6 @@ map("n", "<C-Enter>", "<C-u>", { noremap = true, silent = true })
 map({ "n", "v" }, "x", '"_x')
 map({ "n", "v" }, "X", '"_X')
 
---
-map("n", "O", "O<Esc>", { desc = "Append empty line" })
-map("n", "o", "o<Esc>", { desc = "Prepend empty line" })
-
 -- Keymaps for run lua code in selection
 map("n", "<leader>rx", "<cmd>source %<CR>", { desc = "Execute lua code" })
 map("v", "<leader>rx", ":.lua<CR>", { desc = "Execute lua code" })
