@@ -11,7 +11,7 @@ local palette = {
         white = "#778491",
     },
     brights = {
-        black = "#1f1f1f",
+        black = "#040404",
         green = "#218242",
         red = "#980054",
         blue = "#015493",
