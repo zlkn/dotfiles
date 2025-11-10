@@ -146,7 +146,7 @@ MiniDeps.now(function()
                 comments = "italic",
                 types = "italic",
                 constants = "bold",
-                -- keywords = "bold",
+                keywords = "bold",
             },
         },
         specs = {
