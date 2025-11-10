@@ -147,4 +147,6 @@ MiniDeps.now(function()
 
     vim.lsp.enable("basedpyright")
     vim.lsp.config("basedpyright", {})
+    vim.lsp.enable("gopls")
+    vim.lsp.config("gopls", {})
 end)
