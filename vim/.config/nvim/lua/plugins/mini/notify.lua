@@ -1,4 +1,3 @@
-MiniDeps.add("nvim-mini/mini.notify")
 MiniDeps.now(function()
     local win_config = function()
         local has_statusline = vim.o.laststatus > 0

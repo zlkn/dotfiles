@@ -1,4 +1,3 @@
-MiniDeps.add({ source = "nvim-mini/mini.icons" })
 MiniDeps.now(function()
     local icons = require("mini.icons")
     icons.setup({})

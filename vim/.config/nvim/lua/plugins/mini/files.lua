@@ -1,4 +1,3 @@
-MiniDeps.add("nvim-mini/mini.files")
 MiniDeps.later(function()
     local files = require("mini.files")
     files.setup({

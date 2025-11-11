@@ -1,4 +1,3 @@
-MiniDeps.add("nvim-mini/mini.clue")
 MiniDeps.later(function()
     local miniclue = require("mini.clue")
     miniclue.setup({

@@ -1,4 +1,3 @@
-MiniDeps.add("nvim-mini/mini.pick")
 MiniDeps.later(function()
     require("mini.pick").setup({
         window = {

@@ -1,4 +1,3 @@
-MiniDeps.add("nvim-mini/mini.cursorword")
 MiniDeps.later(function()
     local cursorword = require("mini.cursorword")
     cursorword.setup({})

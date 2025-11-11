@@ -23,7 +23,6 @@ require("autocmds")
 require("keymaps")
 
 require("plugins.mini.clue")
-
 require("plugins.mini.files")
 require("plugins.mini.pairs")
 require("plugins.mini.pick")

@@ -1,4 +1,3 @@
-MiniDeps.add({ source = "nvim-mini/mini.surround", checkout = "stable" })
 MiniDeps.later(function()
     local surround = require("mini.surround")
     surround.setup({
