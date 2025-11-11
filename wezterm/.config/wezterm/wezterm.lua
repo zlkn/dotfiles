@@ -12,8 +12,6 @@ config.inactive_pane_hsb = {
     brightness = 1.0,
 }
 
--- config.front_end = "WebGpu"
-
 -- Fontconfig
 local font_size = 12
 local font = { family = "JetBrains Mono", weight = "Regular" }
