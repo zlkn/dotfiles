@@ -18,32 +18,26 @@ MiniDeps.later(function()
     })
     MiniPick.registry.yaml_keytrail = M.yaml_keytrail
 
-    vim.keymap.set("n", "<leader><leader>", function()
-        MiniPick.builtin.files()
-    end, { desc = "Files in rootdir" })
+    local map = vim.keymap.set
+    local registry = MiniPick.registry
 
-    vim.keymap.set("n", "<leader>/", function()
-        MiniPick.builtin.grep_live()
-    end, { desc = "Live grep" })
-    vim.keymap.set("n", "<leader>,", function()
-        MiniPick.builtin.buffers()
-    end, { desc = "Open buffers" })
-    vim.keymap.set("n", "<leader>g/", function()
-        MiniPick.builtin.files({ items = { "foo", "bar" } })
-    end, { desc = "Changed files " })
+    map("n", "<leader><leader>", registry.files, { desc = "Files in rootdir" })
+    map("n", "<leader>/", registry.grep_live, { desc = "Live grep" })
+    map("n", "<leader>,", registry.buffers, { desc = "Open buffers" })
+    map("n", "<leader>pg", registry.files, { desc = "Changed files " })
 
-    vim.keymap.set("n", "<leader>pgm", ":Pick git_files scope='modified'<CR>", { desc = "Git modified files" })
-    vim.keymap.set("n", "<leader>pgh", ":Pick git_hunks", { desc = "Git hunks" })
-    vim.keymap.set("n", "<leader>pr", ":Pick resume<CR>", { desc = "Resume last search" })
-    vim.keymap.set("n", "<leader>pd", ":Pick diagnostic<CR>", { desc = "Diagnostics" })
+    -- vim.keymap.set("n", "<leader>pgh", ":Pick git_hunks", { desc = "Git hunks" })
+    map("n", "<leader>pgh", registry.git_hunks, { desc = "Git hunks" })
+    map("n", "<leader>pr", registry.resume, { desc = "Resume last search" })
+    map("n", "<leader>pd", ":Pick diagnostic<CR>", { desc = "Diagnostics" })
 
-    vim.keymap.set("n", "gD", ":Pick lsp scope='declaration'<CR>", { desc = "Goto declaration" })
-    vim.keymap.set("n", "gd", ":Pick lsp scope='definition'<CR>", { desc = "Goto definition" })
-    vim.keymap.set("n", "gi", ":Pick lsp scope='implementation'<CR>", { desc = "Goto implementation" })
-    vim.keymap.set("n", "gR", ":Pick lsp scope='references'<CR>", { desc = "Goto references" })
-    vim.keymap.set("n", "gy", ":Pick lsp scope='type_definition'<CR>", { desc = "Goto t[y]pe definition" })
+    map("n", "gD", ":Pick lsp scope='declaration'<CR>", { desc = "Goto declaration" })
+    map("n", "gd", ":Pick lsp scope='definition'<CR>", { desc = "Goto definition" })
+    map("n", "gi", ":Pick lsp scope='implementation'<CR>", { desc = "Goto implementation" })
+    map("n", "gR", ":Pick lsp scope='references'<CR>", { desc = "Goto references" })
+    map("n", "gy", ":Pick lsp scope='type_definition'<CR>", { desc = "Goto t[y]pe definition" })
 
-    vim.keymap.set("n", "<leader>py", ":Pick yaml_keytrail<CR>", { desc = "Fzf over yaml file" })
+    map("n", "<leader>py", ":Pick yaml_keytrail<CR>", { desc = "Fzf over yaml file" })
 end)
 
 M = {}
