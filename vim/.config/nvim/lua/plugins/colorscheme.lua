@@ -83,7 +83,7 @@ MiniDeps.now(function()
         -- c semantic highlight
         hl(0, "@keyword.conditional.ternary.c", { fg = palette.ansi.yellow, bold = true })
         hl(0, "@constant.builtin.c", { fg = palette.brights.white, bold = true })
-        hl(0, "@type.c", { fg = palette.brights.white, bold = true })
+        hl(0, "@type.c", { fg = palette.brights.white, italic = true })
     end
     local syntax = {
         aqua = {
