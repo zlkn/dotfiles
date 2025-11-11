@@ -98,7 +98,7 @@ MiniDeps.now(function()
             Lua = {
                 hint = { enable = true },
                 diagnostics = {
-                    globals = { "vim", "MiniDeps", "MiniPick", "MiniFiles", "none" },
+                    globals = { "vim", "MiniDeps", "MiniPick", "MiniFiles", "none", "MiniExtra" },
                 },
             },
         },
