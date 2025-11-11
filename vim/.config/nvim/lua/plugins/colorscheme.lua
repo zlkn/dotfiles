@@ -73,18 +73,17 @@ MiniDeps.now(function()
         hl(0, "@lsp.type.type.terraform", { fg = palette.brights.white })
 
         -- lua semantic highlight
-        hl(0, "@lsp.mod.global.lua", { bold = true })
+        hl(0, "@lsp.mod.global.lua", { fg = palette.brights.white, bold = true })
         hl(0, "@boolean.lua", { bold = true })
         hl(0, "@lsp.typemod.function.defaultLibrary.lua", { fg = palette.ansi.magenta })
 
         -- jinja semantic highlight
-        -- hl(0, "@keyword.directive.jinja", { fg = palette.ansi.magenta })
-        -- hl(0, "@keyword.directive.jinja", { fg = palette.brights.green, bold = true })
         hl(0, "@keyword.directive.jinja", { fg = palette.ansi.blue })
 
         -- c semantic highlight
         hl(0, "@keyword.conditional.ternary.c", { fg = palette.ansi.yellow, bold = true })
         hl(0, "@constant.builtin.c", { fg = palette.brights.white, bold = true })
+        hl(0, "@type.c", { fg = palette.brights.white, bold = true })
     end
     local syntax = {
         aqua = {
@@ -99,7 +98,7 @@ MiniDeps.now(function()
             field = palette.ansi.black,
             func = palette.brights.cyan,
             ident = palette.ansi.black,
-            keyword = palette.brights.black,
+            keyword = palette.ansi.black,
             number = palette.ansi.black,
             operator = palette.ansi.black,
             param = palette.ansi.black,
@@ -146,7 +145,7 @@ MiniDeps.now(function()
                 comments = "italic",
                 types = "italic",
                 constants = "bold",
-                -- keywords = "bold",
+                keywords = "bold",
             },
         },
         specs = {
