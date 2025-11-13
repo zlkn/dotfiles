@@ -2,10 +2,10 @@ local function augroup(name)
     return vim.api.nvim_create_augroup("ag_" .. name, { clear = true })
 end
 
-local aucmd = vim.api.nvim_create_autocmd
+local autocmd = vim.api.nvim_create_autocmd
 
 -- Reread file on external changes
-aucmd({ "FocusGained", "TermClose", "TermLeave" }, {
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     group = augroup("checktime"),
     callback = function()
         if vim.o.buftype ~= "nofile" then
@@ -15,7 +15,7 @@ aucmd({ "FocusGained", "TermClose", "TermLeave" }, {
 })
 
 -- Highlight on yank
-aucmd("TextYankPost", {
+autocmd("TextYankPost", {
     group = augroup("highlight_yank"),
     callback = function()
         vim.highlight.on_yank({ higroup = "IncSearch", priority = 1000 })
@@ -23,7 +23,7 @@ aucmd("TextYankPost", {
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-aucmd({ "BufWritePre" }, {
+autocmd({ "BufWritePre" }, {
     group = augroup("create_dir"),
     callback = function(event)
         if event.match:match("^%w%w+:[\\/][\\/]") then
@@ -35,7 +35,7 @@ aucmd({ "BufWritePre" }, {
 })
 
 -- Remember last cursor place
-aucmd("BufReadPost", {
+autocmd("BufReadPost", {
     group = augroup("global"),
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
@@ -47,7 +47,7 @@ aucmd("BufReadPost", {
 })
 
 -- Show cursorline in current window in normal mode
-aucmd({ "InsertLeave", "WinEnter" }, {
+autocmd({ "InsertLeave", "WinEnter" }, {
     group = augroup("ui"),
     callback = function()
         vim.o.cursorline = false
@@ -55,7 +55,7 @@ aucmd({ "InsertLeave", "WinEnter" }, {
 })
 
 -- Hide cursorline in insert mode and on windows leave
-aucmd({ "InsertEnter", "WinLeave" }, {
+autocmd({ "InsertEnter", "WinLeave" }, {
     group = augroup("ui"),
     callback = function()
         vim.o.cursorline = true
