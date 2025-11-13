@@ -2,8 +2,10 @@ local function augroup(name)
     return vim.api.nvim_create_augroup("ag_" .. name, { clear = true })
 end
 
--- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+local aucmd = vim.api.nvim_create_autocmd
+
+-- Reread file on external changes
+aucmd({ "FocusGained", "TermClose", "TermLeave" }, {
     group = augroup("checktime"),
     callback = function()
         if vim.o.buftype ~= "nofile" then
@@ -13,19 +15,15 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 })
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
+aucmd("TextYankPost", {
     group = augroup("highlight_yank"),
     callback = function()
-        (vim.hl or vim.highlight).on_yank({
-            higroup = "IncSearch", -- or your custom highlight group
-            timeout = 200,
-            priority = 1000,
-        })
+        vim.highlight.on_yank({ higroup = "IncSearch", priority = 1000 })
     end,
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+aucmd({ "BufWritePre" }, {
     group = augroup("create_dir"),
     callback = function(event)
         if event.match:match("^%w%w+:[\\/][\\/]") then
@@ -36,21 +34,9 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     end,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = augroup("enance_ui"),
-    callback = function()
-        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "Cursor", {
-            fg = "none",
-            bg = "none",
-            reverse = true,
-        })
-    end,
-})
-
-vim.api.nvim_create_autocmd("BufReadPost", {
+-- Remember last cursor place
+aucmd("BufReadPost", {
     group = augroup("global"),
-    desc = "remember last cursor place",
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
         local lcount = vim.api.nvim_buf_line_count(0)
@@ -60,18 +46,18 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
 })
 
-vim.api.nvim_create_autocmd({
-    "InsertLeave",
-    "WinEnter",
-}, {
-    pattern = "*",
-    command = "set cursorline",
+-- Show cursorline in current window in normal mode
+aucmd({ "InsertLeave", "WinEnter" }, {
+    group = augroup("ui"),
+    callback = function()
+        vim.o.cursorline = false
+    end,
 })
 
-vim.api.nvim_create_autocmd({
-    "InsertEnter",
-    "WinLeave",
-}, {
-    pattern = "*",
-    command = "set nocursorline",
+-- Hide cursorline in insert mode and on windows leave
+aucmd({ "InsertEnter", "WinLeave" }, {
+    group = augroup("ui"),
+    callback = function()
+        vim.o.cursorline = true
+    end,
 })
