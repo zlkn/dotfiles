@@ -12,12 +12,12 @@ MiniDeps.now(function()
         hl(0, "CursorLineNr", { bg = palette.extra.gray0 })
         hl(0, "CursorLineSign", { bg = palette.extra.gray0 })
 
-        hl(0, "NormalFloat", { bg = "#ececec" })
-        hl(0, "FloatTitle", { bg = "#ececec" })
+        hl(0, "NormalFloat", { bg = none })
+        hl(0, "FloatTitle", { bg = none })
 
-        hl(0, "MiniNotifyNormal", { bg = "#ececec" })
-        hl(0, "MiniNotifyBorder", { fg = "#ececec", bg = "#ececec" })
-        hl(0, "MiniNotifyTitle", { fg = "#ececec", bg = "#ececec" })
+        -- hl(0, "MiniNotifyNormal", { fg = palette.ansi.black, bg = none })
+        hl(0, "MiniNotifyBorder", { fg = palette.extra.background, bg = none })
+        hl(0, "MiniNotifyTitle", { fg = palette.extra.background, bg = none })
 
         -- Diagnostic virual text
         hl(0, "DiagnosticHint", { fg = palette.ansi.cyan })

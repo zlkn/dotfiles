@@ -47,6 +47,7 @@ local palette = {
         -- backgroundGray = "#ececec",
         -- backgroundGray = "#ebebed", <-
         backgroundGray = "#f2f2f2",
+        background = "#f2f2f2",
         darkGray = "#424242",
         mediumGray = "#808080",
         pencilGray = "#9d9d9d",
