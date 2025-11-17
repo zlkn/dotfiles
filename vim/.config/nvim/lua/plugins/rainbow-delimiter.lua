@@ -1,5 +1,5 @@
 MiniDeps.add("HiPhish/rainbow-delimiters.nvim")
-MiniDeps.later(function()
+MiniDeps.now(function()
     local suite_rainbow = {
         "RainbowDelimiterBlack",
         "RainbowDelimiterRed",
