@@ -56,7 +56,7 @@ require("plugins.completion")
 
 require("plugins.conform")
 require("plugins.hover")
--- require("plugins.lazydev")
+require("plugins.lazydev")
 
 -- TEST
 -- require("plugins.codecompanion")
