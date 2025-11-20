@@ -32,6 +32,13 @@ config.char_select_fg_color = colorscheme.colors.foreground
 -- Gnome integration
 local wayland_gnome = require("wayland_gnome")
 wayland_gnome.apply_to_config(config)
+config.window_background_gradient = {
+    orientation = "Vertical",
+    colors = {
+        colorscheme.palette.extra.bg1,
+        colorscheme.palette.extra.bg2,
+    },
+}
 
 -- Window config
 config.initial_cols = 160
@@ -167,7 +174,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
     -- print("title: " .. title)
 
     return wezterm.format({
-        { Background = { Color = colorscheme.palette.extra.backgroundGray } },
+        { Background = { Color = colorscheme.colors.background } },
         { Foreground = { Color = background } },
         { Text = "" },
 
@@ -179,7 +186,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
         { Foreground = { Color = foreground } },
         { Text = title },
 
-        { Background = { Color = colorscheme.palette.extra.backgroundGray } },
+        { Background = { Color = colorscheme.colors.backgrounbackgroundGrayd } },
         { Foreground = { Color = background } },
         { Text = "" },
     })
