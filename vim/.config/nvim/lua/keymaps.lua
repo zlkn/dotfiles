@@ -96,3 +96,72 @@ map("n", "<leader>ti", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
     print((vim.lsp.inlay_hint.is_enabled and "Enable" or "Disable") .. " inlay hints")
 end, { desc = "tootle inlay hint" })
+
+local M = {}
+
+M.monochrome = false
+
+-- Save original semanticTokens handler (for older Neovim)
+local original_semantic_handler = vim.lsp.handlers["textDocument/semanticTokens/full"]
+
+local function set_semantic_tokens_enabled(enabled)
+    -- Neovim 0.10+ has vim.lsp.semantic_tokens.start/stop
+    if vim.lsp.semantic_tokens and (vim.lsp.semantic_tokens.start or vim.lsp.semantic_tokens.stop) then
+        local st = vim.lsp.semantic_tokens
+        local bufnr = 0
+
+        for _, client in pairs(vim.lsp.get_active_clients({ bufnr = bufnr })) do
+            if enabled then
+                if st.start then
+                    pcall(st.start, bufnr, client.id)
+                end
+            else
+                if st.stop then
+                    pcall(st.stop, bufnr, client.id)
+                end
+            end
+        end
+    else
+        -- Fallback: toggle handler to noop / restore
+        if enabled then
+            vim.lsp.handlers["textDocument/semanticTokens/full"] = original_semantic_handler
+        else
+            vim.lsp.handlers["textDocument/semanticTokens/full"] = function() end
+        end
+    end
+end
+
+function ToggleMonochrome()
+    M.monochrome = not M.monochrome
+
+    if M.monochrome then
+        -- Turn OFF classic syntax
+        vim.cmd("syntax off")
+
+        -- Turn OFF Treesitter highlight for current buffer (if plugin exists)
+        vim.treesitter.stop(0)
+
+        -- Turn OFF LSP semantic tokens
+        set_semantic_tokens_enabled(false)
+
+        -- OPTIONAL: force everything gray
+        vim.api.nvim_set_hl(0, "Normal", { fg = "#808080" })
+        vim.api.nvim_set_hl(0, "NormalNC", { fg = "#808080" })
+    else
+        -- Turn ON classic syntax
+        vim.cmd("syntax on")
+
+        -- Turn ON Treesitter highlight for current buffer
+        pcall(vim.cmd, "TSEnable highlight")
+
+        -- Turn ON LSP semantic tokens
+        set_semantic_tokens_enabled(true)
+
+        -- OPTIONAL: reload your colorscheme so colors come back
+        vim.cmd("colorscheme github_light")
+    end
+
+    print("Monochrome mode: " .. (M.monochrome and "ON" or "OFF"))
+end
+
+map("n", "<leader>ts", ToggleMonochrome, { desc = "Toogle monochrome mode" })
