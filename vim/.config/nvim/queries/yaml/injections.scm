@@ -1,4 +1,4 @@
-; extend
+; extends
 
 ; Support Idea-style injection: # language=yaml
 ; Injaction for block_scalar queries
