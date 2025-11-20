@@ -186,7 +186,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
         { Foreground = { Color = foreground } },
         { Text = title },
 
-        { Background = { Color = colorscheme.colors.backgrounbackgroundGrayd } },
+        { Background = { Color = colorscheme.colors.background } },
         { Foreground = { Color = background } },
         { Text = "" },
     })
