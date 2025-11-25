@@ -23,3 +23,6 @@ function fish_user_key_bindings
     bind \cl __fish_clear_buffer
     bind \cq __fish_clear_buffer
 end
+
+__auto_source_venv
+
