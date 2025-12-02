@@ -1,4 +1,4 @@
-; extend
+; extends
 
 ((comment) @injection.language
   (#gsub! @injection.language "#%s*language=%s*([%w%p]+)%s*" "%1")

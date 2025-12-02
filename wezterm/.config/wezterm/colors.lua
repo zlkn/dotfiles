@@ -4,13 +4,12 @@ local colors = {
     indexed = {},
 
     foreground = palette.ansi.black,
-    background = palette.extra.backgroundGray,
+    background = palette.extra.bg1,
 
-    cursor_bg = "#20bbfc", -- palette.brights.blue,
-    -- cursor_fg = palette .. black, -- palette.extra.darkGray,
-    cursor_border = palette.brights.white, -- palette.brights.blue,
+    -- cursor_bg = "#20bbfc",
+    cursor_bg = palette.ansi.black,
+    cursor_border = palette.brights.white,
 
-    -- selection_bg = palette.extra.cornflowerBlue,
     selection_bg = palette.extra.gray1,
     selection_fg = palette.ansi.black,
 
@@ -53,15 +52,15 @@ local colors = {
     quick_select_match_fg = { Color = palette.ansi.black },
 
     tab_bar = {
-        background = palette.extra.backgroundGray,
-        inactive_tab_edge = palette.extra.backgroundGray,
+        background = palette.extra.bg1,
+        inactive_tab_edge = palette.extra.bg1,
         active_tab = {
-            bg_color = palette.extra.backgroundGray,
+            bg_color = palette.extra.bg1,
             fg_color = palette.ansi.black,
         },
 
         inactive_tab = {
-            bg_color = palette.extra.backgroundGray,
+            bg_color = palette.extra.bg1,
             fg_color = palette.ansi.black,
         },
     },

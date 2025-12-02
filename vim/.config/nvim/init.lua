@@ -31,7 +31,6 @@ require("plugins.mini.surround")
 require("plugins.mini.cursorword")
 require("plugins.mini.hipatterns")
 require("plugins.mini.icons")
-require("plugins.mini.animate")
 require("plugins.mini.notify")
 
 -- Enhance ui
@@ -56,7 +55,7 @@ require("plugins.completion")
 
 require("plugins.conform")
 require("plugins.hover")
--- require("plugins.lazydev")
+require("plugins.lazydev")
 
 -- TEST
 -- require("plugins.codecompanion")

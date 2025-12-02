@@ -13,7 +13,7 @@ vim.o.cmdheight = 0
 vim.o.scrolloff = 5
 vim.o.breakindent = true -- Indent wrapped lines to match line start
 vim.o.wrap = false -- Display long lines as just one line
-
+vim.o.cursorline = true -- Highlight the current line
 vim.o.statuscolumn = "%l%s" -- Sign columng after numbers
 vim.o.signcolumn = "yes" -- Always show sign column (otherwise it will shift text)
 vim.o.fillchars = "eob: " -- Don't show `~` outside of buffer
@@ -44,9 +44,7 @@ vim.opt.guicursor = {
 }
 
 vim.diagnostic.config({
-    virtual_lines = {
-        current_line = true,
-    },
+    virtual_lines = false,
     underline = true,
     float = {
         -- UI.

@@ -48,16 +48,16 @@ autocmd("BufReadPost", {
 
 -- Show cursorline in current window in normal mode
 autocmd({ "InsertLeave", "WinEnter" }, {
-    group = augroup("ui"),
+    group = augroup("cursorline"),
     callback = function()
-        vim.o.cursorline = false
+        vim.o.cursorline = true
     end,
 })
 
 -- Hide cursorline in insert mode and on windows leave
 autocmd({ "InsertEnter", "WinLeave" }, {
-    group = augroup("ui"),
+    group = augroup("cursorline"),
     callback = function()
-        vim.o.cursorline = true
+        vim.o.cursorline = false
     end,
 })

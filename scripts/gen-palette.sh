@@ -5,7 +5,6 @@ declare -a DESTS=(
   "../wezterm/.config/wezterm/palette.lua"
 )
 
-# language=lua
 for dst in ${DESTS[@]};
 do
   echo "Populate palette ${dst}"
@@ -46,8 +45,11 @@ local palette = {
         cornflowerBlue = "#b6d6fd",
         -- backgroundGray = "#ececec",
         -- backgroundGray = "#ebebed", <-
-        backgroundGray = "#f2f2f2",
-        background = "#f2f2f2",
+        -- backgroundGray = "#f2f2f2",
+        bg1 = "#f2f2f2",
+        bg2 = "#e7e7e7",
+        backgroundGray = "#e7e7e7",
+        background = "#e7e7e7",
         darkGray = "#424242",
         mediumGray = "#808080",
         pencilGray = "#9d9d9d",

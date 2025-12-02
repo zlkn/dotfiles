@@ -9,7 +9,16 @@ local auto_theme_custom = require("lualine.themes.auto")
 local palette = require("palette")
 for mode, _ in pairs(auto_theme_custom) do
     for _, part in ipairs({ "a", "b", "c" }) do
-        auto_theme_custom[mode][part].bg = none
+        local mode_color = none
+        if mode == "insert" then
+            mode_color = "#d7e6dd"
+        elseif mode == "visual" then
+            mode_color = "#d3e4f1"
+        elseif mode == "replace" then
+            mode_color = "#f4d8e4"
+        end
+
+        auto_theme_custom[mode][part].bg = mode_color
         auto_theme_custom[mode][part].fg = palette.brights.black
     end
 end

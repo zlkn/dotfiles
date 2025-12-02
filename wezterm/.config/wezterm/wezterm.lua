@@ -13,7 +13,7 @@ config.inactive_pane_hsb = {
 }
 
 -- Fontconfig
-local font_size = 12
+local font_size = 11
 local font = { family = "JetBrains Mono", weight = "Regular" }
 config.font = wezterm.font(font)
 config.warn_about_missing_glyphs = false
@@ -32,13 +32,20 @@ config.char_select_fg_color = colorscheme.colors.foreground
 -- Gnome integration
 local wayland_gnome = require("wayland_gnome")
 wayland_gnome.apply_to_config(config)
+config.window_background_gradient = {
+    orientation = "Vertical",
+    colors = {
+        colorscheme.palette.extra.bg1,
+        colorscheme.palette.extra.bg2,
+    },
+}
 
 -- Window config
 config.initial_cols = 160
 config.initial_rows = 42
 config.scrollback_lines = 100000
 config.window_close_confirmation = "NeverPrompt"
-config.window_decorations = "NONE"
+config.window_decorations = "TITLE|RESIZE"
 config.window_padding = { left = 10, right = 10, top = 2, bottom = 2 }
 config.window_frame = {
     font_size = font_size,
@@ -167,7 +174,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
     -- print("title: " .. title)
 
     return wezterm.format({
-        { Background = { Color = colorscheme.palette.extra.backgroundGray } },
+        { Background = { Color = colorscheme.colors.background } },
         { Foreground = { Color = background } },
         { Text = "" },
 
@@ -179,7 +186,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
         { Foreground = { Color = foreground } },
         { Text = title },
 
-        { Background = { Color = colorscheme.palette.extra.backgroundGray } },
+        { Background = { Color = colorscheme.colors.background } },
         { Foreground = { Color = background } },
         { Text = "" },
     })
