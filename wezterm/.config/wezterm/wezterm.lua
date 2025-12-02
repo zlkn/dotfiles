@@ -13,8 +13,8 @@ config.inactive_pane_hsb = {
 }
 
 -- Fontconfig
-local font_size = 11
-local font = { family = "JetBrains Mono", weight = "Regular" }
+local font_size = 11.6
+local font = { family = "JetBrains Mono", weight = "Light" }
 config.font = wezterm.font(font)
 config.warn_about_missing_glyphs = false
 config.font_size = font_size
@@ -46,7 +46,6 @@ config.initial_rows = 42
 config.scrollback_lines = 100000
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "TITLE|RESIZE"
-config.window_padding = { left = 10, right = 10, top = 2, bottom = 2 }
 config.window_frame = {
     font_size = font_size,
     -- font = wezterm.font("JetBrains Mono"),
