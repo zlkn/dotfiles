@@ -13,11 +13,12 @@ config.inactive_pane_hsb = {
 }
 
 -- Fontconfig
-local font_size = 11.6
+local font_size = 11
 local font = { family = "JetBrains Mono", weight = "Light" }
 config.font = wezterm.font(font)
 config.warn_about_missing_glyphs = false
 config.font_size = font_size
+config.bold_brightens_ansi_colors = false
 
 -- Command Palette
 config.command_palette_font_size = font_size
