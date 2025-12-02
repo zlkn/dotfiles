@@ -61,8 +61,8 @@ MiniDeps.now(function()
         hl(0, "@keyword.function", { bold = true })
 
         --  ansible_semantic_highlight
-        -- hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
-        hl(0, "@lsp.type.class", { fg = palette.brights.white, italic = true })
+        hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
+        -- hl(0, "@lsp.type.class", { fg = palette.brights.blue })
         hl(0, "@lsp.type.method.yaml.ansible", { fg = palette.brights.cyan })
         hl(0, "@lsp.type.keyword.yaml.ansible", { fg = palette.brights.blue })
 
@@ -89,6 +89,8 @@ MiniDeps.now(function()
 
         -- python semantic highlight
         hl(0, "@boolean.python", { fg = palette.brights.black, bold = true })
+        hl(0, "@lsp.typemod.class.builtin.python", { fg = palette.brights.blue, italic = true })
+        hl(0, "@lsp.type.class.python", { fg = palette.brights.blue })
     end
     local syntax = {
         aqua = {
