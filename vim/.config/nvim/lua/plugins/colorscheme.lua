@@ -58,7 +58,7 @@ MiniDeps.now(function()
         hl(0, "@constructor", { fg = palette.ansi.magenta })
         hl(0, "@function.builtin", { fg = palette.ansi.magenta })
         hl(0, "@keyword.exception", { fg = palette.brights.magenta })
-        hl(0, "@keyword.function", { bold = true })
+        hl(0, "@keyword.function", { fg = palette.ansi.black, bold = true })
 
         --  ansible_semantic_highlight
         hl(0, "@lsp.type.class", { fg = palette.brights.magenta })
