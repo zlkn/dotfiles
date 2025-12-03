@@ -34,6 +34,7 @@ require("plugins.mini.icons")
 require("plugins.mini.notify")
 
 -- Enhance ui
+-- require("colors")
 require("plugins.colorscheme")
 require("plugins.indent-blankline")
 require("plugins.rainbow-delimiter")
