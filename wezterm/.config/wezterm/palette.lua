@@ -1,24 +1,23 @@
   -- !!! Generated do not edit manually !!!
 local palette = {
     ansi = {
-        black = "#424242",
-        green = "#009965",
+        black = "#f1f1f1",
         red = "#c30771",
+        green = "#218242",
         yellow = "#b57414",
-        blue = "#138cbf",
-        cyan = "#009999",
+        blue = "#015493",
         magenta = "#5e2d88",
-        white = "#778491",
+        cyan = "#007474",
+        white = "#424242",
     },
     brights = {
-        black = "#040404",
+        black = "#57606a",
+        red = "#c30771",
         green = "#218242",
-        red = "#980054",
+        yellow = "#b57414",
         blue = "#015493",
-        yellow = "#e57400",
+        magenta = "#5e2d88",
         cyan = "#007474",
-        magenta = "#871094",
-        -- white = "#57606a",
         white = "#004c63",
     },
     extra = {
