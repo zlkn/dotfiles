@@ -98,7 +98,7 @@ MiniDeps.now(function()
             builtin0 = palette.ansi.magenta,
             builtin1 = palette.brights.blue, -- C lang types
             builtin2 = palette.brights.white,
-            comment = palette.ansi.white,
+            comment = palette.brights.black,
             conditional = palette.ansi.white,
             const = palette.ansi.white,
             dep = palette.ansi.white,
