@@ -32,7 +32,7 @@ MiniDeps.now(function()
         hl(0, "MiniCursorword", { bg = palette.extra.gray4 })
 
         -- Minipick
-        hl(0, "MiniPickMatchRanges", { fg = palette.brights.magenta })
+        hl(0, "MiniPickMatchRanges", { fg = palette.ansi.white, bg = "#e1d1b3" })
         hl(0, "MiniPickPromptCaret", { fg = palette.extra.gray2 })
         hl(0, "MiniPickPromptPrefix", { fg = palette.extra.gray2 })
         hl(0, "MiniPickPrompt", { fg = palette.ansi.white })
@@ -45,7 +45,7 @@ MiniDeps.now(function()
 
         hl(0, "BlinkCmpMenu", { fg = none, bg = palette.extra.gray1 })
         hl(0, "BlinkCmpKindText", { fg = palette.ansi.white, bg = none })
-        hl(0, "BlinkCmpLabelMatch", { fg = palette.brights.magenta, bg = none })
+        hl(0, "BlinkCmpLabelMatch", { fg = palette.ansi.white, bg = "#e1d1b3" })
         hl(0, "BlinkCmpSignatureHelp", { fg = palette.brights.magenta, bg = palette.extra.gray1 })
         hl(0, "BlinkCmpSignatureHelpBorder", { fg = palette.brights.cyan, bg = palette.extra.gray1 })
         hl(0, "BlinkCmpSignatureHelpActiveParameter", { fg = palette.ansi.red, bg = palette.extra.gray1 })
