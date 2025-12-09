@@ -14,7 +14,7 @@ config.inactive_pane_hsb = {
 
 -- Fontconfig
 local font_size = 11
-local font = { family = "JetBrains Mono", weight = "Regular" }
+local font = { family = "JetBrains Mono", weight = "Light" }
 config.font = wezterm.font(font)
 config.warn_about_missing_glyphs = false
 config.font_size = font_size
