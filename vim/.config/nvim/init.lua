@@ -59,4 +59,4 @@ require("plugins.hover")
 require("plugins.lazydev")
 
 -- TEST
--- require("plugins.codecompanion")
+require("plugins.codecompanion")
