@@ -8,6 +8,10 @@ MiniDeps.now(function()
     local semantic_highlight = function()
         local hl = vim.api.nvim_set_hl
 
+        -- hl(0, "Normal", { guibg = "NONE", ctermbg = "NONE" })
+        -- hl(0, "LineNr", { guibg = "NONE", ctermbg = "NONE" })
+        -- hl(0, "NonText", { guibg = "NONE", ctermbg = "NONE" })
+
         hl(0, "CursorLine", { bg = palette.extra.gray0 })
         hl(0, "CursorLineNr", { bg = palette.extra.gray0 })
         hl(0, "CursorLineSign", { bg = palette.extra.gray0 })
@@ -32,6 +36,7 @@ MiniDeps.now(function()
         hl(0, "MiniCursorword", { bg = palette.extra.gray4 })
 
         -- Minipick
+        -- hl(0, "MiniPickMatchCurrent", { fg = "#e1d1b3", bg = "#e1d1b3" })
         hl(0, "MiniPickMatchRanges", { fg = palette.ansi.white, bg = "#e1d1b3" })
         hl(0, "MiniPickPromptCaret", { fg = palette.extra.gray2 })
         hl(0, "MiniPickPromptPrefix", { fg = palette.extra.gray2 })
