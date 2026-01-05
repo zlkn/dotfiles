@@ -138,8 +138,8 @@ local function get_icon(tab)
         ["Python"] = { symbol = wezterm.nerdfonts.md_language_python, color = colorscheme.palette.ansi.yellow },
         ["python3"] = { symbol = wezterm.nerdfonts.md_language_python, color = colorscheme.palette.ansi.yellow },
         ["python3.13"] = { symbol = wezterm.nerdfonts.md_language_python, color = colorscheme.palette.ansi.yellow },
-        ["lazygit"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.black },
-        ["git"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.black },
+        ["lazygit"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.magenta },
+        ["git"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.ansi.magenta },
         ["terraform"] = { symbol = wezterm.nerdfonts.md_terraform, color = colorscheme.palette.brights.magenta },
         ["gcloud"] = { symbol = wezterm.nerdfonts.md_google_cloud, color = colorscheme.palette.extra.darkBlue },
         ["make"] = { symbol = wezterm.nerdfonts.cod_run_all, color = colorscheme.palette.extra.green },
@@ -151,9 +151,10 @@ local function get_icon(tab)
     end
 
     local exec_name = get_process_name(tab.active_pane.foreground_process_name)
+    print("exec_name: " .. exec_name .. " tab: " .. tab.active_pane.foreground_process_name)
+
     icon.symbol = icons[exec_name].symbol or wezterm.nerdfonts.md_run
     icon.color = icons[exec_name].color or colorscheme.palette.extra.darkGray
-    -- print("exec_name: " .. exec_name .. " tab: " .. tab.active_pane.foreground_process_name)
 
     return icon
 end

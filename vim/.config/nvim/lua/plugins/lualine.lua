@@ -19,7 +19,7 @@ for mode, _ in pairs(auto_theme_custom) do
         end
 
         auto_theme_custom[mode][part].bg = mode_color
-        auto_theme_custom[mode][part].fg = palette.brights.black
+        auto_theme_custom[mode][part].fg = palette.ansi.white
     end
 end
 

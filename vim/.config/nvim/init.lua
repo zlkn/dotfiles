@@ -34,6 +34,7 @@ require("plugins.mini.icons")
 require("plugins.mini.notify")
 
 -- Enhance ui
+-- require("colors")
 require("plugins.colorscheme")
 require("plugins.indent-blankline")
 require("plugins.rainbow-delimiter")
@@ -58,4 +59,4 @@ require("plugins.hover")
 require("plugins.lazydev")
 
 -- TEST
--- require("plugins.codecompanion")
+require("plugins.codecompanion")

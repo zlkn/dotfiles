@@ -123,6 +123,10 @@ function _playground_env
     end
 end
 
+function fish_right_prompt
+    return
+  end
+
 function fish_prompt
     set -l last_status (_exit_status)
     set -l cmd_duration (_cmd_duration)
