@@ -1,7 +1,5 @@
 MiniDeps.add({ source = "neovim/nvim-lspconfig", depends = { "b0o/SchemaStore.nvim" } })
 MiniDeps.now(function()
-    -- print("Setup lsp servers")
-
     vim.lsp.enable("helm_ls")
     vim.lsp.config("helm_ls", {})
 
@@ -66,8 +64,7 @@ MiniDeps.now(function()
             if client.workspace_folders then
                 local path = client.workspace_folders[1].name
                 if
-                    path ~= vim.fn.stdpath("config")
-                    and (vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc"))
+                    path ~= vim.fn.stdpath("config") and vim.loop.fs_stat(path .. "/.luarc.json")
                 then
                     return
                 end
