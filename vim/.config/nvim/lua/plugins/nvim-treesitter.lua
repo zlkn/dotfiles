@@ -24,7 +24,6 @@ MiniDeps.now(function()
         "javascript",
         "jsdoc",
         "json",
-        "jsonc",
         "lua",
         "luadoc",
         "luap",
