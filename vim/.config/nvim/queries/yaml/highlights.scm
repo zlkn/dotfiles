@@ -9,8 +9,7 @@
 ((block_scalar) @string
   (#set! priority 99))
 
-; Disable highlight string_scalar without quite as string
-; (string_scalar) @string
+(string_scalar) @value
 
 (escape_sequence) @string.escape
 
