@@ -86,7 +86,7 @@ MiniDeps.now(function()
         hl(0, "@lsp.typemod.function.defaultLibrary.lua", { fg = palette.ansi.magenta })
 
         -- jinja semantic highlight
-        hl(0, "@keyword.directive.jinja", { fg = palette.ansi.blue })
+        hl(0, "@keyword.directive.jinja", { fg = palette.brights.yellow })
 
         -- c semantic highlight
         hl(0, "@keyword.conditional.ternary.c", { fg = palette.ansi.yellow, bold = true })
