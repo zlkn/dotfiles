@@ -7,5 +7,4 @@ SETUVAR USE_GKE_GCLOUD_AUTH_PLUGIN:False
 SETUVAR --export VIRTUAL_ENV_DISABLE_PROMPT:1
 SETUVAR __fish_initialized:4300
 SETUVAR fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell\x0aType\x20\x60help\x60\x20for\x20instructions\x20on\x20how\x20to\x20use\x20fish
-SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_user_paths:/home/yzolkin/\x2envm\x1e/usr/share/pyenv/versions/3\x2e11\x2e9/bin\x1e/home/yzolkin/\x2elocal/bin\x1e/home/yzolkin/\x2enpm\x2dpackages/bin\x1e/home/yzolkin/\x2enpm\x2dpackages\x1e/home/yzolkin/\x2ekrew/bin\x1e/usr/local/go/bin
