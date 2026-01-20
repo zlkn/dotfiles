@@ -1,3 +1,4 @@
+-- TODO: Remove if autocommand formatter by lsp & treesitter good enough
 MiniDeps.add("stevearc/conform.nvim")
 MiniDeps.later(function()
     local conform = require("conform")

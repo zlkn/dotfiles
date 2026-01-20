@@ -54,7 +54,7 @@ require("plugins.nvim-lspconfig")
 require("plugins.mason")
 require("plugins.completion")
 
-require("plugins.conform")
+-- require("plugins.conform")
 require("plugins.hover")
 require("plugins.lazydev")
 
