@@ -19,20 +19,20 @@ local palette = {
         green = "#218242",
         yellow = "#b57414",
         blue = "#015493",
-        magenta = "#5e2d88",
+        magenta = "#642896",
         cyan = "#007474",
         white = "#2C363C"
-    },
+      },
     brights = {
         black = "#57606a",
         red = "#c30771",
         green = "#218242",
         yellow = "#b57414",
         blue = "#015493",
-        magenta = "#5e2d88",
+        magenta = "#642896",
         cyan = "#007474",
         white = "#004c63",
-    },
+      },
     extra = {
         deepTeal = "#3a869c",
         darkBlue = "#0a3069",
@@ -59,8 +59,8 @@ local palette = {
         gray3 = "#57606a",
         white = "#6f8396",
         pureWhite = "#ffffff",
-    },
-}
+      },
+  }
 return palette
 EOD
 
