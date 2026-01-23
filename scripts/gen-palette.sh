@@ -19,7 +19,7 @@ local palette = {
         green = "#218242",
         yellow = "#b57414",
         blue = "#015493",
-        magenta = "#710787",
+        magenta = "#75228e",
         cyan = "#007474",
         white = "#2C363C"
       },
@@ -29,7 +29,7 @@ local palette = {
         green = "#218242",
         yellow = "#b57414",
         blue = "#015493",
-        magenta = "#710787",
+        magenta = "#75228e",
         cyan = "#007474",
         white = "#004c63",
       },
