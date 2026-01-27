@@ -1,0 +1,12 @@
+Section: misc
+Priority: optional
+Standards-Version: 3.9.2
+
+Package: laptop-config
+Version: 1.0.0
+Maintainer: Zolkin Yuriy zolkin.u.a@gmail.com
+Depends:
+ git,
+ curl,
+ htop,
+Description: My declarative laptop configuration
