@@ -10,8 +10,8 @@
 
 set --global fish_color_autosuggestion brblack
 set --global fish_color_cancel --reverse
-set --global fish_color_command brblue
-set --global fish_color_comment black
+set --global fish_color_command brwhite
+set --global fish_color_comment brblack
 set --global fish_color_cwd green
 set --global fish_color_cwd_root brred
 set --global fish_color_end green
@@ -35,7 +35,7 @@ set --global fish_color_user brgreen
 set --global fish_color_valid_path --underline
 set --global fish_pager_color_background
 set --global fish_pager_color_completion normal
-set --global fish_pager_color_description '#A66F00' --italics
+set --global fish_pager_color_description yellow --italics
 set --global fish_pager_color_prefix brmagenta
 set --global fish_pager_color_progress black --background=white
 set --global fish_pager_color_secondary_background
