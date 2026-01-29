@@ -219,12 +219,12 @@ end)
 -- Keybindings
 config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
 config.keys = {
-    { key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ShowTabNavigator },
-    { key = "UpArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(-1) },
-    { key = "DownArrow", mods = "SHIFT", action = wezterm.action.ScrollToPrompt(1) },
-    { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
-    { key = "x", mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
-    { key = "-", mods = "ALT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+    { key = "l",         mods = "CTRL|SHIFT", action = wezterm.action.ShowTabNavigator },
+    { key = "UpArrow",   mods = "SHIFT",      action = wezterm.action.ScrollToPrompt(-1) },
+    { key = "DownArrow", mods = "SHIFT",      action = wezterm.action.ScrollToPrompt(1) },
+    { key = "w",         mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+    { key = "x",         mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
+    { key = "-",         mods = "ALT",        action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
     {
         key = "\\",
         mods = "ALT",
