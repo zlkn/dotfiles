@@ -108,14 +108,14 @@ local function get_icon(tab)
         -- TODO: I'd like to use this icon as additional extra symbol in tab
         ["sudo"] = { symbol = wezterm.nerdfonts.md_shield_half_full },
         ["ncdu"] = { symbol = wezterm.nerdfonts.fa_pie_chart, color = colorscheme.palette.brights.magenta },
-        ["sh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
-        ["bash"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
-        ["zsh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
-        ["fish"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.extra.darkGray },
-        ["kubectl"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colorscheme.palette.extra.brightBlue },
-        ["k9s"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colorscheme.palette.extra.brightBlue },
-        ["ssh"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.extra.deepTeal },
-        ["sftp"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.extra.deepTeal },
+        ["sh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.ansi.black },
+        ["bash"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.ansi.black },
+        ["zsh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.ansi.black },
+        ["fish"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.ansi.white },
+        ["kubectl"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colorscheme.palette.brights.blue },
+        ["k9s"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colorscheme.palette.brights.blue },
+        ["ssh"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.brights.white },
+        ["sftp"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.brights.white },
         ["btm"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
         ["top"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
         ["htop"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
@@ -141,11 +141,11 @@ local function get_icon(tab)
         ["lazygit"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.brights.magenta },
         ["git"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colorscheme.palette.ansi.magenta },
         ["terraform"] = { symbol = wezterm.nerdfonts.md_terraform, color = colorscheme.palette.brights.magenta },
-        ["gcloud"] = { symbol = wezterm.nerdfonts.md_google_cloud, color = colorscheme.palette.extra.darkBlue },
-        ["make"] = { symbol = wezterm.nerdfonts.cod_run_all, color = colorscheme.palette.extra.green },
+        ["gcloud"] = { symbol = wezterm.nerdfonts.md_google_cloud, color = colorscheme.palette.ansi.cyan },
+        ["make"] = { symbol = wezterm.nerdfonts.cod_run_all, color = colorscheme.palette.brights.green },
     }
 
-    local icon = { symbol = wezterm.nerdfonts.md_collage, color = colorscheme.palette.extra.darkGray }
+    local icon = { symbol = wezterm.nerdfonts.md_collage, color = colorscheme.palette.ansi.white }
     if tab.active_pane.foreground_process_name == "" then
         return icon
     end
@@ -154,7 +154,7 @@ local function get_icon(tab)
     print("exec_name: " .. exec_name .. " tab: " .. tab.active_pane.foreground_process_name)
 
     icon.symbol = icons[exec_name].symbol or wezterm.nerdfonts.md_run
-    icon.color = icons[exec_name].color or colorscheme.palette.extra.darkGray
+    icon.color = icons[exec_name].color or colorscheme.palette.ansi.black
 
     return icon
 end
@@ -165,9 +165,9 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
     local background = colorscheme.colors.background
 
     if tab.is_active then
-        background = colorscheme.palette.extra.gray1
+        background = colorscheme.palette.ansi.black
     elseif hover then
-        background = colorscheme.palette.extra.gray1
+        background = colorscheme.palette.ansi.black
     end
 
     local icon = get_icon(tab)

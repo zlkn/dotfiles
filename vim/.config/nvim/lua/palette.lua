@@ -1,5 +1,8 @@
   -- !!! Generated do not edit manually !!!
 local palette = {
+    light = {
+
+    },
     ansi = {
         -- black   = "#f0edec",
         black = "#d1d1d1",
@@ -22,6 +25,9 @@ local palette = {
         cyan    = "#007070",
         white = "#004c63",
       },
+    dark = {
+
+    },
     extra = {
         deepTeal = "#3a869c",
         darkBlue = "#0a3069",
