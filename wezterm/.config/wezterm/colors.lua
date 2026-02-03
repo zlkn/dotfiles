@@ -7,8 +7,8 @@ local colors = {
     foreground = fg,
     background = palette.extra.bg1,
 
-    -- cursor_bg = "#20bbfc",
-    cursor_bg = fg,
+    cursor_bg = palette.cursor,
+    cursor_bg = palette.cursor,
     cursor_border = palette.brights.white,
 
     selection_bg = palette.extra.gray1,
