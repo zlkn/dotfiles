@@ -1,8 +1,6 @@
   -- !!! Generated do not edit manually !!!
 local palette = {
-    light = {
-
-    },
+    normal = "#2c363c",
     ansi = {
         -- black   = "#f0edec",
         black = "#d1d1d1",
@@ -14,7 +12,6 @@ local palette = {
         cyan    = "#007070",
         white   = "#2C363C"
       },
-
     brights = {
         black = "#57606a",
         red     = "#b81a6b",
@@ -25,8 +22,34 @@ local palette = {
         cyan    = "#007070",
         white = "#004c63",
       },
+    light = {
+        black = "#57606a",
+        red     = "#e4b7be",
+        green   = "#b8d0bf",
+        yellow  = "#e1d1b3",
+        blue = "#d3e4f1",
+        magenta = "#75228e",
+        cyan    = "#007070",
+        white = "#57606a",
+    },
     dark = {
-
+        black = "#ffffff",
+        red     = "#e89197",
+        green   = "#8cbf9b",
+        yellow  = "#fb8f44",
+        blue = "#218bff",
+        magenta = "#75228e",
+        cyan    = "#004c63",
+        white = "#2c363c",
+    },
+    rainbow = {
+        red = '#cc241d',
+        orange = '#d65d0e',
+        yellow =  '#d79921',
+        green = '#689d6a',
+        cyan = '#a89984',
+        blue = '#458588',
+        violet = '#b16286',
     },
     extra = {
         deepTeal = "#3a869c",
