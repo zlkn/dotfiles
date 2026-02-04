@@ -18,7 +18,7 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 autocmd("TextYankPost", {
     group = augroup("highlight_yank"),
     callback = function()
-        vim.highlight.on_yank({ higroup = "IncSearch", priority = 1000 })
+        vim.highlight.on_yank({ higroup = "IncSearch", priority = 1000, timeout = 400 })
     end,
 })
 
