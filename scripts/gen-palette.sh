@@ -39,10 +39,10 @@ local palette = {
     light = {
         black = "#57606a",
         red     = "#e4b7be",
-        green   = "#b8d0bf",
+        green   = "#BFD8BF",
         yellow  = "#e1d1b3",
         blue = "#d3e4f1",
-        magenta = "#75228e",
+        magenta = "#bfbfff",
         cyan    = "#007070",
         white = "#57606a",
     },
