@@ -24,14 +24,14 @@ local palette = {
         white = "#004c63",
       },
     light = {
-        black = "#57606a",
+        black   = "#57606a",
         red     = "#e4b7be",
         green   = "#BFD8BF",
         yellow  = "#e1d1b3",
-        blue = "#d3e4f1",
+        blue    = "#d3e4f1",
         magenta = "#bfbfff",
-        cyan    = "#007070",
-        white = "#57606a",
+        cyan    = "#83c1c6",
+        white   = "#57606a",
     },
     dark = {
         black = "#ffffff",

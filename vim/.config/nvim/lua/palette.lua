@@ -1,28 +1,28 @@
--- !!! Generated do not edit manually !!!
+  -- !!! Generated do not edit manually !!!
 local palette = {
     normal = "#2c363c",
     cursor = "#20bbfc",
     ansi = {
         -- black   = "#f0edec",
-        black   = "#d1d1d1",
+        black = "#d1d1d1",
         red     = "#b81a6b",
         green   = "#1e763c",
         yellow  = "#8d5b00",
-        blue    = "#015493",
+        blue = "#015493",
         magenta = "#75228e",
         cyan    = "#007070",
         white   = "#2C363C"
-    },
+      },
     brights = {
-        black   = "#57606a",
+        black = "#57606a",
         red     = "#b81a6b",
         green   = "#1e763c",
         yellow  = "#8d5b00",
-        blue    = "#015493",
+        blue = "#015493",
         magenta = "#75228e",
         cyan    = "#007070",
-        white   = "#004c63",
-    },
+        white = "#004c63",
+      },
     light = {
         black   = "#57606a",
         red     = "#e4b7be",
@@ -34,20 +34,20 @@ local palette = {
         white   = "#57606a",
     },
     dark = {
-        black   = "#ffffff",
+        black = "#ffffff",
         red     = "#e89197",
         green   = "#8cbf9b",
         -- yellow  = "#fb8f44",
-        yellow  = "#ccb37f",
-        blue    = "#218bff",
-        magenta = "#8250df",
-        cyan    = "#1b7c83",
-        white   = "#1f1f1f",
+        yellow = "#ccb37f",
+        blue = "#218bff",
+        magenta = "#75228e",
+        cyan    = "#004c63",
+        white = "#2c363c",
     },
     rainbow = {
         red = '#cc241d',
         orange = '#d65d0e',
-        yellow = '#d79921',
+        yellow =  '#d79921',
         green = '#689d6a',
         cyan = '#a89984',
         blue = '#458588',
@@ -79,6 +79,6 @@ local palette = {
         gray3 = "#57606a",
         white = "#6f8396",
         pureWhite = "#ffffff",
-    },
-}
+      },
+  }
 return palette
