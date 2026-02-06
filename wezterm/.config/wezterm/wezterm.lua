@@ -19,8 +19,8 @@ config.font = wezterm.font(font)
 config.warn_about_missing_glyphs = false
 config.font_size = font_size
 config.bold_brightens_ansi_colors = false
-config.underline_position = '150%'
-config.underline_thickness = '250%'
+-- config.underline_position = '150%'
+-- config.underline_thickness = '250%'
 
 -- Command Palette
 config.command_palette_font_size = font_size
@@ -155,8 +155,12 @@ local function get_icon(tab)
     local exec_name = get_process_name(tab.active_pane.foreground_process_name)
     print("exec_name: " .. exec_name .. " tab: " .. tab.active_pane.foreground_process_name)
 
-    icon.symbol = icons[exec_name].symbol or wezterm.nerdfonts.md_run
-    icon.color = icons[exec_name].color or colorscheme.palette.ansi.black
+    local icon_cfg = icons[exec_name]
+
+    if icon_cfg then
+        icon.symbol = icons[exec_name].symbol or wezterm.nerdfonts.md_run
+        icon.color = icons[exec_name].color or colorscheme.palette.ansi.black
+    end
 
     return icon
 end
