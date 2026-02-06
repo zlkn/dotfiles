@@ -19,6 +19,8 @@ config.font = wezterm.font(font)
 config.warn_about_missing_glyphs = false
 config.font_size = font_size
 config.bold_brightens_ansi_colors = false
+config.underline_position = '150%'
+config.underline_thickness = '250%'
 
 -- Command Palette
 config.command_palette_font_size = font_size
@@ -114,7 +116,7 @@ local function get_icon(tab)
         ["fish"] = { symbol = wezterm.nerdfonts.md_console_line, color = colorscheme.palette.ansi.white },
         ["kubectl"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colorscheme.palette.brights.blue },
         ["k9s"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colorscheme.palette.brights.blue },
-        ["ssh"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.brights.white },
+        ["ssh"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.brights.black },
         ["sftp"] = { symbol = wezterm.nerdfonts.md_cloud, color = colorscheme.palette.brights.white },
         ["btm"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
         ["top"] = { symbol = wezterm.nerdfonts.md_gauge, color = colorscheme.palette.brights.black },
