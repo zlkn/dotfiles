@@ -4,6 +4,14 @@ end
 
 local autocmd = vim.api.nvim_create_autocmd
 
+-- Resize windows if the Vim window got resized
+autocmd("VimResized", {
+  group = vim.api.nvim_create_augroup("RescaleOnResize", { clear = true }),
+  callback = function()
+    vim.cmd("tabdo wincmd =")
+  end,
+})
+
 -- Reread file on external changes
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     group = augroup("checktime"),
