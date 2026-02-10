@@ -86,6 +86,7 @@ local palette = {
         gray1 = "#d1d1d1",
         gray2 = "#a1a1a1",
         gray3 = "#57606a",
+        gray5 = "#b4b4b6",
         white = "#6f8396",
         pureWhite = "#ffffff",
       },
