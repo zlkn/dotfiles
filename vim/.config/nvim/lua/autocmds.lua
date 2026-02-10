@@ -56,18 +56,18 @@ autocmd("BufReadPost", {
 
 -- https://www.reddit.com/r/neovim/comments/1ms0jrs/poor_mans_autoformatter_with_treesitter/
 -- LSP and fallback treesitter autoformat
-vim.api.nvim_create_autocmd('BufWritePre', {
-    pattern = '*',
-    callback = function()
-        if next(vim.lsp.get_clients { bufnr = 0 }) ~= nil then
-            vim.lsp.buf.format { async = false }
-        else
-            local pos = vim.api.nvim_win_get_cursor(0)
-            vim.cmd 'normal! gg0=G'
-            vim.api.nvim_win_set_cursor(0, pos)
-        end
-    end,
-})
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--     pattern = '*',
+--     callback = function()
+--         if next(vim.lsp.get_clients { bufnr = 0 }) ~= nil then
+--             vim.lsp.buf.format { async = false }
+--         else
+--             local pos = vim.api.nvim_win_get_cursor(0)
+--             vim.cmd 'normal! gg0=G'
+--             vim.api.nvim_win_set_cursor(0, pos)
+--         end
+--     end,
+-- })
 
 -- -- Show cursorline in current window in normal mode
 -- autocmd({ "InsertLeave", "WinEnter" }, {
