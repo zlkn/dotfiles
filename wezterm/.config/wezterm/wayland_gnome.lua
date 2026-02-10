@@ -1,4 +1,6 @@
 local wezterm = require("wezterm")
+local colorscheme = require("colors")
+local font_size = 11
 local mod = {}
 
 local function gsettings(key)

@@ -19,8 +19,9 @@ config.font = wezterm.font(font)
 config.warn_about_missing_glyphs = false
 config.font_size = font_size
 config.bold_brightens_ansi_colors = false
--- config.underline_position = '150%'
--- config.underline_thickness = '250%'
+config.underline_position = '150%'
+config.underline_thickness = '250%'
+
 
 -- Command Palette
 config.command_palette_font_size = font_size
