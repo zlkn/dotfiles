@@ -3,59 +3,39 @@ MiniDeps.add({
     name = "lualine",
 })
 
--- transparent background for lualine
--- https://www.reddit.com/r/neovim/comments/zh4kc8/comment/jhekub8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
--- local auto_theme_custom = require("lualine.themes.auto")
--- local palette = require("palette")
--- for mode, _ in pairs(auto_theme_custom) do
---     for _, part in ipairs({ "a", "b", "c" }) do
---         local mode_color = none
---         if mode == "insert" then
---             mode_color = "#d7e6dd"
---         elseif mode == "visual" then
---             mode_color = "#d3e4f1"
---         elseif mode == "replace" then
---             mode_color = "#f4d8e4"
---         end
---
---         auto_theme_custom[mode][part].bg = mode_color
---         auto_theme_custom[mode][part].fg = palette.ansi.white
---     end
--- end
---
 local function lualine_aqua()
     local palette = require("palette")
     return {
         normal = {
             a = { bg = none, fg = palette.normal },
             b = { bg = none, fg = palette.normal },
-            c = { bg = none, fg = palette.normal }
+            c = { bg = none, fg = palette.normal },
         },
         insert = {
             a = { bg = palette.light.green, fg = palette.normal },
             b = { bg = palette.light.green, fg = palette.normal },
-            c = { bg = palette.light.green, fg = palette.normal }
+            c = { bg = palette.light.green, fg = palette.normal },
         },
         visual = {
             a = { bg = palette.light.blue, fg = palette.normal },
             b = { bg = palette.light.blue, fg = palette.normal },
-            c = { bg = palette.light.blue, fg = palette.normal }
+            c = { bg = palette.light.blue, fg = palette.normal },
         },
         replace = {
             a = { bg = palette.light.red, fg = palette.normal },
             b = { bg = palette.light.red, fg = palette.normal },
-            c = { bg = palette.light.red, fg = palette.normal }
+            c = { bg = palette.light.red, fg = palette.normal },
         },
         command = {
             a = { bg = palette.light.yellow, fg = palette.normal },
             b = { bg = palette.light.yellow, fg = palette.normal },
-            c = { bg = palette.light.yellow, fg = palette.normal }
+            c = { bg = palette.light.yellow, fg = palette.normal },
         },
         inactive = {
             a = { bg = none, fg = palette.normal },
             b = { bg = none, fg = palette.normal },
-            c = { bg = none, fg = palette.normal }
-        }
+            c = { bg = none, fg = palette.normal },
+        },
     }
 end
 
@@ -74,7 +54,6 @@ local function get_lsp()
         local names = {}
         local copilot = " "
 
-        -- local clients = vim.lsp.get_clients()
         -- Get LSP clients attached to the current buffer onlo
         local clients = vim.lsp.get_active_clients({ bufnr = 0 })
 
