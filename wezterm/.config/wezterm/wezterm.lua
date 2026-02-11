@@ -19,9 +19,8 @@ config.font = wezterm.font(font)
 config.warn_about_missing_glyphs = false
 config.font_size = font_size
 config.bold_brightens_ansi_colors = false
-config.underline_position = '150%'
-config.underline_thickness = '250%'
-
+config.underline_position = "150%"
+config.underline_thickness = "250%"
 
 -- Command Palette
 config.command_palette_font_size = font_size
@@ -43,6 +42,8 @@ config.window_background_gradient = {
         colorscheme.palette.extra.bg2,
     },
 }
+
+local keys = require("keys")
 
 -- Window config
 config.initial_cols = 160
@@ -179,7 +180,6 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
 
     local icon = get_icon(tab)
     local title = tab_title(tab)
-    -- print("title: " .. title)
 
     return wezterm.format({
         { Background = { Color = colorscheme.colors.background } },
@@ -200,7 +200,6 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
     })
 end)
 
--- Toggle tab indices while Leader is held
 wezterm.on("update-right-status", function(window, _)
     local want = window:leader_is_active()
     local overrides = window:get_config_overrides() or {}
@@ -218,55 +217,9 @@ wezterm.on("update-right-status", function(window, _)
     local hint = want and "Leader Active " or " "
     -- Optional: a tiny visual hint in the right status when Leader is down
     window:set_right_status(wezterm.format({
-        { Foreground = { Color = colorscheme.palette.ansi.black } },
+        { Foreground = { Color = colorscheme.palette.normal } },
         { Text = hint },
     }))
 end)
-
--- Keybindings
-config.leader = { key = "RightAlt", mods = "NONE", timeout_milliseconds = 1000 }
-config.keys = {
-    { key = "l",         mods = "CTRL|SHIFT", action = wezterm.action.ShowTabNavigator },
-    { key = "UpArrow",   mods = "SHIFT",      action = wezterm.action.ScrollToPrompt(-1) },
-    { key = "DownArrow", mods = "SHIFT",      action = wezterm.action.ScrollToPrompt(1) },
-    { key = "w",         mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
-    { key = "x",         mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
-    { key = "-",         mods = "ALT",        action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-    {
-        key = "\\",
-        mods = "ALT",
-        action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-    },
-    {
-        key = "g",
-        mods = "ALT",
-        action = wezterm.action.SpawnCommandInNewTab({
-            label = "LazyGit",
-            args = { "lazygit" },
-            domain = "CurrentPaneDomain",
-        }),
-    },
-}
-
-for i = 1, 8 do
-    table.insert(config.keys, {
-        key = tostring(i),
-        mods = "ALT",
-        action = wezterm.action.ActivateTab(i - 1),
-    })
-end
-
-local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
-smart_splits.apply_to_config(config, {
-    direction_keys = {
-        move = { "h", "j", "k", "l" },
-        resize = { "LeftArrow", "DownArrow", "UpArrow", "RightArrow" },
-    },
-    modifiers = {
-        move = "ALT",
-        resize = "META",
-    },
-    log_level = "info",
-})
 
 return config
