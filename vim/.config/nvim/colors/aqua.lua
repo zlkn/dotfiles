@@ -393,11 +393,10 @@ local function mini()
     set_hl("MiniFilesTitleFocused", { bold = true, fg = palette.brights.white })
     set_hl("MiniFilesBorder", { link = "FloatBorder" })
     set_hl("MiniFilesBorderModified", { link = "DiagnosticFloatingWarn" })
-
     set_hl("MiniFilesDirectory", { link = "Directory" })
     set_hl("MiniFilesFile", { fg = palette.brights.white })
-    ---
-    set_hl("MiniPickCursor", { nocombine = true, blend = 100 })
+
+    -- MiniDeps
     set_hl("MiniDepsChangeAdded", { link = "diffAdded" })
     set_hl("MiniDepsChangeRemoved", { link = "diffRemoved" })
     set_hl("MiniDepsHint", { link = "DiagnosticHint" })
@@ -408,6 +407,8 @@ local function mini()
     set_hl("MiniDepsTitleError", { link = "DiffDelete" })
     set_hl("MiniDepsTitleSame", { link = "DiffText" })
     set_hl("MiniDepsTitleUpdate", { link = "DiffAdd" })
+
+    --- MiniIcons
     set_hl("MiniIconsAzure", { fg = palette.ansi.blue })
     set_hl("MiniIconsBlue", { fg = palette.ansi.blue })
     set_hl("MiniIconsCyan", { fg = palette.ansi.cyan })
@@ -417,12 +418,22 @@ local function mini()
     set_hl("MiniIconsPurple", { fg = palette.ansi.magenta })
     set_hl("MiniIconsRed", { fg = palette.ansi.red })
     set_hl("MiniIconsYellow", { fg = palette.ansi.yellow })
+    ---
+
+    --- MiniNotify
     set_hl("MiniNotifyBorder", { fg = palette.extra.gray1 })
     set_hl("MiniNotifyNormal", { link = "NormalFloat" })
     set_hl("MiniNotifyLspProgress", { link = "MiniNotifyNormal" })
     set_hl("MiniNotifyTitle", { fg = palette.extra.bg2 })
+    ---
+
+    ---MiniPick
     set_hl("MiniPickPreviewLine", { link = "CursorLine" })
     set_hl("MiniPickPreviewRegion", { link = "IncSearch" })
+    set_hl("MiniPickMatchRanges", { fg = palette.normal, bg = palette.light.yellow })
+    ---
+
+    --- MiniStarter
     set_hl("MiniStarterCurrent", { nocombine = true })
     set_hl("MiniStarterFooter", { italic = true, fg = palette.extra.gray2 })
     set_hl("MiniStarterHeader", { fg = palette.ansi.cyan })
@@ -432,6 +443,9 @@ local function mini()
     set_hl("MiniStarterItemPrefix", { fg = palette.dark.yellow })
     set_hl("MiniStarterSection", { link = "Special" })
     set_hl("MiniStarterQuery", { fg = palette.ansi.cyan })
+    ---
+
+    --- MiniStatusline
     set_hl("MiniStatuslineDevinfo", { fg = palette.brights.white, bg = palette.light.cyan })
     set_hl("MiniStatuslineFileinfo", { fg = palette.brights.white, bg = palette.light.cyan })
     set_hl("MiniStatuslineFilename", { fg = palette.extra.gray3, bg = none })
@@ -442,7 +456,13 @@ local function mini()
     set_hl("MiniStatuslineModeOther", { bold = true, fg = palette.normal })
     set_hl("MiniStatuslineModeReplace", { bold = true, fg = palette.normal, bg = palette.light.red })
     set_hl("MiniStatuslineModeVisual", { bold = true, fg = palette.normal, bg = palette.light.yellow })
+    ---
+
+    --- MiniSurround
     set_hl("MiniSurround", { link = "IncSearch" })
+    ---
+
+    --- MiniTabline
     set_hl("MiniTablineCurrent", { bold = true, fg = none, bg = palette.dark.blue })
     set_hl("MiniTablineFill", { link = "TabLineFill" })
     set_hl("MiniTablineHidden", { fg = palette.brights.white, bg = none })
@@ -451,10 +471,15 @@ local function mini()
     set_hl("MiniTablineModifiedVisible", { fg = palette.cyan, bg = none })
     set_hl("MiniTablineTabpagesection", { bold = true, bg = palette.light.blue })
     set_hl("MiniTablineVisible", { fg = palette.normal, bg = palette.light.blue })
+    ---
+
+    --- MiniTest
     set_hl("MiniTestEmphasis", { bold = true })
     set_hl("MiniTestFail", { bold = true, fg = palette.ansi.red })
     set_hl("MiniTestPass", { bold = true, fg = palette.ansi.green })
     set_hl("MiniTrailspace", { bg = palette.light.red })
+    ---
+    set_hl("MiniPickCursor", { nocombine = true, blend = 100 })
 end
 
 local function neogit()
@@ -736,7 +761,6 @@ set_hl("MiniHipatternsNote", { fg = palette.normal, bg = palette.light.blue })
 set_hl("WhichKeyValue", { link = "Comment" })
 set_hl("MiniCursorwordCurrent", { bg = palette.extra.cursorWord })
 set_hl("MiniCursorword", { bg = palette.extra.cusorWord })
-set_hl("MiniPickMatchRanges", { fg = palette.normal, bg = palette.light.yellow })
 set_hl("FidgetTitle", { link = "Title" })
 set_hl("MiniPickPrompt", { fg = palette.normal })
 set_hl("Bold", { bold = true })
