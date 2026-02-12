@@ -15,8 +15,11 @@ if not vim.loop.fs_stat(mini_path) then
     vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
 
+vim.cmd.colorscheme("aqua")
+
 -- Set up 'mini.deps' (customize to your liking)
 require("mini.deps").setup({ path = { package = path_package } })
+require("mini.visits").setup()
 require("filetypes")
 require("options")
 require("autocmds")
@@ -35,7 +38,7 @@ require("plugins.mini.notify")
 
 -- Enhance ui
 -- require("colors")
-require("plugins.colorscheme")
+-- require("plugins.colorscheme")
 require("plugins.indent-blankline")
 require("plugins.rainbow-delimiter")
 require("plugins.smart-splits")
@@ -54,7 +57,7 @@ require("plugins.nvim-lspconfig")
 require("plugins.mason")
 require("plugins.completion")
 
--- require("plugins.conform")
+require("plugins.conform")
 require("plugins.hover")
 require("plugins.lazydev")
 

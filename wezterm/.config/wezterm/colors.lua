@@ -7,8 +7,8 @@ local colors = {
     foreground = fg,
     background = palette.extra.bg1,
 
-    -- cursor_bg = "#20bbfc",
-    cursor_bg = fg,
+    cursor_fg = palette.normal,
+    cursor_bg = palette.cursor,
     cursor_border = palette.brights.white,
 
     selection_bg = palette.extra.gray1,
@@ -41,15 +41,15 @@ local colors = {
         palette.brights.white,
     },
 
-    copy_mode_active_highlight_bg = { Color = palette.extra.cornflowerBlue },
-    copy_mode_active_highlight_fg = { Color = fg },
+    copy_mode_active_highlight_bg = { Color = palette.ansi.green },
+    copy_mode_active_highlight_fg = { Color = palette.extra.bg1 },
 
-    copy_mode_inactive_highlight_bg = { Color = palette.ansi.green },
+    copy_mode_inactive_highlight_bg = { Color = palette.light.green },
     copy_mode_inactive_highlight_fg = { Color = fg },
 
     quick_select_label_bg = { Color = palette.brights.green },
-    quick_select_label_fg = { Color = palette.extra.pureWhite },
-    quick_select_match_bg = { Color = palette.extra.cornflowerBlue },
+    quick_select_label_fg = { Color = palette.extra.bg1 },
+    quick_select_match_bg = { Color = palette.light.blue },
     quick_select_match_fg = { Color = fg },
 
     tab_bar = {
