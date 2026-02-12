@@ -24,8 +24,8 @@ local font = { family = "JetBrains Mono", weight = "Light" }
 config.font = wezterm.font(font)
 config.font_size = font_size
 config.bold_brightens_ansi_colors = false
-config.underline_position = "150%"
-config.underline_thickness = "250%"
+-- config.underline_position = "150%"
+-- config.underline_thickness = "250%"
 
 require("wayland_gnome").apply_to_config(config)
 require("keys").apply_to_config(config)
