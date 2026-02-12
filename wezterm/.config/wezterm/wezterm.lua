@@ -23,7 +23,7 @@ config.default_cursor_style = "BlinkingBar"
 
 require("wayland_gnome").apply_to_config(config)
 require("keys").apply_to_config(config)
--- require("appearance").apply(config, colorscheme, font, font_size)
+require("appearance").apply(config, colorscheme, font, font_size)
 require("format_tab_tittle")
 
 --- Right status bar
