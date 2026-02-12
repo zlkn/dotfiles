@@ -1,6 +1,4 @@
 local wezterm = require("wezterm")
-local colorscheme = require("colors")
-local font_size = 11
 local mod = {}
 
 local function gsettings(key)
@@ -12,6 +10,7 @@ function mod.apply_to_config(config)
         -- skip if not running on linux
         return
     end
+
     local success, stdout, stderr = gsettings("cursor-theme")
     if success then
         config.xcursor_theme = stdout:gsub("'(.+)'\n", "%1")
