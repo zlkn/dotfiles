@@ -8,10 +8,6 @@ config.scrollback_lines = 100000
 config.automatically_reload_config = false
 config.warn_about_missing_glyphs = false
 config.window_close_confirmation = "NeverPrompt"
-config.inactive_pane_hsb = {
-    saturation = 0.8,
-    brightness = 1.0,
-}
 
 -- Colorscheme
 local colorscheme = require("colors")
@@ -24,8 +20,6 @@ local font = { family = "JetBrains Mono", weight = "Light" }
 config.font = wezterm.font(font)
 config.font_size = font_size
 config.bold_brightens_ansi_colors = false
--- config.underline_position = "150%"
--- config.underline_thickness = "250%"
 
 require("wayland_gnome").apply_to_config(config)
 require("keys").apply_to_config(config)
@@ -49,6 +43,7 @@ config.window_background_gradient = {
         colorscheme.palette.extra.bg2,
     },
 }
+
 config.window_frame = {
     font_size = font_size,
     font = wezterm.font(font),
@@ -76,13 +71,10 @@ config.window_frame = {
 }
 
 --- Tabbar config
-config.enable_tab_bar = true
-config.use_fancy_tab_bar = true
-config.show_tab_index_in_tab_bar = false
+config.show_tab_index_in_tab_bar = true
 config.show_close_tab_button_in_tabs = false
 config.switch_to_last_active_tab_when_closing_tab = true
 config.show_new_tab_button_in_tab_bar = false
-config.tab_max_width = 999
 
 --- Right status bar
 wezterm.on("update-right-status", function(window, _)
