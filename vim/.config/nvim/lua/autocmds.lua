@@ -84,3 +84,22 @@ autocmd("BufReadPost", {
 --         vim.o.cursorline = false
 --     end,
 -- })
+
+-- Create an autocommand to show diagnostics in virtual lines
+vim.api.nvim_create_autocmd("CursorHold", {
+    callback = function()
+        vim.diagnostic.config({
+            virtual_lines = { current_line = true },
+            virtual_text = false, -- Optional: Disable standard virtual text to avoid clutter
+        })
+    end,
+})
+
+-- Optional: Clear or reset when the cursor moves again
+vim.api.nvim_create_autocmd("CursorMoved", {
+    callback = function()
+        vim.diagnostic.config({
+            virtual_lines = false,
+        })
+    end,
+})
