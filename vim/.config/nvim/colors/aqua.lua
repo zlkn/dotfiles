@@ -386,6 +386,11 @@ local function default()
 end
 
 local function mini()
+    --- MiniCusorword
+    set_hl("MiniCursorwordCurrent", { bg = palette.extra.gray4 })
+    set_hl("MiniCursorword", { bg = palette.extra.gray4 })
+    ---
+
     --- MiniFiles
     set_hl("MiniFilesCursorLine", { link = "CursorLine" })
     set_hl("MiniFilesNormal", { fg = palette.normal })
@@ -557,6 +562,14 @@ set_hl("diffRemoved", { link = "Removed" })
 set_hl("diffChanged", { link = "Changed" })
 set_hl("htmlTag", { fg = palette.ansi.blue })
 set_hl("NONE", {})
+
+local function treesitter_context()
+    set_hl("TreesitterContext", { bg = "#dfdfe1" })
+    set_hl("TreesitterContextBottom", { blend = 32, underline = true, sp = "#d9d9d9" })
+
+    set_hl("TreesitterContextLineNumber", { bg = "#dfdfe1" })
+    set_hl("TreesitterContextLineNumberBottom", { blend = 32, underline = true, sp = "#d9d9d9" })
+end
 
 local function treesitter()
     set_hl("@module.builtin.lua", { fg = palette.ansi.magenta })
@@ -822,8 +835,6 @@ set_hl("WhichKeySeperator", { link = "Comment" })
 set_hl("WhichKeySeparator", { link = "Comment" })
 set_hl("MiniHipatternsNote", { fg = palette.normal, bg = palette.light.blue })
 set_hl("WhichKeyValue", { link = "Comment" })
-set_hl("MiniCursorwordCurrent", { bg = palette.extra.cursorWord })
-set_hl("MiniCursorword", { bg = palette.extra.cusorWord })
 set_hl("FidgetTitle", { link = "Title" })
 set_hl("MiniPickPrompt", { fg = palette.normal })
 set_hl("Bold", { bold = true })
@@ -1115,6 +1126,7 @@ end
 
 lualine()
 treesitter()
+treesitter_context()
 blink_cmp()
 rainbow()
 mini()
