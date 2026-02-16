@@ -37,8 +37,6 @@ require("plugins.mini.icons")
 require("plugins.mini.notify")
 
 -- Enhance ui
--- require("colors")
--- require("plugins.colorscheme")
 require("plugins.indent-blankline")
 require("plugins.rainbow-delimiter")
 require("plugins.smart-splits")
@@ -58,7 +56,7 @@ require("plugins.mason")
 require("plugins.completion")
 
 require("plugins.conform")
-require("plugins.hover")
+-- require("plugins.hover")
 
 -- TEST
 require("plugins.codecompanion")
