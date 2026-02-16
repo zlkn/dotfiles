@@ -388,7 +388,7 @@ end
 local function mini()
     --- MiniCusorword
     set_hl("MiniCursorwordCurrent", { bg = palette.extra.gray4 })
-    set_hl("MiniCursorword", { bg = palette.extra.gray4 })
+    set_hl("MiniCursorword", { bg = palette.extra.gray0 })
     ---
 
     --- MiniFiles
