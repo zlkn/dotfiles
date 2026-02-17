@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 vim.o.mouse = "a" -- Enable mouse support
+
 -- use mini-files instead
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -14,12 +15,12 @@ vim.o.writebackup = false -- Don't store backup while overwriting the file
 vim.o.number = true
 vim.o.cmdheight = 0
 vim.o.scrolloff = 5
-vim.o.breakindent = true -- Indent wrapped lines to match line start
 vim.o.wrap = false -- Display long lines as just one line
 vim.o.cursorline = true -- Highlight the current line
 vim.o.statuscolumn = "%l%s" -- Sign columng after numbers
 vim.o.signcolumn = "yes" -- Always show sign column (otherwise it will shift text)
 vim.o.fillchars = "eob: " -- Don't show `~` outside of buffer
+vim.o.updatetime = 500
 
 vim.opt.clipboard = "unnamedplus" -- Copy to systemc clipbiard
 
