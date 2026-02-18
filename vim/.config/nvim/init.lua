@@ -44,7 +44,9 @@ require("plugins.lualine")
 require("plugins.flash")
 
 -- git ingegration
-require("plugins.gitsigns")
+-- require("plugins.gitsigns")
+require("mini.diff").setup({ view = { style = "sign", signs = { add = " ▎", change = " ▎", delete = " ▎" } } })
+require("mini.git").setup()
 
 -- Syntax highlight
 require("plugins.nvim-treesitter")
