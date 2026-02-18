@@ -26,7 +26,13 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 autocmd("TextYankPost", {
     group = augroup("highlight_yank"),
     callback = function()
-        vim.highlight.on_yank({ higroup = "IncSearch", priority = 1000, timeout = 400 })
+        local timeout = 400
+        local old_hl = vim.api.nvim_get_hl(0, { name = "MiniCursorwordCurrent" })
+        vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { link = "IncSearch" })
+        vim.highlight.on_yank({ higroup = "IncSearch", timeout = timeout })
+        vim.defer_fn(function()
+            vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", old_hl)
+        end, timeout)
     end,
 })
 
