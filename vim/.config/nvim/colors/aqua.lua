@@ -633,7 +633,6 @@ set_hl("NONE", {})
 local function treesitter_context()
     set_hl("TreesitterContext", { bg = "#dfdfe1" })
     set_hl("TreesitterContextBottom", { blend = 32, underline = true, sp = "#d9d9d9" })
-
     set_hl("TreesitterContextLineNumber", { bg = "#dfdfe1" })
     set_hl("TreesitterContextLineNumberBottom", { blend = 32, underline = true, sp = "#d9d9d9" })
 end
@@ -1099,51 +1098,71 @@ local function indent_blankline()
 end
 
 local function blink_cmp()
-    set_hl("BlinkCmpLabel", { link = "CmpItemAbbr" })
-    set_hl("BlinkCmpLabelDeprecated", { link = "CmpItemAbbrDeprecated" })
-    set_hl("BlinkCmpLabelDetail", { link = "CmpItemMenu" })
-    set_hl("BlinkCmpLabelDescription", { link = "CmpItemMenu" })
-    set_hl("CmpItemKind", {})
-    set_hl("BlinkCmpKind", { link = "CmpItemKind" })
-    set_hl("BlinkCmpSource", { link = "CmpItemMenu" })
-    set_hl("CmpItemKindText", {})
-    set_hl("BlinkCmpKindMethod", { link = "CmpItemKindMethod" })
-    set_hl("BlinkCmpKindFunction", { link = "CmpItemKindFunction" })
-    set_hl("BlinkCmpKindConstructor", { link = "CmpItemKindConstructor" })
-    set_hl("BlinkCmpKindField", { link = "CmpItemKindField" })
-    set_hl("BlinkCmpKindVariable", { link = "CmpItemKindVariable" })
-    set_hl("BlinkCmpKindClass", { link = "CmpItemKindClass" })
-    set_hl("BlinkCmpKindInterface", { link = "CmpItemKindInterface" })
-    set_hl("BlinkCmpKindModule", { link = "CmpItemKindModule" })
-    set_hl("BlinkCmpKindProperty", { link = "CmpItemKindProperty" })
-    set_hl("BlinkCmpKindUnit", { link = "CmpItemKindUnit" })
-    set_hl("BlinkCmpKindValue", { link = "CmpItemKindValue" })
-    set_hl("BlinkCmpKindEnum", { link = "CmpItemKindEnum" })
-    set_hl("BlinkCmpKindKeyword", { link = "CmpItemKindKeyword" })
-    set_hl("BlinkCmpKindSnippet", { link = "CmpItemKindSnippet" })
-    set_hl("CmpItemKindColor", {})
-    set_hl("BlinkCmpKindColor", { link = "CmpItemKindColor" })
-    set_hl("CmpItemKindFile", {})
-    set_hl("BlinkCmpKindFile", { link = "CmpItemKindFile" })
-    set_hl("BlinkCmpKindReference", { link = "CmpItemKindReference" })
-    set_hl("CmpItemKindFolder", {})
-    set_hl("BlinkCmpKindFolder", { link = "CmpItemKindFolder" })
-    set_hl("BlinkCmpKindEnumMember", { link = "CmpItemKindEnumMember" })
-    set_hl("BlinkCmpKindConstant", { link = "CmpItemKindConstant" })
-    set_hl("BlinkCmpKindStruct", { link = "CmpItemKindStruct" })
-    set_hl("BlinkCmpKindEvent", { link = "CmpItemKindEvent" })
-    set_hl("BlinkCmpKindOperator", { link = "CmpItemKindOperator" })
-    set_hl("BlinkCmpKindTypeParameter", { link = "CmpItemKindTypeParameter" })
-    set_hl("BlinkCmpScrollBarThumb", { link = "PmenuThumb" })
-    set_hl("BlinkCmpScrollBarGutter", { link = "PmenuSbar" })
-    set_hl("CmpGhostText", {})
-    set_hl("BlinkCmpGhostText", { link = "CmpGhostText" })
-    set_hl("BlinkCmpMenuBorder", { link = "Pmenu" })
-    set_hl("BlinkCmpMenuSelection", { link = "PmenuSel" })
-    set_hl("BlinkCmpDoc", { link = "NormalFloat" })
-    set_hl("BlinkCmpDocBorder", { link = "NormalFloat" })
-    set_hl("BlinkCmpDocSeparator", { link = "NormalFloat" })
-    set_hl("BlinkCmpDocCursorLine", { link = "Visual" })
+    local blink_cmp_highlights = {
+        BlinkCmpLabel = { link = "CmpItemAbbr" },
+        BlinkCmpLabelDeprecated = { link = "CmpItemAbbrDeprecated" },
+        BlinkCmpLabelDetail = { link = "CmpItemMenu" },
+        BlinkCmpLabelDescription = { link = "CmpItemMenu" },
+        CmpItemKind = {},
+        BlinkCmpKind = { link = "CmpItemKind" },
+        BlinkCmpSource = { link = "CmpItemMenu" },
+        CmpItemKindText = {},
+        BlinkCmpKindMethod = { link = "CmpItemKindMethod" },
+        BlinkCmpKindFunction = { link = "CmpItemKindFunction" },
+        BlinkCmpKindConstructor = { link = "CmpItemKindConstructor" },
+        BlinkCmpKindField = { link = "CmpItemKindField" },
+        BlinkCmpKindVariable = { link = "CmpItemKindVariable" },
+        BlinkCmpKindClass = { link = "CmpItemKindClass" },
+        BlinkCmpKindInterface = { link = "CmpItemKindInterface" },
+        BlinkCmpKindModule = { link = "CmpItemKindModule" },
+        BlinkCmpKindProperty = { link = "CmpItemKindProperty" },
+        BlinkCmpKindUnit = { link = "CmpItemKindUnit" },
+        BlinkCmpKindValue = { link = "CmpItemKindValue" },
+        BlinkCmpKindEnum = { link = "CmpItemKindEnum" },
+        BlinkCmpKindKeyword = { link = "CmpItemKindKeyword" },
+        BlinkCmpKindSnippet = { link = "CmpItemKindSnippet" },
+        CmpItemKindColor = {},
+        BlinkCmpKindColor = { link = "CmpItemKindColor" },
+        CmpItemKindFile = {},
+        BlinkCmpKindFile = { link = "CmpItemKindFile" },
+        BlinkCmpKindReference = { link = "CmpItemKindReference" },
+        CmpItemKindFolder = {},
+        BlinkCmpKindFolder = { link = "CmpItemKindFolder" },
+        BlinkCmpKindEnumMember = { link = "CmpItemKindEnumMember" },
+        BlinkCmpKindConstant = { link = "CmpItemKindConstant" },
+        BlinkCmpKindStruct = { link = "CmpItemKindStruct" },
+        BlinkCmpKindEvent = { link = "CmpItemKindEvent" },
+        BlinkCmpKindOperator = { link = "CmpItemKindOperator" },
+        BlinkCmpKindTypeParameter = { link = "CmpItemKindTypeParameter" },
+        BlinkCmpScrollBarThumb = { link = "PmenuThumb" },
+        BlinkCmpScrollBarGutter = { link = "PmenuSbar" },
+        CmpGhostText = {},
+        BlinkCmpGhostText = { link = "CmpGhostText" },
+        BlinkCmpMenuBorder = { link = "Pmenu" },
+        BlinkCmpMenuSelection = { link = "PmenuSel" },
+        BlinkCmpDoc = { link = "NormalFloat" },
+        BlinkCmpDocBorder = { link = "NormalFloat" },
+        BlinkCmpDocSeparator = { link = "NormalFloat" },
+        BlinkCmpDocCursorLine = { link = "Visual" },
+    }
+
+    for group, highlight in pairs(blink_cmp_highlights) do
+        set_hl(group, highlight)
+    end
+end
+
+local flash = {
+    FlashBackdrop = { link = "Comment" },
+    FlashMatch = { link = "Search" },
+    FlashCurrent = { link = "IncSearch" },
+    FlashLabel = { fg = palette.ansi.black, bg = palette.ansi.red, bold = true },
+    FlashPrompt = { link = "MsgArea" },
+    FlashPromptIcon = { link = "Special" },
+    FlashCursor = { link = "Cursor" },
+}
+
+for group, highlight in pairs(flash) do
+    set_hl(group, highlight)
 end
 
 lualine()
