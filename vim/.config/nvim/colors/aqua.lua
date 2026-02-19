@@ -1155,7 +1155,7 @@ local flash = {
     FlashBackdrop = { link = "Comment" },
     FlashMatch = { link = "Search" },
     FlashCurrent = { link = "IncSearch" },
-    FlashLabel = { fg = palette.ansi.black, bg = palette.ansi.red, bold = true },
+    FlashLabel = { fg = palette.dark.black, bg = palette.ansi.red, bold = true },
     FlashPrompt = { link = "MsgArea" },
     FlashPromptIcon = { link = "Special" },
     FlashCursor = { link = "Cursor" },
