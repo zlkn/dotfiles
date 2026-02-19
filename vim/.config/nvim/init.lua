@@ -20,9 +20,11 @@ vim.cmd.colorscheme("aqua")
 -- Set up 'mini.deps' (customize to your liking)
 require("mini.deps").setup({ path = { package = path_package } })
 require("mini.visits").setup()
+require("mini.trailspace").setup()
 require("filetypes")
 require("options")
 require("autocmds")
+
 require("keymaps")
 
 require("plugins.mini.clue")
