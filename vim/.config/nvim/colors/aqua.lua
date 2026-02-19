@@ -386,9 +386,11 @@ local function default()
 end
 
 local function mini()
+    -- MiniHipatterns
     set_hl("MiniHipatternsTodo", { fg = palette.normal, bg = palette.light.green })
     ---
     set_hl("MiniCompletionActiveParameter", { underline = true })
+    ---
     ---
     --- MiniAnimatedCursor
     set_hl("MiniAnimateCursor", { reverse = true, nocombine = true })
@@ -400,8 +402,8 @@ local function mini()
     ---
     --- MiniJump2d
     set_hl("MiniJump2dDim", { link = "Comment" })
-    set_hl("MiniJump2dSpot", { bold = true, fg = palette.ansi.red })
-    set_hl("MiniJump2dSpotUnique", { bold = true, fg = palette.dark.yellow })
+    set_hl("MiniJump2dSpot", { bold = true, fg = palette.ansi.black, bg = palette.ansi.green })
+    set_hl("MiniJump2dSpotUnique", { bold = true, fg = palette.ansi.black, bg = palette.ansi.cyan })
     set_hl("MiniJump", { link = "SpellRare" })
     set_hl("MiniJump2dSpotAhead", { nocombine = true, fg = palette.ansi.cyan })
     ---
