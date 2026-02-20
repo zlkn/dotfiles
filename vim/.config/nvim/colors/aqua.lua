@@ -636,7 +636,7 @@ M.all_highlights = {
         MiniDiffSignDelete = { fg = palette.ansi.red },
         MiniDiffSignChange = { fg = palette.ansi.yellow },
         MiniDiffOverContext = { link = "DiffChange" },
-        MiniDiffOverChange = { fg = palette.brights.white, bg = palette.ansi.yellow },
+        MiniDiffOverChange = { fg = palette.ansi.black, bg = palette.ansi.yellow },
         MiniDiffOverDelete = { link = "DiffDelete" },
         MiniDiffOverAdd = { link = "DiffAdd" },
         ---
