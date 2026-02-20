@@ -97,6 +97,12 @@ map("n", "<leader>ti", function()
     print((vim.lsp.inlay_hint.is_enabled and "Enable" or "Disable") .. " inlay hints")
 end, { desc = "tootle inlay hint" })
 
+map("n", "<leader>gd", function()
+    MiniDiff.toggle_overlay()
+end, { desc = "toogle diff overlay" })
+
+map("n", "<leader>gg", "<cmd>Git diff<CR>", { desc = "toogle diff overlay" })
+
 local M = {}
 
 M.monochrome = false
