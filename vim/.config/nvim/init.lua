@@ -53,6 +53,7 @@ require("mini.git").setup()
 -- Syntax highlight
 require("plugins.nvim-treesitter")
 require("plugins.nvim-treesitter-context")
+-- require("plugins.nvim-treesitter-textobjects")
 
 -- LSP/completion/autoformat/docs
 require("plugins.nvim-lspconfig")
