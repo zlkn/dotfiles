@@ -985,7 +985,7 @@ M.all_highlights = {
         ["@boolean"] = { link = "Boolean" },
         ["@number"] = { link = "Number" },
         ["@number.float"] = { link = "Float" },
-        ["@type"] = { fg = palette.brights.white },
+        ["@type"] = { fg = palette.brights.blue },
         ["@type.builtin"] = { italic = true, fg = palette.ansi.blue },
         ["@attribute"] = { link = "Constant" },
         ["@attribute.builtin"] = { link = "Special" },
