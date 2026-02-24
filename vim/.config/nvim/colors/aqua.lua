@@ -311,6 +311,8 @@ M.all_highlights = {
     },
 
     default = {
+
+        Identifier = { fg = palette.normal },
         SpecialKey = { link = "NonText" },
         EndOfBuffer = { fg = palette.normal },
         TermCursor = { reverse = true },
@@ -610,28 +612,23 @@ M.all_highlights = {
     },
 
     mini = {
-        -- MiniHipatterns
-        MiniHipatternsTodo = { fg = palette.normal, bg = palette.light.green },
-        ---
+
         MiniCompletionActiveParameter = { underline = true },
-        ---
-        ---
-        --- MiniAnimatedCursor
+
         MiniAnimateCursor = { reverse = true, nocombine = true },
         MiniAnimateNormalFloat = { link = "NormalFloat" },
-        ---
-        --- MiniHipatterns
+
         MiniHipatternsFixme = { fg = palette.normal, bg = palette.light.red },
         MiniHipatternsHack = { fg = palette.normal, bg = palette.light.yellow },
-        ---
-        --- MiniJump2d
+        MiniHipatternsTodo = { fg = palette.normal, bg = palette.light.green },
+        MiniHipatternsNote = { fg = palette.normal, bg = palette.light.blue },
+
         MiniJump2dDim = { link = "Comment" },
         MiniJump2dSpot = { bold = true, fg = palette.ansi.black, bg = palette.ansi.green },
         MiniJump2dSpotUnique = { bold = true, fg = palette.ansi.black, bg = palette.ansi.cyan },
         MiniJump = { link = "SpellRare" },
         MiniJump2dSpotAhead = { nocombine = true, fg = palette.ansi.cyan },
-        ---
-        --- MiniDiff
+
         MiniDiffSignAdd = { fg = palette.brights.green },
         MiniDiffSignDelete = { fg = palette.ansi.red },
         MiniDiffSignChange = { fg = palette.ansi.yellow },
@@ -639,14 +636,10 @@ M.all_highlights = {
         MiniDiffOverChange = { fg = palette.ansi.black, bg = palette.ansi.yellow },
         MiniDiffOverDelete = { link = "DiffDelete" },
         MiniDiffOverAdd = { link = "DiffAdd" },
-        ---
 
-        --- MiniCusorword
         MiniCursorwordCurrent = { bg = palette.extra.gray4 },
         MiniCursorword = { bg = palette.extra.gray0 },
-        ---
 
-        --- MiniFiles
         MiniFilesCursorLine = { link = "CursorLine" },
         MiniFilesNormal = { fg = palette.normal },
         MiniFilesTitle = { link = "FloatTitle" },
@@ -656,7 +649,6 @@ M.all_highlights = {
         MiniFilesDirectory = { link = "Directory" },
         MiniFilesFile = { fg = palette.normal },
 
-        -- MiniDeps
         MiniDepsChangeAdded = { link = "diffAdded" },
         MiniDepsChangeRemoved = { link = "diffRemoved" },
         MiniDepsHint = { link = "DiagnosticHint" },
@@ -668,7 +660,6 @@ M.all_highlights = {
         MiniDepsTitleSame = { link = "DiffText" },
         MiniDepsTitleUpdate = { link = "DiffAdd" },
 
-        --- MiniIcons
         MiniIconsAzure = { fg = palette.ansi.blue },
         MiniIconsBlue = { fg = palette.ansi.blue },
         MiniIconsCyan = { fg = palette.ansi.cyan },
@@ -678,16 +669,12 @@ M.all_highlights = {
         MiniIconsPurple = { fg = palette.ansi.magenta },
         MiniIconsRed = { fg = palette.ansi.red },
         MiniIconsYellow = { fg = palette.ansi.yellow },
-        ---
 
-        --- MiniNotify
         MiniNotifyBorder = { fg = palette.extra.gray1 },
         MiniNotifyNormal = { link = "NormalFloat" },
         MiniNotifyLspProgress = { link = "MiniNotifyNormal" },
         MiniNotifyTitle = { fg = palette.extra.bg2 },
-        ---
 
-        ---MiniPick
         MiniPickHeader = { fg = palette.brights.white },
         MiniPickPreviewLine = { link = "CursorLine" },
         MiniPickPreviewRegion = { link = "IncSearch" },
@@ -703,9 +690,8 @@ M.all_highlights = {
         MiniPickIconFile = { link = "MiniPickNormal" },
         MiniPickMatchCurrent = { link = "CursorLine" },
         MiniPickMatchMarked = { link = "Visual" },
-        ---
+        MiniPickCursor = { nocombine = true, blend = 100 },
 
-        --- MiniStarter
         MiniStarterCurrent = { nocombine = true },
         MiniStarterFooter = { italic = true, fg = palette.extra.gray2 },
         MiniStarterHeader = { fg = palette.ansi.cyan },
@@ -715,9 +701,7 @@ M.all_highlights = {
         MiniStarterItemPrefix = { fg = palette.brights.yellow },
         MiniStarterSection = { link = "Special" },
         MiniStarterQuery = { fg = palette.ansi.cyan },
-        ---
 
-        --- MiniStatusline
         MiniStatuslineDevinfo = { fg = palette.brights.white, bg = palette.light.cyan },
         MiniStatuslineFileinfo = { fg = palette.brights.white, bg = palette.light.cyan },
         MiniStatuslineFilename = { fg = palette.extra.gray3, bg = none },
@@ -728,13 +712,9 @@ M.all_highlights = {
         MiniStatuslineModeOther = { bold = true, fg = palette.normal },
         MiniStatuslineModeReplace = { bold = true, fg = palette.normal, bg = palette.light.red },
         MiniStatuslineModeVisual = { bold = true, fg = palette.normal, bg = palette.light.yellow },
-        ---
 
-        --- MiniSurround
         MiniSurround = { link = "IncSearch" },
-        ---
 
-        --- MiniTabline
         MiniTablineCurrent = { bold = true, fg = none, bg = palette.dark.blue },
         MiniTablineFill = { link = "TabLineFill" },
         MiniTablineHidden = { fg = palette.brights.white, bg = none },
@@ -743,17 +723,12 @@ M.all_highlights = {
         MiniTablineModifiedVisible = { fg = palette.cyan, bg = none },
         MiniTablineTabpagesection = { bold = true, bg = palette.light.blue },
         MiniTablineVisible = { fg = palette.normal, bg = palette.light.blue },
-        ---
 
-        --- MiniTest
         MiniTestEmphasis = { bold = true },
         MiniTestFail = { bold = true, fg = palette.ansi.red },
         MiniTestPass = { bold = true, fg = palette.ansi.green },
         MiniTrailspace = { bg = palette.light.red },
-        ---
-        MiniPickCursor = { nocombine = true, blend = 100 },
 
-        --- MiniClue
         MiniClueBorder = { link = "FloatBorder" },
         MiniClueDescGroup = { link = "DiagnosticFloatingWarn" },
         MiniClueDescSingle = { link = "NormalFloat" },
@@ -762,20 +737,15 @@ M.all_highlights = {
         MiniClueSeparator = { fg = palette.extra.gray3 },
         MiniClueTitle = { link = "FloatTitle" },
 
-        --- MiniMap
         MiniMapNormal = { link = "NormalFloat" },
         MiniMapSymbolCount = { link = "Special" },
         MiniMapSymbolLine = { fg = palette.ansi.cyan },
         MiniMapSymbolView = { fg = palette.light.blue },
 
-        --- MiniOperators
         MiniOperatorsExchangeFrom = { link = "IncSearch" },
 
-        --- MiniIndentscope
         MiniIndentscopeSymbol = { link = "Delimiter" },
         MiniIndentscopePrefix = { nocombine = true },
-
-        MiniHipatternsNote = { fg = palette.normal, bg = palette.light.blue },
     },
 
     neogit = {
@@ -821,10 +791,7 @@ M.all_highlights = {
         TreesitterContextSeparator = { link = "FloatBorder" },
     },
 
-    treesitter = {
-        ["@module.builtin.lua"] = { fg = palette.ansi.magenta },
-        ["@diff.delta"] = { link = "diffChanged" },
-        ["@diff.minus"] = { link = "diffRemoved" },
+    lsp = {
         ["@lsp"] = {},
         ["@lsp.type.class"] = { fg = palette.ansi.magenta },
         ["@lsp.type.comment"] = { link = "@comment" },
@@ -836,10 +803,8 @@ M.all_highlights = {
         ["@lsp.type.interface"] = { link = "@interface" },
         ["@lsp.type.keyword"] = { link = "@keyword" },
         ["@lsp.type.macro"] = { link = "@constant.macro" },
-        ["@constant.macro"] = { link = "Macro" },
         ["@lsp.type.method"] = { link = "@function.method" },
         ["@lsp.type.modifier"] = { link = "@type.qualifier" },
-        ["@type.qualifier"] = { fg = palette.normal },
         ["@lsp.type.namespace"] = { link = "@namespace" },
         ["@lsp.type.number"] = { link = "@number" },
         ["@lsp.type.operator"] = { link = "@operator" },
@@ -852,6 +817,27 @@ M.all_highlights = {
         ["@lsp.type.typeParameter"] = { link = "@type.definition" },
         ["@lsp.type.variable"] = {},
         ["@lsp.mod.deprecated"] = { link = "DiagnosticDeprecated" },
+        ["@lsp.type.method.yaml.ansible"] = { fg = palette.ansi.cyan },
+        ["@lsp.type.keyword.yaml.ansible"] = { fg = palette.ansi.blue },
+        ["@lsp.type.type.terraform"] = { fg = palette.brights.white },
+        ["@lsp.mod.global.lua"] = { bold = true, fg = palette.brights.white },
+        ["@lsp.typemod.function.defaultLibrary.lua"] = { fg = palette.ansi.magenta },
+        ["@lsp.typemod.class.builtin.python"] = { italic = true, fg = palette.ansi.blue },
+        ["@lsp.type.class.python"] = { fg = palette.ansi.blue },
+        ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
+        ["@lsp.type.variable.lua"] = {},
+        ["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
+        ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
+        ["@lsp.typemod.operator.injected"] = { link = "@operator" },
+        ["@lsp.typemod.string.injected"] = { link = "@string" },
+        ["@lsp.typemod.variable.injected"] = { link = "@variable" },
+    },
+    treesitter = {
+        ["@module.builtin.lua"] = { fg = palette.ansi.magenta },
+        ["@diff.delta"] = { link = "diffChanged" },
+        ["@diff.minus"] = { link = "diffRemoved" },
+        ["@constant.macro"] = { link = "Macro" },
+        ["@type.qualifier"] = { fg = palette.normal },
         ["@markup"] = { link = "Special" },
         ["@markup.strong"] = { bold = true, fg = palette.brights.white },
         ["@markup.italic"] = { italic = true, fg = palette.brights.white },
@@ -869,21 +855,13 @@ M.all_highlights = {
         ["@comment.warning"] = { fg = palette.extra.bg1, bg = palette.dark.yellow },
         ["@comment.note"] = { link = "DiagnosticInfo" },
         ["@comment.todo"] = { fg = palette.extra.bg1, bg = palette.extra.gray4 },
-        ["@lsp.type.method.yaml.ansible"] = { fg = palette.ansi.cyan },
-        ["@lsp.type.keyword.yaml.ansible"] = { fg = palette.ansi.blue },
         ["@boolean.yaml"] = { bold = true },
         ["@boolean.terraform"] = { bold = true },
-        ["@lsp.type.type.terraform"] = { fg = palette.brights.white },
-        ["@lsp.mod.global.lua"] = { bold = true, fg = palette.brights.white },
         ["@boolean.lua"] = { bold = true },
-        ["@lsp.typemod.function.defaultLibrary.lua"] = { fg = palette.ansi.magenta },
         ["@keyword.directive.jinja"] = { fg = palette.ansi.yellow },
         ["@keyword.conditional.ternary.c"] = { bold = true, fg = palette.ansi.yellow },
         ["@constant.builtin.c"] = { bold = true, fg = palette.brights.white },
         ["@boolean.python"] = { bold = true, fg = palette.brights.black },
-        ["@lsp.typemod.class.builtin.python"] = { italic = true, fg = palette.ansi.blue },
-        ["@lsp.type.class.python"] = { fg = palette.ansi.blue },
-        ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
         ["@namespace"] = {},
         ["@interface"] = {},
         ["@string.special.symbol"] = { link = "@constant" },
@@ -920,7 +898,6 @@ M.all_highlights = {
         ["@tag.delimiter.javascript"] = { link = "@tag.attribute.javascript" },
         ["@tag.delimiter.tsx"] = { link = "@tag.attribute.tsx" },
         ["@property.json"] = { link = "@tag" },
-        ["@lsp.type.variable.lua"] = {},
         ["@constructor.lua"] = { fg = palette.normal },
         ["@operator.lua"] = { fg = palette.normal },
         ["@property.lua"] = { fg = palette.normal },
@@ -971,11 +948,6 @@ M.all_highlights = {
         ["@keyword.exception"] = { fg = palette.ansi.magenta },
         ["@keyword.function"] = { bold = true, fg = palette.normal },
         ["@keyword.operator"] = { fg = palette.ansi.magenta },
-        ["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
-        ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
-        ["@lsp.typemod.operator.injected"] = { link = "@operator" },
-        ["@lsp.typemod.string.injected"] = { link = "@string" },
-        ["@lsp.typemod.variable.injected"] = { link = "@variable" },
         ["@string.regexp"] = { fg = palette.ansi.yellow },
         ["@string.special"] = { link = "SpecialChar" },
         ["@string.escape"] = { fg = palette.ansi.yellow },
@@ -990,7 +962,6 @@ M.all_highlights = {
         ["@attribute"] = { link = "Constant" },
         ["@attribute.builtin"] = { link = "Special" },
         ["@property"] = { link = "@variable.member" },
-        Identifier = { fg = palette.normal },
         ["@function"] = { link = "Function" },
         ["@function.builtin"] = { fg = palette.ansi.magenta },
         ["@constructor"] = { fg = palette.ansi.magenta },
