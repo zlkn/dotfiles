@@ -452,7 +452,7 @@ M.all_highlights = {
         DiagnosticSignHint = { link = "DiagnosticHint" },
         DiagnosticSignOk = { link = "DiagnosticOk" },
         DiagnosticUnnecessary = { link = "Comment" },
-        Comment = { italic = true, nocombine = true, fg = palette.brights.black },
+        Comment = { italic = true, nocombine = true, fg = palette.brights.black, bg = none },
         String = { fg = palette.brights.green },
         Function = { fg = palette.ansi.cyan },
         Operator = { fg = palette.normal },
