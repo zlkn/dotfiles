@@ -37,6 +37,8 @@ require("plugins.mini.cursorword")
 require("plugins.mini.hipatterns")
 require("plugins.mini.icons")
 require("plugins.mini.notify")
+require("plugins.mini.git")
+require("plugins.mini.diff")
 
 -- Enhance ui
 require("plugins.indent-blankline")
@@ -47,8 +49,6 @@ require("plugins.flash")
 
 -- git ingegration
 -- require("plugins.gitsigns")
-require("mini.diff").setup({ view = { style = "sign", signs = { add = " ▎", change = " ▎", delete = " ▎" } } })
-require("mini.git").setup()
 
 -- Syntax highlight
 require("plugins.nvim-treesitter")
