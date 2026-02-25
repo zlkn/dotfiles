@@ -18,7 +18,7 @@ function __fish_clear_buffer
 end
 
 function fish_user_key_bindings
-    bind -k nul forward-word
+    # bind -k nul forward-word
     # bind \cr __fzf_history_search
     bind \cl __fish_clear_buffer
     bind \cq __fish_clear_buffer
