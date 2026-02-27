@@ -23,7 +23,7 @@ MiniDeps.later(function()
             local time = obj.stdout:match("author%-time (%d+)")
             local date = os.date("%Y-%m-%d", tonumber(time))
 
-            local text = string.format("  󰊢 %s • %s • %s", author, date, summary)
+            local text = string.format("  %s • %s • %s", author, date, summary)
 
             -- Update UI on main thread
             vim.schedule(function()
