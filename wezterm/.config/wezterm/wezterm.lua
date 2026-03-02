@@ -26,27 +26,4 @@ require("keys").apply_to_config(config)
 require("appearance").apply(config, colorscheme, font, font_size)
 require("format_tab_tittle")
 
---- Right status bar
-wezterm.on("update-right-status", function(window, _)
-    local want = window:leader_is_active()
-    local overrides = window:get_config_overrides() or {}
-
-    -- turn on while leader is held
-    if want and overrides.show_tab_index_in_tab_bar ~= true then
-        window:set_config_overrides(overrides)
-    end
-
-    -- turn off when leader released (nil = revert to base config)
-    if not want and overrides.show_tab_index_in_tab_bar ~= nil then
-        window:set_config_overrides(overrides)
-    end
-
-    local hint = want and "Leader Active " or " "
-    -- Optional: a tiny visual hint in the right status when Leader is down
-    window:set_right_status(wezterm.format({
-        { Foreground = { Color = colorscheme.palette.normal } },
-        { Text = hint },
-    }))
-end)
-
 return config
