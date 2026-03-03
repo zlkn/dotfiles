@@ -20,9 +20,9 @@ vim.o.cursorline = true -- Highlight the current line
 vim.o.statuscolumn = "%l%s" -- Sign columng after numbers
 vim.o.signcolumn = "yes" -- Always show sign column (otherwise it will shift text)
 vim.o.fillchars = "eob: " -- Don't show `~` outside of buffer
-vim.o.updatetime = 500
+vim.o.updatetime = 1000
 
-vim.opt.clipboard = "unnamedplus" -- Copy to systemc clipbiard
+vim.opt.clipboard = "unnamedplus" -- Copy to system clipbiard
 
 -- Editing
 vim.o.ignorecase = true -- Ignore case when searching (use `\C` to force not doing that)
