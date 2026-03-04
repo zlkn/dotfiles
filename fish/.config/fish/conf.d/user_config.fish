@@ -3,6 +3,7 @@ if not status is-interactive
 end
 
 set -g -x USE_GKE_GCLOUD_AUTH_PLUGIN True
+set -gx ANTHROPIC_API_KEY (python3 -c "import json; print(json.load(open('$HOME/.claude.json'))['primaryApiKey'])" 2>/dev/null)
 
 function __fzf_history_search
     commandline (history | fzf)
