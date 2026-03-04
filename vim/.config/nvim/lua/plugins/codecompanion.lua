@@ -7,10 +7,23 @@ MiniDeps.add({
     },
 })
 MiniDeps.later(function()
-    -- Other package managers
     require("codecompanion").setup({
+        adapters = {
+            anthropic = function()
+                return require("codecompanion.adapters").extend("anthropic", {
+                    env = {
+                        api_key = "ANTHROPIC_API_KEY",
+                    },
+                })
+            end,
+        },
+        strategies = {
+            chat = { adapter = "anthropic" },
+            inline = { adapter = "anthropic" },
+            agent = { adapter = "anthropic" },
+        },
         opts = {
-            log_level = "DEBUG", -- or "TRACE"
+            log_level = "DEBUG",
         },
     })
 end)
