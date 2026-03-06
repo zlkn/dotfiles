@@ -4,5 +4,4 @@ gui:
     # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#highlighting-the-selected-line
     selectedLineBgColor:
       - "#dfdfe1"
-      # - "#e9e9e9"
- 
+
