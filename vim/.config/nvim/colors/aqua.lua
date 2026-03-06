@@ -629,9 +629,9 @@ M.all_highlights = {
         MiniJump = { link = "SpellRare" },
         MiniJump2dSpotAhead = { nocombine = true, fg = palette.ansi.cyan },
 
-        MiniDiffSignAdd = { fg = palette.brights.green },
-        MiniDiffSignDelete = { fg = palette.ansi.red },
-        MiniDiffSignChange = { fg = palette.ansi.yellow },
+        MiniDiffSignAdd = { fg = palette.brights.green, bold = true },
+        MiniDiffSignDelete = { fg = palette.ansi.red, bold = true },
+        MiniDiffSignChange = { fg = palette.ansi.yellow, bold = true },
         MiniDiffOverContext = { fg = palette.normal, bg = palette.light.cyan },
         MiniDiffOverChange = { fg = palette.normal, bg = palette.light.yellow },
         MiniDiffOverDelete = { link = "DiffDelete" },
