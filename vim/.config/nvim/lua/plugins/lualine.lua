@@ -131,10 +131,10 @@ MiniDeps.later(function()
                 {
                     "diagnostics",
                     symbols = {
-                        error = " ",
-                        warn = "󰗖 ",
-                        hint = " ",
-                        info = " ",
+                        error = vim.g.symbol_error,
+                        warn = vim.g.symbol_warn,
+                        hint = vim.g.symbol_hint,
+                        info = vim.g.symbol_info,
                     },
                 },
             },
