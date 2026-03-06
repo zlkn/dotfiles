@@ -14,16 +14,19 @@ local font_size = 11
 local font = { family = "JetBrains Mono", weight = "Light" }
 config.font = wezterm.font(font)
 config.font_size = font_size
-config.bold_brightens_ansi_colors = false
+-- config.bold_brightens_ansi_colors = false
 
 -- Colorscheme
 local colorscheme = require("colors")
 config.colors = colorscheme.colors
+-- config.color_scheme = "Seoul256 Light (Gogh)" -- Awfull contrast
+-- config.color_scheme = "Silk Light (base16)" -- Eye burnt
+-- config.color_scheme = "Solarized (light) (terminal.sexy)"
 config.default_cursor_style = "BlinkingBar"
 
 require("wayland_gnome").apply_to_config(config)
 require("keys").apply_to_config(config)
-require("appearance").apply(config, colorscheme, font, font_size)
+require("appearance").apply(config, true, colorscheme, font, font_size)
 require("format_tab_tittle")
 
 return config
