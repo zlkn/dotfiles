@@ -1,4 +1,5 @@
 abbr --add n "nvim"
+abbr --add kctx "kubectx"
 abbr --add g "git"
 abbr --add gl "git pull"
 abbr --add gp "git push"
