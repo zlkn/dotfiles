@@ -15,6 +15,10 @@ local font = { family = "JetBrains Mono", weight = "Light" }
 config.font = wezterm.font(font)
 config.font_size = font_size
 -- config.bold_brightens_ansi_colors = false
+config.inactive_pane_hsb = {
+    saturation = 1.0,
+    brightness = 1.0,
+}
 
 -- Colorscheme
 local colorscheme = require("colors")
@@ -26,7 +30,7 @@ config.default_cursor_style = "BlinkingBar"
 
 require("wayland_gnome").apply_to_config(config)
 require("keys").apply_to_config(config)
-require("appearance").apply(config, true, colorscheme, font, font_size)
+require("appearance").apply(config, colorscheme, font, font_size)
 require("format_tab_tittle")
 
 return config
