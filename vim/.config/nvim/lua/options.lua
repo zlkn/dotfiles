@@ -23,6 +23,7 @@ vim.o.fillchars = "eob: " -- Don't show `~` outside of buffer
 vim.o.updatetime = 1000
 
 vim.opt.clipboard = "unnamedplus" -- Copy to system clipbiard
+vim.opt.winborder = "rounded"
 
 -- Editing
 vim.o.ignorecase = true -- Ignore case when searching (use `\C` to force not doing that)
