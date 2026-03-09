@@ -1,9 +1,5 @@
 MiniDeps.add({
     source = "nvim-treesitter/nvim-treesitter",
-    -- Use 'master' while monitoring updates in 'main'
-    checkout = "main",
-    monitor = "main",
-    -- Perform action after every checkout
     hooks = {
         post_checkout = function()
             vim.cmd("TSUpdate")
