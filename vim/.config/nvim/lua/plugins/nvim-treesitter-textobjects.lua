@@ -1,0 +1,5 @@
+MiniDeps.add("nvim-treesitter/nvim-treesitter-textobjects")
+MiniDeps.later(function()
+    local textobjects = require("nvim-treesitter-textobjects")
+    textobjects.setup({    })
+end)

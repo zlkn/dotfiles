@@ -53,7 +53,7 @@ require("plugins.flash")
 -- Syntax highlight
 require("plugins.nvim-treesitter")
 require("plugins.nvim-treesitter-context")
--- require("plugins.nvim-treesitter-textobjects")
+require("plugins.nvim-treesitter-textobjects")
 
 -- LSP/completion/autoformat/docs
 require("plugins.nvim-lspconfig")
