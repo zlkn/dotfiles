@@ -341,7 +341,7 @@ M.all_highlights = {
         WinSeparator = { fg = palette.extra.pencilGray },
         VertSplit = { fg = palette.extra.pencilGray },
         Title = { bold = true, fg = palette.brights.white },
-        Visual = { bg = palette.extra.gray1 },
+        Visual = { bg = palette.extra.gray4 },
         VisualNC = {},
         WarningMsg = { fg = palette.ansi.yellow },
         WildMenu = { link = "Pmenu" },
