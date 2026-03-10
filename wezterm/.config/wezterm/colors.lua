@@ -11,7 +11,7 @@ local colors = {
     cursor_bg = palette.cursor,
     cursor_border = palette.brights.white,
 
-    selection_bg = palette.extra.gray4,
+    selection_bg = palette.extra.gray0,
     selection_fg = fg,
 
     scrollbar_thumb = fg,
