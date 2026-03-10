@@ -400,7 +400,7 @@ M.all_highlights = {
         Repeat = { link = "Conditional" },
         Label = { link = "Conditional" },
         -- Keyword = { bold = true, fg = palette.brights.white },
-        Keyword = { fg = palette.brights.white },
+        Keyword = { bold = true, fg = palette.brights.white },
         Exception = { link = "Keyword" },
         Include = { link = "PreProc" },
         PreProc = { fg = palette.normal },
