@@ -633,7 +633,7 @@ M.all_highlights = {
         MiniDiffSignAdd = { fg = palette.brights.green, bold = true },
         MiniDiffSignDelete = { fg = palette.ansi.red, bold = true },
         MiniDiffSignChange = { fg = palette.ansi.yellow, bold = true },
-        MiniDiffOverContext = { fg = palette.normal, bg = palette.light.cyan },
+        MiniDiffOverContext = { fg = palette.normal, bg = palette.light.green },
         MiniDiffOverChange = { fg = palette.normal, bg = palette.light.yellow },
         MiniDiffOverDelete = { link = "DiffDelete" },
         MiniDiffOverAdd = { link = "DiffAdd" },

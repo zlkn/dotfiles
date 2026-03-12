@@ -4,30 +4,13 @@
 # * Current directory name
 # * Git branch and dirty state (if inside a git repo)
 
-function _git_branch_ahead
-    set -l ahead (command git rev-list --count @{u}..HEAD 2> /dev/null)
-    if not string match -qr '^\d+$' $ahead
-        echo 0
-    else
-        echo $ahead
-    end
-end
-
-function _git_branch_behind
-    set -l behind (command git rev-list --count HEAD..@{u} 2> /dev/null)
-    if not string match -qr '^\d+$' $behind
-        echo 0
-    else
-        echo $behind
-    end
-end
-
 function _git_branch_name
-    echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
+    command git symbolic-ref --short HEAD 2> /dev/null
 end
 
-function _git_dirty
-    echo (command git status -s --ignore-submodules=dirty 2> /dev/null)
+function _git_ahead_behind
+    # Returns "behind\tahead" in one git call
+    command git rev-list --left-right --count @{u}...HEAD 2> /dev/null
 end
 
 function _git_info
@@ -39,31 +22,30 @@ function _git_info
     set -l brred (set_color brred)
     set -l normal (set_color normal)
 
-    if test (functions -q _git_branch_name) -a (set -q (_git_branch_name))
-        # truncate branch name to 15 characters
-        set -l git_branch "$(_git_branch_name)"
+    set -l git_branch (_git_branch_name)
+    if test -n "$git_branch"
+        set git_branch "  $git_branch"
 
-        if test (string length $git_branch) -gt 0
-            set git_branch "  $git_branch"
-        end
+        # truncate branch name to 15 characters + prefix
         if test (string length $git_branch) -gt 16
-            set git_branch (string sub -s 1 -l 16 $git_branch)
-            set git_branch "$git_branch..."
+            set git_branch (string sub -s 1 -l 16 $git_branch)"..."
         end
 
-        # Retrieve ahead and behind counts, ensuring they are numbers or fallback to 0
-        set -l behind (_git_branch_behind)
-        set -l ahead (_git_branch_ahead)
-        set -l status_color $green
+        set -l ahead 0
+        set -l behind 0
+        set -l counts (string split \t (_git_ahead_behind))
+        if test (count $counts) -eq 2
+            string match -qr '^\d+$' $counts[1]; and set behind $counts[1]
+            string match -qr '^\d+$' $counts[2]; and set ahead $counts[2]
+        end
 
+        set -l status_color $green
         if test $ahead -gt 0 -a $behind -gt 0
             set status_color $brred
         else if test $ahead -gt 0
             set status_color $yellow
         else if test $behind -gt 0
             set status_color $blue
-        else
-            set status_color $green
         end
 
         set git_info "$status_color$git_branch$normal"
@@ -80,8 +62,9 @@ function _python_env
     set -l color (set_color yellow)
     set -l normal (set_color normal)
     if test -n "$VIRTUAL_ENV"
-        set -l python_version (python --version | awk '{print $2}')
-        echo -ns " $color $python_version$normal"
+        set -l python_version (string split ' ' (python --version))[2]
+        set -l python_version "󰌠 $python_version"
+        echo -ns " $color $python_version$normal"
     end
 end
 
@@ -125,15 +108,15 @@ end
 
 function fish_right_prompt
     return
-  end
+end
 
 function fish_prompt
     set -l last_status (_exit_status)
     set -l cmd_duration (_cmd_duration)
     set -l cwd (basename (prompt_pwd))
     set -l git_info (_git_info)
-    set -l pytohn_env (_python_env)
+    set -l python_env (_python_env)
     set -l playground_env (_playground_env)
 
-    printf '%s' $playground_env $cwd $pytohn_env $git_info $cmd_duration $last_status ' '
+    printf '%s' $playground_env $cwd $python_env $git_info $cmd_duration $last_status ' '
 end
