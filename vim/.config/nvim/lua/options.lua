@@ -79,7 +79,7 @@ vim.diagnostic.config({
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = vim.g.symbol_error,
-            [vim.diagnostic.severity.WARN] = vim.g.symbol_error,
+            [vim.diagnostic.severity.WARN] = vim.g.symbol_warn,
             [vim.diagnostic.severity.INFO] = vim.g.symbol_info,
             [vim.diagnostic.severity.HINT] = vim.g.symbol_hint,
         },
