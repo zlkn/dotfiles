@@ -64,7 +64,7 @@ MiniDeps.now(function()
             if client.workspace_folders then
                 local path = client.workspace_folders[1].name
                 if
-                    path ~= vim.fn.stdpath("config") and vim.loop.fs_stat(path .. "/.luarc.json")
+                    path ~= vim.fn.stdpath("config") and vim.uv.fs_stat(path .. "/.luarc.json")
                 then
                     return
                 end
@@ -108,13 +108,9 @@ MiniDeps.now(function()
     })
     vim.lsp.enable("terraformls")
     vim.lsp.config("terraformls", {
-        servers = {
-            terraformls = {
-                cmd = { "terraform-ls", "serve" },
-                filetypes = { "terraform", "tf" },
-                root_markers = { ".terraform", ".git" },
-            },
-        },
+        cmd = { "terraform-ls", "serve" },
+        filetypes = { "terraform", "tf" },
+        root_markers = { ".terraform", ".git" },
     })
 
     vim.lsp.enable("ansiblels")
