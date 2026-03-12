@@ -12,8 +12,8 @@ map("n", "<leader>rx", "<cmd>source %<CR>", { desc = "Execute lua code" })
 map("v", "<leader>rx", ":.lua<CR>", { desc = "Execute lua code" })
 
 -- Split window
-map("n", "<leader>\\", "<cmd>vsplit<CR>", { desc = "Split vertial" })
-map("n", "<leader>-", "<cmd>split<CR>", { desc = "Split horisontal" })
+map("n", "<leader>\\", "<cmd>vsplit<CR>", { desc = "Split vertical" })
+map("n", "<leader>-", "<cmd>split<CR>", { desc = "Split horizontal" })
 
 -- Jump
 map("n", "<C-h>", "<C-w>h", { silent = true })
@@ -40,8 +40,8 @@ map("n", "]d", function()
 end)
 
 -- make < > shifts keep selection
-vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
+map("v", "<", "<gv", { noremap = true, silent = true })
+map("v", ">", ">gv", { noremap = true, silent = true })
 
 -- somewhere in your init.lua or a helper module:
 
@@ -89,19 +89,19 @@ map("n", "<leader>cp", CopyRelativePathToClipboard, { desc = "Copy relative path
 map("n", "<leader>th", function()
     vim.v.hlsearch = vim.v.hlsearch ~= 1
     vim.print((vim.o.hlsearch and vim.v.hlsearch == 1 and "Enable" or "Disable") .. " hlsearch")
-end, { desc = "toogle hlsearch" })
+end, { desc = "Toggle hlsearch" })
 
--- Toogle inlay_hint
+-- Toggle inlay_hint
 map("n", "<leader>ti", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
     print((vim.lsp.inlay_hint.is_enabled and "Enable" or "Disable") .. " inlay hints")
-end, { desc = "tootle inlay hint" })
+end, { desc = "Toggle inlay hint" })
 
 map("n", "<leader>gd", function()
     MiniDiff.toggle_overlay()
-end, { desc = "toogle diff overlay" })
+end, { desc = "Toggle diff overlay" })
 
-map("n", "<leader>gg", "<cmd>Git diff<CR>", { desc = "toogle diff overlay" })
+map("n", "<leader>gg", "<cmd>Git diff<CR>", { desc = "Toggle diff overlay" })
 
 -- Save original semanticTokens handler (for older Neovim)
 local original_semantic_handler = vim.lsp.handlers["textDocument/semanticTokens/full"]
@@ -112,7 +112,7 @@ local function set_semantic_tokens_enabled(enabled)
         local st = vim.lsp.semantic_tokens
         local bufnr = 0
 
-        for _, client in pairs(vim.lsp.get_active_clients({ bufnr = bufnr })) do
+        for _, client in pairs(vim.lsp.get_clients({ bufnr = bufnr })) do
             if enabled then
                 if st.start then
                     pcall(st.start, bufnr, client.id)
