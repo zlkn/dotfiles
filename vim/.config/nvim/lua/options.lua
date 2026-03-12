@@ -60,10 +60,7 @@ vim.opt.guicursor = {
     "i-ci:ver25-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
     "r:hor50-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
 }
-vim.g.symbol_error
-vim.g.symbol_warn
-vim.g.symbol_info
-vim.g.symbol_hint
+
 vim.g.symbols = {
     error = "✘ ",
     warn = "󱐌 ",
