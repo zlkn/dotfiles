@@ -60,11 +60,16 @@ vim.opt.guicursor = {
     "i-ci:ver25-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
     "r:hor50-Cursor/lCursor-blinkwait6000-blinkon800-blinkoff200",
 }
-
-vim.g.symbol_error = "✘ "
-vim.g.symbol_warn = "󱐌 "
-vim.g.symbol_info = " "
-vim.g.symbol_hint = "󰌶 "
+vim.g.symbol_error
+vim.g.symbol_warn
+vim.g.symbol_info
+vim.g.symbol_hint
+vim.g.symbols = {
+    error = "✘ ",
+    warn = "󱐌 ",
+    info = " ",
+    hint = "󰌶 ",
+}
 
 vim.diagnostic.config({
     virtual_lines = false,
@@ -78,10 +83,10 @@ vim.diagnostic.config({
 
     signs = {
         text = {
-            [vim.diagnostic.severity.ERROR] = vim.g.symbol_error,
-            [vim.diagnostic.severity.WARN] = vim.g.symbol_warn,
-            [vim.diagnostic.severity.INFO] = vim.g.symbol_info,
-            [vim.diagnostic.severity.HINT] = vim.g.symbol_hint,
+            [vim.diagnostic.severity.ERROR] = vim.g.symbols.error,
+            [vim.diagnostic.severity.WARN] = vim.g.symbols.warn,
+            [vim.diagnostic.severity.INFO] = vim.g.symbols.info,
+            [vim.diagnostic.severity.HINT] = vim.g.symbols.hint,
         },
     },
     severity_sort = true,
