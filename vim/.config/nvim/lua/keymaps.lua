@@ -56,7 +56,7 @@ vim.api.nvim_create_user_command("YamlGetAllPaths", function()
 end, {})
 
 vim.api.nvim_create_user_command("YamlSchemas", function()
-    local clients = vim.lsp.get_active_clients()
+    local clients = vim.lsp.get_clients()
     for _, client in ipairs(clients) do
         if client.name == "yamlls" then
             print(vim.inspect(client.config.settings.yaml.schemas))
@@ -102,10 +102,6 @@ map("n", "<leader>gd", function()
 end, { desc = "toogle diff overlay" })
 
 map("n", "<leader>gg", "<cmd>Git diff<CR>", { desc = "toogle diff overlay" })
-
-local M = {}
-
-M.monochrome = false
 
 -- Save original semanticTokens handler (for older Neovim)
 local original_semantic_handler = vim.lsp.handlers["textDocument/semanticTokens/full"]
