@@ -136,38 +136,3 @@ local function set_semantic_tokens_enabled(enabled)
         end
     end
 end
-
-function ToggleMonochrome()
-    M.monochrome = not M.monochrome
-
-    if M.monochrome then
-        -- Turn OFF classic syntax
-        vim.cmd("syntax off")
-
-        -- Turn OFF Treesitter highlight for current buffer (if plugin exists)
-        vim.treesitter.stop(0)
-
-        -- Turn OFF LSP semantic tokens
-        set_semantic_tokens_enabled(false)
-
-        -- OPTIONAL: force everything gray
-        vim.api.nvim_set_hl(0, "Normal", { fg = "#808080" })
-        vim.api.nvim_set_hl(0, "NormalNC", { fg = "#808080" })
-    else
-        -- Turn ON classic syntax
-        vim.cmd("syntax on")
-
-        -- Turn ON Treesitter highlight for current buffer
-        pcall(vim.cmd, "TSEnable highlight")
-
-        -- Turn ON LSP semantic tokens
-        set_semantic_tokens_enabled(true)
-
-        -- OPTIONAL: reload your colorscheme so colors come back
-        vim.cmd("colorscheme github_light")
-    end
-
-    print("Monochrome mode: " .. (M.monochrome and "ON" or "OFF"))
-end
-
-map("n", "<leader>ts", ToggleMonochrome, { desc = "Toogle monochrome mode" })
