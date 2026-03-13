@@ -46,6 +46,7 @@ MiniDeps.now(function()
         install_dir = vim.fn.stdpath("data") .. "/site",
     })
 
+    -- FIXME: Attempt to call install nil value
     -- require("nvim-treesitter").install(packages) -- wait max. 5 minutes
 
     vim.api.nvim_create_autocmd("FileType", {
