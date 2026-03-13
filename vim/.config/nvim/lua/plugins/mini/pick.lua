@@ -31,6 +31,8 @@ MiniDeps.later(function()
     map("n", "<leader>pr", registry.resume, { desc = "Resume last search" })
     map("n", "<leader>pd", ":Pick diagnostic<CR>", { desc = "Diagnostics" })
 
+    map("n", "<leader>gg", ":Pick git_commits<CR>", { desc = "Git commits" })
+
     map("n", "gD", ":Pick lsp scope='declaration'<CR>", { desc = "Goto declaration" })
     map("n", "gd", ":Pick lsp scope='definition'<CR>", { desc = "Goto definition" })
     map("n", "gi", ":Pick lsp scope='implementation'<CR>", { desc = "Goto implementation" })
