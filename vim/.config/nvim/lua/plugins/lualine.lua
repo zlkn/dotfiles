@@ -55,7 +55,7 @@ local function get_lsp()
         local copilot = " "
 
         -- Get LSP clients attached to the current buffer onlo
-        local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+        local clients = vim.lsp.get_clients({ bufnr = 0 })
 
         if not clients or next(clients) == nil then
             return "  󱔹 "
