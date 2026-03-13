@@ -35,7 +35,7 @@ ansi_colors = {
     "blue": "#015493",
     "magenta": "#75228e",
     "cyan": "#007474",
-    "white": "#2C363C",
+    "white": "#424242",
 }
 
 print(f"{'Цвет':<10} | {'Contrast':<10} | {'WCAG AA (4.5:1)':<15}")
