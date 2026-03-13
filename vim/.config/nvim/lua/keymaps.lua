@@ -16,10 +16,6 @@ map("n", "<leader>\\", "<cmd>vsplit<CR>", { desc = "Split vertical" })
 map("n", "<leader>-", "<cmd>split<CR>", { desc = "Split horizontal" })
 
 -- Jump
-map("n", "<C-h>", "<C-w>h", { silent = true })
-map("n", "<C-j>", "<C-w>j", { silent = true })
-map("n", "<C-k>", "<C-w>k", { silent = true })
-map("n", "<C-l>", "<C-w>l", { silent = true })
 map("n", "H", ":bnext<CR>", { noremap = true, silent = true })
 map("n", "L", ":bprev<CR>", { noremap = true, silent = true })
 
