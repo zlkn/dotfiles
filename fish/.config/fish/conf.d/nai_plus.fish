@@ -63,8 +63,8 @@ function _python_env
     set -l normal (set_color normal)
     if test -n "$VIRTUAL_ENV"
         set -l python_version (string split ' ' (python --version))[2]
-        set -l python_version "󰌠 $python_version"
-        echo -ns " $color $python_version$normal"
+        set -l python_version " 󰌠 $python_version"
+        echo -ns "$color$python_version$normal"
     end
 end
 
