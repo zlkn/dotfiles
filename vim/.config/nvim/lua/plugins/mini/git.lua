@@ -37,7 +37,8 @@ MiniDeps.later(function()
         end)
     end
 
-    vim.keymap.set("n", "<leader>gb", show_blame_ghost, { desc = "Show line blame ghost" })
+    local map = vim.keymap.set
+    map("n", "<leader>gb", show_blame_ghost, { desc = "Show line blame ghost" })
 
     vim.api.nvim_create_autocmd("CursorMoved", {
         callback = function()
