@@ -23,6 +23,9 @@ config.inactive_pane_hsb = {
 -- Colorscheme
 local colorscheme = require("colors")
 config.colors = colorscheme.colors
+-- config.color_scheme = "zenbones"
+-- config.color_scheme = "zenbones_dark"
+-- config.color_scheme = "Zenburn (base16)"
 -- config.color_scheme = "Seoul256 Light (Gogh)" -- Awfull contrast
 -- config.color_scheme = "Silk Light (base16)" -- Eye burnt
 -- config.color_scheme = "Solarized (light) (terminal.sexy)"
