@@ -23,7 +23,7 @@ local palette = {
         yellow  = "#8d5b00",
         blue = "#015493",
         magenta = "#75228e",
-        cyan    = "#007070",
+        cyan    = "#007474",
         white   = "#424242"
       },
     brights = {
@@ -33,8 +33,8 @@ local palette = {
         yellow  = "#8d5b00",
         blue = "#015493",
         magenta = "#75228e",
-        cyan    = "#007070",
-        white = "#004c63",
+        cyan    = "#007474",
+        white = "#00425c",
       },
       light = {
         black   = "#57606a",
@@ -66,20 +66,8 @@ local palette = {
         violet = '#b16286',
     },
     extra = {
-        deepTeal = "#3a869c",
-        darkBlue = "#0a3069",
-        brightBlue = "#0550ae",
-        teal = "#004c63",
-        tirquose = "#007474",
-        darkGreen = "#1a7248",
-        moonStonecyan = "#4fb8cc",
-        cornflowerBlue = "#b6d6fd",
         bg1 = "#f2f2f2",
         bg2 = "#e7e7e7",
-        backgroundGray = "#e7e7e7",
-        background = "#e7e7e7",
-        darkGray = "#424242",
-        mediumGray = "#808080",
         pencilGray = "#9d9d9d",
         gray4 = "#d1dfe1",
         gray0 = "#dfdfe1",
@@ -88,7 +76,6 @@ local palette = {
         gray3 = "#57606a",
         gray5 = "#b4b4b6",
         white = "#6f8396",
-        pureWhite = "#ffffff",
       },
   }
 return palette
