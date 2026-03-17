@@ -36,4 +36,18 @@ require("keys").apply_to_config(config)
 require("appearance").apply(config, colorscheme, font, font_size)
 require("format_tab_title")
 
+wezterm.on("update-status", function(window, pane)
+    local tab = window:active_tab()
+    local panes = tab:panes_with_info()
+    local is_zoomed = #panes > 1 and panes[1].is_zoomed
+
+    if is_zoomed then
+        window:set_right_status(wezterm.format({
+            { Foreground = { Color = "#ffaa00" } },
+            { Text = " ZOOMED " },
+        }))
+    else
+        window:set_right_status("")
+    end
+end)
 return config
