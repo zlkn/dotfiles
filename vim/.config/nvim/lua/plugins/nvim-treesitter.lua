@@ -9,6 +9,7 @@ MiniDeps.add({
 
 MiniDeps.now(function()
     local packages = {
+        "sql",
         "bash",
         "c",
         "cpp",
