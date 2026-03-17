@@ -40,6 +40,10 @@ MiniDeps.later(function()
     map("n", "gy", ":Pick lsp scope='type_definition'<CR>", { desc = "Goto t[y]pe definition" })
 
     map("n", "<leader>py", ":Pick yaml_keytrail<CR>", { desc = "Fzf over yaml file" })
+
+    map("n", "<leader>pc", function()
+        MiniPick.builtin.grep({ pattern = "^<<<<<<<" })
+    end, { desc = "Merge conflicts" })
 end)
 
 M = {}
