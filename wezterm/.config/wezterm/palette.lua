@@ -21,7 +21,7 @@ local palette = {
         blue = "#015493",
         magenta = "#75228e",
         cyan    = "#007474",
-        white = "#00425c",
+        white = "#085157"
       },
       light = {
         black   = "#57606a",
@@ -53,13 +53,8 @@ local palette = {
         violet = '#b16286',
     },
     extra = {
-        cornflowerBlue = "#b6d6fd",
         bg1 = "#f2f2f2",
         bg2 = "#e7e7e7",
-        backgroundGray = "#e7e7e7",
-        background = "#e7e7e7",
-        darkGray = "#424242",
-        mediumGray = "#808080",
         pencilGray = "#9d9d9d",
         gray4 = "#d1dfe1",
         gray0 = "#dfdfe1",
@@ -68,7 +63,6 @@ local palette = {
         gray3 = "#57606a",
         gray5 = "#b4b4b6",
         white = "#6f8396",
-        pureWhite = "#ffffff",
       },
   }
 return palette
