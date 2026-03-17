@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 vim.o.mouse = "a" -- Enable mouse support
 
+-- disable netrw
 -- use mini-files instead
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -62,10 +63,10 @@ vim.opt.guicursor = {
 }
 
 vim.g.symbols = {
-    error = "✘ ",
-    warn = "󱐌 ",
-    info = " ",
-    hint = "󰌶 ",
+    error = "✘",
+    warn = "󱐌",
+    info = "",
+    hint = "󰌶",
 }
 
 vim.diagnostic.config({
