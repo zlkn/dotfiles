@@ -14,7 +14,7 @@ do
   -- !!! Generated do not edit manually !!!
 local palette = {
     normal = "#424242",
-    cursor = "#20bbfc",
+    cursor = "#424242",
     ansi = {
         -- black   = "#f0edec",
         black = "#d1d1d1",

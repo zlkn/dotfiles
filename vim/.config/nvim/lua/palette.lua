@@ -1,7 +1,7 @@
   -- !!! Generated do not edit manually !!!
 local palette = {
     normal = "#424242",
-    cursor = "#20bbfc",
+    cursor = "#424242",
     ansi = {
         -- black   = "#f0edec",
         black = "#d1d1d1",
@@ -22,6 +22,7 @@ local palette = {
         magenta = "#75228e",
         cyan    = "#007474",
         white = "#085157"
+        -- white = "00425c",
       },
       light = {
         black   = "#57606a",
