@@ -63,9 +63,7 @@ MiniDeps.now(function()
         on_init = function(client)
             if client.workspace_folders then
                 local path = client.workspace_folders[1].name
-                if
-                    path ~= vim.fn.stdpath("config") and vim.uv.fs_stat(path .. "/.luarc.json")
-                then
+                if path ~= vim.fn.stdpath("config") and vim.uv.fs_stat(path .. "/.luarc.json") then
                     return
                 end
             end
@@ -138,8 +136,11 @@ MiniDeps.now(function()
     vim.lsp.enable("ruff")
     vim.lsp.config("ruff", {})
 
-    vim.lsp.enable("basedpyright")
-    vim.lsp.config("basedpyright", {})
+    -- vim.lsp.enable("basedpyright")
+    -- vim.lsp.config("basedpyright", {})
+
+    vim.lsp.enable("ruff", {})
+    vim.lsp.config("ruff", {})
     vim.lsp.enable("gopls")
     vim.lsp.config("gopls", {})
 end)
