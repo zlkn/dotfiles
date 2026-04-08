@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+need() {
+    command -v "$1" >/dev/null 2>&1 || { echo "!! $1 not found, skipping"; return 1; }
+}
+
+echo "==> Building tree-sitter grammars..."
+hx --grammar fetch
+hx --grammar build
+
+echo "==> Installing LSP servers..."
+need go      && go install golang.org/x/tools/gopls@latest
+need npm     && npm install -g yaml-language-server
+need rustup  && rustup component add rust-analyzer
+
+echo "==> Done."
