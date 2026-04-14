@@ -58,10 +58,10 @@ vim.opt.guicursor = {
 }
 
 vim.g.symbols = {
-    error = "✘",
-    warn = "󱐌",
-    info = "",
-    hint = "󰌶",
+    error = "✘ ",
+    warn = "󱐌 ",
+    info = " ",
+    hint = "󰌶 ",
 }
 
 vim.diagnostic.config({
