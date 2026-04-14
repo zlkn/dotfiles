@@ -1,3 +1,7 @@
+if not status is-interactive
+    exit
+end
+
 function claude
     if command -q pass
         set -x ANTHROPIC_API_KEY (pass tokens/ANTHROPIC_API_KEY)
