@@ -14,13 +14,13 @@ function mod.apply(config, colorscheme, font, font_size)
     config.char_select_fg_color = colorscheme.colors.foreground
 
     -- Window config
-    config.window_background_gradient = {
-        orientation = "Vertical",
-        colors = {
-            colorscheme.palette.extra.bg1,
-            colorscheme.palette.extra.bg2,
-        },
-    }
+    -- config.window_background_gradient = {
+    --     orientation = "Vertical",
+    --     colors = {
+    --         colorscheme.palette.extra.bg1,
+    --         colorscheme.palette.extra.bg2,
+    --     },
+    -- }
 
     config.window_frame = {
         font_size = font_size,

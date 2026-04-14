@@ -9,6 +9,7 @@ MiniDeps.add({
 
 MiniDeps.now(function()
     local packages = {
+        "sql",
         "bash",
         "c",
         "cpp",
@@ -41,17 +42,18 @@ MiniDeps.now(function()
         "jinja_inline",
     }
 
-    require("nvim-treesitter").setup({
-        -- Directory to install parsers and queries to
-        install_dir = vim.fn.stdpath("data") .. "/site",
-    })
+    -- require("nvim-treesitter").setup({
+    --     -- Directory to install parsers and queries to
+    --     install_dir = vim.fn.stdpath("data") .. "/site",
+    -- })
 
+    -- FIXME: Attempt to call install nil value
     -- require("nvim-treesitter").install(packages) -- wait max. 5 minutes
 
-    vim.api.nvim_create_autocmd("FileType", {
-        pattern = packages,
-        callback = function()
-            vim.treesitter.start()
-        end,
-    })
+    -- vim.api.nvim_create_autocmd("FileType", {
+    --     pattern = packages,
+    --     callback = function()
+    --         vim.treesitter.start()
+    --     end,
+    -- })
 end)

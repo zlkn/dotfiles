@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 vim.o.mouse = "a" -- Enable mouse support
 
+-- disable netrw
 -- use mini-files instead
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -36,11 +37,6 @@ vim.o.smartindent = true -- Make indenting smart
 vim.o.completeopt = "menuone,noselect" -- Customize completions
 vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
 vim.o.formatoptions = "qjl1" -- Don't autoformat comments
-
-vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
-vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
-vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
-vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 
 -- -- stolen from tjdevries
 -- vim.o.formatoptions = {

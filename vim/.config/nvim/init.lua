@@ -15,53 +15,62 @@ if not vim.uv.fs_stat(mini_path) then
     vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
 
-vim.cmd.colorscheme("aqua")
+local function srequire(module)
+    local status_ok, m = pcall(require, module)
+    if not status_ok then
+        vim.notify("Unable to load: " .. module, vim.log.levels.ERROR)
+        return nil
+    end
+    return m
+end
 
 -- Set up 'mini.deps' (customize to your liking)
 require("mini.deps").setup({ path = { package = path_package } })
 require("mini.visits").setup()
 require("mini.trailspace").setup()
-require("filetypes")
-require("options")
-require("autocmds")
 
-require("keymaps")
+srequire("options")
+srequire("autocmds")
 
-require("plugins.mini.clue")
-require("plugins.mini.files")
-require("plugins.mini.pairs")
-require("plugins.mini.pick")
-require("plugins.mini.extra")
-require("plugins.mini.surround")
-require("plugins.mini.cursorword")
-require("plugins.mini.hipatterns")
-require("plugins.mini.icons")
-require("plugins.mini.notify")
-require("plugins.mini.git")
-require("plugins.mini.diff")
+srequire("keymaps")
+
+srequire("plugins.mini.clue")
+srequire("plugins.mini.files")
+srequire("plugins.mini.pairs")
+srequire("plugins.mini.pick")
+srequire("plugins.mini.extra")
+srequire("plugins.mini.surround")
+srequire("plugins.mini.cursorword")
+srequire("plugins.mini.hipatterns")
+srequire("plugins.mini.icons")
+srequire("plugins.mini.notify")
+srequire("plugins.mini.git")
+srequire("plugins.mini.diff")
 
 -- Enhance ui
-require("plugins.indent-blankline")
-require("plugins.rainbow-delimiter")
-require("plugins.smart-splits")
-require("plugins.lualine")
-require("plugins.flash")
+srequire("plugins.indent-blankline")
+srequire("plugins.rainbow-delimiter")
+srequire("plugins.smart-splits")
+srequire("plugins.lualine")
+srequire("plugins.flash")
 
 -- git ingegration
 -- require("plugins.gitsigns")
 
 -- Syntax highlight
-require("plugins.nvim-treesitter")
-require("plugins.nvim-treesitter-context")
-require("plugins.nvim-treesitter-textobjects")
+srequire("plugins.nvim-treesitter")
+srequire("plugins.nvim-treesitter-context")
+srequire("plugins.nvim-treesitter-textobjects")
 
 -- LSP/completion/autoformat/docs
-require("plugins.nvim-lspconfig")
-require("plugins.mason")
-require("plugins.completion")
+srequire("plugins.nvim-lspconfig")
+srequire("plugins.mason")
+srequire("plugins.completion")
 
-require("plugins.conform")
+srequire("plugins.conform")
 -- require("plugins.hover")
 
 -- TEST
-require("plugins.codecompanion")
+srequire("plugins.codecompanion")
+
+vim.cmd.colorscheme("aqua")

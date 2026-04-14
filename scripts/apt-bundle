@@ -1,0 +1,234 @@
+#!/bin/sh
+#
+# Copyright (c) 2024, Akinori Musha
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# 1. Redistributions of source code must retain the above copyright notice, this
+#    list of conditions and the following disclaimer.
+#
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# https://github.com/knu/apt-bundle/blob/main/apt-bundle
+
+Verbose=
+DryRun=
+
+run() {
+    if [ -n "$DryRun" ]; then
+        echo "$*"
+    elif [ -n "$Verbose" ]; then
+        echo "$*"
+        "$@"
+    else
+        "$@"
+    fi
+}
+
+xrun() {
+    if [ -n "$DryRun" ]; then
+        xargs -r0 echo "$@"
+    elif [ -n "$Verbose" ]; then
+        xargs -r0 sh -c 'echo "$*"; "$@"' . "$@"
+    else
+        xargs -r0 "$@"
+    fi
+}
+
+sq() {
+    /usr/bin/printf %q "$1"
+}
+
+main() {
+    local opt file destdir filename dest tmpfile ppa
+
+    set -e
+
+    if [ "$(id -u)" -ne 0 ]; then
+        echo "Switching to root user..." >&2
+        exec sudo "$0" "$@"
+    fi
+
+    while getopts "nv" opt; do
+        case $opt in
+            n)
+                DryRun=t
+                ;;
+            v)
+                Verbose=t
+                ;;
+            *)
+                exit 64
+        esac
+    done
+
+    shift $((OPTIND - 1))
+
+    if [ $# -eq 0 ]; then
+        echo "usage: $0 [-n] [-v] <Debfile>..." >&2
+        exit 64
+    fi
+
+    type apt >/dev/null 2>&1 || die "apt is not installed"
+
+    initialize
+
+    for file in apt-transport-https software-properties-common curl gpg; do
+        is_installed "$file" && continue
+        [ -n "$DryRun" ] && die "$file is not installed"
+        printf "%s\0" "$file"
+    done > "$TmpDir/packages"
+
+    if [ -s "$TmpDir/packages" ]; then
+        echo "installing necessary packages"
+        xrun apt install -y < "$TmpDir/packages"
+        : > "$TmpDir/packages"
+    fi
+
+    export ARCH="$(dpkg --print-architecture)"
+    eval "$(sed 's/^/export /' /etc/os-release)"
+
+    cat -- "$@" > "$TmpDir/Debfile"
+    . "$TmpDir/Debfile"
+
+    destdir=/usr/share/keyrings
+
+    find "$TmpDir/keyring_scripts" -type f | while read -r file; do
+        filename=$(basename "$file" .sh).gpg
+        dest=$destdir/$filename
+        tmpfile=$TmpDir/keyrings/$filename
+        (
+            set -e
+            dir=$TmpDir/tmp
+            rm -rf "$dir"
+            mkdir "$dir"
+            cd "$dir"
+            sh "$file" > "$tmpfile"
+            if grep -qe '^-----BEGIN PGP PUBLIC KEY BLOCK-----' "$tmpfile"; then
+                gpg --dearmor < "$tmpfile" > keyring.gpg
+                mv keyring.gpg "$tmpfile"
+            fi
+        )
+        cmp -s "$tmpfile" "$dest" 2>/dev/null ||
+            run install -o 0 -g 0 -m 644 "$tmpfile" "$dest"
+    done
+
+    destdir=/etc/apt/sources.list.d
+
+    find "$TmpDir/sources" -type f -name '*.list' | while read -r file; do
+        cmp -s "$file" "$destdir/$(basename "$file")" 2>/dev/null ||
+            run install -o 0 -g 0 -m 644 "$file" "$destdir/"
+    done
+
+    while read ppa; do
+        if [ -z "$(find /etc/apt/sources.list.d -name '*.list' -type f -print0 | xargs -r0 awk -v repo="http://ppa.launchpad.net/$ppa/ubuntu" '$1 == "deb" && $2 == repo')" ]; then
+            run add-apt-repository --no-update -y "ppa:$ppa"
+        fi
+    done < "$TmpDir/ppas"
+
+    run apt update
+
+    if [ -s "$TmpDir/packages" ]; then
+        xrun apt install -y < "$TmpDir/packages"
+    fi
+
+    if [ -s "$TmpDir/satisfy" ]; then
+        xrun apt satisfy -y < "$TmpDir/satisfy"
+    fi
+
+    destdir=$HOME/.cache/$(basename "$0")
+    mkdir -p "$destdir"
+
+    while read url; do
+        file=$(basename "$url")
+        if [ -f "$destdir/$file" ]; then
+            curl -fsSLR -z "$destdir/$file" -o "$destdir/$file" "$url"
+        else
+            curl -fsSLR -o "$destdir/$file" "$url"
+        fi
+        echo installing "$file"
+        run dpkg -i "$destdir/$file"
+    done < "$TmpDir/debs"
+}
+
+initialize() {
+    TmpDir=$(mktemp -d "${TMPDIR-/tmp}/${0##*/}.XXXXXX") || exit 1
+    trap 'finalize' 0 1 2 3 15
+    mkdir -p "$TmpDir/keyring_scripts" "$TmpDir/keyrings" "$TmpDir/sources"
+    touch "$TmpDir/debs" "$TmpDir/ppas" "$TmpDir/packages" "$TmpDir/satisfy"
+}
+
+finalize() {
+    rm -rf "$TmpDir"
+}
+
+die() {
+    printf "%s: %s\n" "$0" "$*" >&2
+    exit 1
+}
+
+is_installed() {
+    [ "$(dpkg-query --show --showformat='${db:Status-Status}\n' "$1" 2>/dev/null)" = installed ]
+}
+
+package() {
+    [ $# -gt 0 -a $# -le 2 ] || die "usage: package <URL> | package <name> [<version-constraints>]"
+    local pkg="$1"
+    case "$pkg" in
+        https://*|http://*)
+            [ $# -eq 1 ] || die "usage: package <URL>"
+            printf "%s\n" "$pkg" >> "$TmpDir/debs" ;;
+        *)
+            case $# in
+                1)
+                    printf "%s\0" "$pkg" >> "$TmpDir/packages" ;;
+                2)
+                    printf "%s\n" "$2" | awk -F '[[:space:]]*,[[:space:]]*' '{for (i=1;i<=NF;i++) if ($i !~ /^(>[>=]|<[<=]|=)[[:space:]]*[[:digit:]]/) exit 1}' ||
+                        die "invalid version constraints: $2"
+                    printf "%s (%s)\0" "$pkg" "$2" >> "$TmpDir/satisfy" ;;
+                *)
+                    die "usage: package <name> [<version-constraints>]"
+            esac
+    esac
+}
+
+keyring() {
+    local name="$1"
+    local script="$TmpDir/keyring_scripts/$name.sh"
+    case $# in
+        1)
+            cat > "$script" ;;
+        2)
+            echo "curl -fsSL $(sq "$2")" > "$script" ;;
+        *)
+            die "usage: keyring <name> [<URL> | <<SH...SH]"
+    esac
+}
+
+source() {
+    [ $# -eq 1 ] || die "usage: source <name> <<LIST...LIST"
+    local name="$1"
+    cat > "$TmpDir/sources/$name.list"
+}
+
+ppa() {
+    [ $# -eq 1 ] || die "usage: ppa <user>/<ppa-name>"
+    local name="$1"
+    printf "%s\n" "$name" >> "$TmpDir/ppas"
+}
+
+main "$@"
