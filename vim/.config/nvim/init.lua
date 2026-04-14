@@ -29,7 +29,6 @@ require("mini.deps").setup({ path = { package = path_package } })
 require("mini.visits").setup()
 require("mini.trailspace").setup()
 
-srequire("filetypes")
 srequire("options")
 srequire("autocmds")
 
