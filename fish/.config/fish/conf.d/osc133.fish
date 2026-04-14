@@ -9,6 +9,10 @@ if not status --is-interactive
     exit
 end
 
+if test "$TERM" = linux
+    exit
+end
+
 set -g _fishprompt_aid "fish"$fish_pid
 set -g _fishprompt_started 0
 # empty if running; or a numeric exit code; or CANCEL
