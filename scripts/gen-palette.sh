@@ -85,4 +85,36 @@ EOD
 
 done
 
+KITTY_THEME="../kitty/.config/kitty/theme.conf"
+echo "Populate palette ${KITTY_THEME}"
 
+cat << EOD > ${KITTY_THEME}
+# !!! Generated do not edit manually !!!
+
+foreground #424242
+background #f0eee6
+cursor     #20bbfc
+
+selection_foreground #f0eee6
+selection_background #424242
+
+# Normal colors
+color0  #d1d1d1
+color1  #b81a6b
+color2  #1e763c
+color3  #8d5b00
+color4  #015493
+color5  #75228e
+color6  #007474
+color7  #424242
+
+# Bright colors
+color8  #57606a
+color9  #b81a6b
+color10 #1e763c
+color11 #8d5b00
+color12 #015493
+color13 #75228e
+color14 #007474
+color15 #085157
+EOD
