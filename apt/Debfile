@@ -1,0 +1,6 @@
+keyring hashicorp https://apt.releases.hashicorp.com/gpg
+source hashicorp <<EOF
+deb [signed-by=/usr/share/keyrings/hashicorp.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main
+EOF
+
+package terraform
