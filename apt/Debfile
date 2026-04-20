@@ -4,3 +4,48 @@ deb [signed-by=/usr/share/keyrings/hashicorp.gpg] https://apt.releases.hashicorp
 EOF
 
 package terraform
+
+keyring wezterm https://apt.fury.io/wez/gpg.key
+source wezterm <<EOF
+deb [signed-by=/usr/share/keyrings/wezterm.gpg] https://apt.fury.io/wez/ * *
+EOF
+
+package wezterm
+
+keyring fish https://download.opensuse.org/repositories/shells:fish/Debian_12/Release.key
+source fish <<EOF
+deb [signed-by=/usr/share/keyrings/fish.gpg] http://download.opensuse.org/repositories/shells:/fish/Debian_12/ /
+EOF
+
+package fish
+
+keyring kubernetes https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key
+source kubernetes <<EOF
+deb [signed-by=/usr/share/keyrings/kubernetes.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /
+EOF
+
+package kubectl
+
+keyring cloud.google https://packages.cloud.google.com/apt/doc/apt-key.gpg
+source cloud.google <<EOF
+deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main
+EOF
+
+package google-cloud-cli
+package google-cloud-sdk-gke-gcloud-auth-plugin
+
+keyring jetbrains-ppa https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc
+source jetbrains-ppa <<EOF
+deb [signed-by=/usr/share/keyrings/jetbrains-ppa.gpg] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com any main
+EOF
+
+keyring docker https://download.docker.com/linux/debian/gpg
+source docker <<EOF
+deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian sid stable
+EOF
+
+package docker-ce
+package docker-ce-cli
+package containerd.io
+package docker-buildx-plugin
+package docker-compose-plugin
