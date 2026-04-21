@@ -1,6 +1,6 @@
 keyring hashicorp https://apt.releases.hashicorp.com/gpg
 source hashicorp <<EOF
-deb [signed-by=/usr/share/keyrings/hashicorp.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main
+deb [signed-by=/usr/share/keyrings/hashicorp.gpg] https://apt.releases.hashicorp.com trixie main
 EOF
 
 package terraform
@@ -10,7 +10,7 @@ source wezterm <<EOF
 deb [signed-by=/usr/share/keyrings/wezterm.gpg] https://apt.fury.io/wez/ * *
 EOF
 
-package wezterm
+package wezterm-nightly
 
 keyring fish https://download.opensuse.org/repositories/shells:fish/Debian_12/Release.key
 source fish <<EOF
@@ -26,9 +26,9 @@ EOF
 
 package kubectl
 
-keyring cloud.google https://packages.cloud.google.com/apt/doc/apt-key.gpg
-source cloud.google <<EOF
-deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main
+keyring google-cloud-sdk https://packages.cloud.google.com/apt/doc/apt-key.gpg
+source google-cloud-sdk <<EOF
+deb [signed-by=/usr/share/keyrings/google-cloud-sdk.gpg] https://packages.cloud.google.com/apt cloud-sdk main
 EOF
 
 package google-cloud-cli
@@ -41,7 +41,7 @@ EOF
 
 keyring docker https://download.docker.com/linux/debian/gpg
 source docker <<EOF
-deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian sid stable
+deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian trixie stable
 EOF
 
 package docker-ce
