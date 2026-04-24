@@ -15,3 +15,10 @@ vim.filetype.add({
         [".*.service"] = "systemd",
     },
 })
+
+vim.filetype.add({
+    pattern = {
+        ["Debfile"] = "debfile",
+        ["*.Debfile"] = "debfile",
+    },
+})
