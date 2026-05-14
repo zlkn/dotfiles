@@ -5,15 +5,13 @@ Gemini's review is mostly approving — most actionable items come from Claude's
 
 ## Priority 1 — Real bugs
 
-### 1.1 Restore `software-properties-common`
-- **Where**: `apt/apt-bundle:91`
-- **Problem**: package is commented out but `add-apt-repository` is invoked at line 140; fresh-system PPA usage fails.
-- **Fix**: install `software-properties-common` only when `$TmpDir/ppas` is non-empty (lazy, like `equivs` at line 155). Avoids hard dependency for users who never use `ppa`.
+### 1.1 Restore `software-properties-common` — DONE (no-op)
+- **Where**: `apt/apt-bundle:90`
+- **Status**: premise wrong — package is already in the eager install list (`apt-transport-https software-properties-common curl gpg`). No bug. Lazy-install refactor declined as YAGNI.
 
-### 1.2 Update PPA "already installed" detection
-- **Where**: `apt/apt-bundle:139`
-- **Problem**: hardcoded `http://ppa.launchpad.net/$ppa/ubuntu`; modern Ubuntu uses `https://`, `ppa.launchpadcontent.net`, and deb822 `.sources` files. Result: `add-apt-repository` is re-run every time (slow/noisy, not fatal).
-- **Fix**: broaden detection — match both `http://` and `https://`, both `ppa.launchpad.net` and `ppa.launchpadcontent.net`, and scan `*.sources` (deb822) in addition to `*.list`.
+### 1.2 Update PPA "already installed" detection — DONE
+- **Where**: `apt/apt-bundle:137-141`
+- **Fix applied**: replaced awk-on-`.list` scan with `grep -qrE` matching `https?://ppa\.launchpad(content)?\.net/${ppa}/ubuntu` across the whole `sources.list.d/` (covers `.list` and deb822 `.sources`).
 
 ### 1.3 `meta`: skip `dpkg -i` when already installed at correct version
 - **Where**: `apt/apt-bundle:165-181`

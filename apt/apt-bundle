@@ -135,7 +135,7 @@ main() {
     done
 
     while read ppa; do
-        if [ -z "$(find /etc/apt/sources.list.d -name '*.list' -type f -print0 | xargs -r0 awk -v repo="http://ppa.launchpad.net/$ppa/ubuntu" '$1 == "deb" && $2 == repo')" ]; then
+        if ! grep -qrE "https?://ppa\.launchpad(content)?\.net/${ppa}/ubuntu" /etc/apt/sources.list.d/ 2>/dev/null; then
             run add-apt-repository --no-update -y "ppa:$ppa"
         fi
     done < "$TmpDir/ppas"
