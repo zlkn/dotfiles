@@ -4,7 +4,7 @@ endif
 
 syn match   debfileComment   "^\s*#.*$"
 
-syn keyword debfileKeyword   keyring source package nextgroup=debfileName skipwhite
+syn keyword debfileKeyword   keyring source package ppa meta binary nextgroup=debfileName skipwhite
 
 syn match   debfileName      "\S\+" contained nextgroup=debfileUrl skipwhite
 
