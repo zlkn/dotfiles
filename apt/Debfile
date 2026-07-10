@@ -50,6 +50,13 @@ EOF
 # package docker-buildx-plugin
 # package docker-compose-plugin
 
+keyring google-chrome https://dl.google.com/linux/linux_signing_key.pub
+source google-chrome <<EOF
+deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] https://dl.google.com/linux/chrome/deb/ stable main
+EOF
+
+package google-chrome-stable
+
 ### Common packages ###
 package jq
 package make
