@@ -10,8 +10,8 @@ config.warn_about_missing_glyphs = false
 config.window_close_confirmation = "NeverPrompt"
 
 -- Fontconfig
-local font_size = 11
-local font = { family = "JetBrains Mono", weight = "Light" }
+local font_size = 12
+local font = { family = "JetBrains Mono", weight = "Regular" }
 config.font = wezterm.font(font)
 config.font_size = font_size
 -- config.bold_brightens_ansi_colors = false

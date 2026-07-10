@@ -19,9 +19,9 @@ EOF
 
 package fish
 
-keyring kubernetes https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key
+keyring kubernetes https://pkgs.k8s.io/core:/stable:/v1.34/deb/Release.key
 source kubernetes <<EOF
-deb [signed-by=/usr/share/keyrings/kubernetes.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /
+deb [signed-by=/usr/share/keyrings/kubernetes.gpg] https://pkgs.k8s.io/core:/stable:/v1.34/deb/ /
 EOF
 
 package kubectl
@@ -39,16 +39,16 @@ source jetbrains-ppa <<EOF
 deb [signed-by=/usr/share/keyrings/jetbrains-ppa.gpg] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com any main
 EOF
 
-keyring docker https://download.docker.com/linux/debian/gpg
-source docker <<EOF
-deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian trixie stable
-EOF
-
-package docker-ce
-package docker-ce-cli
-package containerd.io
-package docker-buildx-plugin
-package docker-compose-plugin
+# keyring docker https://download.docker.com/linux/debian/gpg
+# source docker <<EOF
+# deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian trixie stable
+# EOF
+#
+# package docker-ce
+# package docker-ce-cli
+# package containerd.io
+# package docker-buildx-plugin
+# package docker-compose-plugin
 
 ### Common packages ###
 package jq
