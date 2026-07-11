@@ -40,6 +40,7 @@ srequire("plugins.mini.pairs")
 srequire("plugins.mini.pick")
 srequire("plugins.mini.extra")
 srequire("plugins.mini.surround")
+srequire("plugins.mini.ai")
 srequire("plugins.mini.cursorword")
 srequire("plugins.mini.hipatterns")
 srequire("plugins.mini.icons")
@@ -60,7 +61,6 @@ srequire("plugins.flash")
 -- Syntax highlight
 srequire("plugins.nvim-treesitter")
 srequire("plugins.nvim-treesitter-context")
-srequire("plugins.nvim-treesitter-textobjects")
 
 -- LSP/completion/autoformat/docs
 srequire("plugins.nvim-lspconfig")
