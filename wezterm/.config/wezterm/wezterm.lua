@@ -11,7 +11,7 @@ config.window_close_confirmation = "NeverPrompt"
 
 -- Fontconfig
 local font_size = 12
-local font = { family = "JetBrains Mono", weight = "Regular" }
+local font = { family = "JetBrains Mono", weight = "Light" }
 config.font = wezterm.font(font)
 config.font_size = font_size
 -- config.bold_brightens_ansi_colors = false

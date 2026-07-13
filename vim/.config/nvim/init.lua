@@ -59,7 +59,7 @@ srequire("plugins.flash")
 -- require("plugins.gitsigns")
 
 -- Syntax highlight
-srequire("plugins.nvim-treesitter")
+srequire("plugins.arborist")
 srequire("plugins.nvim-treesitter-context")
 
 -- LSP/completion/autoformat/docs
@@ -69,8 +69,5 @@ srequire("plugins.completion")
 
 srequire("plugins.conform")
 -- require("plugins.hover")
-
--- TEST
-srequire("plugins.codecompanion")
 
 vim.cmd.colorscheme("aqua")
