@@ -40,6 +40,7 @@ srequire("plugins.mini.pairs")
 srequire("plugins.mini.pick")
 srequire("plugins.mini.extra")
 srequire("plugins.mini.surround")
+srequire("plugins.mini.ai")
 srequire("plugins.mini.cursorword")
 srequire("plugins.mini.hipatterns")
 srequire("plugins.mini.icons")
@@ -58,9 +59,8 @@ srequire("plugins.flash")
 -- require("plugins.gitsigns")
 
 -- Syntax highlight
-srequire("plugins.nvim-treesitter")
+srequire("plugins.arborist")
 srequire("plugins.nvim-treesitter-context")
-srequire("plugins.nvim-treesitter-textobjects")
 
 -- LSP/completion/autoformat/docs
 srequire("plugins.nvim-lspconfig")
@@ -69,8 +69,5 @@ srequire("plugins.completion")
 
 srequire("plugins.conform")
 -- require("plugins.hover")
-
--- TEST
-srequire("plugins.codecompanion")
 
 vim.cmd.colorscheme("aqua")

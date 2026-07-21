@@ -69,7 +69,7 @@ local function get_icon(tab)
     end
 
     local exec_name = get_process_name(tab.active_pane.foreground_process_name)
-    print("exec_name: " .. exec_name .. " tab: " .. tab.active_pane.foreground_process_name)
+    -- print("exec_name: " .. exec_name .. " tab: " .. tab.active_pane.foreground_process_name)
 
     local icon_cfg = icons[exec_name]
 
