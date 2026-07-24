@@ -89,6 +89,20 @@ function _cmd_duration
     end
 end
 
+function _k8s_context
+    set -l kconfig $KUBECONFIG
+    if not set -q KUBECONFIG
+        set kconfig "$HOME/.kube/config"
+    end
+
+    if test -f "$kconfig"
+       set -l color (set_color cyan)
+       set -l normal (set_color normal)
+       set -l ctx (awk '/current-context:/ {print $2}' "$kconfig" 2>/dev/null)
+       echo -ns " $color󱃾 $normal$ctx"
+    end
+end
+
 function _exit_status
     set -l last_status $status
     set -g CMD_COUNT (math $CMD_COUNT + 1)
@@ -117,6 +131,7 @@ function fish_prompt
     set -l git_info (_git_info)
     set -l python_env (_python_env)
     set -l playground_env (_playground_env)
+    set -l k8s_ctx (_k8s_context)
 
-    printf '%s' $playground_env $cwd $python_env $git_info $cmd_duration $last_status ' '
+    printf '%s' $playground_env $cwd $k8s_ctx $python_env $git_info $cmd_duration $last_status ' '
 end
