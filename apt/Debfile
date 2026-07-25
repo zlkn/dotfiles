@@ -4,6 +4,7 @@ deb [signed-by=/usr/share/keyrings/hashicorp.gpg] https://apt.releases.hashicorp
 EOF
 
 package terraform
+package vault
 
 keyring wezterm https://apt.fury.io/wez/gpg.key
 source wezterm <<EOF
@@ -49,6 +50,14 @@ EOF
 # package containerd.io
 # package docker-buildx-plugin
 # package docker-compose-plugin
+
+keyring bazel https://bazel.build/bazel-release.pub.gpg
+source bazel <<EOF
+deb [arch=amd64 signed-by=/usr/share/keyrings/bazel.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8
+EOF
+
+package bazel
+package bazel-7.1.0
 
 keyring google-chrome https://dl.google.com/linux/linux_signing_key.pub
 source google-chrome <<EOF
