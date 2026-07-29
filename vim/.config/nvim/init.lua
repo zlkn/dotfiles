@@ -59,7 +59,7 @@ srequire("plugins.flash")
 -- require("plugins.gitsigns")
 
 -- Syntax highlight
--- srequire("plugins.arborist")
+srequire("plugins.nvim-treesitter")
 -- srequire("plugins.nvim-treesitter-context")
 
 -- LSP/completion/autoformat/docs

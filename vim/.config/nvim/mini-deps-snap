@@ -9,6 +9,7 @@ return {
   lualine = "221ce6b2d999187044529f49da6554a92f740a96",
   ["mini.nvim"] = "4171fba613b64ade9a28e198bd5b4fea5ba45e22",
   ["nvim-lspconfig"] = "d6ac7a0d46555d44bf21f4f9c65f5201f818b475",
+  ["nvim-treesitter"] = "61df84986b4b4ec469ee745a182e433d49f8c27e",
   ["rainbow-delimiters.nvim"] = "a798325b7f36acc62741d1029930a7b96d4dd4bf",
   ["smart-splits.nvim"] = "9493405fb8ee683aa6efd50c529f6296ad8f40ad"
 }
