@@ -7,6 +7,7 @@ function claude
         set -x ANTHROPIC_API_KEY (pass tokens/ANTHROPIC_API_KEY)
         set -x YOUTRACK_TOKEN (pass tokens/youtrack)
         set -x GITLAB_TOKEN (pass tokens/glab-cli)
+        set -x TEAMCITY_TOKEN (pass tokens/teamcity)
     else
         echo "pass is not installed, cannot get ANTHROPIC_API_KEY"
         return 1
