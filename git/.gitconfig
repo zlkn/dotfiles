@@ -31,6 +31,3 @@
     all = true
 [rerere]
 	enabled = true
-[user]
-	email = zolkin.u.a@gmail.com
-	name = Zolkin Yiriy
