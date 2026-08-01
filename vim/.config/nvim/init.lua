@@ -24,15 +24,14 @@ local function srequire(module)
     return m
 end
 
+srequire("options")
+srequire("autocmds")
+srequire("keymaps")
+
 -- Set up 'mini.deps' (customize to your liking)
 require("mini.deps").setup({ path = { package = path_package } })
 require("mini.visits").setup()
 require("mini.trailspace").setup()
-
-srequire("options")
-srequire("autocmds")
-
-srequire("keymaps")
 
 srequire("plugins.mini.clue")
 srequire("plugins.mini.files")
@@ -59,15 +58,14 @@ srequire("plugins.flash")
 -- require("plugins.gitsigns")
 
 -- Syntax highlight
--- srequire("plugins.arborist")
+srequire("plugins.nvim-treesitter")
 -- srequire("plugins.nvim-treesitter-context")
 
 -- LSP/completion/autoformat/docs
 srequire("plugins.nvim-lspconfig")
--- srequire("plugins.mason")
 srequire("plugins.completion")
 
 srequire("plugins.conform")
--- require("plugins.hover")
+require("plugins.hover")
 
 vim.cmd.colorscheme("aqua")

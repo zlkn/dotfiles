@@ -12,15 +12,14 @@
 [core]
     autocrlf = input
     editor = nvim
-	hooksPath = .githooks
 [pull]
 	rebase = true
 [includeIf "gitdir:~/Workspace/"]
-    path = /home/yzolkin/dotfiles/git/.gitconfig-workspace
+    path = ~/.gitconfig-workspace
 [includeIf "gitdir:~/Personal/"]
-    path = /home/yzolkin/dotfiles/git/.gitconfig-personal
+    path = ~/.gitconfig-personal
 [includeIf "gitdir:~/dotfiles/"]
-    path = /home/yzolkin/dotfiles/git/.gitconfig-personal
+    path = ~/.gitconfig-personal
 
 [remote "origin"]
 	glab-resolved = base
