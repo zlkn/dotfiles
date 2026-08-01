@@ -1,0 +1,162 @@
+# -----------------------------------------------------------------------------
+# Aqua skin — generated from wezterm/.config/wezterm/palette.lua
+# -----------------------------------------------------------------------------
+
+# Styles...
+foreground: &foreground "#424242"      # ansi.white / normal
+background: &background "#f0eee6"      # background
+current_line: &current_line "#d1d1d1"  # ansi.black
+comment: &comment "#57606a"            # brights.black
+aqua: &aqua "#20bbfc"                  # cursor — background only, too light for text
+teal: &teal "#085157"                  # brights.white
+cyan: &cyan "#007474"                  # ansi.cyan
+green: &green "#1e763c"                # ansi.green
+blue: &blue "#015493"                  # ansi.blue
+magenta: &magenta "#75228e"            # ansi.magenta
+red: &red "#b81a6b"                    # ansi.red
+orange: &orange "#8d5b00"              # ansi.yellow
+yellow: &yellow "#8d5b00"              # ansi.yellow (palette has no separate orange)
+
+# Skin...
+k9s:
+  # General K9s styles
+  body:
+    fgColor: *foreground
+    bgColor: default
+    logoColor: *teal
+    logoColorMsg: *foreground
+    logoColorInfo: *green
+    logoColorWarn: *orange
+    logoColorError: *red
+  # Command prompt styles
+  prompt:
+    fgColor: *foreground
+    bgColor: *background
+    suggestColor: *comment
+    border:
+      command: *cyan
+      default: *comment
+  # ClusterInfoView styles.
+  info:
+    fgColor: *blue
+    sectionColor: *foreground
+    k9sRevColor: *comment
+    cpuColor: *blue
+    memColor: *magenta
+  # Help view styles.
+  help:
+    fgColor: *foreground
+    bgColor: *background
+    sectionColor: *teal
+    keyColor: *blue
+    numKeyColor: *magenta
+  # Dialog styles.
+  dialog:
+    fgColor: *foreground
+    bgColor: default
+    # Light text on the dark magenta button; *foreground here would be 1.3:1.
+    buttonFgColor: *background
+    buttonBgColor: *magenta
+    # Focused button mirrors the wezterm cursor: dark text on aqua.
+    buttonFocusFgColor: *foreground
+    buttonFocusBgColor: *aqua
+    labelFgColor: *orange
+    fieldFgColor: *foreground
+  frame:
+    # Borders styles.
+    border:
+      fgColor: *current_line
+      focusColor: *cyan
+    menu:
+      fgColor: *foreground
+      keyColor: *blue
+      # Used for favorite namespaces
+      numKeyColor: *magenta
+    # CrumbView attributes for history navigation.
+    crumbs:
+      fgColor: *foreground
+      bgColor: *current_line
+      activeColor: *aqua
+    # Resource status and update styles
+    status:
+      newColor: *cyan
+      modifyColor: *blue
+      addColor: *green
+      pendingColor: *orange
+      errorColor: *red
+      highlightColor: *magenta
+      killColor: *comment
+      completedColor: *comment
+    # Border title styles.
+    title:
+      fgColor: *foreground
+      bgColor: *current_line
+      highlightColor: *magenta
+      counterColor: *comment
+      filterColor: *blue
+  views:
+    # Charts skins...
+    charts:
+      bgColor: default
+      dialBgColor: default
+      chartBgColor: default
+      focusFgColor: *foreground
+      focusBgColor: *aqua
+      defaultDialColors:
+        - *green
+        - *red
+      defaultChartColors:
+        - *green
+        - *red
+      resourceColors:
+        cpu:
+          - *blue
+          - *cyan
+        mem:
+          - *orange
+          - *red
+    # TableView attributes.
+    table:
+      fgColor: *foreground
+      bgColor: default
+      # Current line is a reverse of a normal row: light text on the teal band.
+      # Only cursorFgColor actually works here. k9s v0.50.9 ignores cursorBgColor and
+      # keeps its built-in default `aqua`, which tcell emits as SGR 46 — ANSI palette
+      # index 6, i.e. whatever ansi.cyan is in the terminal (#007474 for this palette).
+      # Verified with a sentinel skin: cursorFgColor "#00ff00" rendered as SGR 92,
+      # while cursorBgColor "#ff00ff" still rendered as SGR 46 instead of magenta.
+      # cursorBgColor is kept so the pairing is right if k9s ever honours it.
+      cursorFgColor: *background
+      cursorBgColor: *teal
+      markColor: *magenta
+      # Header row styles.
+      header:
+        fgColor: *comment
+        bgColor: default
+        sorterColor: *cyan
+    # Xray view attributes.
+    xray:
+      fgColor: *foreground
+      bgColor: default
+      cursorColor: *aqua
+      cursorTextColor: *foreground
+      graphicColor: *cyan
+    # YAML info styles.
+    yaml:
+      keyColor: *blue
+      colonColor: *comment
+      valueColor: *foreground
+    # Namespace/context picker styles.
+    picker:
+      mainColor: *foreground
+      focusColor: *cyan
+      shortcutColor: *blue
+    # Logs styles.
+    logs:
+      fgColor: *foreground
+      bgColor: default
+      indicator:
+        fgColor: *foreground
+        bgColor: *current_line
+        toggleOnColor: *green
+        toggleOffColor: *comment
