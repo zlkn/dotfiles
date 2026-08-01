@@ -1,15 +1,15 @@
 return {
-  ["SchemaStore.nvim"] = "e954496f8ef22904e8a84f5078f4a110fdc7a0d3",
+  ["SchemaStore.nvim"] = "9f98b46e1dd61aeb666989c344d76517df63af55",
   ["blink-copilot"] = "7ad8209b2f880a2840c94cdcd80ab4dc511d4f39",
   ["blink.cmp"] = "18b352d12b35bca148427b607098df14b75a218f",
   ["conform.nvim"] = "619363c30309d29ffa631e67c8183f2a72caa373",
-  ["copilot.lua"] = "d521d3959f81f4fa58870ed329754f1dd5057511",
+  ["copilot.lua"] = "261e70f26e6c02562495f900399234c4e26daa2f",
   ["flash.nvim"] = "b6346946d10d07998efee029fb0f7a593806d0cd",
   ["indent-blankline.nvim"] = "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
   lualine = "221ce6b2d999187044529f49da6554a92f740a96",
-  ["mini.nvim"] = "4171fba613b64ade9a28e198bd5b4fea5ba45e22",
-  ["nvim-lspconfig"] = "d6ac7a0d46555d44bf21f4f9c65f5201f818b475",
-  ["nvim-treesitter"] = "61df84986b4b4ec469ee745a182e433d49f8c27e",
-  ["rainbow-delimiters.nvim"] = "a798325b7f36acc62741d1029930a7b96d4dd4bf",
-  ["smart-splits.nvim"] = "9493405fb8ee683aa6efd50c529f6296ad8f40ad"
+  ["mini.nvim"] = "8bf5c57bc82dd590932faa41bfde9fd6d40a9433",
+  ["nvim-lspconfig"] = "1c0d8f70dbc8827263eedc3cf7021ceba0f68689",
+  ["nvim-treesitter"] = "7b6cc8949f9999c5ed91436cbe24aa5f99c42025",
+  ["rainbow-delimiters.nvim"] = "012f1480cd9a5fc99fce7678e0a536421a53fc46",
+  ["smart-splits.nvim"] = "89ab35b282783efc1c49deadd72c22afd5eac356"
 }
