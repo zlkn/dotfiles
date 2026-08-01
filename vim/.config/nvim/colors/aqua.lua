@@ -217,8 +217,6 @@ M.all_highlights = {
         CodeCompanionChatInfoBanner = { link = "WildMenu" },
         CodeCompanionVirtualText = { link = "Comment" },
         CodeCompanionInlineDiffHint = { bg = palette.extra.gray1 },
-        CopilotAnnotation = { link = "Comment" },
-        CopilotSuggestion = { link = "Comment" },
         HoverFloatingError = { link = "DiagnosticFloatingError" },
         HoverFloatingWarn = { link = "DiagnosticFloatingWarn" },
         HoverFloatingInfo = { link = "DiagnosticFloatingInfo" },

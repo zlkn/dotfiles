@@ -2,20 +2,9 @@
 MiniDeps.add({
     source = "saghen/blink.cmp",
     checkout = "v0.12.4",
-    depends = { "fang2hou/blink-copilot", "zbirenbaum/copilot.lua" },
 })
 
 MiniDeps.later(function()
-    require("copilot").setup({
-        filetypes = {
-            yaml = true,
-        },
-    })
-    require("blink-copilot").setup({
-        max_completions = 1,
-        kind_icon = " ",
-    })
-
     local blink = require("blink.cmp")
     blink.setup({
         keymap = {
@@ -61,20 +50,12 @@ MiniDeps.later(function()
             enabled = true,
         },
         sources = {
-            default = { "lsp", "path", "copilot", "buffer" },
-            providers = {
-                copilot = {
-                    name = "Copilot",
-                    module = "blink-copilot",
-                },
-            },
+            default = { "lsp", "path", "buffer" },
         },
         appearance = {
             use_nvim_cmp_as_default = true,
             nerd_font_variant = "normal",
-            -- Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
             kind_icons = {
-                Copilot = " ", -- GitHub Copilot
                 Text = " ",
                 Method = " ",
                 Function = " ",

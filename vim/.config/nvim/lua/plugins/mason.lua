@@ -12,7 +12,6 @@
 --         "ansible-lint",
 --         "bash-language-server",
 --         "clangd",
---         "copilot-language-server",
 --         "docker-compose-language-service",
 --         "dockerfile-language-server",
 --         "lua-language-server",

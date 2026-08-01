@@ -49,30 +49,6 @@ local function keytrail_in_yaml()
     end
 end
 
-local function get_lsp()
-    return function()
-        local names = {}
-        local copilot = " "
-
-        -- Get LSP clients attached to the current buffer onlo
-        local clients = vim.lsp.get_clients({ bufnr = 0 })
-
-        if not clients or next(clients) == nil then
-            return "  󱔹 "
-        end
-
-        for _, client in pairs(clients) do
-            if client.name == "copilot" then
-                copilot = " "
-            else
-                table.insert(names, client.name)
-            end
-        end
-
-        return copilot .. " 󱔸 " .. table.concat(names, "/")
-    end
-end
-
 local function mode()
     local mode_icons = {
         n = " ", -- Normal mode, a balanced icon
@@ -140,7 +116,23 @@ MiniDeps.later(function()
             },
             lualine_y = {
                 "searchcount",
-                get_lsp(),
+                -- get_lsp(),
+                {
+                  'lsp_status',
+                  icon =  "󱔸 ", -- f013
+                  symbols = {
+                    -- Standard unicode symbols to cycle through for LSP progress:
+                    spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' },
+                    -- Standard unicode symbol for when LSP is done:
+                    done = '✓',
+                    -- Delimiter inserted between LSP names:
+                    separator = ' ',
+                  },
+                  -- List of LSP names to ignore (e.g., `null-ls`):
+                  ignore_lsp = {},
+                  -- Display the LSP name
+                  show_name = true,
+            }
             },
             lualine_z = { "progress", "filetype", "fileformat" },
         },
