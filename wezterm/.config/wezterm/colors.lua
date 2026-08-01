@@ -5,8 +5,8 @@ local colors = {
     indexed = {},
 
     foreground = fg,
-    background = palette.extra.bg1,
-    -- background = palette.background,
+    -- background = palette.extra.bg1,
+    background = palette.background,
 
     cursor_fg = palette.normal,
     cursor_bg = palette.cursor,
