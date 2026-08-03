@@ -59,7 +59,7 @@ srequire("plugins.flash")
 
 -- Syntax highlight
 srequire("plugins.nvim-treesitter")
--- srequire("plugins.nvim-treesitter-context")
+srequire("plugins.nvim-treesitter-context")
 
 -- LSP/completion/autoformat/docs
 srequire("plugins.nvim-lspconfig")

@@ -72,7 +72,8 @@ package make
 package ncdu
 package neovim
 package tree-sitter-cli
-
+package golang
+package gopls
 
 ### Binaries ###
 binary terragrunt https://github.com/gruntwork-io/terragrunt/releases/latest/download/terragrunt_linux_amd64

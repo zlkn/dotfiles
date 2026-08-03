@@ -4,7 +4,6 @@ MiniDeps.add({
     -- The rewrite lives in 'main' and needs Nvim 0.12+ plus tree-sitter-cli.
     checkout = "main",
     monitor = "main",
-    -- Perform action after every checkout
     hooks = {
         post_checkout = function()
             vim.cmd("TSUpdate")
@@ -13,7 +12,7 @@ MiniDeps.add({
 })
 
 MiniDeps.now(function()
-    local packages = {
+    local parsers = {
         "sql",
         "bash",
         "c",
@@ -52,25 +51,22 @@ MiniDeps.now(function()
     }
 
     require("nvim-treesitter").setup({
-        -- Directory to install parsers and queries to (prepended to 'runtimepath')
-        install_dir = vim.fn.stdpath("data") .. "/site",
-    })
 
-    -- Asynchronous, and a no-op for anything already installed
-    require("nvim-treesitter").install(packages)
+    -- Directory to install parsers and queries to
+    install_dir = vim.fn.stdpath("data") .. "/site",
 
-    -- Parser names are not filetypes ('starlark' is 'bzl', 'tsx' is
-    -- 'typescriptreact', ...), so expand the list into every filetype that maps
-    -- to one of these languages.
-    local filetypes = {}
-    for _, lang in ipairs(packages) do
-        vim.list_extend(filetypes, vim.treesitter.language.get_filetypes(lang))
-    end
+    -- Runs async and is a no-op for already installed parsers.
+    -- Unlike arborist there is no on-demand install: this list is the full set.
+    require("nvim-treesitter").install(parsers)
 
+    -- The plugin only ships parsers/queries, highlighting is started by core
     vim.api.nvim_create_autocmd("FileType", {
-        pattern = filetypes,
-        callback = function()
-            vim.treesitter.start()
+        callback = function(args)
+            local lang = vim.treesitter.language.get_lang(args.match)
+            if not lang then
+                return
+            end
+            pcall(vim.treesitter.start, args.buf, lang)
         end,
     })
 end)
