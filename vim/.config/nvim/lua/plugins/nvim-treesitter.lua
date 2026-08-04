@@ -52,10 +52,7 @@ MiniDeps.now(function()
         "jinja_inline",
     }
 
-    require("nvim-treesitter").setup({
-        -- Directory to install parsers and queries to
-        install_dir = vim.fn.stdpath("data") .. "/site",
-    })
+    require("nvim-treesitter").setup({})
 
     -- Runs async and is a no-op for already installed parsers.
     -- Unlike arborist there is no on-demand install: this list is the full set.
