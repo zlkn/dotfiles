@@ -6,7 +6,9 @@ MiniDeps.add({
     monitor = "main",
     hooks = {
         post_checkout = function()
-            vim.cmd("TSUpdate")
+            -- Lua API, not :TSUpdate: plugin/ files are sourced after init.lua,
+            -- so the command does not exist yet on a fresh install.
+            require("nvim-treesitter").update()
         end,
     },
 })
@@ -51,9 +53,9 @@ MiniDeps.now(function()
     }
 
     require("nvim-treesitter").setup({
-
-    -- Directory to install parsers and queries to
-    install_dir = vim.fn.stdpath("data") .. "/site",
+        -- Directory to install parsers and queries to
+        install_dir = vim.fn.stdpath("data") .. "/site",
+    })
 
     -- Runs async and is a no-op for already installed parsers.
     -- Unlike arborist there is no on-demand install: this list is the full set.
