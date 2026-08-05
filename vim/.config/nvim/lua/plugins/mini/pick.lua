@@ -39,6 +39,18 @@ MiniDeps.later(function()
     map("n", "gR", ":Pick lsp scope='references'<CR>", { desc = "Goto references" })
     map("n", "gy", ":Pick lsp scope='type_definition'<CR>", { desc = "Goto t[y]pe definition" })
 
+    map("n", "<leader>pw", function()
+        local word = vim.fn.expand('<cword>')
+          if word == '' then return end
+
+          -- Defers query setting until after the picker window opens
+          vim.schedule(function()
+            MiniPick.set_picker_query(vim.split(word, ''))
+          end)
+
+          MiniPick.builtin.grep_live()
+    end, {desc = "Live grep word under cursor"})
+
     map("n", "<leader>py", ":Pick yaml_keytrail<CR>", { desc = "Fzf over yaml file" })
 
     map("n", "<leader>pc", function()
