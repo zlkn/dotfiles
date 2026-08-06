@@ -40,16 +40,16 @@ source jetbrains-ppa <<EOF
 deb [signed-by=/usr/share/keyrings/jetbrains-ppa.gpg] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com any main
 EOF
 
-# keyring docker https://download.docker.com/linux/debian/gpg
-# source docker <<EOF
-# deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian trixie stable
-# EOF
-#
-# package docker-ce
-# package docker-ce-cli
-# package containerd.io
-# package docker-buildx-plugin
-# package docker-compose-plugin
+keyring docker https://download.docker.com/linux/debian/gpg
+source docker <<EOF
+deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian trixie stable
+EOF
+
+package docker-ce
+package docker-ce-cli
+package containerd.io
+package docker-buildx-plugin
+package docker-compose-plugin
 
 keyring bazel https://bazel.build/bazel-release.pub.gpg
 source bazel <<EOF
