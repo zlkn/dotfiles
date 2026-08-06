@@ -39,7 +39,7 @@ MiniDeps.later(function()
     map("n", "gR", ":Pick lsp scope='references'<CR>", { desc = "Goto references" })
     map("n", "gy", ":Pick lsp scope='type_definition'<CR>", { desc = "Goto t[y]pe definition" })
 
-    map("n", "<leader>pw", function()
+    map("n", "<leader>*", function()
         local word = vim.fn.expand('<cword>')
           if word == '' then return end
 
