@@ -80,6 +80,26 @@ function CopyRelativePathToClipboard()
     vim.notify("Copied relative path to clipboard: " .. relative_path, vim.log.levels.INFO)
 end
 map("n", "<leader>cp", CopyRelativePathToClipboard, { desc = "Copy relative path to clipboard" })
+vim.keymap.set('n', '<leader>cd', function()
+  local line = vim.api.nvim_win_get_cursor(0)[1] - 1
+  local diagnostics = vim.diagnostic.get(0, { lnum = line })
+
+  if vim.tbl_isempty(diagnostics) then
+    vim.notify("No diagnostics on current line", vim.log.levels.WARN)
+    return
+  end
+
+  -- Combine messages (if there are multiple diagnostics on the same line)
+  local lines = {}
+  for _, diag in ipairs(diagnostics) do
+    table.insert(lines, diag.message)
+  end
+  local message = table.concat(lines, "\n")
+
+  -- Save to system clipboard ('+' register)
+  vim.fn.setreg('+', message)
+  vim.notify("Copied diagnostic:\n" .. message, vim.log.levels.INFO)
+end, { desc = "Copy line diagnostics to clipboard" })
 
 -- Toggle current hlsearch
 map("n", "<leader>th", function()
