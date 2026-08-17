@@ -33,7 +33,6 @@ require("mini.deps").setup({ path = { package = path_package } })
 require("mini.visits").setup()
 require("mini.trailspace").setup()
 require('mini.indentscope').setup({ symbol = "▏" })
-require("mini.animate").setup()
 
 srequire("plugins.mini.clue")
 srequire("plugins.mini.files")
