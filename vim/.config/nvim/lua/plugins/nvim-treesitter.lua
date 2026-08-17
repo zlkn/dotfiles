@@ -18,7 +18,7 @@ MiniDeps.now(function()
         "jsdoc", "json", "lua", "luadoc", "luap", "markdown",
         "markdown_inline", "printf", "python", "query", "regex",
         "toml", "tsx", "vim", "vimdoc", "xml", "yaml", "terraform",
-        "hcl", "jinja", "jinja_inline",
+        "hcl", "jinja", "jinja_inline", "helm"
     }
 
     -- Only trigger background installation for missing parsers

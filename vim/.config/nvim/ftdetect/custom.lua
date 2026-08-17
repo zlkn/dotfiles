@@ -22,3 +22,11 @@ vim.filetype.add({
         ["*.Debfile"] = "debfile",
     },
 })
+
+vim.filetype.add({
+    pattern = {
+        ['.*/templates/.*%.yaml'] = 'helm',
+        ['.*/templates/.*%.tpl'] = 'helm',
+        ['helmfile.*%.yaml'] = 'helm',
+      },
+})
