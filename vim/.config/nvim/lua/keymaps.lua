@@ -39,6 +39,9 @@ end)
 map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 
+vim.keymap.set("n", "<C-Space>", "van", { remap = true, desc = "Select treesitter node" })
+vim.keymap.set("x", "<C-Space>", "an", { remap = true, desc = "Expand to parent treesitter node" })
+
 -- somewhere in your init.lua or a helper module:
 
 -- Create a Vim command
