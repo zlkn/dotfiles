@@ -32,6 +32,8 @@ srequire("keymaps")
 require("mini.deps").setup({ path = { package = path_package } })
 require("mini.visits").setup()
 require("mini.trailspace").setup()
+require('mini.indentscope').setup({ symbol = "▏" })
+require("mini.animate").setup()
 
 srequire("plugins.mini.clue")
 srequire("plugins.mini.files")
@@ -48,7 +50,6 @@ srequire("plugins.mini.git")
 srequire("plugins.mini.diff")
 
 -- Enhance ui
-srequire("plugins.indent-blankline")
 srequire("plugins.rainbow-delimiter")
 srequire("plugins.smart-splits")
 srequire("plugins.lualine")

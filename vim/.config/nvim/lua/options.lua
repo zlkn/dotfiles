@@ -85,3 +85,17 @@ vim.diagnostic.config({
     severity_sort = true,
     update_in_insert = false,
 })
+
+-- Enable the display of invisible characters
+vim.opt.list = true
+
+-- Configure the characters used for tabs and leading spaces
+vim.opt.listchars:append({
+  -- For tabs: A pipe followed by a space
+  tab = "│ ",
+
+  -- For spaces: A pipe followed by spaces.
+  -- NOTE: Adjust the spaces after the pipe to match your indent size!
+  -- e.g., "│ " for an indent of 2, or "│   " for an indent of 4.
+  leadmultispace = "│   ",
+})
