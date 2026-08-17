@@ -30,3 +30,5 @@
     all = true
 [rerere]
 	enabled = true
+[credential "https://gitlab.com"]
+	helper = !glab auth git-credential
