@@ -120,6 +120,10 @@ MiniDeps.now(function()
         }
     }
 
+    -- Advertise what 'mini.completion' supports: snippets, label details and
+    -- `additionalTextEdits` resolve (auto-import)
+    vim.lsp.config("*", { capabilities = require("mini.completion").get_lsp_capabilities() })
+
     local enabled_lsp = {"yamlls", "helm_ls", "luals", "dockerls", "ruff", "gopls", "ansiblels"}
 
     for _, lsp in ipairs(enabled_lsp) do

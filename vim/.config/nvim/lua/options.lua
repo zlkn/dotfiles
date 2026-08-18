@@ -34,7 +34,7 @@ vim.o.infercase = true -- Infer letter cases for a richer built-in keyword compl
 vim.o.smartcase = true -- Don't ignore case when searching if pattern has upper case
 vim.o.smartindent = true -- Make indenting smart
 
-vim.o.completeopt = "menuone,noselect" -- Customize completions
+vim.o.completeopt = "menuone,noselect,fuzzy,nosort" -- Customize completions
 vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
 vim.o.formatoptions = "qjl1" -- Don't autoformat comments
 

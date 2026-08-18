@@ -47,6 +47,8 @@ srequire("plugins.mini.icons")
 srequire("plugins.mini.notify")
 srequire("plugins.mini.git")
 srequire("plugins.mini.diff")
+srequire("plugins.mini.snippets")
+srequire("plugins.mini.cmdline")
 
 -- Enhance ui
 srequire("plugins.rainbow-delimiter")
@@ -66,6 +68,6 @@ srequire("plugins.nvim-lspconfig")
 srequire("plugins.completion")
 
 srequire("plugins.conform")
-require("plugins.hover")
+-- require("plugins.hover")
 
 vim.cmd.colorscheme("aqua")
