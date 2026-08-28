@@ -48,7 +48,6 @@ srequire("plugins.mini.notify")
 srequire("plugins.mini.git")
 srequire("plugins.mini.diff")
 srequire("plugins.mini.snippets")
-srequire("plugins.mini.cmdline")
 
 -- Enhance ui
 srequire("plugins.rainbow-delimiter")
