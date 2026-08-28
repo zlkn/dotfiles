@@ -2,9 +2,12 @@
 local palette = {
     normal = "#424242",
     cursor = "#20bbfc",
-    background = "#f0eee6",
+    -- background = "#f0eee6",
+    -- background = "#f2efef",
+    -- background = "f2f2f2",
+    background = "#ebebeb",
+    selection = "#f2efef",
     ansi = {
-        -- black   = "#f0edec",
         black = "#d1d1d1",
         red     = "#b81a6b",
         green   = "#1e763c",
