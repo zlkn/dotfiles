@@ -14,7 +14,7 @@ local font_size = 12
 local font = { family = "JetBrains Mono", weight = "Light" }
 config.font = wezterm.font(font)
 config.font_size = font_size
--- config.bold_brightens_ansi_colors = false
+config.bold_brightens_ansi_colors = false
 config.inactive_pane_hsb = {
     saturation = 1.0,
     brightness = 1.0,
