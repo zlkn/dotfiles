@@ -1,92 +1,172 @@
 #!/bin/bash
+set -euo pipefail
 
-declare -a DESTS=(
+cd "$(dirname "$0")"
+
+# Single source of truth for every generated theme file below.
+NORMAL="#424242"
+CURSOR="#20bbfc"
+# BACKGROUND="#f0eee6"
+# BACKGROUND="#f2efef"
+# BACKGROUND="#f2f2f2"
+# BACKGROUND="#eeebeb"
+BACKGROUND="#ebebeb"
+SELECTION="#d1d1d1"
+
+ANSI_BLACK="#d1d1d1"
+ANSI_RED="#b81a6b"
+ANSI_GREEN="#1e763c"
+ANSI_YELLOW="#8d5b00"
+ANSI_BLUE="#015493"
+ANSI_MAGENTA="#75228e"
+ANSI_CYAN="#007474"
+ANSI_WHITE="#424242"
+
+BRIGHT_BLACK="#57606a"
+BRIGHT_RED="#b81a6b"
+BRIGHT_GREEN="#1e763c"
+BRIGHT_YELLOW="#8d5b00"
+BRIGHT_BLUE="#015493"
+BRIGHT_MAGENTA="#75228e"
+BRIGHT_CYAN="#007474"
+BRIGHT_WHITE="#242424"
+# BRIGHT_WHITE="#085157"
+# BRIGHT_WHITE="#00425c"
+
+EXTRA_BG1="#f2f2f2"
+EXTRA_BG2="#e7e7e7"
+EXTRA_PENCIL_GRAY="#9d9d9d"
+EXTRA_GRAY0="#dfdfe1"
+EXTRA_GRAY1="#d1d1d1"
+EXTRA_GRAY2="#a1a1a1"
+EXTRA_GRAY3="#57606a"
+EXTRA_GRAY4="#d1dfe1"
+EXTRA_GRAY5="#b4b4b6"
+EXTRA_WHITE="#6f8396"
+
+declare -a PALETTE_DESTS=(
   "../vim/.config/nvim/lua/palette.lua"
   "../wezterm/.config/wezterm/palette.lua"
 )
 
-for dst in ${DESTS[@]};
+WEZTERM_SCHEME="../wezterm/.config/wezterm/colors/aqua.toml"
+
+for dst in "${PALETTE_DESTS[@]}";
 do
   echo "Populate palette ${dst}"
 
   # language=lua
-  cat << EOD > ${dst}
-  -- !!! Generated do not edit manually !!!
+  cat << EOD > "${dst}"
+-- !!! Generated do not edit manually !!!
 local palette = {
-    normal = "#424242",
-    cursor = "#20bbfc",
-    -- background = "#f0eee6",
-    -- background = "#f2efef",
-    -- background = "f2f2f2",
-    -- background = "#eeebeb",
-    background = "#ebebeb",
-    selection = "#f2efef",
+    normal = "${NORMAL}",
+    cursor = "${CURSOR}",
+    background = "${BACKGROUND}",
+    selection = "${SELECTION}",
     ansi = {
-        black = "#d1d1d1",
-        red     = "#b81a6b",
-        green   = "#1e763c",
-        yellow  = "#8d5b00",
-        blue = "#015493",
-        magenta = "#75228e",
-        cyan    = "#007474",
-        white   = "#424242"
-      },
+        black   = "${ANSI_BLACK}",
+        red     = "${ANSI_RED}",
+        green   = "${ANSI_GREEN}",
+        yellow  = "${ANSI_YELLOW}",
+        blue    = "${ANSI_BLUE}",
+        magenta = "${ANSI_MAGENTA}",
+        cyan    = "${ANSI_CYAN}",
+        white   = "${ANSI_WHITE}",
+    },
     brights = {
-        black = "#57606a",
-        red     = "#b81a6b",
-        green   = "#1e763c",
-        yellow  = "#8d5b00",
-        blue = "#015493",
-        magenta = "#75228e",
-        cyan    = "#007474",
-        -- white = "#085157"
-        -- white = "#00425c",
-        white = "#242424"
-      },
-      light = {
-        black   = "#57606a",
-        red     = "#E8C5C1",
-        green   = "#BFD8BF",
-        yellow  = "#E1D1B3",
-        blue    = "#C1D5E3",
-        magenta = "#D9C8D9",
-        cyan    = "#B7D3D6",
-        white   = "#57606a",
-    },
-    dark = {
-        black   = "#ffffff",
-        red     = "#D48B91",
-        green   = "#8CBF9B",
-        yellow  = "#CCB37F",
-        blue    = "#8FB2D4",
-        magenta = "#B395B3",
-        cyan    = "#87B2B8",
-        white   = "#2C363C",
-    },
-    rainbow = {
-        red = '#cc241d',
-        orange = '#d65d0e',
-        yellow =  '#d79921',
-        green = '#689d6a',
-        cyan = '#a89984',
-        blue = '#458588',
-        violet = '#b16286',
+        black   = "${BRIGHT_BLACK}",
+        red     = "${BRIGHT_RED}",
+        green   = "${BRIGHT_GREEN}",
+        yellow  = "${BRIGHT_YELLOW}",
+        blue    = "${BRIGHT_BLUE}",
+        magenta = "${BRIGHT_MAGENTA}",
+        cyan    = "${BRIGHT_CYAN}",
+        white   = "${BRIGHT_WHITE}",
     },
     extra = {
-        bg1 = "#f2f2f2",
-        bg2 = "#e7e7e7",
-        pencilGray = "#9d9d9d",
-        gray4 = "#d1dfe1",
-        gray0 = "#dfdfe1",
-        gray1 = "#d1d1d1",
-        gray2 = "#a1a1a1",
-        gray3 = "#57606a",
-        gray5 = "#b4b4b6",
-        white = "#6f8396",
-      },
-  }
+        bg1        = "${EXTRA_BG1}",
+        bg2        = "${EXTRA_BG2}",
+        pencilGray = "${EXTRA_PENCIL_GRAY}",
+        gray0      = "${EXTRA_GRAY0}",
+        gray1      = "${EXTRA_GRAY1}",
+        gray2      = "${EXTRA_GRAY2}",
+        gray3      = "${EXTRA_GRAY3}",
+        gray4      = "${EXTRA_GRAY4}",
+        gray5      = "${EXTRA_GRAY5}",
+        white      = "${EXTRA_WHITE}",
+    },
+}
 return palette
 EOD
 
 done
 
+echo "Populate wezterm scheme ${WEZTERM_SCHEME}"
+mkdir -p "$(dirname "${WEZTERM_SCHEME}")"
+
+# language=toml
+cat << EOD > "${WEZTERM_SCHEME}"
+# !!! Generated do not edit manually !!!
+[metadata]
+name = "aqua"
+
+[colors]
+foreground = "${ANSI_WHITE}"
+background = "${BACKGROUND}"
+
+cursor_fg = "${NORMAL}"
+cursor_bg = "${CURSOR}"
+cursor_border = "${BRIGHT_WHITE}"
+
+selection_fg = "${ANSI_WHITE}"
+selection_bg = "${EXTRA_GRAY1}"
+
+scrollbar_thumb = "${ANSI_WHITE}"
+split = "${EXTRA_GRAY2}"
+
+# Before 16 colors, there were 8 colors: black, red, green, yellow, blue,
+# magenta, cyan, and white. The other 8 were added as their bright variants.
+ansi = [
+    "${ANSI_BLACK}",
+    "${ANSI_RED}",
+    "${ANSI_GREEN}",
+    "${ANSI_YELLOW}",
+    "${ANSI_BLUE}",
+    "${ANSI_MAGENTA}",
+    "${ANSI_CYAN}",
+    "${ANSI_WHITE}",
+]
+brights = [
+    "${BRIGHT_BLACK}",
+    "${BRIGHT_RED}",
+    "${BRIGHT_GREEN}",
+    "${BRIGHT_YELLOW}",
+    "${BRIGHT_BLUE}",
+    "${BRIGHT_MAGENTA}",
+    "${BRIGHT_CYAN}",
+    "${BRIGHT_WHITE}",
+]
+
+copy_mode_active_highlight_bg = { Color = "${ANSI_GREEN}" }
+copy_mode_active_highlight_fg = { Color = "${EXTRA_BG1}" }
+copy_mode_inactive_highlight_bg = { Color = "${ANSI_GREEN}" }
+copy_mode_inactive_highlight_fg = { Color = "${ANSI_WHITE}" }
+
+quick_select_label_bg = { Color = "${BRIGHT_GREEN}" }
+quick_select_label_fg = { Color = "${EXTRA_BG1}" }
+quick_select_match_bg = { Color = "${ANSI_CYAN}" }
+quick_select_match_fg = { Color = "${ANSI_WHITE}" }
+
+# Keep the retro tab bar seamless with the terminal background.
+[colors.tab_bar]
+background = "${BACKGROUND}"
+inactive_tab_edge = "${BACKGROUND}"
+
+[colors.tab_bar.active_tab]
+bg_color = "${BACKGROUND}"
+fg_color = "${ANSI_WHITE}"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "${BACKGROUND}"
+fg_color = "${ANSI_WHITE}"
+EOD
