@@ -35,8 +35,8 @@ MiniDeps.later(function()
 
     map("n", "gD", ":Pick lsp scope='declaration'<CR>", { desc = "Goto declaration" })
     map("n", "gd", ":Pick lsp scope='definition'<CR>", { desc = "Goto definition" })
-    map("n", "gi", ":Pick lsp scope='implementation'<CR>", { desc = "Goto implementation" })
-    map("n", "gR", ":Pick lsp scope='references'<CR>", { desc = "Goto references" })
+    map("n", "gri", ":Pick lsp scope='implementation'<CR>", { desc = "Goto implementation" })
+    map("n", "grr", ":Pick lsp scope='references'<CR>", { desc = "Goto references" })
     map("n", "gy", ":Pick lsp scope='type_definition'<CR>", { desc = "Goto t[y]pe definition" })
 
     map("n", "<leader>*", function()
