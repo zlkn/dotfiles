@@ -5,37 +5,22 @@ MiniDeps.add({
 
 local function lualine_aqua()
     local palette = require("palette")
+    local function mode_color(fg)
+        return {
+            a = { fg = fg, bg = none },
+            b = { fg = fg, bg = none },
+            c = { fg = fg, bg = none },
+        }
+    end
+
     return {
-        normal = {
-            a = { bg = none, fg = palette.normal },
-            b = { bg = none, fg = palette.normal },
-            c = { bg = none, fg = palette.normal },
-        },
-        insert = {
-            a = { bg = palette.light.green, fg = palette.normal },
-            b = { bg = palette.light.green, fg = palette.normal },
-            c = { bg = palette.light.green, fg = palette.normal },
-        },
-        visual = {
-            a = { bg = palette.light.blue, fg = palette.normal },
-            b = { bg = palette.light.blue, fg = palette.normal },
-            c = { bg = palette.light.blue, fg = palette.normal },
-        },
-        replace = {
-            a = { bg = palette.light.red, fg = palette.normal },
-            b = { bg = palette.light.red, fg = palette.normal },
-            c = { bg = palette.light.red, fg = palette.normal },
-        },
-        command = {
-            a = { bg = palette.light.yellow, fg = palette.normal },
-            b = { bg = palette.light.yellow, fg = palette.normal },
-            c = { bg = palette.light.yellow, fg = palette.normal },
-        },
-        inactive = {
-            a = { bg = none, fg = palette.normal },
-            b = { bg = none, fg = palette.normal },
-            c = { bg = none, fg = palette.normal },
-        },
+        normal = mode_color(palette.normal),
+        insert = mode_color(palette.ansi.green),
+        visual = mode_color(palette.ansi.magenta),
+        replace = mode_color(palette.ansi.red),
+        command = mode_color(palette.ansi.yellow),
+        terminal = mode_color(palette.ansi.cyan),
+        inactive = mode_color(palette.extra.gray2),
     }
 end
 
@@ -79,7 +64,6 @@ end
 MiniDeps.later(function()
     require("lualine").setup({
         options = {
-            -- theme = auto_theme_custom,
             theme = lualine_aqua(),
             always_show_tabline = true,
             globalstatus = true,
