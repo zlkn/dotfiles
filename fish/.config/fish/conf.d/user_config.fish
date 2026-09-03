@@ -3,12 +3,6 @@ if not status is-interactive
 end
 
 set -g -x USE_GKE_GCLOUD_AUTH_PLUGIN True
-set -gx HELIX_RUNTIME "$HOME/dotfiles/helix/.config/helix/runtime"
-
-function __fzf_history_search
-    commandline (history | fzf)
-    commandline --function --replace
-end
 
 function __fish_clear_buffer
     for line in (seq 2 (tput lines))
@@ -19,8 +13,6 @@ function __fish_clear_buffer
 end
 
 function fish_user_key_bindings
-    # bind -k nul forward-word
-    # bind \cr __fzf_history_search
     bind \cl __fish_clear_buffer
     bind \cq __fish_clear_buffer
 end
