@@ -8,7 +8,7 @@ background = "#ebebeb"
 
 cursor_fg = "#424242"
 cursor_bg = "#20bbfc"
-cursor_border = "#0e3044"
+cursor_border = "#00425c"
 
 selection_fg = "#424242"
 selection_bg = "#d1d1d1"
@@ -36,7 +36,7 @@ brights = [
     "#015493",
     "#75228e",
     "#007474",
-    "#0e3044",
+    "#00425c",
 ]
 
 copy_mode_active_highlight_bg = { Color = "#1e763c" }

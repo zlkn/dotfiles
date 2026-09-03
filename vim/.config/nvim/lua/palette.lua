@@ -22,7 +22,7 @@ local palette = {
         blue    = "#015493",
         magenta = "#75228e",
         cyan    = "#007474",
-        white   = "#0e3044",
+        white   = "#00425c",
     },
     extra = {
         bg1        = "#f2f2f2",
