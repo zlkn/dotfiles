@@ -1,3 +1,8 @@
+# nvim --headless \
+#  -c 'lua io.stdout:write(table.concat(vim.fn.sort(vim.tbl_keys(vim.api.nvim_get_hl(0,{}))), "\n"), "\n")' \
+#  -c q 2>/dev/null
+
+
 @attribute
 @attribute.builtin
 @boolean
