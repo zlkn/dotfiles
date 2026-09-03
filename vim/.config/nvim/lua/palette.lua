@@ -3,7 +3,7 @@ local palette = {
     normal = "#424242",
     cursor = "#20bbfc",
     background = "#ebebeb",
-    selection = "#f2efef",
+    selection = "#d1d1d1",
     ansi = {
         black   = "#d1d1d1",
         red     = "#b81a6b",
@@ -22,7 +22,7 @@ local palette = {
         blue    = "#015493",
         magenta = "#75228e",
         cyan    = "#007474",
-        white   = "#242424",
+        white   = "#0e3044",
     },
     extra = {
         bg1        = "#f2f2f2",
