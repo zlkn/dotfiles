@@ -42,12 +42,12 @@ brights = [
 copy_mode_active_highlight_bg = { Color = "#1e763c" }
 copy_mode_active_highlight_fg = { Color = "#f2f2f2" }
 copy_mode_inactive_highlight_bg = { Color = "#1e763c" }
-copy_mode_inactive_highlight_fg = { Color = "#424242" }
+copy_mode_inactive_highlight_fg = { Color = "#d1d1d1" }
 
 quick_select_label_bg = { Color = "#1e763c" }
 quick_select_label_fg = { Color = "#f2f2f2" }
 quick_select_match_bg = { Color = "#007474" }
-quick_select_match_fg = { Color = "#424242" }
+quick_select_match_fg = { Color = "#d1d1d1" }
 
 # Keep the retro tab bar seamless with the terminal background.
 [colors.tab_bar]
