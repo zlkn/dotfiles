@@ -131,7 +131,7 @@ M.all_highlights = {
             Structure = { link = "Type" },
             Typedef = { link = "Type" },
             Tag = { fg = palette.ansi.blue },
-            Special = { fg = palette.brights.white, bold = true },
+            Special = { fg = palette.normal },
             SpecialChar = { link = "Special" },
             SpecialComment = { link = "Special" },
             Debug = { link = "Special" },

@@ -11,7 +11,7 @@ CURSOR="#20bbfc"
 # BACKGROUND="#f2f2f2"
 # BACKGROUND="#eeebeb"
 BACKGROUND="#ebebeb"
-SELECTION="#d1d1d1"
+SELECTION="#d1dfe1"
 
 ANSI_BLACK="#d1d1d1"
 ANSI_RED="#b81a6b"
@@ -151,12 +151,12 @@ brights = [
 copy_mode_active_highlight_bg = { Color = "${ANSI_GREEN}" }
 copy_mode_active_highlight_fg = { Color = "${EXTRA_BG1}" }
 copy_mode_inactive_highlight_bg = { Color = "${ANSI_GREEN}" }
-copy_mode_inactive_highlight_fg = { Color = "${ANSI_WHITE}" }
+copy_mode_inactive_highlight_fg = { Color = "${ANSI_BLACK}" }
 
 quick_select_label_bg = { Color = "${BRIGHT_GREEN}" }
 quick_select_label_fg = { Color = "${EXTRA_BG1}" }
 quick_select_match_bg = { Color = "${ANSI_CYAN}" }
-quick_select_match_fg = { Color = "${ANSI_WHITE}" }
+quick_select_match_fg = { Color = "${ANSI_BLACK}" }
 
 # Keep the retro tab bar seamless with the terminal background.
 [colors.tab_bar]
