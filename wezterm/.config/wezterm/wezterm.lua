@@ -11,9 +11,24 @@ config.window_close_confirmation = "NeverPrompt"
 
 -- Fontconfig
 local font_size = 12
-local font = { family = "JetBrains Mono", weight = "Light" }
-config.font = wezterm.font(font)
+local font = { family = "JetBrainsMono Nerd Font", weight = "Light" }
 config.font_size = font_size
+config.font = wezterm.font(font)
+config.font_rules = {
+  -- Map standard Bold text to the Medium weight Mono variant
+  {
+    intensity = 'Bold',
+    italic = false,
+    font = wezterm.font('JetBrainsMono Nerd Font Mono', { weight = 'Medium' }),
+  },
+  -- Optional: Map Bold Italic to prevent WezTerm from trying to synthesize a bold font
+  {
+    intensity = 'Bold',
+    italic = true,
+    font = wezterm.font('JetBrainsMono Nerd Font Mono', { weight = 'Medium', style = 'Italic' }),
+  },
+}
+
 config.bold_brightens_ansi_colors = false
 config.inactive_pane_hsb = {
     saturation = 1.0,
