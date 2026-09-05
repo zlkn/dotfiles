@@ -50,6 +50,7 @@ srequire("plugins.mini.diff")
 srequire("plugins.mini.snippets")
 
 -- Enhance ui
+srequire("plugins.colorscheme")
 srequire("plugins.rainbow-delimiter")
 srequire("plugins.smart-splits")
 srequire("plugins.lualine")
@@ -69,4 +70,4 @@ srequire("plugins.completion")
 srequire("plugins.conform")
 -- require("plugins.hover")
 
-vim.cmd.colorscheme("aqua")
+
