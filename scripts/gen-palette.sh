@@ -9,9 +9,12 @@ CURSOR="#20bbfc"
 # BACKGROUND="#f0eee6"
 # BACKGROUND="#f2efef"
 # BACKGROUND="#f2f2f2"
-# BACKGROUND="#eeebeb"
 BACKGROUND="#ebebeb"
-SELECTION="#d1dfe1"
+# BACKGROUND="#faf9f9"
+# BACKGROUND="#e7e6e3"
+# SELECTION="#d1dfe1"
+# SELECTION="#f2efef"
+SELECTION="#dfdfe1"
 
 ANSI_BLACK="#d1d1d1"
 ANSI_RED="#b81a6b"
@@ -123,7 +126,7 @@ selection_fg = "${ANSI_WHITE}"
 selection_bg = "${EXTRA_GRAY1}"
 
 scrollbar_thumb = "${ANSI_WHITE}"
-split = "${EXTRA_GRAY2}"
+split = "${SELECTION}"
 
 # Before 16 colors, there were 8 colors: black, red, green, yellow, blue,
 # magenta, cyan, and white. The other 8 were added as their bright variants.
