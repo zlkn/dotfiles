@@ -4,7 +4,7 @@ name = "aqua"
 
 [colors]
 foreground = "#424242"
-background = "#ebebeb"
+background = "#ebebed"
 
 cursor_fg = "#424242"
 cursor_bg = "#20bbfc"
@@ -51,13 +51,13 @@ quick_select_match_fg = { Color = "#d1d1d1" }
 
 # Keep the retro tab bar seamless with the terminal background.
 [colors.tab_bar]
-background = "#ebebeb"
-inactive_tab_edge = "#ebebeb"
+background = "#ebebed"
+inactive_tab_edge = "#ebebed"
 
 [colors.tab_bar.active_tab]
-bg_color = "#ebebeb"
+bg_color = "#ebebed"
 fg_color = "#424242"
 
 [colors.tab_bar.inactive_tab]
-bg_color = "#ebebeb"
+bg_color = "#ebebed"
 fg_color = "#424242"
