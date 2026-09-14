@@ -111,7 +111,7 @@ M.all_highlights = {
             VisualNOS = { link = "Visual" },
             Normal = { fg = palette.normal },
             Character = { link = "String" },
-            Constant = { bold = true },
+            Constant = { fg = palette.brights.black, bold = true  },
             Number = { fg = palette.normal },
             Boolean = { link = "Number" },
             Float = { link = "Number" },
