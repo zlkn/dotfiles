@@ -69,10 +69,14 @@ package google-chrome-stable
 ### Common packages ###
 package net-tools
 package jq
+package nmap
 package make
 package ncdu
 package neovim
 package tree-sitter-cli
+
+
+### Development
 package golang
 package gopls
 
