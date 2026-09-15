@@ -55,6 +55,7 @@ srequire("plugins.rainbow-delimiter")
 srequire("plugins.smart-splits")
 srequire("plugins.lualine")
 srequire("plugins.flash")
+srequire("plugins.markview")
 
 -- git ingegration
 -- require("plugins.gitsigns")
