@@ -4,66 +4,117 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 # Single source of truth for every generated theme file below.
-NORMAL="#424242"
-CURSOR="#20bbfc"
-# BACKGROUND="#f0eee6"
-# BACKGROUND="#f2efef"
-# BACKGROUND="#f2f2f2"
-BACKGROUND="#ebebed"
-# BACKGROUND="#faf9f9"
-# BACKGROUND="#e7e6e3"
-# SELECTION="#d1dfe1"
-# SELECTION="#f2efef"
-SELECTION="#dfdfe1"
+# aqua ships two variants: aqua_day (light) and aqua_night (dark).
 
-ANSI_BLACK="#d1d1d1"
-ANSI_RED="#b81a6b"
-ANSI_GREEN="#1e763c"
-ANSI_YELLOW="#8d5b00"
-ANSI_BLUE="#015493"
-ANSI_MAGENTA="#75228e"
-ANSI_CYAN="#007474"
-ANSI_WHITE="#424242"
+aqua_day() {
+  NORMAL="#424242"
+  CURSOR="#20bbfc"
+  # BACKGROUND="#f0eee6"
+  # BACKGROUND="#f2efef"
+  # BACKGROUND="#f2f2f2"
+  BACKGROUND="#ebebed"
+  # BACKGROUND="#faf9f9"
+  # BACKGROUND="#e7e6e3"
+  # SELECTION="#d1dfe1"
+  # SELECTION="#f2efef"
+  SELECTION="#dfdfe1"
 
-BRIGHT_BLACK="#57606a"
-BRIGHT_RED="#b81a6b"
-BRIGHT_GREEN="#1e763c"
-BRIGHT_YELLOW="#8d5b00"
-BRIGHT_BLUE="#015493"
-BRIGHT_MAGENTA="#75228e"
-BRIGHT_CYAN="#007474"
-# BRIGHT_WHITE="#123369"
-# BRIGHT_WHITE="#242424"
-# BRIGHT_WHITE="#0e3044"
-# BRIGHT_WHITE="#085157"
-BRIGHT_WHITE="#00425c"
+  ANSI_BLACK="#d1d1d1"
+  ANSI_RED="#b81a6b"
+  ANSI_GREEN="#1e763c"
+  ANSI_YELLOW="#8d5b00"
+  ANSI_BLUE="#015493"
+  ANSI_MAGENTA="#75228e"
+  ANSI_CYAN="#007474"
+  ANSI_WHITE="#424242"
 
-EXTRA_BG1="#f2f2f2"
-EXTRA_BG2="#e7e7e7"
-EXTRA_PENCIL_GRAY="#9d9d9d"
-EXTRA_GRAY0="#dfdfe1"
-EXTRA_GRAY1="#d1d1d1"
-EXTRA_GRAY2="#a1a1a1"
-EXTRA_GRAY3="#57606a"
-EXTRA_GRAY4="#d1dfe1"
-EXTRA_GRAY5="#b4b4b6"
-EXTRA_WHITE="#6f8396"
+  BRIGHT_BLACK="#57606a"
+  BRIGHT_RED="#b81a6b"
+  BRIGHT_GREEN="#1e763c"
+  BRIGHT_YELLOW="#8d5b00"
+  BRIGHT_BLUE="#015493"
+  BRIGHT_MAGENTA="#75228e"
+  BRIGHT_CYAN="#007474"
+  # BRIGHT_WHITE="#123369"
+  # BRIGHT_WHITE="#242424"
+  # BRIGHT_WHITE="#0e3044"
+  # BRIGHT_WHITE="#085157"
+  BRIGHT_WHITE="#00425c"
 
-declare -a PALETTE_DESTS=(
-  "../vim/.config/nvim/lua/palette.lua"
-  "../wezterm/.config/wezterm/palette.lua"
+  EXTRA_BG1="#f2f2f2"
+  EXTRA_BG2="#e7e7e7"
+  EXTRA_PENCIL_GRAY="#9d9d9d"
+  EXTRA_GRAY0="#dfdfe1"
+  EXTRA_GRAY1="#d1d1d1"
+  EXTRA_GRAY2="#a1a1a1"
+  EXTRA_GRAY3="#57606a"
+  EXTRA_GRAY4="#d1dfe1"
+  EXTRA_GRAY5="#b4b4b6"
+  EXTRA_WHITE="#6f8396"
+}
+
+aqua_night() {
+  NORMAL="#c9ccce"
+  CURSOR="#20bbfc"
+  BACKGROUND="#15191b"
+  SELECTION="#262b2e"
+
+  ANSI_BLACK="#2f3538"
+  ANSI_RED="#e2689b"
+  ANSI_GREEN="#5fb87a"
+  ANSI_YELLOW="#d0a058"
+  ANSI_BLUE="#57a6d8"
+  ANSI_MAGENTA="#b07cc6"
+  ANSI_CYAN="#48b3af"
+  ANSI_WHITE="#c9ccce"
+
+  BRIGHT_BLACK="#7a858c"
+  BRIGHT_RED="#e2689b"
+  BRIGHT_GREEN="#5fb87a"
+  BRIGHT_YELLOW="#d0a058"
+  BRIGHT_BLUE="#57a6d8"
+  BRIGHT_MAGENTA="#b07cc6"
+  BRIGHT_CYAN="#48b3af"
+  BRIGHT_WHITE="#86d0e0"
+
+  EXTRA_BG1="#1d2225"
+  EXTRA_BG2="#101315"
+  EXTRA_PENCIL_GRAY="#5c6468"
+  EXTRA_GRAY0="#262b2e"
+  EXTRA_GRAY1="#2f3538"
+  EXTRA_GRAY2="#4a5257"
+  EXTRA_GRAY3="#7a858c"
+  EXTRA_GRAY4="#2c3a3d"
+  EXTRA_GRAY5="#3c4245"
+  EXTRA_WHITE="#93a3ae"
+}
+
+declare -a VARIANTS=(
+  "aqua_day"
+  "aqua_night"
 )
 
-WEZTERM_SCHEME="../wezterm/.config/wezterm/colors/aqua.toml"
+NVIM_LUA_DIR="../vim/.config/nvim/lua"
+WEZTERM_DIR="../wezterm/.config/wezterm"
 
-for dst in "${PALETTE_DESTS[@]}";
+for variant in "${VARIANTS[@]}";
 do
-  echo "Populate palette ${dst}"
+  "${variant}"
 
-  # language=lua
-  cat << EOD > "${dst}"
+  declare -a palette_dests=(
+    "${NVIM_LUA_DIR}/palette_${variant}.lua"
+    "${WEZTERM_DIR}/palette_${variant}.lua"
+  )
+
+  for dst in "${palette_dests[@]}";
+  do
+    echo "Populate palette ${dst}"
+
+    # language=lua
+    cat << EOD > "${dst}"
 -- !!! Generated do not edit manually !!!
 local palette = {
+    variant = "${variant}",
     normal = "${NORMAL}",
     cursor = "${CURSOR}",
     background = "${BACKGROUND}",
@@ -104,16 +155,17 @@ local palette = {
 return palette
 EOD
 
-done
+  done
 
-echo "Populate wezterm scheme ${WEZTERM_SCHEME}"
-mkdir -p "$(dirname "${WEZTERM_SCHEME}")"
+  wezterm_scheme="${WEZTERM_DIR}/colors/${variant}.toml"
+  echo "Populate wezterm scheme ${wezterm_scheme}"
+  mkdir -p "$(dirname "${wezterm_scheme}")"
 
-# language=toml
-cat << EOD > "${WEZTERM_SCHEME}"
+  # language=toml
+  cat << EOD > "${wezterm_scheme}"
 # !!! Generated do not edit manually !!!
 [metadata]
-name = "aqua"
+name = "${variant}"
 
 [colors]
 foreground = "${ANSI_WHITE}"
@@ -175,3 +227,5 @@ fg_color = "${ANSI_WHITE}"
 bg_color = "${BACKGROUND}"
 fg_color = "${ANSI_WHITE}"
 EOD
+
+done

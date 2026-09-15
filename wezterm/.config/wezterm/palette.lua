@@ -1,40 +1,12 @@
--- !!! Generated do not edit manually !!!
-local palette = {
-    normal = "#424242",
-    cursor = "#20bbfc",
-    background = "#ebebed",
-    selection = "#dfdfe1",
-    ansi = {
-        black   = "#d1d1d1",
-        red     = "#b81a6b",
-        green   = "#1e763c",
-        yellow  = "#8d5b00",
-        blue    = "#015493",
-        magenta = "#75228e",
-        cyan    = "#007474",
-        white   = "#424242",
-    },
-    brights = {
-        black   = "#57606a",
-        red     = "#b81a6b",
-        green   = "#1e763c",
-        yellow  = "#8d5b00",
-        blue    = "#015493",
-        magenta = "#75228e",
-        cyan    = "#007474",
-        white   = "#123369",
-    },
-    extra = {
-        bg1        = "#f2f2f2",
-        bg2        = "#e7e7e7",
-        pencilGray = "#9d9d9d",
-        gray0      = "#dfdfe1",
-        gray1      = "#d1d1d1",
-        gray2      = "#a1a1a1",
-        gray3      = "#57606a",
-        gray4      = "#d1dfe1",
-        gray5      = "#b4b4b6",
-        white      = "#6f8396",
-    },
-}
-return palette
+local wezterm = require("wezterm")
+
+local appearance = "Dark"
+if wezterm.gui then
+    appearance = wezterm.gui.get_appearance()
+end
+
+if appearance:find("Dark") then
+    return require("palette_aqua_night")
+end
+return require("palette_aqua_day")
+

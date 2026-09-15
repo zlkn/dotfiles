@@ -1,0 +1,63 @@
+# !!! Generated do not edit manually !!!
+[metadata]
+name = "aqua_night"
+
+[colors]
+foreground = "#c9ccce"
+background = "#15191b"
+
+cursor_fg = "#c9ccce"
+cursor_bg = "#20bbfc"
+cursor_border = "#86d0e0"
+
+selection_fg = "#c9ccce"
+selection_bg = "#2f3538"
+
+scrollbar_thumb = "#c9ccce"
+split = "#262b2e"
+
+# Before 16 colors, there were 8 colors: black, red, green, yellow, blue,
+# magenta, cyan, and white. The other 8 were added as their bright variants.
+ansi = [
+    "#2f3538",
+    "#e2689b",
+    "#5fb87a",
+    "#d0a058",
+    "#57a6d8",
+    "#b07cc6",
+    "#48b3af",
+    "#c9ccce",
+]
+brights = [
+    "#7a858c",
+    "#e2689b",
+    "#5fb87a",
+    "#d0a058",
+    "#57a6d8",
+    "#b07cc6",
+    "#48b3af",
+    "#86d0e0",
+]
+
+copy_mode_active_highlight_bg = { Color = "#5fb87a" }
+copy_mode_active_highlight_fg = { Color = "#1d2225" }
+copy_mode_inactive_highlight_bg = { Color = "#5fb87a" }
+copy_mode_inactive_highlight_fg = { Color = "#2f3538" }
+
+quick_select_label_bg = { Color = "#5fb87a" }
+quick_select_label_fg = { Color = "#1d2225" }
+quick_select_match_bg = { Color = "#48b3af" }
+quick_select_match_fg = { Color = "#2f3538" }
+
+# Keep the retro tab bar seamless with the terminal background.
+[colors.tab_bar]
+background = "#15191b"
+inactive_tab_edge = "#15191b"
+
+[colors.tab_bar.active_tab]
+bg_color = "#15191b"
+fg_color = "#c9ccce"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#15191b"
+fg_color = "#c9ccce"
