@@ -3,48 +3,48 @@
 name = "aqua_day"
 
 [colors]
-foreground = "#424242"
+foreground = "#545454"
 background = "#ebebed"
 
-cursor_fg = "#424242"
+cursor_fg = "#545454"
 cursor_bg = "#20bbfc"
-cursor_border = "#00425c"
+cursor_border = "#073642"
 
-selection_fg = "#424242"
+selection_fg = "#545454"
 selection_bg = "#d1d1d1"
 
-scrollbar_thumb = "#424242"
+scrollbar_thumb = "#545454"
 split = "#dfdfe1"
 
 # Before 16 colors, there were 8 colors: black, red, green, yellow, blue,
 # magenta, cyan, and white. The other 8 were added as their bright variants.
 ansi = [
     "#d1d1d1",
-    "#b81a6b",
-    "#1e763c",
-    "#8d5b00",
-    "#015493",
-    "#75228e",
+    "#b31367",
+    "#0d6c32",
+    "#825400",
+    "#15609f",
+    "#8a3aa4",
     "#007474",
-    "#424242",
+    "#545454",
 ]
 brights = [
-    "#57606a",
-    "#b81a6b",
-    "#1e763c",
-    "#8d5b00",
-    "#015493",
-    "#75228e",
+    "#6f8396",
+    "#b31367",
+    "#0d6c32",
+    "#825400",
+    "#15609f",
+    "#8a3aa4",
     "#007474",
-    "#00425c",
+    "#073642",
 ]
 
-copy_mode_active_highlight_bg = { Color = "#1e763c" }
+copy_mode_active_highlight_bg = { Color = "#0d6c32" }
 copy_mode_active_highlight_fg = { Color = "#f2f2f2" }
-copy_mode_inactive_highlight_bg = { Color = "#1e763c" }
+copy_mode_inactive_highlight_bg = { Color = "#0d6c32" }
 copy_mode_inactive_highlight_fg = { Color = "#d1d1d1" }
 
-quick_select_label_bg = { Color = "#1e763c" }
+quick_select_label_bg = { Color = "#0d6c32" }
 quick_select_label_fg = { Color = "#f2f2f2" }
 quick_select_match_bg = { Color = "#007474" }
 quick_select_match_fg = { Color = "#d1d1d1" }
@@ -56,8 +56,8 @@ inactive_tab_edge = "#ebebed"
 
 [colors.tab_bar.active_tab]
 bg_color = "#ebebed"
-fg_color = "#424242"
+fg_color = "#545454"
 
 [colors.tab_bar.inactive_tab]
 bg_color = "#ebebed"
-fg_color = "#424242"
+fg_color = "#545454"
