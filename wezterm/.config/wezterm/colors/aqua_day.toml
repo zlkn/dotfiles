@@ -3,17 +3,17 @@
 name = "aqua_day"
 
 [colors]
-foreground = "#545454"
+foreground = "#54544f"
 background = "#ebebed"
 
-cursor_fg = "#545454"
+cursor_fg = "#54544f"
 cursor_bg = "#20bbfc"
-cursor_border = "#073642"
+cursor_border = "#1f1f1a"
 
-selection_fg = "#545454"
+selection_fg = "#54544f"
 selection_bg = "#d1d1d1"
 
-scrollbar_thumb = "#545454"
+scrollbar_thumb = "#54544f"
 split = "#dfdfe1"
 
 # Before 16 colors, there were 8 colors: black, red, green, yellow, blue,
@@ -23,20 +23,20 @@ ansi = [
     "#b31367",
     "#0d6c32",
     "#825400",
-    "#15609f",
+    "#015493",
     "#8a3aa4",
     "#007474",
-    "#545454",
+    "#54544f",
 ]
 brights = [
-    "#6f8396",
+    "#8e8e86",
     "#b31367",
     "#0d6c32",
     "#825400",
-    "#15609f",
+    "#015493",
     "#8a3aa4",
     "#007474",
-    "#073642",
+    "#1f1f1a",
 ]
 
 copy_mode_active_highlight_bg = { Color = "#0d6c32" }
@@ -56,8 +56,8 @@ inactive_tab_edge = "#ebebed"
 
 [colors.tab_bar.active_tab]
 bg_color = "#ebebed"
-fg_color = "#545454"
+fg_color = "#54544f"
 
 [colors.tab_bar.inactive_tab]
 bg_color = "#ebebed"
-fg_color = "#545454"
+fg_color = "#54544f"
