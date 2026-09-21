@@ -1,0 +1,61 @@
+[font]
+# family = "JetBrains Mono"
+size = 13
+# false takes the frames and blocks (U+2500-259F) from the font instead of drawing them
+box_drawing = false
+# gamma bends the antialiasing curve; 0 derives it from the theme and from blend below.
+# Anything above 1 with blend = "gamma" reads heavy — that knob existed to undo what
+# linear blending does to a half-covered pixel.
+gamma = 1.0
+# where a glyph's edge is mixed with what is behind it. "linear" is physically right and
+# drags antialiased colour towards grey; "gamma" keeps it saturated, and is what other
+# terminals do.
+blend = "gamma"
+
+[window]
+# false hides the system titlebar and frame, leaving the tab bar as the top of the
+# window. Then only the quit binding closes it, and moving and resizing are whatever
+# the window manager offers without a frame.
+decorations = false
+
+[cursor]
+# block, bar or underline; a program can still change it with DECSCUSR
+shape = "bar"
+
+[colors]
+# background = "#2e2e32"
+background = "#ebebed"
+# background = "#f2f2f2"
+# foreground = "#424242"
+# foreground = "#a1a1a1"
+selection = "#d9d9d9"
+# cursor = "#424242"  # defaults to the foreground
+
+ansi = [
+  "#d1d1d1", "#b81a6b", "#1e763c", "#8d5b00",
+  "#015493", "#75228e", "#007474", "#424242",
+]
+
+bright = [
+  "#686e75", "#b81a6b", "#1e763c", "#8d5b00",
+  "#015493", "#75228e", "#007474", "#1f1f1d",
+]
+
+[keys]
+quit             = "ctrl+shift+q"
+split_vertical   = "ctrl+shift+d"
+split_horizontal = "ctrl+shift+e"
+close_pane       = "ctrl+shift+w"
+focus_next       = "alt+o"
+scroll_page_up   = "shift+pageup"
+scroll_page_down = "shift+pagedown"
+scroll_line_up   = "ctrl+shift+up"
+scroll_line_down = "ctrl+shift+down"
+
+new_tab   = "ctrl+shift+t"
+close_tab = "ctrl+shift+backspace"
+next_tab  = "ctrl+tab"
+prev_tab  = "ctrl+shift+tab"
+
+# goto_tab_1 through goto_tab_9 jump straight to a tab; the rest follow this one
+goto_tab_1 = "ctrl+shift+1"
