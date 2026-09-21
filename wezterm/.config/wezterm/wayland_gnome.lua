@@ -27,7 +27,8 @@ function mod.apply_to_config(config)
     if config.enable_wayland and os.getenv("WAYLAND_DISPLAY") then
         local success, stdout, stderr = gsettings("text-scaling-factor")
         if success then
-            config.font_size = (config.font_size or 10.0) * tonumber(stdout)
+            -- config.font_size = (config.font_size or 10.0) * tonumber(stdout)
+            print("scale")
         end
     end
 end

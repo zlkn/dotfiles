@@ -21,7 +21,7 @@ split = "#404446"
 ansi = [
     "#494d4f",
     "#ff97be",
-    "#7fc78e",
+    "#1e763c",
     "#dbaf75",
     "#15609f",
     "#e39bfd",
@@ -39,9 +39,9 @@ brights = [
     "#bdf2ff",
 ]
 
-copy_mode_active_highlight_bg = { Color = "#7fc78e" }
+copy_mode_active_highlight_bg = { Color = "#1e763c" }
 copy_mode_active_highlight_fg = { Color = "#35383b" }
-copy_mode_inactive_highlight_bg = { Color = "#7fc78e" }
+copy_mode_inactive_highlight_bg = { Color = "#1e763c" }
 copy_mode_inactive_highlight_fg = { Color = "#494d4f" }
 
 quick_select_label_bg = { Color = "#7fc78e" }
