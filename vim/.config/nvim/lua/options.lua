@@ -98,4 +98,5 @@ vim.opt.listchars:append({
   -- NOTE: Adjust the spaces after the pipe to match your indent size!
   -- e.g., "│ " for an indent of 2, or "│   " for an indent of 4.
   leadmultispace = "│   ",
+  trail = "·",
 })

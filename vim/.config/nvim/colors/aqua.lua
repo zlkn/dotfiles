@@ -525,7 +525,7 @@ M.all_highlights = {
                 MiniTestEmphasis = { bold = true },
                 MiniTestFail = { bold = true, fg = palette.ansi.red },
                 MiniTestPass = { bold = true, fg = palette.ansi.green },
-                MiniTrailspace = { bg = palette.extra.gray5 },
+                MiniTrailspace = { bg = palette.ansi.black, fg = palette.ansi.black },
 
                 MiniClueBorder = { link = "FloatBorder" },
                 MiniClueDescGroup = { link = "DiagnosticFloatingWarn" },
