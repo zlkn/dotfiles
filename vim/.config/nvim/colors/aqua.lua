@@ -550,9 +550,9 @@ M.all_highlights = {
     treesitter_context = {
         vim = {
             TreesitterContext = { bg = palette.extra.gray0 },
-            TreesitterContextBottom = { underline = true, sp = palette.extra.gray1 },
+            TreesitterContextBottom = { sp = palette.extra.gray0 },
             TreesitterContextLineNumber = { bg = palette.extra.gray0 },
-            TreesitterContextLineNumberBottom = { underline = true, sp = palette.extra.gray1 },
+            TreesitterContextLineNumberBottom = { sp = palette.extra.gray0 },
             TreesitterContextSeparator = { link = "FloatBorder" },
         },
     },
