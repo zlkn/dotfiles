@@ -4,6 +4,7 @@ if vim.fn.exists("syntax_on") then
 end
 vim.g.colors_name = "aqua"
 
+package.loaded.palette = nil
 local palette = require("palette")
 local M = {}
 

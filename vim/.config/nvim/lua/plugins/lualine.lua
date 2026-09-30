@@ -64,7 +64,7 @@ end
 MiniDeps.later(function()
     require("lualine").setup({
         options = {
-            theme = lualine_aqua(),
+            theme = lualine_aqua,
             always_show_tabline = true,
             globalstatus = true,
             section_separators = "",
