@@ -9,6 +9,7 @@ local function scheme_bg(config)
     if builtin then
         return builtin.background
     end
+    print(wezterm.config_dir .. "/colors/" .. config.color_cheme .. '.toml')
     return wezterm.color.load_scheme(wezterm.config_dir .. "/colors/" .. config.color_scheme .. ".toml").background
 end
 
@@ -24,15 +25,6 @@ function mod.apply(config, font, font_size)
     config.char_select_font_size = font_size
     config.char_select_bg_color = palette.extra.gray1
     config.char_select_fg_color = palette.ansi.white
-
-    -- Window config
-    -- config.window_background_gradient = {
-    --     orientation = "Vertical",
-    --     colors = {
-    --         palette.extra.bg1,
-    --         palette.extra.bg2,
-    --     },
-    -- }
 
     config.window_frame = {
         font_size = font_size,
