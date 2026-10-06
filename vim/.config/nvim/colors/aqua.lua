@@ -406,6 +406,7 @@ M.all_highlights = {
             ["@lsp.type.typeParameter"] = { link = "@type.definition" },
             ["@lsp.type.variable"] = {},
             ["@lsp.mod.deprecated"] = { link = "DiagnosticDeprecated" },
+            ["@lsp.typemod.function.definition.go"]  = { fg = palette.ansi.yellow },
         },
     },
 
