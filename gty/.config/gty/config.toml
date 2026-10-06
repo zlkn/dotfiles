@@ -26,39 +26,8 @@ shape = "bar"
 # light, dark, or system to follow the desktop's colour scheme (the XDG portal on Linux).
 # toggle_theme switches between the two either way.
 theme = "system"
-
-[colors.light]
-background = "#ebebed"
-# background = "#eceaea"
-foreground = "#424242"
-selection = "#d9d9d9"
-cursor = "#b81a6b"
-
-ansi = [
-  "#d1d1d1", "#b81a6b", "#1e763c", "#8d5b00",
-  "#015493", "#75228e", "#007474", "#424242",
-]
-
-bright = [
-  "#686e75", "#b81a6b", "#1e763c", "#8d5b00",
-  "#015493", "#75228e", "#007474", "#1f1f1d",
-]
-
-[colors.dark]
-background = "#3d3b41"
-foreground = "#dde2e4"
-selection = "#494d4f"
-cursor = "#20bbfc"
-
-ansi = [
-  "#494d4f", "#fe8fb9", "#89c997", "#daaf78",
-  "#86bcf5", "#db9af2", "#81c6c5", "#dde2e4",
-]
-
-bright = [
-  "#adb5bf", "#ffb5cf", "#a6deb1", "#edc696",
-  "#a8d2ff", "#ecb7ff", "#9fdbda", "#bdf2ff",
-]
+theme_light = "light"
+theme_dark = "dark"
 
 [keys]
 quit             = "ctrl+shift+q"
