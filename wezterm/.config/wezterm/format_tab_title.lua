@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local palette = require("palette")
 
 -- This function returns the suggested title for a tab.
 -- It prefers the title that was set via `tab:set_title()`
@@ -20,25 +19,25 @@ local function get_process_name(str)
     return str:gsub("^.*[/\\]", ""):gsub("%.exe$", "")
 end
 
-local function get_icon(tab)
+local function get_icon(tab, colors)
     local icons = {
         ["wezterm-gui"] = { symbol = wezterm.nerdfonts.md_access_point .. " WezTerm" },
         -- TODO: I'd like to use this icon as additional extra symbol in tab
         ["sudo"] = { symbol = wezterm.nerdfonts.md_shield_half_full },
-        ["ncdu"] = { symbol = wezterm.nerdfonts.fa_pie_chart, color = palette.brights.magenta },
-        ["sh"] = { symbol = wezterm.nerdfonts.md_console_line, color = palette.ansi.black },
-        ["bash"] = { symbol = wezterm.nerdfonts.md_console_line, color = palette.ansi.black },
-        ["zsh"] = { symbol = wezterm.nerdfonts.md_console_line, color = palette.ansi.black },
-        ["fish"] = { symbol = wezterm.nerdfonts.md_console_line, color = palette.ansi.white },
-        ["kubectl"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = palette.brights.blue },
-        ["k9s"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = palette.brights.blue },
-        ["ssh"] = { symbol = wezterm.nerdfonts.md_cloud, color = palette.brights.cyan },
-        ["sftp"] = { symbol = wezterm.nerdfonts.md_cloud, color = palette.brights.cyan },
-        ["btm"] = { symbol = wezterm.nerdfonts.md_gauge, color = palette.brights.black },
-        ["top"] = { symbol = wezterm.nerdfonts.md_gauge, color = palette.brights.black },
-        ["htop"] = { symbol = wezterm.nerdfonts.md_gauge, color = palette.brights.black },
-        ["ntop"] = { symbol = wezterm.nerdfonts.md_gauge, color = palette.brights.black },
-        ["nvim"] = { symbol = wezterm.nerdfonts.linux_neovim, color = palette.brights.green },
+        ["ncdu"] = { symbol = wezterm.nerdfonts.fa_pie_chart, color = colors.brights[6] },
+        ["sh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colors.ansi[1] },
+        ["bash"] = { symbol = wezterm.nerdfonts.md_console_line, color = colors.ansi[1] },
+        ["zsh"] = { symbol = wezterm.nerdfonts.md_console_line, color = colors.ansi[1] },
+        ["fish"] = { symbol = wezterm.nerdfonts.md_console_line, color = colors.ansi[8] },
+        ["kubectl"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colors.brights[5] },
+        ["k9s"] = { symbol = wezterm.nerdfonts.md_kubernetes, color = colors.brights[5] },
+        ["ssh"] = { symbol = wezterm.nerdfonts.md_cloud, color = colors.brights[7] },
+        ["sftp"] = { symbol = wezterm.nerdfonts.md_cloud, color = colors.brights[7] },
+        ["btm"] = { symbol = wezterm.nerdfonts.md_gauge, color = colors.brights[1] },
+        ["top"] = { symbol = wezterm.nerdfonts.md_gauge, color = colors.brights[1] },
+        ["htop"] = { symbol = wezterm.nerdfonts.md_gauge, color = colors.brights[1] },
+        ["ntop"] = { symbol = wezterm.nerdfonts.md_gauge, color = colors.brights[1] },
+        ["nvim"] = { symbol = wezterm.nerdfonts.linux_neovim, color = colors.brights[3] },
         ["vim"] = { symbol = wezterm.nerdfonts.linux_neovim },
         ["nano"] = { symbol = wezterm.nerdfonts.linux_neovim },
         ["bat"] = { symbol = wezterm.nerdfonts.md_magnify },
@@ -52,18 +51,18 @@ local function get_icon(tab)
         ["wget"] = { symbol = wezterm.nerdfonts.md_flash },
         ["yt-dlp"] = { symbol = wezterm.nerdfonts.md_flash },
         ["rsync"] = { symbol = wezterm.nerdfonts.md_flash },
-        ["python"] = { symbol = wezterm.nerdfonts.md_language_python, color = palette.ansi.yellow },
-        ["Python"] = { symbol = wezterm.nerdfonts.md_language_python, color = palette.ansi.yellow },
-        ["python3"] = { symbol = wezterm.nerdfonts.md_language_python, color = palette.ansi.yellow },
-        ["python3.13"] = { symbol = wezterm.nerdfonts.md_language_python, color = palette.ansi.yellow },
-        ["lazygit"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = palette.brights.magenta },
-        ["git"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = palette.ansi.magenta },
-        ["terraform"] = { symbol = wezterm.nerdfonts.md_terraform, color = palette.brights.magenta },
-        ["gcloud"] = { symbol = wezterm.nerdfonts.md_google_cloud, color = palette.ansi.cyan },
-        ["make"] = { symbol = wezterm.nerdfonts.cod_run_all, color = palette.brights.green },
+        ["python"] = { symbol = wezterm.nerdfonts.md_language_python, color = colors.ansi[4] },
+        ["Python"] = { symbol = wezterm.nerdfonts.md_language_python, color = colors.ansi[4] },
+        ["python3"] = { symbol = wezterm.nerdfonts.md_language_python, color = colors.ansi[4] },
+        ["python3.13"] = { symbol = wezterm.nerdfonts.md_language_python, color = colors.ansi[4] },
+        ["lazygit"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colors.brights[6] },
+        ["git"] = { symbol = wezterm.nerdfonts.fa_github_alt, color = colors.ansi[6] },
+        ["terraform"] = { symbol = wezterm.nerdfonts.md_terraform, color = colors.brights[6] },
+        ["gcloud"] = { symbol = wezterm.nerdfonts.md_google_cloud, color = colors.ansi[7] },
+        ["make"] = { symbol = wezterm.nerdfonts.cod_run_all, color = colors.brights[3] },
     }
 
-    local icon = { symbol = wezterm.nerdfonts.md_collage, color = palette.ansi.white }
+    local icon = { symbol = wezterm.nerdfonts.md_collage, color = colors.ansi[8] }
     if tab.active_pane.foreground_process_name == "" then
         return icon
     end
@@ -75,7 +74,7 @@ local function get_icon(tab)
 
     if icon_cfg then
         icon.symbol = icons[exec_name].symbol or wezterm.nerdfonts.md_run
-        icon.color = icons[exec_name].color or palette.ansi.black
+        icon.color = icons[exec_name].color or colors.ansi[1]
     end
 
     return icon
@@ -93,7 +92,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
         background = colors.ansi[1]
     end
 
-    local icon = get_icon(tab)
+    local icon = get_icon(tab, colors)
     local title = tab_title(tab)
 
     return wezterm.format({

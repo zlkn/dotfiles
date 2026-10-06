@@ -1,30 +1,31 @@
 local wezterm = require("wezterm")
-local palette = require("palette")
 
 local mod = {}
 
--- window_frame is not part of the color scheme, so its bg needs resolving by hand
-local function scheme_bg(config)
+-- window_frame is not part of the color scheme, so its colors need resolving by hand
+local function scheme(config)
     local builtin = wezterm.color.get_builtin_schemes()[config.color_scheme]
     if builtin then
-        return builtin.background
+        return builtin
     end
-    print(wezterm.config_dir .. "/colors/" .. config.color_cheme .. '.toml')
-    return wezterm.color.load_scheme(wezterm.config_dir .. "/colors/" .. config.color_scheme .. ".toml").background
+    return wezterm.color.load_scheme(wezterm.config_dir .. "/colors/" .. config.color_scheme .. ".toml")
 end
 
 function mod.apply(config, font, font_size)
-    local background = scheme_bg(config)
+    local colors = scheme(config)
+    local background = colors.background
+    local border = colors.ansi[1]
+    local foreground = colors.ansi[8]
 
     -- Command Palette
     config.command_palette_font_size = font_size
-    config.command_palette_bg_color = palette.extra.gray1
-    config.command_palette_fg_color = palette.ansi.white
+    config.command_palette_bg_color = border
+    config.command_palette_fg_color = foreground
 
     -- Char select
     config.char_select_font_size = font_size
-    config.char_select_bg_color = palette.extra.gray1
-    config.char_select_fg_color = palette.ansi.white
+    config.char_select_bg_color = border
+    config.char_select_fg_color = foreground
 
     config.window_frame = {
         font_size = font_size,
@@ -35,10 +36,10 @@ function mod.apply(config, font, font_size)
         border_right_width = "0.12cell",
         border_bottom_height = "0.1cell",
         border_top_height = "0.1cell",
-        border_left_color = palette.extra.gray1,
-        border_right_color = palette.extra.gray1,
-        border_bottom_color = palette.extra.gray1,
-        border_top_color = palette.extra.gray1,
+        border_left_color = border,
+        border_right_color = border,
+        border_bottom_color = border,
+        border_top_color = border,
 
         -- Match tabbar colors with colorscheme
         inactive_titlebar_bg = background,
