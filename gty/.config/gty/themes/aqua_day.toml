@@ -1,0 +1,15 @@
+# !!! Generated do not edit manually !!!
+background = "#ebebed"
+foreground = "#424242"
+selection = "#d1d1d1"
+cursor = "#20bbfc"
+
+ansi = [
+  "#d1d1d1", "#b31367", "#1e763c", "#825400",
+  "#15609f", "#75228e", "#007474", "#424242",
+]
+
+bright = [
+  "#686e75", "#b31367", "#1e763c", "#825400",
+  "#015493", "#75228e", "#007474", "#002338",
+]
