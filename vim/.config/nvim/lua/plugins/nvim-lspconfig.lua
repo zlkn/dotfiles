@@ -25,6 +25,9 @@ MiniDeps.now(function()
             filetypes = { "terraform", "tf" },
             root_markers = { ".terraform", ".git" },
         },
+        basedpyright = {
+            settings = { basedpyright = { analysis = { typeCheckingMode = "standard" } } },
+        },
         luals = {
             filetypes = { "lua" },
             on_init = function(client)
@@ -124,7 +127,7 @@ MiniDeps.now(function()
     -- `additionalTextEdits` resolve (auto-import)
     vim.lsp.config("*", { capabilities = require("mini.completion").get_lsp_capabilities() })
 
-    local enabled_lsp = {"yamlls", "helm_ls", "luals", "dockerls", "ruff", "gopls", "ansiblels"}
+    local enabled_lsp = {"yamlls", "helm_ls", "luals", "dockerls", "ruff", "basedpyright", "gopls", "ansiblels"}
 
     for _, lsp in ipairs(enabled_lsp) do
 
