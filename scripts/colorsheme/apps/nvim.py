@@ -1,3 +1,4 @@
+from palettes import Palette
 from render import write
 
 NVIM_LUA_DIR = "vim/.config/nvim/lua"
@@ -48,5 +49,5 @@ return palette
 """
 
 
-def generate(variant, palette):
+def generate(variant: str, palette: Palette) -> None:
     write(f"{NVIM_LUA_DIR}/palette_{variant}.lua", PALETTE_LUA, variant, palette)

@@ -6,7 +6,7 @@ import apps
 from palettes import VARIANTS
 
 
-def main():
+def main() -> None:
     for variant, palette in VARIANTS.items():
         apps.generate(variant, palette)
 

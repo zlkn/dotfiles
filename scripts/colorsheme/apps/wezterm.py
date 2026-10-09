@@ -1,3 +1,4 @@
+from palettes import Palette
 from render import write
 
 WEZTERM_DIR = "wezterm/.config/wezterm"
@@ -70,5 +71,5 @@ fg_color = "${ansi_white}"
 """
 
 
-def generate(variant, palette):
+def generate(variant: str, palette: Palette) -> None:
     write(f"{WEZTERM_DIR}/colors/{variant}.toml", WEZTERM_TOML, variant, palette)

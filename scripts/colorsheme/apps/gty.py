@@ -1,3 +1,4 @@
+from palettes import Palette
 from render import write
 
 GTY_THEMES_DIR = "gty/.config/gty/themes"
@@ -22,5 +23,5 @@ bright = [
 """
 
 
-def generate(variant, palette):
+def generate(variant: str, palette: Palette) -> None:
     write(f"{GTY_THEMES_DIR}/{variant}.toml", GTY_TOML, variant, palette)

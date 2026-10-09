@@ -1,7 +1,9 @@
 # Single source of truth for every generated theme file.
 # aqua ships two variants: aqua_day (light) and aqua_night (dark).
 
-AQUA_DAY = {
+type Palette = dict[str, str]
+
+AQUA_DAY: Palette = {
     "normal": "#424242",
     "cursor": "#20bbfc",
     "background": "#ebebed",
@@ -37,7 +39,7 @@ AQUA_DAY = {
     "extra_white": "#6f8396",
 }
 
-AQUA_NIGHT = {
+AQUA_NIGHT: Palette = {
     "normal": "#dde2e4",
     "cursor": "#20bbfc",
     "background": "#3d3b41",
@@ -73,7 +75,7 @@ AQUA_NIGHT = {
     "extra_white": "#7d8e9f",
 }
 
-VARIANTS = {
+VARIANTS: dict[str, Palette] = {
     "aqua_day": AQUA_DAY,
     "aqua_night": AQUA_NIGHT,
 }
