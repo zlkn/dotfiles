@@ -29,6 +29,7 @@ MiniDeps.now(function()
             settings = { basedpyright = { analysis = { typeCheckingMode = "standard" } } },
         },
         luals = {
+            cmd = { "lua-language-server" },
             filetypes = { "lua" },
             on_init = function(client)
                 if client.workspace_folders then
