@@ -8,16 +8,15 @@ AQUA_DAY: Palette = {
     "cursor": "#20bbfc",
     "background": "#ebebed",
     "selection": "#dfdfe1",
-
     "ansi_black": "#d1d1d1",
     "ansi_red": "#b31367",
     "ansi_green": "#1e763c",
-    "ansi_yellow": "#825400",
+    # "ansi_yellow": "#825400",
+    "ansi_yellow": "#926414",
     "ansi_blue": "#15609f",
     "ansi_magenta": "#75228e",
     "ansi_cyan": "#007474",
     "ansi_white": "#424242",
-
     "bright_black": "#686e75",
     "bright_red": "#b31367",
     "bright_green": "#1e763c",
@@ -26,7 +25,6 @@ AQUA_DAY: Palette = {
     "bright_magenta": "#75228e",
     "bright_cyan": "#007474",
     "bright_white": "#002338",
-
     "extra_bg1": "#f2f2f2",
     "extra_bg2": "#e7e7e7",
     "extra_pencil_gray": "#9d9d9d",
@@ -44,7 +42,6 @@ AQUA_NIGHT: Palette = {
     "cursor": "#20bbfc",
     "background": "#3d3b41",
     "selection": "#404446",
-
     "ansi_black": "#494d4f",
     "ansi_red": "#ff97be",
     "ansi_green": "#1e763c",
@@ -53,7 +50,6 @@ AQUA_NIGHT: Palette = {
     "ansi_magenta": "#8a3aa4",
     "ansi_cyan": "#7cc2c2",
     "ansi_white": "#dde2e4",
-
     "bright_black": "#adb5bf",
     "bright_red": "#ff97be",
     "bright_green": "#7fc78e",
@@ -62,7 +58,6 @@ AQUA_NIGHT: Palette = {
     "bright_magenta": "#8a3aa4",
     "bright_cyan": "#7cc2c2",
     "bright_white": "#bdf2ff",
-
     "extra_bg1": "#35383b",
     "extra_bg2": "#3b3f41",
     "extra_pencil_gray": "#6f7275",
