@@ -333,9 +333,10 @@ M.all_highlights = {
         },
 
         treesitter = {
-            ["@tag"] = { fg = palette.ansi.blue },
             ["@diff.delta"] = { link = "Changed" },
             ["@diff.minus"] = { link = "Removed" },
+            ["@diff.plus"] = { link = "Added" },
+            ["@tag"] = { fg = palette.ansi.blue },
             ["@markup"] = { link = "Special" },
             ["@markup.strong"] = { bold = true, fg = palette.brights.white },
             ["@markup.italic"] = { italic = true, fg = palette.brights.white },
@@ -343,7 +344,6 @@ M.all_highlights = {
             ["@markup.underline"] = { underline = true },
             ["@markup.heading"] = { link = "Title" },
             ["@markup.link"] = { underline = true, fg = palette.brights.white },
-            ["@diff.plus"] = { link = "Added" },
             ["@keyword"] = { link = "Keyword" },
             ["@punctuation"] = { link = "Delimiter" },
             ["@punctuation.special"] = { link = "Special" },
@@ -408,6 +408,12 @@ M.all_highlights = {
             ["@lsp.mod.deprecated"] = { link = "DiagnosticDeprecated" },
             ["@lsp.typemod.function.definition.go"]  = { fg = palette.ansi.yellow },
         },
+    },
+
+    lua ={
+        vim = {},
+        treesitter = {},
+        lsp = {},
     },
 
     mini = {
@@ -627,7 +633,6 @@ M.all_highlights = {
             ["@tag.delimiter.javascript"] = { link = "@tag.attribute.javascript" },
             ["@tag.delimiter.tsx"] = { link = "@tag.attribute.tsx" },
             ["@property.json"] = { link = "@tag" },
-            -- ["@constructor.lua"] = { fg = palette.normal },
             ["@operator.lua"] = { fg = palette.normal },
             ["@property.lua"] = { fg = palette.normal },
             ["@function.builtin.lua"] = { fg = palette.ansi.magenta },
