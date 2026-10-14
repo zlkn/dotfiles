@@ -51,7 +51,7 @@ package containerd.io
 package docker-buildx-plugin
 package docker-compose-plugin
 
-keyring bazel https://bazel.build/bazel-release.pub.gpg
+keyring bazel https://storage.googleapis.com/bazel-apt/doc/apt-key.pub.gpg
 source bazel <<EOF
 deb [arch=amd64 signed-by=/usr/share/keyrings/bazel.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8
 EOF
@@ -62,6 +62,11 @@ package bazel-7.1.0
 keyring google-chrome https://dl.google.com/linux/linux_signing_key.pub
 source google-chrome <<EOF
 deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] https://dl.google.com/linux/chrome/deb/ stable main
+EOF
+
+keyring zlkn https://apt.zlkn.cc/zlkn.gpg
+source zlkn <<EOF
+deb [arch=amd64 signed-by=/usr/share/keyrings/zlkn.gpg] https://apt.zlkn.cc forky main
 EOF
 
 package google-chrome-stable
@@ -80,6 +85,7 @@ package tree-sitter-cli
 ### Development
 package golang
 package gopls
+package lua-language-server
 
 ### Binaries ###
 binary terragrunt https://github.com/gruntwork-io/terragrunt/releases/latest/download/terragrunt_linux_amd64
