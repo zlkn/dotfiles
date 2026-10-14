@@ -49,6 +49,10 @@ xrun() {
     fi
 }
 
+log() {
+    printf '==> %s\n' "$*" >&2
+}
+
 sq() {
     /usr/bin/printf %q "$1"
 }
@@ -112,6 +116,7 @@ main() {
         filename=$(basename "$file" .sh).gpg
         dest=$destdir/$filename
         tmpfile=$TmpDir/keyrings/$filename
+        log "fetching keyring $(basename "$file" .sh)"
         (
             set -e
             dir=$TmpDir/tmp
@@ -124,30 +129,42 @@ main() {
                 mv keyring.gpg "$tmpfile"
             fi
         )
-        cmp -s "$tmpfile" "$dest" 2>/dev/null ||
+        if cmp -s "$tmpfile" "$dest" 2>/dev/null; then
+            log "keyring $filename is up to date"
+        else
+            log "installing keyring $dest"
             run install -o 0 -g 0 -m 644 "$tmpfile" "$dest"
+        fi
     done
 
     destdir=/etc/apt/sources.list.d
 
     find "$TmpDir/sources" -type f -name '*.list' | while read -r file; do
-        cmp -s "$file" "$destdir/$(basename "$file")" 2>/dev/null ||
+        if cmp -s "$file" "$destdir/$(basename "$file")" 2>/dev/null; then
+            log "source $(basename "$file") is up to date"
+        else
+            log "installing source $destdir/$(basename "$file")"
             run install -o 0 -g 0 -m 644 "$file" "$destdir/"
+        fi
     done
 
     while read ppa; do
         if ! grep -qrE "https?://ppa\.launchpad(content)?\.net/${ppa}/ubuntu" /etc/apt/sources.list.d/ 2>/dev/null; then
+            log "adding ppa $ppa"
             run add-apt-repository --no-update -y "ppa:$ppa"
         fi
     done < "$TmpDir/ppas"
 
+    log "updating package lists"
     run apt update
 
     if [ -s "$TmpDir/packages" ]; then
+        log "installing packages: $(xargs -0 echo < "$TmpDir/packages")"
         xrun apt install -y < "$TmpDir/packages"
     fi
 
     if [ -s "$TmpDir/satisfy" ]; then
+        log "satisfying: $(xargs -0 echo < "$TmpDir/satisfy")"
         xrun apt satisfy -y < "$TmpDir/satisfy"
     fi
 
@@ -190,6 +207,7 @@ main() {
 
     while read url; do
         file=$(basename "$url")
+        log "downloading $url"
         if [ -f "$destdir/$file" ]; then
             curl -fsSLR -z "$destdir/$file" -o "$destdir/$file" "$url"
         else
@@ -207,6 +225,7 @@ main() {
         [ -n "$name" ] || continue
         file=$(basename "$url")
         cached=$cachedir/$file
+        log "downloading binary $name from $url"
         if [ -f "$cached" ]; then
             curl -fsSLR -z "$cached" -o "$cached" "$url"
         else
