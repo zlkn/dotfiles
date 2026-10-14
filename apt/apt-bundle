@@ -118,7 +118,7 @@ main() {
             rm -rf "$dir"
             mkdir "$dir"
             cd "$dir"
-            sh "$file" > "$tmpfile"
+            sh "$file" > "$tmpfile" || die "failed to fetch keyring $(basename "$file" .sh): $(cat "$file")"
             if grep -qe '^-----BEGIN PGP PUBLIC KEY BLOCK-----' "$tmpfile"; then
                 gpg --dearmor < "$tmpfile" > keyring.gpg
                 mv keyring.gpg "$tmpfile"
