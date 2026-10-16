@@ -67,8 +67,6 @@ srequire("plugins.nvim-treesitter-context")
 -- LSP/completion/autoformat/docs
 srequire("plugins.nvim-lspconfig")
 srequire("plugins.completion")
-
+srequire("plugins.brygga")
 srequire("plugins.conform")
 -- require("plugins.hover")
-
-
