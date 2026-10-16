@@ -1,15 +1,8 @@
-MiniDeps.add({
-    source = "nvim-treesitter/nvim-treesitter",
-    checkout = "main",
-    monitor = "main",
-    hooks = {
-        post_checkout = function()
-            require("nvim-treesitter").update()
-        end,
-    },
+vim.pack.add({
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 })
 
-MiniDeps.now(function()
+MiniMisc.safely("now", function()
     require("nvim-treesitter").setup({})
 
     local parsers = {

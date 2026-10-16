@@ -455,16 +455,6 @@ M.all_highlights = {
                 MiniFilesDirectory = { link = "Directory" },
                 MiniFilesFile = { fg = palette.normal },
 
-                MiniDepsChangeAdded = { link = "Added" },
-                MiniDepsChangeRemoved = { link = "Removed" },
-                MiniDepsHint = { link = "DiagnosticHint" },
-                MiniDepsInfo = { link = "DiagnosticInfo" },
-                MiniDepsMsgBreaking = { link = "DiagnosticWarn" },
-                MiniDepsPlaceholder = { link = "Comment" },
-                MiniDepsTitle = { link = "Title" },
-                MiniDepsTitleError = { link = "DiffDelete" },
-                MiniDepsTitleSame = { link = "DiffText" },
-                MiniDepsTitleUpdate = { link = "DiffAdd" },
 
                 MiniIconsAzure = { fg = palette.ansi.blue },
                 MiniIconsBlue = { fg = palette.ansi.blue },

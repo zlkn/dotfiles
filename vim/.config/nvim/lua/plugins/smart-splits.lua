@@ -1,5 +1,5 @@
-MiniDeps.add("mrjones2014/smart-splits.nvim")
-MiniDeps.later(function()
+vim.pack.add({ "https://github.com/mrjones2014/smart-splits.nvim" })
+MiniMisc.safely("later", function()
     require("smart-splits").setup({})
     -- moving between splits
     vim.keymap.set("n", "<A-h>", require("smart-splits").move_cursor_left)

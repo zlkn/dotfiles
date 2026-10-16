@@ -1,6 +1,5 @@
-MiniDeps.add({
-    source = "nvim-lualine/lualine.nvim",
-    name = "lualine",
+vim.pack.add({
+    { src = "https://github.com/nvim-lualine/lualine.nvim", name = "lualine" },
 })
 
 local function lualine_aqua()
@@ -61,7 +60,7 @@ local function git_root()
     end
 end
 
-MiniDeps.later(function()
+MiniMisc.safely("later", function()
     require("lualine").setup({
         options = {
             theme = lualine_aqua,

@@ -1,4 +1,4 @@
-MiniDeps.later(function()
+MiniMisc.safely("later", function()
     local files = require("mini.files")
     files.setup({
         windows = {

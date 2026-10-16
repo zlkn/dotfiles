@@ -1,19 +1,17 @@
--- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
-local path_package = vim.fn.stdpath("data") .. "/site/"
-local mini_path = path_package .. "pack/deps/start/mini.nvim"
-if not vim.uv.fs_stat(mini_path) then
-    vim.cmd('echo "Installing `mini.nvim`" | redraw')
-    local clone_cmd = {
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/nvim-mini/mini.nvim",
-        mini_path,
-    }
-    vim.fn.system(clone_cmd)
-    vim.cmd("packadd mini.nvim | helptags ALL")
-    vim.cmd('echo "Installed `mini.nvim`" | redraw')
-end
+vim.api.nvim_create_autocmd("PackChanged", {
+    callback = function(ev)
+        local data = ev.data
+        if data.spec.name == "nvim-treesitter" and (data.kind == "install" or data.kind == "update") then
+            if not data.active then
+                vim.cmd.packadd("nvim-treesitter")
+            end
+            require("nvim-treesitter").update()
+        end
+    end,
+})
+
+vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })
+require("mini.misc").setup()
 
 local function srequire(module)
     local status_ok, m = pcall(require, module)
@@ -28,8 +26,6 @@ srequire("options")
 srequire("autocmds")
 srequire("keymaps")
 
--- Set up 'mini.deps' (customize to your liking)
-require("mini.deps").setup({ path = { package = path_package } })
 require("mini.visits").setup()
 require("mini.trailspace").setup()
 require('mini.indentscope').setup({ symbol = "▏" })

@@ -1,4 +1,4 @@
-MiniDeps.later(function()
+MiniMisc.safely("later", function()
     git = require("mini.git")
     git.setup()
 

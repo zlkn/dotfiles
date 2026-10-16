@@ -1,5 +1,5 @@
-MiniDeps.add("lewis6991/gitsigns.nvim")
-MiniDeps.later(function()
+vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
+MiniMisc.safely("later", function()
     local gitsigns = require("gitsigns")
     gitsigns.setup({
         current_line_blame = true,

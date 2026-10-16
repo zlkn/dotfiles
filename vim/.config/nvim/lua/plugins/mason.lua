@@ -1,5 +1,5 @@
--- MiniDeps.add("williamboman/mason.nvim")
--- MiniDeps.later(function()
+-- vim.pack.add({ "https://github.com/williamboman/mason.nvim" })
+-- MiniMisc.safely("later", function()
 --     -- https://github.com/mason-org/mason.nvim/discussions/1760
 --     local mason = require("mason")
 --     mason.setup({ ui = { border = "single" } })

@@ -1,4 +1,4 @@
-MiniDeps.later(function()
+MiniMisc.safely("later", function()
     local miniclue = require("mini.clue")
     miniclue.setup({
         triggers = {

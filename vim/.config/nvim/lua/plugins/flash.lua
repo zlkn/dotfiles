@@ -1,5 +1,5 @@
-MiniDeps.add({ source = "folke/flash.nvim" })
-MiniDeps.later(function()
+vim.pack.add({ "https://github.com/folke/flash.nvim" })
+MiniMisc.safely("later", function()
     require("flash").setup({
         modes = {
             char = {

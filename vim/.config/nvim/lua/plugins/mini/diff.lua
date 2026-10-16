@@ -1,4 +1,4 @@
-MiniDeps.now(function()
+MiniMisc.safely("now", function()
     local diff = require("mini.diff")
     diff.setup({})
 

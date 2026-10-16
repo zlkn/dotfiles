@@ -1,5 +1,5 @@
-MiniDeps.add({ source = "neovim/nvim-lspconfig", depends = { "b0o/SchemaStore.nvim" } })
-MiniDeps.now(function()
+vim.pack.add({ "https://github.com/b0o/SchemaStore.nvim", "https://github.com/neovim/nvim-lspconfig" })
+MiniMisc.safely("now", function()
     local options = {
         default = {},
         ansiblels = {
@@ -64,7 +64,7 @@ MiniDeps.now(function()
                 Lua = {
                     hint = { enable = true },
                     diagnostics = {
-                        globals = { "vim", "MiniDeps", "MiniPick", "MiniFiles", "none", "MiniExtra" },
+                        globals = { "vim", "MiniMisc", "MiniPick", "MiniFiles", "none", "MiniExtra" },
                     },
                 },
             },

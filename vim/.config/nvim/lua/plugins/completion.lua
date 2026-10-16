@@ -1,7 +1,7 @@
 -- NOTE: `now`, not `later`. `lsp_completion.auto_setup` only installs a BufEnter
 -- autocmd and doesn't touch the already-entered buffer, so a `later` setup
 -- leaves 'completefunc' unset in the first file opened via `nvim <file>`.
-MiniDeps.now(function()
+MiniMisc.safely("now", function()
     local mc = require("mini.completion")
 
     local process_items = function(items, base)
@@ -34,7 +34,7 @@ end)
 -- Keymaps go in `later` on purpose: 'mini.pairs' maps <CR> itself when it
 -- registers pairs and is set up from an earlier `later` callback. Mapping <CR>
 -- in `now` would get clobbered.
-MiniDeps.later(function()
+MiniMisc.safely("later", function()
     -- Navigate the popup menu, otherwise insert a literal Tab
     vim.keymap.set("i", "<Tab>", function()
         return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"

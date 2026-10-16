@@ -1,4 +1,4 @@
-MiniDeps.later(function()
+MiniMisc.safely("later", function()
     local surround = require("mini.surround")
     surround.setup({
         -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`

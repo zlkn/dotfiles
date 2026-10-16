@@ -1,5 +1,5 @@
-MiniDeps.add("HiPhish/rainbow-delimiters.nvim")
-MiniDeps.now(function()
+vim.pack.add({ "https://github.com/HiPhish/rainbow-delimiters.nvim" })
+MiniMisc.safely("now", function()
     local suite_rainbow = {
         "RainbowDelimiterBlack",
         "RainbowDelimiterRed",

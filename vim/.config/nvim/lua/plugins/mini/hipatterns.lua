@@ -1,4 +1,4 @@
-MiniDeps.later(function()
+MiniMisc.safely("later", function()
     local hipatterns = require("mini.hipatterns")
     hipatterns.setup({
         highlighters = {

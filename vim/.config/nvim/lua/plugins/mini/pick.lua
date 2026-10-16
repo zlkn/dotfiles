@@ -1,4 +1,4 @@
-MiniDeps.later(function()
+MiniMisc.safely("later", function()
     require("mini.pick").setup({
         window = {
             prompt_prefix = " ",

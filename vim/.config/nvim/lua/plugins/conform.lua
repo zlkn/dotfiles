@@ -1,6 +1,6 @@
 -- TODO: Remove if autocommand formatter by lsp & treesitter good enough
-MiniDeps.add("stevearc/conform.nvim")
-MiniDeps.later(function()
+vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
+MiniMisc.safely("later", function()
     local conform = require("conform")
     conform.setup({
         format_on_save = {
