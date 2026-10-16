@@ -1,13 +1,13 @@
 # !!! Generated do not edit manually !!!
 [metadata]
-name = "aqua_day"
+name = "Aqua Day"
 
 [colors]
 foreground = "#424242"
 background = "#ebebeb"
 
 cursor_fg = "#424242"
-cursor_bg = "#20bbfc"
+cursor_bg = "#15609f"
 cursor_border = "#002338"
 
 selection_fg = "#424242"
@@ -33,7 +33,7 @@ brights = [
     "#b31367",
     "#1e763c",
     "#825400",
-    "#015493",
+    "#15609f",
     "#75228e",
     "#007474",
     "#002338",

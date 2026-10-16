@@ -1,0 +1,41 @@
+-- !!! Generated do not edit manually !!!
+local palette = {
+    variant = "Aqua Day",
+    normal = "#424242",
+    cursor = "#15609f",
+    background = "#ebebeb",
+    selection = "#dfdfe1",
+    ansi = {
+        black   = "#d1d1d1",
+        red     = "#b31367",
+        green   = "#1e763c",
+        yellow  = "#926414",
+        blue    = "#15609f",
+        magenta = "#75228e",
+        cyan    = "#007474",
+        white   = "#424242",
+    },
+    brights = {
+        black   = "#686e75",
+        red     = "#b31367",
+        green   = "#1e763c",
+        yellow  = "#825400",
+        blue    = "#15609f",
+        magenta = "#75228e",
+        cyan    = "#007474",
+        white   = "#002338",
+    },
+    extra = {
+        bg1        = "#f2f2f2",
+        bg2        = "#e7e7e7",
+        pencilGray = "#9d9d9d",
+        gray0      = "#dfdfe1",
+        gray1      = "#d1d1d1",
+        gray2      = "#a1a1a1",
+        gray3      = "#57606a",
+        gray4      = "#d1dfe1",
+        gray5      = "#b4b4b6",
+        white      = "#6f8396",
+    },
+}
+return palette

@@ -1,0 +1,41 @@
+-- !!! Generated do not edit manually !!!
+local palette = {
+    variant = "Aqua Night",
+    normal = "#dde2e4",
+    cursor = "#20bbfc",
+    background = "#3d3b41",
+    selection = "#404446",
+    ansi = {
+        black   = "#494d4f",
+        red     = "#ff97be",
+        green   = "#1e763c",
+        yellow  = "#dbaf75",
+        blue    = "#7fbbf9",
+        magenta = "#8a3aa4",
+        cyan    = "#7cc2c2",
+        white   = "#dde2e4",
+    },
+    brights = {
+        black   = "#adb5bf",
+        red     = "#ff97be",
+        green   = "#7fc78e",
+        yellow  = "#dbaf75",
+        blue    = "#7fbbf9",
+        magenta = "#8a3aa4",
+        cyan    = "#7cc2c2",
+        white   = "#bdf2ff",
+    },
+    extra = {
+        bg1        = "#35383b",
+        bg2        = "#3b3f41",
+        pencilGray = "#6f7275",
+        gray0      = "#404446",
+        gray1      = "#494d4f",
+        gray2      = "#6b6f71",
+        gray3      = "#adb5bf",
+        gray4      = "#3c4748",
+        gray5      = "#5c5f62",
+        white      = "#7d8e9f",
+    },
+}
+return palette

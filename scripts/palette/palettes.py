@@ -5,7 +5,7 @@ type Palette = dict[str, str]
 
 AQUA_DAY: Palette = {
     "normal": "#424242",
-    "cursor": "#20bbfc",
+    "cursor": "#15609f",
     "background": "#ebebeb",
     "selection": "#dfdfe1",
     "ansi_black": "#d1d1d1",
@@ -21,8 +21,8 @@ AQUA_DAY: Palette = {
     "bright_red": "#b31367",
     "bright_green": "#1e763c",
     "bright_yellow": "#825400",
-    "bright_blue": "#015493",
-    "ansi_blue": "#15609f",
+    # "bright_blue": "#015493",
+    "bright_blue": "#15609f",
     "bright_magenta": "#75228e",
     "bright_cyan": "#007474",
     "bright_white": "#002338",
@@ -72,6 +72,6 @@ AQUA_NIGHT: Palette = {
 }
 
 VARIANTS: dict[str, Palette] = {
-    "aqua_day": AQUA_DAY,
-    "aqua_night": AQUA_NIGHT,
+    "Aqua Day": AQUA_DAY,
+    "Aqua Night": AQUA_NIGHT,
 }
