@@ -13,56 +13,53 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })
 require("mini.misc").setup()
 
-local function srequire(module)
-    local status_ok, m = pcall(require, module)
-    if not status_ok then
-        vim.notify("Unable to load: " .. module, vim.log.levels.ERROR)
-        return nil
-    end
-    return m
+local function safely_require(module)
+    MiniMisc.safely("now", function()
+        require(module)
+    end)
 end
 
-srequire("options")
-srequire("autocmds")
-srequire("keymaps")
+safely_require("options")
+safely_require("autocmds")
+safely_require("keymaps")
 
 require("mini.visits").setup()
 require("mini.trailspace").setup()
 require('mini.indentscope').setup({ symbol = "▏" })
 
-srequire("plugins.mini.clue")
-srequire("plugins.mini.files")
-srequire("plugins.mini.pairs")
-srequire("plugins.mini.pick")
-srequire("plugins.mini.extra")
-srequire("plugins.mini.surround")
--- srequire("plugins.mini.ai")
-srequire("plugins.mini.cursorword")
-srequire("plugins.mini.hipatterns")
-srequire("plugins.mini.icons")
-srequire("plugins.mini.notify")
-srequire("plugins.mini.git")
-srequire("plugins.mini.diff")
-srequire("plugins.mini.snippets")
+safely_require("plugins.mini.clue")
+safely_require("plugins.mini.files")
+safely_require("plugins.mini.pairs")
+safely_require("plugins.mini.pick")
+safely_require("plugins.mini.extra")
+safely_require("plugins.mini.surround")
+-- safely_require("plugins.mini.ai")
+safely_require("plugins.mini.cursorword")
+safely_require("plugins.mini.hipatterns")
+safely_require("plugins.mini.icons")
+safely_require("plugins.mini.notify")
+safely_require("plugins.mini.git")
+safely_require("plugins.mini.diff")
+safely_require("plugins.mini.snippets")
 
 -- Enhance ui
-srequire("plugins.colorscheme")
-srequire("plugins.rainbow-delimiter")
-srequire("plugins.smart-splits")
-srequire("plugins.lualine")
-srequire("plugins.flash")
-srequire("plugins.markview")
+safely_require("plugins.colorscheme")
+safely_require("plugins.rainbow-delimiter")
+safely_require("plugins.smart-splits")
+safely_require("plugins.lualine")
+safely_require("plugins.flash")
+safely_require("plugins.markview")
 
 -- git ingegration
 -- require("plugins.gitsigns")
 
 -- Syntax highlight
-srequire("plugins.nvim-treesitter")
-srequire("plugins.nvim-treesitter-context")
+safely_require("plugins.nvim-treesitter")
+safely_require("plugins.nvim-treesitter-context")
 
 -- LSP/completion/autoformat/docs
-srequire("plugins.nvim-lspconfig")
-srequire("plugins.completion")
-srequire("plugins.brygga")
-srequire("plugins.conform")
+safely_require("plugins.nvim-lspconfig")
+safely_require("plugins.completion")
+safely_require("plugins.brygga")
+safely_require("plugins.conform")
 -- require("plugins.hover")
