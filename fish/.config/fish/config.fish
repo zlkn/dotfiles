@@ -5,5 +5,5 @@ if status is-interactive
 end
 
 
-# Added by Antigravity CLI installer
-fish_add_path --prepend "/home/yzolkin/.local/bin" $PATH
+fish_add_path --prepend "/home/yzolkin/.local/bin"
+fish_add_path --prepend "/home/yzolkin/.local/npm-bin/bin"
