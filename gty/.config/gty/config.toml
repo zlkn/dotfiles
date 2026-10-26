@@ -26,8 +26,8 @@ shape = "bar"
 # light, dark, or system to follow the desktop's colour scheme (the XDG portal on Linux).
 # toggle_theme switches between the two either way.
 theme = "system"
-theme_light = "light"
-theme_dark = "dark"
+theme_light = "Aqua Day"
+theme_dark = "Aqua Night"
 
 [keys]
 quit             = "ctrl+shift+q"
