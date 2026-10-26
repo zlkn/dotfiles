@@ -99,6 +99,14 @@ MiniMisc.safely("later", function()
             },
             lualine_y = {
                 "searchcount",
+                {
+                    function()
+                        return "✻"
+                    end,
+                    cond = function()
+                        return package.loaded.brygga ~= nil and require("brygga").client_count() > 0
+                    end,
+                },
                 -- get_lsp(),
                 {
                   'lsp_status',
