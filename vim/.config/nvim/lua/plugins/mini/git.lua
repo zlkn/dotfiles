@@ -5,36 +5,42 @@ MiniMisc.safely("later", function()
     local ns_id = vim.api.nvim_create_namespace("MyGitBlame")
 
     local function show_blame_ghost()
+        -- Ignore special buffers (help, package managers, terminal, etc.) and empty files
+        if vim.bo.buftype ~= "" then return end
+
         local fname = vim.api.nvim_buf_get_name(0)
+        if fname == "" then return end
+
         local line = vim.api.nvim_win_get_cursor(0)[1]
 
         -- Clear previous virtual text
         vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1)
 
         -- Run git blame for just this line
-        vim.system({ "git", "blame", "-L", line .. "," .. line, "--porcelain", fname }, { text = true }, function(obj)
-            if obj.code ~= 0 or not obj.stdout then
-                return
-            end
+        vim.system({ "git", "blame", "-L", line .. "," .. line, "--porcelain", fname },
+            { text = true, cwd = vim.fs.dirname(fname) }, function(obj)
+                if obj.code ~= 0 or not obj.stdout then
+                    return
+                end
 
-            -- Parse the first few lines of porcelain output
-            local author = obj.stdout:match("author ([^\n]+)")
-            local summary = obj.stdout:match("summary ([^\n]+)")
-            local time = obj.stdout:match("author%-time (%d+)")
-            local date = os.date("%Y-%m-%d", tonumber(time))
+                -- Parse the first few lines of porcelain output
+                local author = obj.stdout:match("author ([^\n]+)")
+                local summary = obj.stdout:match("summary ([^\n]+)")
+                local time = obj.stdout:match("author%-time (%d+)")
+                local date = os.date("%Y-%m-%d", tonumber(time))
 
-            local text = string.format("  %s • %s • %s", author, date, summary)
+                local text = string.format("  %s • %s • %s", author, date, summary)
 
-            -- Update UI on main thread
-            vim.schedule(function()
-                vim.api.nvim_buf_set_extmark(0, ns_id, line - 1, 0, {
-                    virt_text = { { text, "Comment" } },
-                    virt_text_pos = "eol",
-                    hl_mode = "combine",
-                    priority = 10,
-                })
+                -- Update UI on main thread
+                vim.schedule(function()
+                    vim.api.nvim_buf_set_extmark(0, ns_id, line - 1, 0, {
+                        virt_text = { { text, "MyGitBlame" } },
+                        virt_text_pos = "eol",
+                        hl_mode = "combine",
+                        priority = 10,
+                    })
+                end)
             end)
-        end)
     end
 
     local map = vim.keymap.set
