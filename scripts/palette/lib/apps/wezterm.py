@@ -1,5 +1,5 @@
 from palettes import Palette
-from render import write
+from ..render import write
 
 WEZTERM_DIR = "wezterm/.config/wezterm"
 

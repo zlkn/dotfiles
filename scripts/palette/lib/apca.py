@@ -1,5 +1,5 @@
 from palettes import Palette
-from wcag import paint
+from .wcag import paint
 
 
 def luminance(color: str) -> float:

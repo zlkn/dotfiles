@@ -3,9 +3,7 @@
 import argparse
 import sys
 
-import apca
-import apps
-import wcag
+from lib import apca, apps, deltae, wcag
 from palettes import VARIANTS
 
 
@@ -26,9 +24,14 @@ def main() -> None:
         action="store_true",
         help="check APCA (WCAG 3.0 draft) contrast of every color against the background",
     )
+    parser.add_argument(
+        "-deltae",
+        action="store_true",
+        help="check CIEDE2000 distance between accent colors, incl. color blindness",
+    )
     args = parser.parse_args()
 
-    if not (args.gen or args.wcag or args.apca):
+    if not (args.gen or args.wcag or args.apca or args.deltae):
         parser.print_help()
         return
 
@@ -37,6 +40,8 @@ def main() -> None:
             wcag.report(variant, palette)
         if args.apca:
             apca.report(variant, palette)
+        if args.deltae:
+            deltae.report(variant, palette)
         if args.gen:
             apps.generate(variant, palette)
 

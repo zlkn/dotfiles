@@ -1,5 +1,5 @@
 from palettes import Palette
-from render import write
+from ..render import write
 
 NVIM_LUA_DIR = "vim/.config/nvim/lua"
 
