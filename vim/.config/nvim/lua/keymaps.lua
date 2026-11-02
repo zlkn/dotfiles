@@ -122,6 +122,15 @@ end, { desc = "Toggle diff overlay" })
 
 map("n", "<leader>gg", "<cmd>Git diff<CR>", { desc = "Toggle diff overlay" })
 
+-- vim.pack plugin manager
+map("n", "<leader>vp", function()
+    vim.pack.update()
+end, { desc = "Update plugins (vim.pack)" })
+
+map("n", "<leader>vl", function()
+    vim.pack.update(nil, { offline = true })
+end, { desc = "List installed plugins (vim.pack)" })
+
 -- Save original semanticTokens handler (for older Neovim)
 local original_semantic_handler = vim.lsp.handlers["textDocument/semanticTokens/full"]
 
