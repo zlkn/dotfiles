@@ -21,7 +21,7 @@ end
 M.all_highlights = {
 
     my = {
-        vim = { MyGitBlame = { fg = palette.ansi.black } },
+        vim = { MyGitBlame = { fg = palette.brights.black } },
     },
 
     flash = {
