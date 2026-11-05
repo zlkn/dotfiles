@@ -9,5 +9,6 @@ all:
 	stow -vv lazygit
 	# stow -vv kitty
 	stow -vv gty
+	stow -vv pi
 
 
