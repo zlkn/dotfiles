@@ -48,7 +48,6 @@ safely_require("plugins.rainbow-delimiter")
 safely_require("plugins.smart-splits")
 safely_require("plugins.lualine")
 safely_require("plugins.flash")
-safely_require("plugins.markview")
 
 -- git ingegration
 -- require("plugins.gitsigns")
