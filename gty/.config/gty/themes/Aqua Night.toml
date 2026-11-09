@@ -2,14 +2,14 @@
 background = "#3d3b41"
 foreground = "#dde2e4"
 selection = "#494d4f"
-cursor = "#20bbfc"
+cursor = "#6accff"
 
 ansi = [
-  "#494d4f", "#ff97be", "#1e763c", "#dbaf75",
-  "#7fbbf9", "#8a3aa4", "#7cc2c2", "#dde2e4",
+  "#494d4f", "#fea9c7", "#8ad298", "#e7ba80",
+  "#91c6fe", "#deb1f7", "#87cece", "#dde2e4",
 ]
 
 bright = [
-  "#adb5bf", "#ff97be", "#7fc78e", "#dbaf75",
-  "#7fbbf9", "#8a3aa4", "#7cc2c2", "#bdf2ff",
+  "#adb5bf", "#fea9c7", "#8ad298", "#e7ba80",
+  "#91c6fe", "#deb1f7", "#87cece", "#bdf2ff",
 ]

@@ -50,4 +50,9 @@ return palette
 
 
 def generate(variant: str, palette: Palette) -> None:
-    write(f"{NVIM_LUA_DIR}/palette_{variant}.lua", PALETTE_LUA, variant, palette)
+    write(
+        f"{NVIM_LUA_DIR}/palette_{variant.lower().replace(' ', '_')}.lua",
+        PALETTE_LUA,
+        variant.lower().replace(" ", ""),
+        palette,
+    )
