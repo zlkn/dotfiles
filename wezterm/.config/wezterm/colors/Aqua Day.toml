@@ -20,9 +20,9 @@ split = "#dfdfe1"
 # magenta, cyan, and white. The other 8 were added as their bright variants.
 ansi = [
     "#d1d1d1",
-    "#b31367",
+    "#a53467",
     "#1e763c",
-    "#9b6138",
+    "#915224",
     "#2b5a8f",
     "#794091",
     "#007474",
@@ -30,9 +30,9 @@ ansi = [
 ]
 brights = [
     "#686e75",
-    "#b31367",
+    "#a53467",
     "#1e763c",
-    "#9b6138",
+    "#915224",
     "#2b5a8f",
     "#794091",
     "#007474",
