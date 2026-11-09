@@ -1,5 +1,9 @@
 from palettes import Palette
+
+from .roles import Role, rows, surfaces
 from .wcag import paint
+
+REQUIRED: dict[Role, float] = {"text": 60, "non-text": 15}
 
 
 def luminance(color: str) -> float:
@@ -38,11 +42,17 @@ def level(lc: float) -> str:
 
 def report(variant: str, palette: Palette) -> None:
     bg = palette["background"]
-    print(f"{variant} (background {bg})")
-    for name, color in palette.items():
-        if name == "background":
-            continue
-        lc = contrast(color, bg)
-        sample = paint(f" {name:<20} {color} ", color, bg)
-        print(f"  {sample}  Lc {lc:6.1f}  {level(lc)}")
+    results = [(name, color, role, contrast(color, bg)) for name, color, role in rows(palette)]
+    failed = sum(abs(lc) < REQUIRED[role] for *_, role, lc in results)
+    print(f"{variant} (background {bg}, failed {failed}/{len(results)})")
+    print(f"  {'color':<27} {'Lc':>6}  {'level':<8}  {'need':>4}  result")
+    for name, color, role, lc in results:
+        sample = paint(f" {name:<17} {color} ", color, bg)
+        need = REQUIRED[role]
+        print(
+            f"  {sample} {lc:6.1f}  {level(lc):<8}  {need:4.0f}"
+            f"  {'OK' if abs(lc) >= need else 'FAIL'}"
+        )
+    print(f"  need: |Lc| text {REQUIRED['text']}, non-text {REQUIRED['non-text']}")
+    print(f"  skipped surfaces: {surfaces(palette)}")
     print()

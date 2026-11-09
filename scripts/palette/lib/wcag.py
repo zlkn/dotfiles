@@ -1,5 +1,9 @@
 from palettes import Palette
 
+from .roles import Role, rows, surfaces
+
+REQUIRED: dict[Role, float] = {"text": 4.5, "non-text": 3.0}
+
 
 def luminance(color: str) -> float:
     def channel(hex_value: str) -> float:
@@ -34,11 +38,17 @@ def paint(text: str, fg: str, bg: str) -> str:
 
 def report(variant: str, palette: Palette) -> None:
     bg = palette["background"]
-    print(f"{variant} (background {bg})")
-    for name, color in palette.items():
-        if name == "background":
-            continue
-        ratio = contrast(color, bg)
-        sample = paint(f" {name:<20} {color} ", color, bg)
-        print(f"  {sample}  {ratio:5.2f}:1  {level(ratio)}")
+    results = [(name, color, role, contrast(color, bg)) for name, color, role in rows(palette)]
+    failed = sum(ratio < REQUIRED[role] for *_, role, ratio in results)
+    print(f"{variant} (background {bg}, failed {failed}/{len(results)})")
+    print(f"  {'color':<27} {'ratio':>7}  {'level':<8}  {'need':>5}  result")
+    for name, color, role, ratio in results:
+        sample = paint(f" {name:<17} {color} ", color, bg)
+        need = REQUIRED[role]
+        print(
+            f"  {sample} {ratio:5.2f}:1  {level(ratio):<8}  {need:4.1f}:1"
+            f"  {'OK' if ratio >= need else 'FAIL'}"
+        )
+    print(f"  need: text {REQUIRED['text']}:1, non-text {REQUIRED['non-text']}:1")
+    print(f"  skipped surfaces: {surfaces(palette)}")
     print()
