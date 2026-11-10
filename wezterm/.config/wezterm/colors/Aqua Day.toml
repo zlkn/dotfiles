@@ -3,51 +3,51 @@
 name = "Aqua Day"
 
 [colors]
-foreground = "#424242"
+foreground = "#4a4a4a"
 background = "#ebebeb"
 
-cursor_fg = "#424242"
+cursor_fg = "#4a4a4a"
 cursor_bg = "#15609f"
-cursor_border = "#002338"
+cursor_border = "#00475a"
 
-selection_fg = "#424242"
+selection_fg = "#4a4a4a"
 selection_bg = "#d1d1d1"
 
-scrollbar_thumb = "#424242"
+scrollbar_thumb = "#4a4a4a"
 split = "#dfdfe1"
 
 # Before 16 colors, there were 8 colors: black, red, green, yellow, blue,
 # magenta, cyan, and white. The other 8 were added as their bright variants.
 ansi = [
-    "#d1d1d1",
+    "#d7d0c7",
     "#a53467",
     "#1e763c",
-    "#894b1c",
+    "#895026",
     "#2b5a8f",
     "#794091",
     "#007474",
-    "#424242",
+    "#4a4a4a",
 ]
 brights = [
-    "#686e75",
+    "#5d6976",
     "#a53467",
     "#1e763c",
-    "#894b1c",
+    "#895026",
     "#2b5a8f",
     "#794091",
     "#007474",
-    "#002338",
+    "#00475a",
 ]
 
 copy_mode_active_highlight_bg = { Color = "#1e763c" }
 copy_mode_active_highlight_fg = { Color = "#f2f2f2" }
 copy_mode_inactive_highlight_bg = { Color = "#1e763c" }
-copy_mode_inactive_highlight_fg = { Color = "#d1d1d1" }
+copy_mode_inactive_highlight_fg = { Color = "#d7d0c7" }
 
 quick_select_label_bg = { Color = "#1e763c" }
 quick_select_label_fg = { Color = "#f2f2f2" }
 quick_select_match_bg = { Color = "#007474" }
-quick_select_match_fg = { Color = "#d1d1d1" }
+quick_select_match_fg = { Color = "#d7d0c7" }
 
 # Keep the retro tab bar seamless with the terminal background.
 [colors.tab_bar]
@@ -56,8 +56,8 @@ inactive_tab_edge = "#ebebeb"
 
 [colors.tab_bar.active_tab]
 bg_color = "#ebebeb"
-fg_color = "#424242"
+fg_color = "#4a4a4a"
 
 [colors.tab_bar.inactive_tab]
 bg_color = "#ebebeb"
-fg_color = "#424242"
+fg_color = "#4a4a4a"
